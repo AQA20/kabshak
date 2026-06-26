@@ -12,7 +12,8 @@
     <%
         try
         {
-            string connStr = ConfigurationManager.ConnectionStrings["ProductsDB"]?.ConnectionString;
+            var connSetting = ConfigurationManager.ConnectionStrings["ProductsDB"];
+            string connStr = connSetting != null ? connSetting.ConnectionString : null;
             if (string.IsNullOrEmpty(connStr))
             {
                 Response.Write("<p style='color:red;'><b>Error:</b> Connection string 'ProductsDB' not found in configuration.</p>");
@@ -44,7 +45,8 @@
                 
                 using (SqlCommand cmd = new SqlCommand("SELECT DB_NAME()", conn))
                 {
-                    string dbName = cmd.ExecuteScalar()?.ToString();
+                    object dbNameVal = cmd.ExecuteScalar();
+                    string dbName = dbNameVal != null ? dbNameVal.ToString() : "";
                     Response.Write("<p><b>Active Database:</b> " + dbName + "</p>");
                 }
             }
