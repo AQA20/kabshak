@@ -35,7 +35,7 @@ jobs:
 
     - name: Build and Publish Web Project
       run: |
-        msbuild Web\Web.csproj /p:Configuration=Release /p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=false
+        msbuild Web\Web.csproj /p:Configuration=Release /p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=false /p:AutoParameterizationWebConfigConnectionStrings=false
 
     - name: List published files
       continue-on-error: true
