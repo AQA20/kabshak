@@ -39,5 +39,5 @@ jobs:
         server: win8120.site4now.net
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ${{ github.workspace }}\published\
+        local-dir: D:/a/kabshak/kabshak/published/
         server-dir: /
