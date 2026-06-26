@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -12,27 +12,14 @@ namespace web
     {
         public void Page_Init(Object src, EventArgs e)
         {
-            string baseUrl = HttpContext.Current.Request.Url.AbsoluteUri;
+            string rawUrl = HttpContext.Current.Request.RawUrl.ToLower();
 
-            switch (baseUrl)
+            if (rawUrl == "/home.aspx" || rawUrl == "/home" || rawUrl == "/home/")
             {
-                case "https://kabshak.com/home.aspx":
-                case "https://kabshak.com/home":
-                case "https://www.kabshak.com/home.aspx":
-                case "https://www.kabshak.com/home":
-                case "http://kabshak.com/home.aspx":
-                case "http://kabshak.com/home":
-                case "http://www.kabshak.com/home.aspx":
-                case "http://www.kabshak.com/home":
-                    {
-
-                        baseUrl = "https://kabshak.com/";
-                        Page.Response.Redirect(baseUrl, true);
-
-                        break;
-                    }
-                default:
-                    break;
+                string protocol = HttpContext.Current.Request.Url.Scheme;
+                string host = HttpContext.Current.Request.Url.Host;
+                string targetUrl = protocol + "://" + host + "/";
+                Page.Response.Redirect(targetUrl, true);
             }
 
             site yourMaster = (site)this.Master;
