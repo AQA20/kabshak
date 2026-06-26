@@ -663,6 +663,7 @@
     <Content Include="SEO\ship_shop_ar.txt" />
     <Content Include="SEO\term_and_conditions.txt" />
     <Content Include="SEO\term_and_conditions_ar.txt" />
+    <Content Include="testconn.aspx" />
     <Content Include="wishlist.aspx" />
   </ItemGroup>
   <ItemGroup>
