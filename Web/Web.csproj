@@ -1352,4 +1352,15 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <ItemGroup>
+    <Content Include="assets\images\products\**\*" />
+    <Content Include="assets\images\flags\**\*" />
+    <Content Include="assets\images\brands\**\*" />
+    <Content Include="assets\images\orders\**\*" />
+    <Content Include="SEO\**\*" />
+    <Content Include="favicon.ico" />
+    <Content Include="robots.txt" />
+    <Content Include="sitemap.xml" />
+    <Content Include="browserconfig.xml" />
+  </ItemGroup>
 </Project>
