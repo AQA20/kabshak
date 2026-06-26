@@ -1,4 +1,4 @@
-﻿using business_logic;
+using business_logic;
 using BusinessLogic;
 using Newtonsoft.Json;
 using System;
@@ -17,7 +17,7 @@ using System.Web.Services;
 namespace web.api
 {
     [WebService(Namespace = "")]
-    [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
+    [WebServiceBinding(ConformsTo = WsiProfiles.None)]
     [System.ComponentModel.ToolboxItem(false)]
     public class main : System.Web.Services.WebService
     {

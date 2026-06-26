@@ -1,4 +1,4 @@
-﻿using business_logic;
+using business_logic;
 using BusinessLogic;
 using Entities;
 using GemBox.Spreadsheet;
@@ -30,7 +30,7 @@ using vape;
 namespace web.api
 {
     [WebService(Namespace = "")]
-    [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
+    [WebServiceBinding(ConformsTo = WsiProfiles.None)]
     [System.ComponentModel.ToolboxItem(false)]
     public class products : System.Web.Services.WebService
     {
