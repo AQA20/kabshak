@@ -1,4 +1,4 @@
-﻿let rate_code = getCookie("rate_code");
+let rate_code = getCookie("rate_code");
 let rate_value = 1;
 
 if (rate_code == null || rate_code == '' || rate_code == 'undefined') {
@@ -42,19 +42,10 @@ else {
 
 
 function GetExchangePriceRate(code) {
-    var requestURL = 'https://api.exchangerate.host/latest?base=USD';
-    var request = new XMLHttpRequest();
-    request.open('GET', requestURL);
-    request.responseType = 'json';
-    request.send();
-
-    request.onload = function () {
-        var data = request.response.rates;
-        var rate = data[code];
-        setCookie("rate_code", code, 2);
-        setCookie("rate_value", (code == 'USD') ? 1 : rate, 2);
-        window.location.reload();
-    }
+    var rate = (code.toUpperCase() == 'JOD') ? 0.708 : 1;
+    setCookie("rate_code", code, 2);
+    setCookie("rate_value", rate, 2);
+    window.location.reload();
 }
 
 
