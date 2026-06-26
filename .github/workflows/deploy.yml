@@ -27,11 +27,11 @@ jobs:
 
     - name: Build and Publish Web Project
       run: |
-        msbuild Web\Web.csproj /p:Configuration=Release /p:DeployOnBuild=true /p:WebPublishMethod=FileSystem /p:publishUrl="${{ github.workspace }}\published" /p:PackageAsSingleFile=false
+        msbuild Web\Web.csproj /p:Configuration=Release /p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=false
 
     - name: List published files
       continue-on-error: true
-      run: Get-ChildItem "${{ github.workspace }}\published" -Recurse | Select-Object -First 20
+      run: Get-ChildItem "Web\obj\Release\Package\PackageTmp" -Recurse | Select-Object -First 30
 
     - name: FTP Deploy to SmarterASP
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
@@ -39,5 +39,5 @@ jobs:
         server: win8120.site4now.net
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: D:/a/kabshak/kabshak/published/
+        local-dir: ./Web/obj/Release/Package/PackageTmp/
         server-dir: /
