@@ -1,0 +1,39 @@
+name: Deploy ASP.NET Web Forms to SmarterASP
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v2
+
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v3
+
+    - name: Restore NuGet Packages
+      run: nuget restore kabsh.sln
+
+    - name: Build and Publish Web Project
+      run: |
+        msbuild Web\Web.csproj /p:Configuration=Release /p:DeployOnBuild=true /p:WebPublishMethod=FileSystem /p:publishUrl="${{ github.workspace }}\published" /p:PackageAsSingleFile=false
+
+    - name: FTP Deploy to SmarterASP
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      with:
+        server: win8120.site4now.net
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: ./published/
+        server-dir: /site1/
