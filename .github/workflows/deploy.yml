@@ -28,7 +28,10 @@ jobs:
     - name: Inject Production Database Password
       shell: powershell
       run: |
-        (Get-Content Web\Web.Release.config) -replace 'YOUR_DB_PASSWORD', '${{ secrets.DB_PASSWORD }}' | Set-Content Web\Web.Release.config
+        $path = "Web\Web.Release.config"
+        $content = [System.IO.File]::ReadAllText($path)
+        $content = $content.Replace("YOUR_DB_PASSWORD", "${{ secrets.DB_PASSWORD }}")
+        [System.IO.File]::WriteAllText($path, $content)
 
     - name: Build and Publish Web Project
       run: |
