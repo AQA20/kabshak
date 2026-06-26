@@ -1,4 +1,4 @@
-﻿let urlSearchQuery = location.search;
+let urlSearchQuery = location.search;
 let urlParams = new URLSearchParams(urlSearchQuery);
 
 $('#FilterCurrency').html(currency.toLocaleUpperCase());
@@ -53,6 +53,10 @@ function FillProducts(data, end, start) {
         let items = [];
         for (index; index < data.length; index++) {
             let item = data[index];
+            let imgUrl = item.ImageUrl;
+            if (imgUrl && !imgUrl.includes('/assets/') && !imgUrl.includes('assets/')) {
+                imgUrl = 'assets/images/products/' + imgUrl;
+            }
             let classRandom = (Math.random() + 1).toString(36).substring(7);
 
             var _date = new Date(item.CreatedOnDate.toString());
@@ -67,7 +71,7 @@ function FillProducts(data, end, start) {
                                 <div class="p-relative">
                                     <a href="${productURL}" target="_blank">
                                         <figure>
-                                            <img src="/${item.ImageUrl}" alt="product" width="300" height="338" style="border: solid 1px #eee;">
+                                            <img src="/${imgUrl}" alt="product" width="300" height="338" style="border: solid 1px #eee;">
                                         </figure>
                                     </a>
                                 </div>

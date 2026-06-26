@@ -1,4 +1,4 @@
-﻿using BusinessLogic;
+using BusinessLogic;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -36,7 +36,8 @@ namespace web
                     site yourMaster = (site)this.Master;
                     yourMaster.ChangeTitle(GetObjectValue(data, "NameEn") + " | Kabshak");
                     yourMaster.ChangeDescription(GetObjectValue(data, "BriefEn") + " | Kabshak");
-                    string ImageURL = GetObjectValue(data, "URL") == string.Empty ? "https://www.kabshak.com/assets/images/logo.png" : "/" + GetObjectValue(data, "URL");
+                    string rawUrl = GetObjectValue(data, "URL");
+                    string ImageURL = rawUrl == string.Empty ? "https://www.kabshak.com/assets/images/logo.png" : (rawUrl.Contains("/assets/") || rawUrl.Contains("assets/") ? "/" + rawUrl : "/assets/images/products/" + rawUrl);
                     yourMaster.ChangeImage(ImageURL);
                     string OgScript = "\"@context\": \"https://schema.org\",\"@type\": \"Article\",\"mainEntityOfPage\": {\"@type\": \"WebPage\",\"@id\": \"@@URL\"},\"headline\": \"Terms of Use\",\"description\": \"Kabshak | @@Description\",\"image\": {\"@type\": \"ImageObject\",\"url\": \"@@Image\"},\"author\": {\"@type\": \"Organization\",\"name\": \"Smokin Kingdom\"},\"publisher\": {\"@type\": \"Organization\",\"name\": \"Kabsh\",\"logo\": {\"@type\": \"ImageObject\",\"url\": \"@@Image\"}},\"datePublished\": \"2022-09-26\",\"dateModified\": \"2022-09-26\"";
                     OgScript = OgScript.Replace("@@Image", ImageURL);

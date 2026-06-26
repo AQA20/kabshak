@@ -1,4 +1,4 @@
-﻿
+
 let billingCityId = "1834";
 let IsDonation = false;
 let mainImg = '#';
@@ -397,15 +397,19 @@ function FillProductImagesData(_data) {
         let items = [];
         for (index; index < data.length; index++) {
             let item = data[index];
+            let imgUrl = item.Url;
+            if (imgUrl && !imgUrl.includes('/assets/') && !imgUrl.includes('assets/')) {
+                imgUrl = 'assets/images/products/' + imgUrl;
+            }
             items.push(`<div class="swiper-slide">
                             <figure class="product-image product-image-custom">
-                                <img src="/${item.Url}"
-                                    data-zoom-image="/${item.Url}"
+                                <img src="/${imgUrl}"
+                                    data-zoom-image="/${imgUrl}"
                                     width="68.5px">
                             </figure>
                         </div>`);
             if (index == 0) {
-                mainImg = "/" + item.Url;
+                mainImg = "/" + imgUrl;
             }
         }
 

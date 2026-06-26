@@ -1,4 +1,4 @@
-﻿setCookie('NavigationURL', (IsArabic ? "ar/wishlist.aspx" : "wishlist.aspx"), 30);
+setCookie('NavigationURL', (IsArabic ? "ar/wishlist.aspx" : "wishlist.aspx"), 30);
 
 BindWishList();
 
@@ -32,13 +32,17 @@ function FillWishListData(data) {
         let items = [];
         for (index; index < data.length; index++) {
             let item = data[index];
+            let imgUrl = item.ImageUrl;
+            if (imgUrl && !imgUrl.includes('/assets/') && !imgUrl.includes('assets/')) {
+                imgUrl = 'assets/images/products/' + imgUrl;
+            }
             let productURL = (IsArabic ? '/ar/' : '/') + "shop/product/" + FixProductName(item.NameEn.trim().toLowerCase()) + "/" + item.Token;
             items.push(` <tr class="RemoveRecord_${index}">
                             <td class="product-thumbnail">
                                 <div class="p-relative">
                                     <a href="#" onclick="voidclick(); return false">
                                         <figure>
-                                            <img src="/${item.ImageUrl}" alt="product" width="300" height="338" style="border: solid 1px #eee;">
+                                            <img src="/${imgUrl}" alt="product" width="300" height="338" style="border: solid 1px #eee;">
                                         </figure>
                                     </a>
                                     <button type="button" class="btn btn-close" onclick="return RemoveWishsItems(this,'${item.Token}','RemoveRecord_${index}');"><i class="fas fa-times"></i></button>

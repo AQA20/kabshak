@@ -2,7 +2,7 @@ let rate_code = getCookie("rate_code");
 let rate_value = 1;
 
 if (rate_code == null || rate_code == '' || rate_code == 'undefined') {
-
+    rate_code = 'USD';
     document.getElementById("divloader").classList.add('d-flex');
     document.getElementById("divloader").classList.remove('d-none');
     var requestURL = 'https://api.ipgeolocation.io/ipgeo?apiKey=7affed0ad13a4aeaa681e13e9c88c04b';

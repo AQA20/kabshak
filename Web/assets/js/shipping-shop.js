@@ -1,4 +1,4 @@
-﻿let urlSearchQuery = location.search;
+let urlSearchQuery = location.search;
 let urlParams = new URLSearchParams(urlSearchQuery);
 let urlHasQueryString = Array.from(urlParams).length > 0;
 urlParams.forEach(function (value, key) {
@@ -195,6 +195,10 @@ function FillProducts(data, end, start) {
         let items = [];
         for (index; index < data.length; index++) {
             let item = data[index];
+            let imgUrl = item.ImageUrl;
+            if (imgUrl && !imgUrl.includes('/assets/') && !imgUrl.includes('assets/')) {
+                imgUrl = 'assets/images/products/' + imgUrl;
+            }
             let productURL = (IsArabic ? "/ar/" : "/") + "shop/product/" + FixProductName(item.NameEn.trim().toLowerCase()) + "/" + item.Token;
 
             items.push(`<div class="product product-list" style="border-bottom: solid 1px #eee;margin-bottom: 20px;">
@@ -203,7 +207,7 @@ function FillProducts(data, end, start) {
                                         <label class="product-label label-discount"  style="background:#FF9800;">${item.Discount}% ${IsArabic ? "خصم" : "OFF"}</label>
                                         </div>
                                         <a href="${productURL}">
-                                            <img src="/${item.ImageUrl}" alt="Product" width="330" height="338" style="height: 265px;">
+                                            <img src="/${imgUrl}" alt="Product" width="330" height="338" style="height: 265px;">
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="${productURL}" class="btn-product-icon btn-quickview w-icon-search" title="Quick View"></a>
