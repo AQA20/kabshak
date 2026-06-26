@@ -1,4 +1,4 @@
-﻿using DataAccess.Modals;
+using DataAccess.Modals;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -1823,7 +1823,12 @@ namespace business_logic
                 System.Net.NetworkCredential _basicCredential1 = new
                 System.Net.NetworkCredential(ConfigurationManager.AppSettings["email_username"].ToString(), ConfigurationManager.AppSettings["email_password"].ToString());
 
-                _client.EnableSsl = true;
+                bool enableSsl = true;
+                if (ConfigurationManager.AppSettings["email_ssl"] != null)
+                {
+                    bool.TryParse(ConfigurationManager.AppSettings["email_ssl"].ToString(), out enableSsl);
+                }
+                _client.EnableSsl = enableSsl;
                 _client.UseDefaultCredentials = false;
                 _client.Credentials = _basicCredential1;
 

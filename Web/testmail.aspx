@@ -30,6 +30,13 @@
             lblFrom.Text = ConfigurationManager.AppSettings["email_from"];
             lblIsActive.Text = ConfigurationManager.AppSettings["email_isactive"];
             
+            bool sslVal = true;
+            if (ConfigurationManager.AppSettings["email_ssl"] != null)
+            {
+                bool.TryParse(ConfigurationManager.AppSettings["email_ssl"], out sslVal);
+            }
+            lblSsl.Text = sslVal.ToString();
+            
             string pwd = ConfigurationManager.AppSettings["email_password"];
             if (string.IsNullOrEmpty(pwd))
             {
@@ -57,7 +64,12 @@
 
                 using (SmtpClient client = new SmtpClient(smtpHost, smtpPort))
                 {
-                    client.EnableSsl = true; // Match the EnableSsl in commonBL
+                    bool sslVal = true;
+                    if (ConfigurationManager.AppSettings["email_ssl"] != null)
+                    {
+                        bool.TryParse(ConfigurationManager.AppSettings["email_ssl"], out sslVal);
+                    }
+                    client.EnableSsl = sslVal;
                     client.UseDefaultCredentials = false;
                     client.Credentials = new System.Net.NetworkCredential(smtpUser, smtpPass);
 
@@ -112,6 +124,10 @@
                 <tr>
                     <td class="label">Email Password:</td>
                     <td><asp:Label ID="lblPwdStatus" runat="server" /></td>
+                </tr>
+                <tr>
+                    <td class="label">SSL Enabled:</td>
+                    <td><asp:Label ID="lblSsl" runat="server" /></td>
                 </tr>
                 <tr>
                     <td class="label">Active Status:</td>
