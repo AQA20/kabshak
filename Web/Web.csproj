@@ -106,6 +106,7 @@
     <Content Include="500.html" />
     <Content Include="about-us.aspx" />
     <Content Include="account.aspx" />
+    <Content Include="testmail.aspx" />
     <Content Include="admin\actions.aspx" />
     <Content Include="admin\Batches.aspx" />
     <Content Include="admin\Batch\add.aspx" />
