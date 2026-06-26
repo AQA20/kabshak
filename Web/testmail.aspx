@@ -20,33 +20,36 @@
         .result { margin-top: 20px; padding: 15px; border-radius: 4px; display: none; }
         .success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; display: block; }
         .error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; display: block; font-family: monospace; white-space: pre-wrap; }
+        .input-field { padding: 6px; width: 95%; border-radius: 4px; border: 1px solid #ccc; }
     </style>
     <script runat="server">
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblSmtp.Text = ConfigurationManager.AppSettings["email_smtp"];
-            lblPort.Text = ConfigurationManager.AppSettings["email_port"];
-            lblUsername.Text = ConfigurationManager.AppSettings["email_username"];
-            lblFrom.Text = ConfigurationManager.AppSettings["email_from"];
-            lblIsActive.Text = ConfigurationManager.AppSettings["email_isactive"];
-            
-            bool sslVal = true;
-            if (ConfigurationManager.AppSettings["email_ssl"] != null)
+            if (!IsPostBack)
             {
-                bool.TryParse(ConfigurationManager.AppSettings["email_ssl"], out sslVal);
-            }
-            lblSsl.Text = sslVal.ToString();
-            
-            string pwd = ConfigurationManager.AppSettings["email_password"];
-            if (string.IsNullOrEmpty(pwd))
-            {
-                lblPwdStatus.Text = "MISSING OR EMPTY";
-                lblPwdStatus.ForeColor = System.Drawing.Color.Red;
-            }
-            else
-            {
-                lblPwdStatus.Text = "LOADED (Length: " + pwd.Length + ", Starts with: " + pwd.Substring(0, Math.Min(3, pwd.Length)) + ")";
-                lblPwdStatus.ForeColor = System.Drawing.Color.Green;
+                txtSmtp.Text = ConfigurationManager.AppSettings["email_smtp"];
+                txtPort.Text = ConfigurationManager.AppSettings["email_port"];
+                txtUsername.Text = ConfigurationManager.AppSettings["email_username"];
+                txtFrom.Text = ConfigurationManager.AppSettings["email_from"];
+                
+                bool sslVal = true;
+                if (ConfigurationManager.AppSettings["email_ssl"] != null)
+                {
+                    bool.TryParse(ConfigurationManager.AppSettings["email_ssl"], out sslVal);
+                }
+                chkSsl.Checked = sslVal;
+                
+                string pwd = ConfigurationManager.AppSettings["email_password"];
+                if (string.IsNullOrEmpty(pwd))
+                {
+                    lblPwdStatus.Text = "MISSING OR EMPTY";
+                    lblPwdStatus.ForeColor = System.Drawing.Color.Red;
+                }
+                else
+                {
+                    lblPwdStatus.Text = "LOADED (Length: " + pwd.Length + ", Starts with: " + pwd.Substring(0, Math.Min(3, pwd.Length)) + ")";
+                    lblPwdStatus.ForeColor = System.Drawing.Color.Green;
+                }
             }
         }
 
@@ -55,21 +58,17 @@
             divResult.Visible = true;
             try
             {
-                string smtpHost = ConfigurationManager.AppSettings["email_smtp"];
-                int smtpPort = int.Parse(ConfigurationManager.AppSettings["email_port"]);
-                string smtpUser = ConfigurationManager.AppSettings["email_username"];
+                string smtpHost = txtSmtp.Text.Trim();
+                int smtpPort = int.Parse(txtPort.Text.Trim());
+                string smtpUser = txtUsername.Text.Trim();
                 string smtpPass = ConfigurationManager.AppSettings["email_password"];
-                string smtpFrom = ConfigurationManager.AppSettings["email_from"];
+                string smtpFrom = txtFrom.Text.Trim();
                 string displayName = ConfigurationManager.AppSettings["email_display_name"];
+                bool enableSsl = chkSsl.Checked;
 
                 using (SmtpClient client = new SmtpClient(smtpHost, smtpPort))
                 {
-                    bool sslVal = true;
-                    if (ConfigurationManager.AppSettings["email_ssl"] != null)
-                    {
-                        bool.TryParse(ConfigurationManager.AppSettings["email_ssl"], out sslVal);
-                    }
-                    client.EnableSsl = sslVal;
+                    client.EnableSsl = enableSsl;
                     client.UseDefaultCredentials = false;
                     client.Credentials = new System.Net.NetworkCredential(smtpUser, smtpPass);
 
@@ -79,7 +78,7 @@
                     using (MailMessage mail = new MailMessage(from, to))
                     {
                         mail.Subject = "Diagnostics Test Email from Kabshak";
-                        mail.Body = "<h1>Diagnostics Email</h1><p>If you see this, email sending works perfectly from the live server!</p>";
+                        mail.Body = "<h1>Diagnostics Email</h1><p>If you see this, email sending works perfectly from the live server!</p><p>Server: " + smtpHost + ", Port: " + smtpPort + ", SSL: " + enableSsl + "</p>";
                         mail.IsBodyHtml = true;
                         mail.BodyEncoding = Encoding.UTF8;
 
@@ -88,7 +87,7 @@
                 }
 
                 divResult.CssClass = "result success";
-                lblResult.Text = "Success! Test email was sent successfully to " + txtTestEmail.Text;
+                lblResult.Text = "Success! Test email was sent successfully to " + txtTestEmail.Text + " using " + smtpHost + ":" + smtpPort + " (SSL=" + enableSsl + ")";
             }
             catch (Exception ex)
             {
@@ -102,36 +101,32 @@
     <form id="form1" runat="server">
         <div class="card">
             <h2>SMTP Diagnostics & Tester</h2>
-            <p>Use this page to verify if your SmarterASP mail server settings are loaded correctly and test sending an email.</p>
+            <p>You can edit these parameters below to test different mail configurations directly on the live server.</p>
             
             <table>
                 <tr>
                     <td class="label">SMTP Server:</td>
-                    <td><asp:Label ID="lblSmtp" runat="server" /></td>
+                    <td><asp:TextBox ID="txtSmtp" runat="server" CssClass="input-field" /></td>
                 </tr>
                 <tr>
                     <td class="label">Port:</td>
-                    <td><asp:Label ID="lblPort" runat="server" /></td>
+                    <td><asp:TextBox ID="txtPort" runat="server" CssClass="input-field" /></td>
                 </tr>
                 <tr>
                     <td class="label">Username (Login):</td>
-                    <td><asp:Label ID="lblUsername" runat="server" /></td>
+                    <td><asp:TextBox ID="txtUsername" runat="server" CssClass="input-field" /></td>
                 </tr>
                 <tr>
                     <td class="label">From Address:</td>
-                    <td><asp:Label ID="lblFrom" runat="server" /></td>
-                </tr>
-                <tr>
-                    <td class="label">Email Password:</td>
-                    <td><asp:Label ID="lblPwdStatus" runat="server" /></td>
+                    <td><asp:TextBox ID="txtFrom" runat="server" CssClass="input-field" /></td>
                 </tr>
                 <tr>
                     <td class="label">SSL Enabled:</td>
-                    <td><asp:Label ID="lblSsl" runat="server" /></td>
+                    <td><asp:CheckBox ID="chkSsl" runat="server" /></td>
                 </tr>
                 <tr>
-                    <td class="label">Active Status:</td>
-                    <td><asp:Label ID="lblIsActive" runat="server" /></td>
+                    <td class="label">Email Password status:</td>
+                    <td><asp:Label ID="lblPwdStatus" runat="server" /></td>
                 </tr>
             </table>
 
