@@ -25,6 +25,11 @@ jobs:
     - name: Restore NuGet Packages
       run: nuget restore kabsh.sln
 
+    - name: Inject Production Database Password
+      shell: powershell
+      run: |
+        (Get-Content Web\Web.Release.config) -replace 'YOUR_DB_PASSWORD', '${{ secrets.DB_PASSWORD }}' | Set-Content Web\Web.Release.config
+
     - name: Build and Publish Web Project
       run: |
         msbuild Web\Web.csproj /p:Configuration=Release /p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=false
