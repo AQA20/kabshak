@@ -1,4 +1,4 @@
-﻿using BusinessLogic;
+using BusinessLogic;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -76,7 +76,9 @@ namespace web
                         lbl_logout_mob.Attributes.Add("Class", "");
                         liAccountName_mob.Attributes.Add("Class", "d-flex align-items-center");
 
-                        if(bool.Parse(_common.GetObjectValue(LoginUser.UserInformation, "IsAdmin")) == false)
+                        bool isAdmin = false;
+                        bool.TryParse(_common.GetObjectValue(LoginUser.UserInformation, "IsAdmin"), out isAdmin);
+                        if (isAdmin == false)
                         {
                             lnkAdminDashboard.InnerHtml = lnkAdminDashboard2.InnerHtml = lnkAdminDashboard3.InnerHtml = string.Empty;
                             lnkAdminDashboard.Attributes.Add("class", "d-none");

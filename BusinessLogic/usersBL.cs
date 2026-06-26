@@ -1,4 +1,4 @@
-﻿using business_logic;
+using business_logic;
 using DataAccess.Modals;
 using System;
 using System.Collections.Generic;
@@ -156,7 +156,7 @@ namespace BusinessLogic
 
         public object get_user_by_token(string token)
         {
-            var _data = new object();
+            object _data = null;
             try
             {
                 UsersEntities context = new UsersEntities();
@@ -386,7 +386,7 @@ namespace BusinessLogic
 
         public object get_user_by_token_mobile(string token)
         {
-            var _data = new object();
+            object _data = null;
             try
             {
                 UsersEntities context = new UsersEntities();
