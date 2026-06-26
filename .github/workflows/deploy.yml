@@ -45,4 +45,4 @@ jobs:
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ./Web/obj/Release/Package/PackageTmp/
-        server-dir: /
+        server-dir: /site1/
