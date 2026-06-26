@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="36bc20db535a4305af4974eced526f13" Name="Diagram1">
+        <EntityTypeShape EntityType="webModel.ContactU" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="webModel.SubscribedEmail" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="webModel.FAQ" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="webModel.Brand" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="webModel.Category" Width="1.5" PointX="3.75" PointY="4.125" />
+        <EntityTypeShape EntityType="webModel.SubCategory" Width="1.5" PointX="6" PointY="4" />
+        <AssociationConnector Association="webModel.FK_SubCategories_Categories" />
+        <EntityTypeShape EntityType="webModel.Color" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="webModel.Size" Width="1.5" PointX="3.375" PointY="7.75" />
+        <EntityTypeShape EntityType="webModel.City" Width="1.5" PointX="7.625" PointY="8" />
+        <EntityTypeShape EntityType="webModel.Country" Width="1.5" PointX="5.375" PointY="8.125" />
+        <AssociationConnector Association="webModel.FK_Cities_Cities" />
+        <EntityTypeShape EntityType="webModel.Status" Width="1.5" PointX="8.375" PointY="0.75" />
+        <EntityTypeShape EntityType="webModel.Charity" Width="1.5" PointX="10.375" PointY="0.75" />
+        <EntityTypeShape EntityType="webModel.AboutU" Width="1.5" PointX="10.75" PointY="4.75" />
+        <EntityTypeShape EntityType="webModel.ContactUsChannel" Width="1.5" PointX="10.75" PointY="8.75" />
+        <EntityTypeShape EntityType="webModel.ContactUsPeopleAsk" Width="1.5" PointX="0.75" PointY="11.75" />
+        <EntityTypeShape EntityType="webModel.PrivacyPolicy" Width="1.5" PointX="2.75" PointY="11.75" />
+        <EntityTypeShape EntityType="webModel.TermAndCondition" Width="1.5" PointX="4.75" PointY="11.75" />
+        <EntityTypeShape EntityType="webModel.Slaughterhouse" Width="1.5" PointX="7.375" PointY="11.75" />
+        <EntityTypeShape EntityType="webModel.Status1" Width="1.5" PointX="12.375" PointY="0.75" />
+        <EntityTypeShape EntityType="webModel.AppVersion" Width="1.5" PointX="9.375" PointY="12.75" />
+        <EntityTypeShape EntityType="webModel.PromoCode" Width="1.5" PointX="11.375" PointY="12.75" />
+        <EntityTypeShape EntityType="webModel.ProductPurpos" Width="1.5" PointX="13.375" PointY="4.75" />
+        <EntityTypeShape EntityType="webModel.CancellationPolicy" Width="1.5" PointX="13.375" PointY="8.75" />
+        <EntityTypeShape EntityType="webModel.OurService" Width="1.5" PointX="13.375" PointY="12.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

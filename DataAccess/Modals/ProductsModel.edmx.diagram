@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5975d044658b43568bb2c595ccf97b29" Name="Diagram1" ZoomLevel="86">
+        <EntityTypeShape EntityType="productsModel1.Image" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="productsModel1.Price" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="productsModel1.Product" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="productsModel1.Stock" Width="1.5" PointX="3" PointY="8.25" IsExpanded="true" />
+        <AssociationConnector Association="productsModel1.FK_Images_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="productsModel1.FK_Prices_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="productsModel1.FK_Stock_Products" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="productsModel1.Wishlist" Width="1.5" PointX="3" PointY="12.125" />
+        <AssociationConnector Association="productsModel1.FK_Wishlist_Products" />
+        <EntityTypeShape EntityType="productsModel1.Detail" Width="1.5" PointX="3" PointY="15.375" />
+        <AssociationConnector Association="productsModel1.FK_Details_Products" />
+        <EntityTypeShape EntityType="productsModel1.Review" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="productsModel1.Detail1" Width="1.5" PointX="9.875" PointY="15.75" />
+        <EntityTypeShape EntityType="productsModel1.Order" Width="1.5" PointX="7.625" PointY="11.5" />
+        <EntityTypeShape EntityType="productsModel1.Price1" Width="1.5" PointX="9.875" PointY="21.25" />
+        <EntityTypeShape EntityType="productsModel1.Product1" Width="1.5" PointX="9.875" PointY="7.875" />
+        <EntityTypeShape EntityType="productsModel1.Track" Width="1.5" PointX="9.875" PointY="11.875" />
+        <AssociationConnector Association="productsModel1.FK_Details_Details" />
+        <AssociationConnector Association="productsModel1.FK_Prices_Orders" />
+        <AssociationConnector Association="productsModel1.FK_Products_Orders" />
+        <AssociationConnector Association="productsModel1.FK_Tracks_Orders" />
+        <AssociationConnector Association="productsModel1.FK_Products_Products1" />
+        <EntityTypeShape EntityType="productsModel1.Status" Width="1.5" PointX="5.375" PointY="11.625" />
+        <AssociationConnector Association="productsModel1.FK_Orders_Statuses" />
+        <AssociationConnector Association="productsModel1.FK_Tracks_Statuses" />
+        <EntityTypeShape EntityType="productsModel1.Rating" Width="1.5" PointX="9.875" PointY="4.125" />
+        <AssociationConnector Association="productsModel1.FK_Rating_Orders" />
+        <EntityTypeShape EntityType="productsModel1.Transaction" Width="1.5" PointX="9.875" PointY="0.75" />
+        <AssociationConnector Association="productsModel1.FK_Transactions_Orders" />
+        <EntityTypeShape EntityType="productsModel1.Person" Width="1.5" PointX="12.875" PointY="8.5" />
+        <AssociationConnector Association="productsModel1.FK_Persons_Orders" />
+        <AssociationConnector Association="productsModel1.FK_Persons_Products" />
+        <EntityTypeShape EntityType="productsModel1.Charity" Width="1.5" PointX="5.375" PointY="4.75" />
+        <EntityTypeShape EntityType="productsModel1.Batch" Width="1.5" PointX="7.625" PointY="5.125" />
+        <AssociationConnector Association="productsModel1.FK_Batches_Charities" />
+        <EntityTypeShape EntityType="productsModel1.Track1" Width="1.5" PointX="9.875" PointY="24.875" />
+        <AssociationConnector Association="productsModel1.FK_Tracks_Batches" />
+        <EntityTypeShape EntityType="productsModel1.Item" Width="1.5" PointX="12.875" PointY="12.375" />
+        <AssociationConnector Association="productsModel1.FK_Items_Batches" />
+        <AssociationConnector Association="productsModel1.FK_Items_Orders" />
+        <EntityTypeShape EntityType="productsModel1.Notification" Width="1.5" PointX="12.375" PointY="0.75" />
+        <EntityTypeShape EntityType="productsModel1.ProductPurpos" Width="1.5" PointX="12.375" PointY="4.75" />
+        <EntityTypeShape EntityType="productsModel1.PersonShippingAddress" Width="1.5" PointX="15.125" PointY="8.75" />
+        <AssociationConnector Association="productsModel1.FK_PersonShippingAddresses_Persons" />
+        <EntityTypeShape EntityType="productsModel1.City" Width="1.5" PointX="14.375" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

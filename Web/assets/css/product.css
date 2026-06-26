@@ -1,0 +1,29 @@
+﻿.product-single .btn-cart {
+    min-width: unset;
+}
+
+.product-single-swiper .swiper-slide {
+    border: solid 1px #ddd;
+}
+
+.product-thumbs .swiper-slide {
+    border: solid 1px #ddd;
+}
+
+.product-thumbs-wrap .swiper-button-prev {
+    background: #05D7A0 !important;
+    color: #fff !important;
+}
+
+.product-thumbs-wrap .swiper-button-next {
+    background: #05D7A0 !important;
+    color: #fff !important;
+}
+
+.swiper-slide-thumb-active {
+    border: solid 1px #05D7A0 !important;
+}
+
+.zoomImg {
+    cursor: zoom-in !important;
+}

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5c8df08f5e93457a94683ff18907302f" Name="Diagram1">
+        <EntityTypeShape EntityType="UsersModel.User" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UsersModel.ResetPasswordToken" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="UsersModel.UsersDetail" Width="1.5" PointX="3" PointY="6.875" />
+        <AssociationConnector Association="UsersModel.FK_UsersDetails_Users" />
+        <AssociationConnector Association="UsersModel.FK_UsersDetails_Users1" />
+        <AssociationConnector Association="UsersModel.FK_UsersDetails_Users2" />
+        <EntityTypeShape EntityType="UsersModel.BillingAddress" Width="1.5" PointX="3" PointY="11.625" />
+        <EntityTypeShape EntityType="UsersModel.ShippingAddress" Width="1.5" PointX="3" PointY="15.875" />
+        <AssociationConnector Association="UsersModel.FK_BillingAddress_Users" />
+        <AssociationConnector Association="UsersModel.FK_BillingAddress_Users1" />
+        <AssociationConnector Association="UsersModel.FK_BillingAddress_Users2" />
+        <AssociationConnector Association="UsersModel.FK_ShippingAddress_Users" />
+        <AssociationConnector Association="UsersModel.FK_ShippingAddress_Users1" />
+        <AssociationConnector Association="UsersModel.FK_ShippingAddress_Users2" />
+        <EntityTypeShape EntityType="UsersModel.City" Width="1.5" PointX="7.625" PointY="1" />
+        <EntityTypeShape EntityType="UsersModel.Country" Width="1.5" PointX="5.375" PointY="1.25" />
+        <AssociationConnector Association="UsersModel.FK_BillingAddress_Cities" />
+        <AssociationConnector Association="UsersModel.FK_Cities_Cities" />
+        <AssociationConnector Association="UsersModel.FK_ShippingAddress_Cities" />
+        <EntityTypeShape EntityType="UsersModel.ResetPasswordVerifyCode" Width="1.5" PointX="5.375" PointY="5.75" />
+        <EntityTypeShape EntityType="UsersModel.AuthToken" Width="1.5" PointX="7.375" PointY="5.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

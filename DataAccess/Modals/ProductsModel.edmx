@@ -1,0 +1,2625 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="productsModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Batches">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StatusId" Type="int" Nullable="false" />
+          <Property Name="Brands" Type="varchar" MaxLength="50" />
+          <Property Name="Categories" Type="varchar" MaxLength="50" />
+          <Property Name="Subcategories" Type="varchar" MaxLength="50" />
+          <Property Name="CharityId" Type="int" />
+          <Property Name="SlaughterhouseId" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="CreatedById" Type="int" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="datetime" Nullable="false" />
+          <Property Name="LastModById" Type="int" />
+          <Property Name="LastModOnDate" Type="datetime" />
+          <Property Name="QR" Type="varchar" MaxLength="200" />
+          <Property Name="BatchType" Type="int" />
+        </EntityType>
+        <EntityType Name="Items">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BatchId" Type="int" Nullable="false" />
+          <Property Name="Order_person_id" Type="int" Nullable="false" />
+          <Property Name="OrderId" Type="int" Nullable="false" />
+          <Property Name="ProductName" Type="varchar" MaxLength="200" />
+          <Property Name="Shareholder" Type="varchar" MaxLength="200" />
+          <Property Name="IsSlaughtered" Type="bit" Nullable="false" />
+          <Property Name="IsRecorded" Type="bit" Nullable="false" />
+          <Property Name="IsDistributed" Type="bit" Nullable="false" />
+          <Property Name="CreatedById" Type="int" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="datetime" Nullable="false" />
+          <Property Name="LastModById" Type="int" />
+          <Property Name="LastModOnDate" Type="datetime" />
+          <Property Name="URL" Type="varchar" MaxLength="100" />
+          <Property Name="AddressDetails" Type="nvarchar" MaxLength="1500" />
+          <Property Name="ProductPurposeId" Type="int" />
+          <Property Name="PurposeName" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Notifications">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BatchId" Type="int" Nullable="false" />
+          <Property Name="Message" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="SlaughterId" Type="int" />
+          <Property Name="CharityId" Type="int" />
+          <Property Name="IsSeen" Type="bit" Nullable="false" />
+          <Property Name="CreatedById" Type="int" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tracks">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BatchId" Type="int" Nullable="false" />
+          <Property Name="StatusId" Type="int" Nullable="false" />
+          <Property Name="CreatedById" Type="int" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="datetime" Nullable="false" />
+          <Property Name="URL" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Charities">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameEn" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="NameAr" Type="nvarchar" MaxLength="400" Nullable="false" />
+          <Property Name="DescriptionEn" Type="varchar" MaxLength="1500" Nullable="false" />
+          <Property Name="DescriptionAr" Type="nvarchar" MaxLength="3000" Nullable="false" />
+          <Property Name="CountryId" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedById" Type="int" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="datetime" Nullable="false" />
+          <Property Name="LastModById" Type="int" />
+          <Property Name="LastModOnDate" Type="datetime" />
+          <Property Name="AddressEn" Type="varchar" MaxLength="500" />
+          <Property Name="AddressAr" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="Username" Type="varchar" MaxLength="100" />
+          <Property Name="Password" Type="varchar" MaxLength="100" />
+          <Property Name="FirebaseToken" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Cities">
+          <Key>
+            <PropertyRef Name="CityId" />
+          </Key>
+          <Property Name="CityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CityNameEn" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CityNameAr" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CountryId" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedById" Type="int" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="datetime" Nullable="false" />
+          <Property Name="LastModByID" Type="int" />
+          <Property Name="LastModOnDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ProductPurposes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameEn" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NameAr" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedById" Type="int" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="datetime" Nullable="false" />
+          <Property Name="LastModByID" Type="int" />
+          <Property Name="LastModOnDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Statuses">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameEn" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NameAr" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedById" Type="int" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="datetime" Nullable="false" />
+          <Property Name="LastModByID" Type="int" />
+          <Property Name="LastModOnDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Details">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Mobile" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="BillingCityId" Type="int" Nullable="false" />
+          <Property Name="BillingTown" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="BillingBlock" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="BillingStreet" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="BillingHouseNo" Type="int" Nullable="false" />
+          <Property Name="BillingApartmentNo" Type="int" Nullable="false" />
+          <Property Name="BillingPaciNo" Type="int" />
+          <Property Name="ShippingCityId" Type="int" Nullable="false" />
+          <Property Name="ShippingTown" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ShippingBlock" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ShippingStreet" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="ShippingHouseNo" Type="int" Nullable="false" />
+          <Property Name="ShippingApartmentNo" Type="int" Nullable="false" />
+          <Property Name="ShippingPaciNo" Type="int" />
+          <Property Name="Notes" Type="nvarchar" MaxLength="2000" />
+          <Property Name="CreatedById" Type="int" Nullable="false" />
+          <Property Name="CreatedOndate" Type="datetime" Nullable="false" />
+          <Property Name="ShippingNumber" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StatusId" Type="int" Nullable="false" />
+          <Property Name="CreatedById" Type="int" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="datetime" Nullable="false" />
+          <Property Name="LastModById" Type="int" />
+          <Property Name="LastModOnDate" Type="datetime" />
+          <Property Name="CharityId" Type="int" />
+        </EntityType>
+        <EntityType Name="Persons">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderId" Type="int" Nullable="false" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="CreatedById" Type="int" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="datetime" Nullable="false" />
+          <Property Name="CharityId" Type="int" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="AddressDetails" Type="nvarchar" MaxLength="1500" />
+          <Property Name="ProductPurposeId" Type="int" />
+        </EntityType>
+        <EntityType Name="PersonShippingAddresses">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PersonId" Type="int" Nullable="false" />
+          <Property Name="CityId" Type="int" Nullable="false" />
+          <Property Name="Town" Type="nvarchar" MaxLength="100" />
+          <Property Name="Block" Type="nvarchar" MaxLength="100" />
+          <Property Name="Street" Type="nvarchar" MaxLength="1000" />
+          <Property Name="HouseNo" Type="int" />
+          <Property Name="ApartmentNo" Type="int" />
+          <Property Name="ContactNumber" Type="nvarchar" MaxLength="100" />
+          <Property Name="CreatedById" Type="int" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="date" Nullable="false" />
+          <Property Name="CuttingNotes" Type="nvarchar" MaxLength="2000" />
+        </EntityType>
+        <EntityType Name="Prices">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderId" Type="int" Nullable="false" />
+          <Property Name="TotalPriceUsd" Type="float" Nullable="false" />
+          <Property Name="TotalPriceKwd" Type="float" Nullable="false" />
+          <Property Name="ShippingPriceKwd" Type="int" Nullable="false" />
+          <Property Name="ShiipingPriceUsd" Type="int" Nullable="false" />
+          <Property Name="CreatedById" Type="int" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="datetime" Nullable="false" />
+          <Property Name="PromoCode" Type="nvarchar" MaxLength="100" />
+          <Property Name="CodeValue" Type="float" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderId" Type="int" Nullable="false" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Usd" Type="float" Nullable="false" />
+          <Property Name="Kwd" Type="float" Nullable="false" />
+          <Property Name="CreatedById" Type="int" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rating">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderId" Type="int" Nullable="false" />
+          <Property Name="Rating" Type="int" Nullable="false" />
+          <Property Name="CreatedById" Type="int" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tracks1">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderId" Type="int" Nullable="false" />
+          <Property Name="StatusId" Type="int" Nullable="false" />
+          <Property Name="CreatedById" Type="int" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="datetime" Nullable="false" />
+          <Property Name="URL" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Transactions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderId" Type="int" Nullable="false" />
+          <Property Name="Result" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Ref" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TrackId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TransId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PaymentId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Date" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Amount" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Details1">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="BriefEn" Type="varchar" MaxLength="1500" />
+          <Property Name="BriefAr" Type="nvarchar" MaxLength="3000" />
+          <Property Name="SKU" Type="varchar" MaxLength="50" />
+          <Property Name="Colors" Type="varchar" MaxLength="50" />
+          <Property Name="Sizes" Type="varchar" MaxLength="50" />
+          <Property Name="DescriptionEn" Type="varchar(max)" />
+          <Property Name="DescriptionAr" Type="nvarchar(max)" />
+          <Property Name="SpecificationEn" Type="varchar" MaxLength="1500" />
+          <Property Name="SpecificationAr" Type="nvarchar" MaxLength="3000" />
+          <Property Name="CreatedById" Type="int" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="datetime" Nullable="false" />
+          <Property Name="LastModById" Type="int" />
+          <Property Name="LastModOnDate" Type="datetime" />
+          <Property Name="countries" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Images">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="Url" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="IsMain" Type="bit" Nullable="false" />
+          <Property Name="CreatedById" Type="int" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="datetime" Nullable="false" />
+          <Property Name="LastModById" Type="int" />
+          <Property Name="LastModOnDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Prices1">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="Usd" Type="float" Nullable="false" />
+          <Property Name="Kwd" Type="float" Nullable="false" />
+          <Property Name="CreatedById" Type="int" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="datetime" Nullable="false" />
+          <Property Name="LastModById" Type="int" />
+          <Property Name="LastModOnDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Products1">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameEn" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="NameAr" Type="nvarchar" MaxLength="400" />
+          <Property Name="CategoryId" Type="int" Nullable="false" />
+          <Property Name="SubCategoryId" Type="int" />
+          <Property Name="BrandId" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Token" Type="varchar" MaxLength="2000" Nullable="false" />
+          <Property Name="CreatedById" Type="int" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="datetime" Nullable="false" />
+          <Property Name="LastModById" Type="int" />
+          <Property Name="LastModOnDate" Type="datetime" />
+          <Property Name="IsNewArrival" Type="bit" />
+          <Property Name="Discount" Type="int" />
+          <Property Name="MainToken" Type="varchar" MaxLength="2000" />
+        </EntityType>
+        <EntityType Name="Reviews">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductToken" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Score" Type="int" Nullable="false" />
+          <Property Name="Review" Type="nvarchar" MaxLength="3000" />
+          <Property Name="Name" Type="nvarchar" MaxLength="500" />
+          <Property Name="Email" Type="nvarchar" MaxLength="500" />
+          <Property Name="CreatedOnDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Stock">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="int" Nullable="false" />
+          <Property Name="CreatedById" Type="int" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="datetime" Nullable="false" />
+          <Property Name="LastModById" Type="int" />
+          <Property Name="LastModOnDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Wishlist">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Batches_Charities">
+          <End Role="Charities" Type="Self.Charities" Multiplicity="0..1" />
+          <End Role="Batches" Type="Self.Batches" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Charities">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Batches">
+              <PropertyRef Name="CharityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Details_Details">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="Details" Type="Self.Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Details">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Details_Products">
+          <End Role="Products1" Type="Self.Products1" Multiplicity="1" />
+          <End Role="Details1" Type="Self.Details1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products1">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Details1">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Images_Products">
+          <End Role="Products1" Type="Self.Products1" Multiplicity="1" />
+          <End Role="Images" Type="Self.Images" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products1">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Images">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Items_Batches">
+          <End Role="Batches" Type="Self.Batches" Multiplicity="1" />
+          <End Role="Items" Type="Self.Items" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Batches">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Items">
+              <PropertyRef Name="BatchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Items_Orders">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="Items" Type="Self.Items" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Items">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Statuses">
+          <End Role="Statuses" Type="Self.Statuses" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Statuses">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="StatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Persons_Orders">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="Persons" Type="Self.Persons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Persons">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Persons_Products">
+          <End Role="Products1" Type="Self.Products1" Multiplicity="1" />
+          <End Role="Persons" Type="Self.Persons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products1">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Persons">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PersonShippingAddresses_Persons">
+          <End Role="Persons" Type="Self.Persons" Multiplicity="1" />
+          <End Role="PersonShippingAddresses" Type="Self.PersonShippingAddresses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Persons">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PersonShippingAddresses">
+              <PropertyRef Name="PersonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prices_Orders">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="Prices" Type="Self.Prices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Prices">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prices_Products">
+          <End Role="Products1" Type="Self.Products1" Multiplicity="1" />
+          <End Role="Prices1" Type="Self.Prices1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products1">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Prices1">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Products_Orders">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Products_Products1">
+          <End Role="Products1" Type="Self.Products1" Multiplicity="1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products1">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rating_Orders">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="Rating" Type="Self.Rating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Rating">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stock_Products">
+          <End Role="Products1" Type="Self.Products1" Multiplicity="1" />
+          <End Role="Stock" Type="Self.Stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products1">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Stock">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tracks_Batches">
+          <End Role="Batches" Type="Self.Batches" Multiplicity="1" />
+          <End Role="Tracks" Type="Self.Tracks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Batches">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tracks">
+              <PropertyRef Name="BatchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tracks_Orders">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="Tracks1" Type="Self.Tracks1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tracks1">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tracks_Statuses">
+          <End Role="Statuses" Type="Self.Statuses" Multiplicity="1" />
+          <End Role="Tracks1" Type="Self.Tracks1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Statuses">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tracks1">
+              <PropertyRef Name="StatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transactions_Orders">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Transactions">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Wishlist_Products">
+          <End Role="Products1" Type="Self.Products1" Multiplicity="1" />
+          <End Role="Wishlist" Type="Self.Wishlist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products1">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Wishlist">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="GenerateBatch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Batches">
+          <Parameter Name="Brands" Type="varchar" Mode="In" />
+          <Parameter Name="Categories" Type="varchar" Mode="In" />
+          <Parameter Name="SubCategories" Type="varchar" Mode="In" />
+          <Parameter Name="UserToken" Type="varchar" Mode="In" />
+          <Parameter Name="CharityId" Type="int" Mode="In" />
+          <Parameter Name="Quantity" Type="int" Mode="In" />
+          <Parameter Name="Slaughterhouses" Type="int" Mode="In" />
+          <Parameter Name="Delivery" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetAdminBatches" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Batches">
+          <Parameter Name="Statuses" Type="varchar" Mode="In" />
+          <Parameter Name="BatchId" Type="int" Mode="In" />
+          <Parameter Name="OrderId" Type="int" Mode="In" />
+          <Parameter Name="SlaughterhouseId" Type="int" Mode="In" />
+          <Parameter Name="CharityId" Type="int" Mode="In" />
+          <Parameter Name="HasDate" Type="int" Mode="In" />
+          <Parameter Name="Date" Type="datetime" Mode="In" />
+          <Parameter Name="Start" Type="int" Mode="In" />
+          <Parameter Name="End" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetAvailableBatchProductsList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Batches">
+          <Parameter Name="Brands" Type="varchar" Mode="In" />
+          <Parameter Name="Categories" Type="varchar" Mode="In" />
+          <Parameter Name="Start" Type="int" Mode="In" />
+          <Parameter Name="End" Type="int" Mode="In" />
+          <Parameter Name="SubCategories" Type="varchar" Mode="In" />
+          <Parameter Name="UserToken" Type="varchar" Mode="In" />
+          <Parameter Name="CharityId" Type="int" Mode="In" />
+          <Parameter Name="Delivery" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetBatchItems" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Batches">
+          <Parameter Name="BatchId" Type="int" Mode="In" />
+          <Parameter Name="Start" Type="int" Mode="In" />
+          <Parameter Name="End" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetCharityBatchesCounts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Batches">
+          <Parameter Name="CharityId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetSlaughterhouseBatchesCounts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Batches">
+          <Parameter Name="SlaughterhouseId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetAdminOrders" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Products">
+          <Parameter Name="Statuses" Type="varchar" Mode="In" />
+          <Parameter Name="OrderId" Type="int" Mode="In" />
+          <Parameter Name="HasDate" Type="int" Mode="In" />
+          <Parameter Name="Date" Type="datetime" Mode="In" />
+          <Parameter Name="Start" Type="int" Mode="In" />
+          <Parameter Name="End" Type="int" Mode="In" />
+          <Parameter Name="PromoCode" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="GetAdminProducts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Products">
+          <Parameter Name="Brands" Type="varchar" Mode="In" />
+          <Parameter Name="Min" Type="float" Mode="In" />
+          <Parameter Name="Max" Type="float" Mode="In" />
+          <Parameter Name="Categories" Type="varchar" Mode="In" />
+          <Parameter Name="Sort" Type="varchar" Mode="In" />
+          <Parameter Name="Start" Type="int" Mode="In" />
+          <Parameter Name="End" Type="int" Mode="In" />
+          <Parameter Name="Currency" Type="varchar" Mode="In" />
+          <Parameter Name="txt" Type="nvarchar" Mode="In" />
+          <Parameter Name="SubCategories" Type="varchar" Mode="In" />
+          <Parameter Name="UserToken" Type="varchar" Mode="In" />
+          <Parameter Name="NewArrival" Type="varchar" Mode="In" />
+          <Parameter Name="OnSale" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetCartItems" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Products">
+          <Parameter Name="Tokens" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="GetHomePageLists" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Products">
+          <Parameter Name="UserToken" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetProductDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Products">
+          <Parameter Name="Token" Type="varchar" Mode="In" />
+          <Parameter Name="UserToken" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetProductsList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Products">
+          <Parameter Name="Brands" Type="varchar" Mode="In" />
+          <Parameter Name="Min" Type="float" Mode="In" />
+          <Parameter Name="Max" Type="float" Mode="In" />
+          <Parameter Name="Categories" Type="varchar" Mode="In" />
+          <Parameter Name="Sort" Type="varchar" Mode="In" />
+          <Parameter Name="Start" Type="int" Mode="In" />
+          <Parameter Name="End" Type="int" Mode="In" />
+          <Parameter Name="Currency" Type="varchar" Mode="In" />
+          <Parameter Name="txt" Type="nvarchar" Mode="In" />
+          <Parameter Name="SubCategories" Type="varchar" Mode="In" />
+          <Parameter Name="UserToken" Type="varchar" Mode="In" />
+          <Parameter Name="NewArrival" Type="varchar" Mode="In" />
+          <Parameter Name="OnSale" Type="varchar" Mode="In" />
+          <Parameter Name="Country" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetWishlist" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Products">
+          <Parameter Name="UserToken" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SubmitOrder" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Products">
+          <Parameter Name="UserToken" Type="varchar" Mode="In" />
+          <Parameter Name="Items" Type="varchar" Mode="In" />
+          <Parameter Name="FirstName" Type="nvarchar" Mode="In" />
+          <Parameter Name="LastName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Mobile" Type="varchar" Mode="In" />
+          <Parameter Name="Email" Type="varchar" Mode="In" />
+          <Parameter Name="BillingCityId" Type="int" Mode="In" />
+          <Parameter Name="BillingTown" Type="nvarchar" Mode="In" />
+          <Parameter Name="BillingBlock" Type="nvarchar" Mode="In" />
+          <Parameter Name="BillingStreet" Type="nvarchar" Mode="In" />
+          <Parameter Name="BillingHouse" Type="int" Mode="In" />
+          <Parameter Name="BillingApartment" Type="int" Mode="In" />
+          <Parameter Name="BillingPaci" Type="int" Mode="In" />
+          <Parameter Name="ShippingCityId" Type="int" Mode="In" />
+          <Parameter Name="ShippingTown" Type="nvarchar" Mode="In" />
+          <Parameter Name="ShippingBlock" Type="nvarchar" Mode="In" />
+          <Parameter Name="ShippingStreet" Type="nvarchar" Mode="In" />
+          <Parameter Name="ShippingHouse" Type="int" Mode="In" />
+          <Parameter Name="ShippingApartment" Type="int" Mode="In" />
+          <Parameter Name="ShippingPaci" Type="int" Mode="In" />
+          <Parameter Name="Notes" Type="nvarchar" Mode="In" />
+          <Parameter Name="StatusId" Type="int" Mode="In" />
+          <Parameter Name="OrderId" Type="varchar" Mode="InOut" />
+          <Parameter Name="PromoCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="CodeValue" Type="float" Mode="In" />
+        </Function>
+        <EntityContainer Name="productsModel1StoreContainer">
+          <EntitySet Name="Batches" EntityType="Self.Batches" Schema="Batches" store:Type="Tables" />
+          <EntitySet Name="Items" EntityType="Self.Items" Schema="Batches" store:Type="Tables" />
+          <EntitySet Name="Notifications" EntityType="Self.Notifications" Schema="Batches" store:Type="Tables" />
+          <EntitySet Name="Tracks" EntityType="Self.Tracks" Schema="Batches" store:Type="Tables" />
+          <EntitySet Name="Charities" EntityType="Self.Charities" Schema="General" store:Type="Tables" />
+          <EntitySet Name="Cities" EntityType="Self.Cities" Schema="Lookups" store:Type="Tables" />
+          <EntitySet Name="ProductPurposes" EntityType="Self.ProductPurposes" Schema="Lookups" store:Type="Tables" />
+          <EntitySet Name="Statuses" EntityType="Self.Statuses" Schema="Lookups" store:Type="Tables" />
+          <EntitySet Name="Details" EntityType="Self.Details" Schema="Orders" store:Type="Tables" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" Schema="Orders" store:Type="Tables" />
+          <EntitySet Name="Persons" EntityType="Self.Persons" Schema="Orders" store:Type="Tables" />
+          <EntitySet Name="PersonShippingAddresses" EntityType="Self.PersonShippingAddresses" Schema="Orders" store:Type="Tables" />
+          <EntitySet Name="Prices" EntityType="Self.Prices" Schema="Orders" store:Type="Tables" />
+          <EntitySet Name="Products" EntityType="Self.Products" Schema="Orders" store:Type="Tables" />
+          <EntitySet Name="Rating" EntityType="Self.Rating" Schema="Orders" store:Type="Tables" />
+          <EntitySet Name="Tracks1" EntityType="Self.Tracks1" Schema="Orders" Table="Tracks" store:Type="Tables" />
+          <EntitySet Name="Transactions" EntityType="Self.Transactions" Schema="Orders" store:Type="Tables" />
+          <EntitySet Name="Details1" EntityType="Self.Details1" Schema="Products" Table="Details" store:Type="Tables" />
+          <EntitySet Name="Images" EntityType="Self.Images" Schema="Products" store:Type="Tables" />
+          <EntitySet Name="Prices1" EntityType="Self.Prices1" Schema="Products" Table="Prices" store:Type="Tables" />
+          <EntitySet Name="Products1" EntityType="Self.Products1" Schema="Products" Table="Products" store:Type="Tables" />
+          <EntitySet Name="Reviews" EntityType="Self.Reviews" Schema="Products" store:Type="Tables" />
+          <EntitySet Name="Stock" EntityType="Self.Stock" Schema="Products" store:Type="Tables" />
+          <EntitySet Name="Wishlist" EntityType="Self.Wishlist" Schema="Products" store:Type="Tables" />
+          <AssociationSet Name="FK_Batches_Charities" Association="Self.FK_Batches_Charities">
+            <End Role="Charities" EntitySet="Charities" />
+            <End Role="Batches" EntitySet="Batches" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Details_Details" Association="Self.FK_Details_Details">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Details" EntitySet="Details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Details_Products" Association="Self.FK_Details_Products">
+            <End Role="Products1" EntitySet="Products1" />
+            <End Role="Details1" EntitySet="Details1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Images_Products" Association="Self.FK_Images_Products">
+            <End Role="Products1" EntitySet="Products1" />
+            <End Role="Images" EntitySet="Images" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Items_Batches" Association="Self.FK_Items_Batches">
+            <End Role="Batches" EntitySet="Batches" />
+            <End Role="Items" EntitySet="Items" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Items_Orders" Association="Self.FK_Items_Orders">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Items" EntitySet="Items" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Statuses" Association="Self.FK_Orders_Statuses">
+            <End Role="Statuses" EntitySet="Statuses" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Persons_Orders" Association="Self.FK_Persons_Orders">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Persons" EntitySet="Persons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Persons_Products" Association="Self.FK_Persons_Products">
+            <End Role="Products1" EntitySet="Products1" />
+            <End Role="Persons" EntitySet="Persons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PersonShippingAddresses_Persons" Association="Self.FK_PersonShippingAddresses_Persons">
+            <End Role="Persons" EntitySet="Persons" />
+            <End Role="PersonShippingAddresses" EntitySet="PersonShippingAddresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prices_Orders" Association="Self.FK_Prices_Orders">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Prices" EntitySet="Prices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prices_Products" Association="Self.FK_Prices_Products">
+            <End Role="Products1" EntitySet="Products1" />
+            <End Role="Prices1" EntitySet="Prices1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Products_Orders" Association="Self.FK_Products_Orders">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Products_Products1" Association="Self.FK_Products_Products1">
+            <End Role="Products1" EntitySet="Products1" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rating_Orders" Association="Self.FK_Rating_Orders">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Rating" EntitySet="Rating" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stock_Products" Association="Self.FK_Stock_Products">
+            <End Role="Products1" EntitySet="Products1" />
+            <End Role="Stock" EntitySet="Stock" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tracks_Batches" Association="Self.FK_Tracks_Batches">
+            <End Role="Batches" EntitySet="Batches" />
+            <End Role="Tracks" EntitySet="Tracks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tracks_Orders" Association="Self.FK_Tracks_Orders">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Tracks1" EntitySet="Tracks1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tracks_Statuses" Association="Self.FK_Tracks_Statuses">
+            <End Role="Statuses" EntitySet="Statuses" />
+            <End Role="Tracks1" EntitySet="Tracks1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transactions_Orders" Association="Self.FK_Transactions_Orders">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Transactions" EntitySet="Transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Wishlist_Products" Association="Self.FK_Wishlist_Products">
+            <End Role="Products1" EntitySet="Products1" />
+            <End Role="Wishlist" EntitySet="Wishlist" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="productsModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="Url" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsMain" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedById" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastModById" Type="Int32" />
+          <Property Name="LastModOnDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Images_Products" FromRole="Images" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="Price">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="Usd" Type="Double" Nullable="false" />
+          <Property Name="Kwd" Type="Double" Nullable="false" />
+          <Property Name="CreatedById" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastModById" Type="Int32" />
+          <Property Name="LastModOnDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Prices_Products" FromRole="Prices" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameEn" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NameAr" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryId" Type="Int32" Nullable="false" />
+          <Property Name="SubCategoryId" Type="Int32" />
+          <Property Name="BrandId" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="Token" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CreatedById" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastModById" Type="Int32" />
+          <Property Name="LastModOnDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Images" Relationship="Self.FK_Images_Products" FromRole="Products" ToRole="Images" />
+          <NavigationProperty Name="Prices" Relationship="Self.FK_Prices_Products" FromRole="Products" ToRole="Prices" />
+          <NavigationProperty Name="Stocks" Relationship="Self.FK_Stock_Products" FromRole="Products" ToRole="Stock" />
+          <NavigationProperty Name="Wishlists" Relationship="productsModel1.FK_Wishlist_Products" FromRole="Product" ToRole="Wishlist" />
+          <Property Name="IsNewArrival" Type="Boolean" />
+          <Property Name="Discount" Type="Int32" />
+          <NavigationProperty Name="Details" Relationship="productsModel1.FK_Details_Products" FromRole="Product" ToRole="Detail" />
+          <NavigationProperty Name="Products" Relationship="productsModel1.FK_Products_Products1" FromRole="Product" ToRole="Product1" />
+          <NavigationProperty Name="Persons" Relationship="productsModel1.FK_Persons_Products" FromRole="Product" ToRole="Person" />
+          <Property Name="MainToken" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Stock">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Int32" Nullable="false" />
+          <Property Name="CreatedById" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastModById" Type="Int32" />
+          <Property Name="LastModOnDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Stock_Products" FromRole="Stock" ToRole="Products" />
+        </EntityType>
+        <Association Name="FK_Images_Products">
+          <End Role="Products" Type="Self.Product" Multiplicity="1" />
+          <End Role="Images" Type="Self.Image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Images">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prices_Products">
+          <End Role="Products" Type="Self.Product" Multiplicity="1" />
+          <End Role="Prices" Type="Self.Price" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Prices">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stock_Products">
+          <End Role="Products" Type="Self.Product" Multiplicity="1" />
+          <End Role="Stock" Type="Self.Stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Stock">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="productsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Images" EntityType="Self.Image" />
+          <EntitySet Name="Prices" EntityType="Self.Price" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <EntitySet Name="Stocks" EntityType="Self.Stock" />
+          <AssociationSet Name="FK_Images_Products" Association="Self.FK_Images_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Images" EntitySet="Images" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prices_Products" Association="Self.FK_Prices_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Prices" EntitySet="Prices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stock_Products" Association="Self.FK_Stock_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Stock" EntitySet="Stocks" />
+          </AssociationSet>
+          <FunctionImport Name="GetProductsList" ReturnType="Collection(productsModel1.GetProductsList_Result)" >
+            <Parameter Name="Brands" Mode="In" Type="String" />
+            <Parameter Name="Min" Mode="In" Type="Double" />
+            <Parameter Name="Max" Mode="In" Type="Double" />
+            <Parameter Name="Categories" Mode="In" Type="String" />
+            <Parameter Name="Sort" Mode="In" Type="String" />
+            <Parameter Name="Start" Mode="In" Type="Int32" />
+            <Parameter Name="End" Mode="In" Type="Int32" />
+            <Parameter Name="Currency" Mode="In" Type="String" />
+            <Parameter Name="txt" Mode="In" Type="String" />
+            <Parameter Name="SubCategories" Mode="In" Type="String" />
+            <Parameter Name="UserToken" Mode="In" Type="String" />
+            <Parameter Name="NewArrival" Mode="In" Type="String" />
+            <Parameter Name="OnSale" Mode="In" Type="String" />
+            <Parameter Name="Country" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetAdminProducts" ReturnType="Collection(productsModel1.GetProductsList_Result)" >
+            <Parameter Name="Brands" Mode="In" Type="String" />
+            <Parameter Name="Min" Mode="In" Type="Double" />
+            <Parameter Name="Max" Mode="In" Type="Double" />
+            <Parameter Name="Categories" Mode="In" Type="String" />
+            <Parameter Name="Sort" Mode="In" Type="String" />
+            <Parameter Name="Start" Mode="In" Type="Int32" />
+            <Parameter Name="End" Mode="In" Type="Int32" />
+            <Parameter Name="Currency" Mode="In" Type="String" />
+            <Parameter Name="txt" Mode="In" Type="String" />
+            <Parameter Name="SubCategories" Mode="In" Type="String" />
+            <Parameter Name="UserToken" Mode="In" Type="String" />
+            <Parameter Name="NewArrival" Mode="In" Type="String" />
+            <Parameter Name="OnSale" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="Wishlists" EntityType="productsModel1.Wishlist" />
+          <AssociationSet Name="FK_Wishlist_Products" Association="productsModel1.FK_Wishlist_Products">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="Wishlist" EntitySet="Wishlists" />
+          </AssociationSet>
+          <FunctionImport Name="GetWishlist" ReturnType="Collection(productsModel1.GetWishlist_Result)">
+          <Parameter Name="UserToken" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetHomePageLists" ReturnType="Collection(productsModel1.GetHomePageLists_Result)">
+          <Parameter Name="UserToken" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="Details" EntityType="productsModel1.Detail" />
+          <AssociationSet Name="FK_Details_Products" Association="productsModel1.FK_Details_Products">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="Detail" EntitySet="Details" />
+          </AssociationSet>
+          <EntitySet Name="Reviews" EntityType="productsModel1.Review" />
+          <FunctionImport Name="GetCartItems" ReturnType="Collection(productsModel1.GetCartItems_Result)">
+          <Parameter Name="Tokens" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SubmitOrder">
+            <Parameter Name="UserToken" Mode="In" Type="String" />
+            <Parameter Name="Items" Mode="In" Type="String" />
+            <Parameter Name="FirstName" Mode="In" Type="String" />
+            <Parameter Name="LastName" Mode="In" Type="String" />
+            <Parameter Name="Mobile" Mode="In" Type="String" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="BillingCityId" Mode="In" Type="Int32" />
+            <Parameter Name="BillingTown" Mode="In" Type="String" />
+            <Parameter Name="BillingBlock" Mode="In" Type="String" />
+            <Parameter Name="BillingStreet" Mode="In" Type="String" />
+            <Parameter Name="BillingHouse" Mode="In" Type="Int32" />
+            <Parameter Name="BillingApartment" Mode="In" Type="Int32" />
+            <Parameter Name="BillingPaci" Mode="In" Type="Int32" />
+            <Parameter Name="ShippingCityId" Mode="In" Type="Int32" />
+            <Parameter Name="ShippingTown" Mode="In" Type="String" />
+            <Parameter Name="ShippingBlock" Mode="In" Type="String" />
+            <Parameter Name="ShippingStreet" Mode="In" Type="String" />
+            <Parameter Name="ShippingHouse" Mode="In" Type="Int32" />
+            <Parameter Name="ShippingApartment" Mode="In" Type="Int32" />
+            <Parameter Name="ShippingPaci" Mode="In" Type="Int32" />
+            <Parameter Name="Notes" Mode="In" Type="String" />
+            <Parameter Name="StatusId" Mode="In" Type="Int32" />
+            <Parameter Name="OrderId" Mode="InOut" Type="String" />
+            <Parameter Name="PromoCode" Mode="In" Type="String" />
+            <Parameter Name="CodeValue" Mode="In" Type="Double" />
+          </FunctionImport>
+          <EntitySet Name="Detail1" EntityType="productsModel1.Detail1" />
+          <EntitySet Name="Orders" EntityType="productsModel1.Order" />
+          <EntitySet Name="Price1" EntityType="productsModel1.Price1" />
+          <EntitySet Name="Product1" EntityType="productsModel1.Product1" />
+          <EntitySet Name="Tracks" EntityType="productsModel1.Track" />
+          <AssociationSet Name="FK_Details_Details" Association="productsModel1.FK_Details_Details">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="Detail1" EntitySet="Detail1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prices_Orders" Association="productsModel1.FK_Prices_Orders">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="Price1" EntitySet="Price1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Products_Orders" Association="productsModel1.FK_Products_Orders">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="Product1" EntitySet="Product1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tracks_Orders" Association="productsModel1.FK_Tracks_Orders">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="Track" EntitySet="Tracks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Products_Products1" Association="productsModel1.FK_Products_Products1">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="Product1" EntitySet="Product1" />
+          </AssociationSet>
+          <EntitySet Name="Statuses" EntityType="productsModel1.Status" />
+          <AssociationSet Name="FK_Orders_Statuses" Association="productsModel1.FK_Orders_Statuses">
+            <End Role="Status" EntitySet="Statuses" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tracks_Statuses" Association="productsModel1.FK_Tracks_Statuses">
+            <End Role="Status" EntitySet="Statuses" />
+            <End Role="Track" EntitySet="Tracks" />
+          </AssociationSet>
+          <FunctionImport Name="GetAdminOrders" ReturnType="Collection(productsModel1.GetAdminOrders_Result)">
+            <Parameter Name="Statuses" Mode="In" Type="String" />
+            <Parameter Name="OrderId" Mode="In" Type="Int32" />
+            <Parameter Name="HasDate" Mode="In" Type="Int32" />
+            <Parameter Name="Date" Mode="In" Type="DateTime" />
+            <Parameter Name="Start" Mode="In" Type="Int32" />
+            <Parameter Name="End" Mode="In" Type="Int32" />
+            <Parameter Name="PromoCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="Ratings" EntityType="productsModel1.Rating" />
+          <AssociationSet Name="FK_Rating_Orders" Association="productsModel1.FK_Rating_Orders">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="Rating" EntitySet="Ratings" />
+          </AssociationSet>
+          <EntitySet Name="Transactions" EntityType="productsModel1.Transaction" />
+          <AssociationSet Name="FK_Transactions_Orders" Association="productsModel1.FK_Transactions_Orders">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="Transaction" EntitySet="Transactions" />
+          </AssociationSet>
+          <EntitySet Name="Persons" EntityType="productsModel1.Person" />
+          <AssociationSet Name="FK_Persons_Orders" Association="productsModel1.FK_Persons_Orders">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="Person" EntitySet="Persons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Persons_Products" Association="productsModel1.FK_Persons_Products">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="Person" EntitySet="Persons" />
+          </AssociationSet>
+          <EntitySet Name="Charities" EntityType="productsModel1.Charity" />
+          <FunctionImport Name="GetAvailableBatchProductsList" ReturnType="Collection(productsModel1.GetAvailableBatchProductsList_Result)">
+            <Parameter Name="Brands" Mode="In" Type="String" />
+            <Parameter Name="Categories" Mode="In" Type="String" />
+            <Parameter Name="Start" Mode="In" Type="Int32" />
+            <Parameter Name="End" Mode="In" Type="Int32" />
+            <Parameter Name="SubCategories" Mode="In" Type="String" />
+            <Parameter Name="UserToken" Mode="In" Type="String" />
+            <Parameter Name="CharityId" Mode="In" Type="Int32" />
+            <Parameter Name="Delivery" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GenerateBatch" ReturnType="Collection(productsModel1.GenerateBatch_Result)">
+            <Parameter Name="Brands" Mode="In" Type="String" />
+            <Parameter Name="Categories" Mode="In" Type="String" />
+            <Parameter Name="SubCategories" Mode="In" Type="String" />
+            <Parameter Name="UserToken" Mode="In" Type="String" />
+            <Parameter Name="CharityId" Mode="In" Type="Int32" />
+            <Parameter Name="Quantity" Mode="In" Type="Int32" />
+            <Parameter Name="Slaughterhouses" Mode="In" Type="Int32" />
+            <Parameter Name="Delivery" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="Batches" EntityType="productsModel1.Batch" />
+          <AssociationSet Name="FK_Batches_Charities" Association="productsModel1.FK_Batches_Charities">
+            <End Role="Charity" EntitySet="Charities" />
+            <End Role="Batch" EntitySet="Batches" />
+          </AssociationSet>
+          <EntitySet Name="Track1" EntityType="productsModel1.Track1" />
+          <AssociationSet Name="FK_Tracks_Batches" Association="productsModel1.FK_Tracks_Batches">
+            <End Role="Batch" EntitySet="Batches" />
+            <End Role="Track1" EntitySet="Track1" />
+          </AssociationSet>
+          <EntitySet Name="Items" EntityType="productsModel1.Item" />
+          <AssociationSet Name="FK_Items_Batches" Association="productsModel1.FK_Items_Batches">
+            <End Role="Batch" EntitySet="Batches" />
+            <End Role="Item" EntitySet="Items" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Items_Orders" Association="productsModel1.FK_Items_Orders">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="Item" EntitySet="Items" />
+          </AssociationSet>
+          <FunctionImport Name="GetAdminBatches" ReturnType="Collection(productsModel1.GetAdminBatches_Result)">
+            <Parameter Name="Statuses" Mode="In" Type="String" />
+            <Parameter Name="BatchId" Mode="In" Type="Int32" />
+            <Parameter Name="OrderId" Mode="In" Type="Int32" />
+            <Parameter Name="SlaughterhouseId" Mode="In" Type="Int32" />
+            <Parameter Name="CharityId" Mode="In" Type="Int32" />
+            <Parameter Name="HasDate" Mode="In" Type="Int32" />
+            <Parameter Name="Date" Mode="In" Type="DateTime" />
+            <Parameter Name="Start" Mode="In" Type="Int32" />
+            <Parameter Name="End" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetAdminBatches1" ReturnType="Collection(productsModel1.GetAdminBatches1_Result)">
+            <Parameter Name="Statuses" Mode="In" Type="String" />
+            <Parameter Name="BatchId" Mode="In" Type="Int32" />
+            <Parameter Name="OrderId" Mode="In" Type="Int32" />
+            <Parameter Name="SlaughterhouseId" Mode="In" Type="Int32" />
+            <Parameter Name="CharityId" Mode="In" Type="Int32" />
+            <Parameter Name="HasDate" Mode="In" Type="Int32" />
+            <Parameter Name="Date" Mode="In" Type="DateTime" />
+            <Parameter Name="Start" Mode="In" Type="Int32" />
+            <Parameter Name="End" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetBatchItems" ReturnType="Collection(productsModel1.GetBatchItems_Result)">
+            <Parameter Name="BatchId" Mode="In" Type="Int32" />
+            <Parameter Name="Start" Mode="In" Type="Int32" />
+            <Parameter Name="End" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetCharityBatchesCounts" ReturnType="Collection(productsModel1.GetCharityBatchesCounts_Result)">
+          <Parameter Name="CharityId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetSlaughterhouseBatchesCounts" ReturnType="Collection(productsModel1.GetSlaughterhouseBatchesCounts_Result)">
+          <Parameter Name="SlaughterhouseId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="Notifications" EntityType="productsModel1.Notification" />
+          <FunctionImport Name="GetProductDetails" ReturnType="Collection(productsModel1.GetProductDetails_Result)">
+            <Parameter Name="Token" Mode="In" Type="String" />
+            <Parameter Name="UserToken" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="ProductPurposes" EntityType="productsModel1.ProductPurpos" />
+          <EntitySet Name="PersonShippingAddresses" EntityType="productsModel1.PersonShippingAddress" />
+          <AssociationSet Name="FK_PersonShippingAddresses_Persons" Association="productsModel1.FK_PersonShippingAddresses_Persons">
+            <End Role="Person" EntitySet="Persons" />
+            <End Role="PersonShippingAddress" EntitySet="PersonShippingAddresses" />
+          </AssociationSet>
+          <EntitySet Name="Cities" EntityType="productsModel1.City" />
+        </EntityContainer>
+        <ComplexType Name="GetProductsList_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Token" Nullable="false" MaxLength="2000" />
+          <Property Type="String" Name="NameEn" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="NameAr" Nullable="true" MaxLength="400" />
+          <Property Type="Double" Name="Usd" Nullable="true" />
+          <Property Type="Double" Name="Kwd" Nullable="true" />
+          <Property Type="Int32" Name="Amount" Nullable="true" />
+          <Property Type="String" Name="Url" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="CategoryNameEn" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CategoryNameAr" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="SubCategoryNameEn" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="SubCategoryNameAr" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="Records" Nullable="false" />
+          <Property Type="String" Name="BrandNameEn" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="BrandNameAr" Nullable="true" MaxLength="100" />
+          <Property Type="Boolean" Name="IsWishList" Nullable="true" />
+          <Property Type="Int32" Name="Discount" Nullable="true" />
+          <Property Name="CreatedOnDate" Type="DateTime" Nullable="false" Precision="23" />
+       <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="String" Name="BriefEn" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="BriefAr" Nullable="true" MaxLength="1000" />
+       </ComplexType>
+        <EntityType Name="Wishlist">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Product" Relationship="productsModel1.FK_Wishlist_Products" FromRole="Wishlist" ToRole="Product" />
+        </EntityType>
+        <Association Name="FK_Wishlist_Products">
+          <End Type="productsModel1.Product" Role="Product" Multiplicity="1" />
+          <End Type="productsModel1.Wishlist" Role="Wishlist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Wishlist">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="GetWishlist_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Token" Nullable="false" MaxLength="2000" />
+          <Property Type="String" Name="NameEn" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="NameAr" Nullable="true" MaxLength="400" />
+          <Property Type="String" Name="BrandNameEn" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="BrandNameAr" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="CategoryNameEn" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="CategoryNameAr" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="SubCategoryNameEn" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="SubCategoryNameAr" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Url" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="Amount" Nullable="true" />
+          <Property Type="Double" Name="Kwd" Nullable="true" />
+          <Property Type="Double" Name="Usd" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetHomePageLists_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Token" Nullable="false" MaxLength="2000" />
+          <Property Type="String" Name="NameEn" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="NameAr" Nullable="true" MaxLength="400" />
+          <Property Type="Double" Name="Usd" Nullable="false" />
+          <Property Type="Double" Name="Kwd" Nullable="false" />
+          <Property Type="Int32" Name="Amount" Nullable="false" />
+          <Property Type="String" Name="Url" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="CategoryNameEn" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="CategoryNameAr" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="SubCategoryNameEn" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="SubCategoryNameAr" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="BrandNameEn" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="BrandNameAr" Nullable="false" MaxLength="100" />
+          <Property Type="Boolean" Name="IsWishList" Nullable="true" />
+          <Property Type="Int32" Name="Discount" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="Detail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="BriefEn" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" />
+          <Property Name="BriefAr" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+          <Property Name="SKU" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Colors" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sizes" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DescriptionEn" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DescriptionAr" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SpecificationEn" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" />
+          <Property Name="SpecificationAr" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedById" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastModById" Type="Int32" />
+          <Property Name="LastModOnDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Product" Relationship="productsModel1.FK_Details_Products" FromRole="Detail" ToRole="Product" />
+          <Property Name="countries" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_Details_Products">
+          <End Type="productsModel1.Product" Role="Product" Multiplicity="1" />
+          <End Type="productsModel1.Detail" Role="Detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Detail">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Review">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductToken" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Score" Type="Int32" Nullable="false" />
+          <Property Name="Review1" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOnDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <ComplexType Name="GetCartItems_Result">
+          <Property Type="String" Name="Token" Nullable="false" MaxLength="2000" />
+          <Property Type="String" Name="NameEn" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="NameAr" Nullable="true" MaxLength="400" />
+          <Property Type="String" Name="Url" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="Amount" Nullable="true" />
+          <Property Type="Double" Name="Usd" Nullable="true" />
+          <Property Type="Double" Name="Kwd" Nullable="true" />
+          <Property Type="Int32" Name="Count" Nullable="true" />
+          <Property Type="Boolean" Name="Donation" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="Detail1">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="BillingCityId" Type="Int32" Nullable="false" />
+          <Property Name="ShippingCityId" Type="Int32" Nullable="false" />
+          <Property Name="Notes" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedById" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOndate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Order" Relationship="productsModel1.FK_Details_Details" FromRole="Detail1" ToRole="Order" />
+          <Property Name="BillingTown" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BillingBlock" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BillingStreet" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="BillingHouseNo" Type="Int32" Nullable="false" />
+          <Property Name="BillingApartmentNo" Type="Int32" Nullable="false" />
+          <Property Name="BillingPaciNo" Type="Int32" />
+          <Property Name="ShippingTown" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ShippingBlock" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ShippingStreet" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="ShippingHouseNo" Type="Int32" Nullable="false" />
+          <Property Name="ShippingApartmentNo" Type="Int32" Nullable="false" />
+          <Property Name="ShippingPaciNo" Type="Int32" />
+          <Property Name="ShippingNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StatusId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedById" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastModById" Type="Int32" />
+          <Property Name="LastModOnDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Details" Relationship="productsModel1.FK_Details_Details" FromRole="Order" ToRole="Detail1" />
+          <NavigationProperty Name="Prices" Relationship="productsModel1.FK_Prices_Orders" FromRole="Order" ToRole="Price1" />
+          <NavigationProperty Name="Products" Relationship="productsModel1.FK_Products_Orders" FromRole="Order" ToRole="Product1" />
+          <NavigationProperty Name="Tracks" Relationship="productsModel1.FK_Tracks_Orders" FromRole="Order" ToRole="Track" />
+          <NavigationProperty Name="Status" Relationship="productsModel1.FK_Orders_Statuses" FromRole="Order" ToRole="Status" />
+          <NavigationProperty Name="Ratings" Relationship="productsModel1.FK_Rating_Orders" FromRole="Order" ToRole="Rating" />
+          <NavigationProperty Name="Transactions" Relationship="productsModel1.FK_Transactions_Orders" FromRole="Order" ToRole="Transaction" />
+          <Property Name="CharityId" Type="Int32" />
+          <NavigationProperty Name="Persons" Relationship="productsModel1.FK_Persons_Orders" FromRole="Order" ToRole="Person" />
+          <NavigationProperty Name="Items" Relationship="productsModel1.FK_Items_Orders" FromRole="Order" ToRole="Item" />
+        </EntityType>
+        <EntityType Name="Price1">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderId" Type="Int32" Nullable="false" />
+          <Property Name="TotalPriceUsd" Type="Double" Nullable="false" />
+          <Property Name="TotalPriceKwd" Type="Double" Nullable="false" />
+          <Property Name="ShippingPriceKwd" Type="Int32" Nullable="false" />
+          <Property Name="ShiipingPriceUsd" Type="Int32" Nullable="false" />
+          <Property Name="CreatedById" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Order" Relationship="productsModel1.FK_Prices_Orders" FromRole="Price1" ToRole="Order" />
+          <Property Name="PromoCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CodeValue" Type="Double" />
+        </EntityType>
+        <EntityType Name="Product1">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderId" Type="Int32" Nullable="false" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Usd" Type="Double" Nullable="false" />
+          <Property Name="Kwd" Type="Double" Nullable="false" />
+          <Property Name="CreatedById" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Order" Relationship="productsModel1.FK_Products_Orders" FromRole="Product1" ToRole="Order" />
+          <NavigationProperty Name="Products1" Relationship="productsModel1.FK_Products_Products1" FromRole="Product1" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Track">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderId" Type="Int32" Nullable="false" />
+          <Property Name="StatusId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedById" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Order" Relationship="productsModel1.FK_Tracks_Orders" FromRole="Track" ToRole="Order" />
+          <NavigationProperty Name="Status" Relationship="productsModel1.FK_Tracks_Statuses" FromRole="Track" ToRole="Status" />
+          <Property Name="URL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_Details_Details">
+          <End Type="productsModel1.Order" Role="Order" Multiplicity="1" />
+          <End Type="productsModel1.Detail1" Role="Detail1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Detail1">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prices_Orders">
+          <End Type="productsModel1.Order" Role="Order" Multiplicity="1" />
+          <End Type="productsModel1.Price1" Role="Price1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Price1">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Products_Orders">
+          <End Type="productsModel1.Order" Role="Order" Multiplicity="1" />
+          <End Type="productsModel1.Product1" Role="Product1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product1">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tracks_Orders">
+          <End Type="productsModel1.Order" Role="Order" Multiplicity="1" />
+          <End Type="productsModel1.Track" Role="Track" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Track">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Products_Products1">
+          <End Type="productsModel1.Product" Role="Product" Multiplicity="1" />
+          <End Type="productsModel1.Product1" Role="Product1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product1">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameEn" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NameAr" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedById" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastModByID" Type="Int32" />
+          <Property Name="LastModOnDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Orders" Relationship="productsModel1.FK_Orders_Statuses" FromRole="Status" ToRole="Order" />
+          <NavigationProperty Name="Tracks" Relationship="productsModel1.FK_Tracks_Statuses" FromRole="Status" ToRole="Track" />
+        </EntityType>
+        <Association Name="FK_Orders_Statuses">
+          <End Type="productsModel1.Status" Role="Status" Multiplicity="1" />
+          <End Type="productsModel1.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="StatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tracks_Statuses">
+          <End Type="productsModel1.Status" Role="Status" Multiplicity="1" />
+          <End Type="productsModel1.Track" Role="Track" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Track">
+              <PropertyRef Name="StatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="GetAdminOrders_Result">
+        <Property Type="Int64" Name="RowNo" Nullable="true" />
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="DateTime" Name="CreatedOnDate" Nullable="false" Precision="23" />
+          <Property Type="String" Name="StatusNameEn" Nullable="false" MaxLength="50" />
+          <Property Type="Double" Name="Kwd" Nullable="false" />
+                    <Property Type="Double" Name="Usd" Nullable="false" />
+          <Property Type="Int32" Name="Records" Nullable="true" />
+          <Property Type="String" Name="PromoCode" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <EntityType Name="Rating">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderId" Type="Int32" Nullable="false" />
+          <Property Name="Rating1" Type="Int32" Nullable="false" />
+          <Property Name="CreatedById" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Order" Relationship="productsModel1.FK_Rating_Orders" FromRole="Rating" ToRole="Order" />
+        </EntityType>
+        <Association Name="FK_Rating_Orders">
+          <End Type="productsModel1.Order" Role="Order" Multiplicity="1" />
+          <End Type="productsModel1.Rating" Role="Rating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Rating">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Transaction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderId" Type="Int32" Nullable="false" />
+          <Property Name="Result" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Ref" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TrackId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TransId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PaymentId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Date" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Amount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Order" Relationship="productsModel1.FK_Transactions_Orders" FromRole="Transaction" ToRole="Order" />
+        </EntityType>
+        <Association Name="FK_Transactions_Orders">
+          <End Type="productsModel1.Order" Role="Order" Multiplicity="1" />
+          <End Type="productsModel1.Transaction" Role="Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderId" Type="Int32" Nullable="false" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="FullName" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedById" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Order" Relationship="productsModel1.FK_Persons_Orders" FromRole="Person" ToRole="Order" />
+          <NavigationProperty Name="Products1" Relationship="productsModel1.FK_Persons_Products" FromRole="Person" ToRole="Product" />
+          <Property Name="CharityId" Type="Int32" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="AddressDetails" Type="String" MaxLength="1500" FixedLength="false" Unicode="true" />
+          <Property Name="ProductPurposeId" Type="Int32" />
+          <NavigationProperty Name="PersonShippingAddresses" Relationship="productsModel1.FK_PersonShippingAddresses_Persons" FromRole="Person" ToRole="PersonShippingAddress" />
+        </EntityType>
+        <Association Name="FK_Persons_Orders">
+          <End Type="productsModel1.Order" Role="Order" Multiplicity="1" />
+          <End Type="productsModel1.Person" Role="Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Person">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Persons_Products">
+          <End Type="productsModel1.Product" Role="Product" Multiplicity="1" />
+          <End Type="productsModel1.Person" Role="Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Person">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Charity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameEn" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="NameAr" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="DescriptionEn" Type="String" Nullable="false" MaxLength="1500" FixedLength="false" Unicode="false" />
+          <Property Name="DescriptionAr" Type="String" Nullable="false" MaxLength="3000" FixedLength="false" Unicode="true" />
+          <Property Name="CountryId" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedById" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastModById" Type="Int32" />
+          <Property Name="LastModOnDate" Type="DateTime" Precision="3" />
+          <Property Name="AddressEn" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="AddressAr" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Username" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Batches" Relationship="productsModel1.FK_Batches_Charities" FromRole="Charity" ToRole="Batch" />
+          <Property Name="FirebaseToken" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <ComplexType Name="GetAvailableBatchProductsList_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="OrderId" Nullable="false" />
+          <Property Type="String" Name="ProductName" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="Shareholder" Nullable="false" MaxLength="500" />
+          <Property Type="Int32" Name="Quantity" Nullable="true" />
+          <Property Type="DateTime" Name="CreatedOnDate" Nullable="false" Precision="23" />
+           <Property Type="Int32" Name="Records" Nullable="false" />
+          <Property Type="Int32" Name="Quantities" Nullable="false" />
+          <Property Type="String" Name="AddressDetails" Nullable="true" MaxLength="1500" />
+          <Property Type="String" Name="PurposeName" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="IsNewArrival" Nullable="true" />
+          </ComplexType>
+        <ComplexType Name="GenerateBatch_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="OrderId" Nullable="false" />
+          <Property Type="String" Name="ProductName" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="Shareholder" Nullable="false" MaxLength="500" />
+          <Property Type="Int32" Name="Quantity" Nullable="true" />
+          <Property Type="DateTime" Name="CreatedOnDate" Nullable="false" Precision="23" />
+           <Property Type="Int32" Name="QuantityResult" Nullable="false" />
+          <Property Type="String" Name="AddressDetails" Nullable="true" MaxLength="1500" />
+          <Property Type="String" Name="PurposeName" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="Batch">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StatusId" Type="Int32" Nullable="false" />
+          <Property Name="Brands" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Categories" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Subcategories" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CharityId" Type="Int32" />
+          <Property Name="SlaughterhouseId" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="CreatedById" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastModById" Type="Int32" />
+          <Property Name="LastModOnDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Charity" Relationship="productsModel1.FK_Batches_Charities" FromRole="Batch" ToRole="Charity" />
+          <NavigationProperty Name="Tracks" Relationship="productsModel1.FK_Tracks_Batches" FromRole="Batch" ToRole="Track1" />
+          <NavigationProperty Name="Items" Relationship="productsModel1.FK_Items_Batches" FromRole="Batch" ToRole="Item" />
+          <Property Name="QR" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="BatchType" Type="Int32" />
+        </EntityType>
+        <Association Name="FK_Batches_Charities">
+          <End Type="productsModel1.Charity" Role="Charity" Multiplicity="0..1" />
+          <End Type="productsModel1.Batch" Role="Batch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Charity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Batch">
+              <PropertyRef Name="CharityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Track1">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BatchId" Type="Int32" Nullable="false" />
+          <Property Name="StatusId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedById" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Batch" Relationship="productsModel1.FK_Tracks_Batches" FromRole="Track1" ToRole="Batch" />
+          <Property Name="URL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_Tracks_Batches">
+          <End Type="productsModel1.Batch" Role="Batch" Multiplicity="1" />
+          <End Type="productsModel1.Track1" Role="Track1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Batch">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Track1">
+              <PropertyRef Name="BatchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BatchId" Type="Int32" Nullable="false" />
+          <Property Name="Order_person_id" Type="Int32" Nullable="false" />
+          <Property Name="OrderId" Type="Int32" Nullable="false" />
+          <Property Name="ProductName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Shareholder" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="IsSlaughtered" Type="Boolean" Nullable="false" />
+          <Property Name="IsRecorded" Type="Boolean" Nullable="false" />
+          <Property Name="IsDistributed" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedById" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastModById" Type="Int32" />
+          <Property Name="LastModOnDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Batch" Relationship="productsModel1.FK_Items_Batches" FromRole="Item" ToRole="Batch" />
+          <NavigationProperty Name="Order" Relationship="productsModel1.FK_Items_Orders" FromRole="Item" ToRole="Order" />
+          <Property Name="URL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AddressDetails" Type="String" MaxLength="1500" FixedLength="false" Unicode="true" />
+          <Property Name="ProductPurposeId" Type="Int32" />
+          <Property Name="PurposeName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_Items_Batches">
+          <End Type="productsModel1.Batch" Role="Batch" Multiplicity="1" />
+          <End Type="productsModel1.Item" Role="Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Batch">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Item">
+              <PropertyRef Name="BatchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Items_Orders">
+          <End Type="productsModel1.Order" Role="Order" Multiplicity="1" />
+          <End Type="productsModel1.Item" Role="Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Item">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="GetAdminBatches_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="StatusNameEn" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="CreatedOnDate" Nullable="false" Precision="23" />
+          <Property Type="String" Name="SlaughterhouseName" Nullable="true" MaxLength="253" />
+          <Property Type="String" Name="CharityName" Nullable="true" MaxLength="253" />
+          <Property Type="Int32" Name="Quantity" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="GetAdminBatches1_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="StatusNameEn" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="CreatedOnDate" Nullable="false" Precision="23" />
+          <Property Type="String" Name="SlaughterhouseName" Nullable="true" MaxLength="253" />
+          <Property Type="String" Name="CharityName" Nullable="true" MaxLength="253" />
+          <Property Type="Int32" Name="Quantity" Nullable="false" />
+          <Property Type="Int32" Name="Records" Nullable="false" />
+          <Property Type="Int32" Name="BatchType" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetBatchItems_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="OrderId" Nullable="false" />
+          <Property Type="String" Name="URL" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="ProductName" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Shareholder" Nullable="true" MaxLength="200" />
+          <Property Type="Boolean" Name="IsSlaughtered" Nullable="false" />
+          <Property Type="Boolean" Name="IsRecorded" Nullable="false" />
+          <Property Type="Boolean" Name="IsDistributed" Nullable="false" />
+           <Property Type="Int32" Name="Records" Nullable="false" />
+          <Property Type="String" Name="QR" Nullable="false" MaxLength="1" />
+          <Property Type="String" Name="PurposeName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="AddressDetails" Nullable="true" MaxLength="1500" />
+        </ComplexType>
+        <ComplexType Name="GetCharityBatchesCounts_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="StatusId" Nullable="true" />
+          <Property Type="String" Name="StatusNameEn" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Count" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetSlaughterhouseBatchesCounts_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="StatusId" Nullable="true" />
+          <Property Type="String" Name="StatusNameEn" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Count" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="Notification">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BatchId" Type="Int32" Nullable="false" />
+          <Property Name="Message" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="IsSeen" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedById" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SlaughterId" Type="Int32" />
+          <Property Name="CharityId" Type="Int32" />
+        </EntityType>
+        <ComplexType Name="GetProductDetails_Result">
+          <Property Type="String" Name="NameEn" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="NameAr" Nullable="true" MaxLength="400" />
+          <Property Type="String" Name="Token" Nullable="false" MaxLength="2000" />
+          <Property Type="String" Name="BriefEn" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="BriefAr" Nullable="false" MaxLength="1000" />
+          <Property Type="String" Name="DescriptionEn" Nullable="true" />
+          <Property Type="String" Name="DescriptionAr" Nullable="true" />
+          <Property Type="String" Name="SKU" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="SpecificationEn" Nullable="true" MaxLength="1500" />
+          <Property Type="Int32" Name="Discount" Nullable="true" />
+          <Property Type="String" Name="SpecificationAr" Nullable="true" MaxLength="3000" />
+          <Property Type="Double" Name="Kwd" Nullable="false" />
+          <Property Type="Double" Name="Usd" Nullable="false" />
+          <Property Type="Int32" Name="Amount" Nullable="false" />
+          <Property Type="String" Name="CategoryNameEn" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="CategoryNameAr" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="SubCategoryNameEn" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="SubCategoryNameAr" Nullable="true" MaxLength="100" />
+          <Property Type="Boolean" Name="IsWishList" Nullable="true" />
+          <Property Type="String" Name="Colors" Nullable="true" MaxLength="4000" />
+          <Property Type="String" Name="SizesEn" Nullable="true" MaxLength="8000" />
+          <Property Type="String" Name="SizesAr" Nullable="true" MaxLength="4000" />
+          <Property Type="String" Name="BrandNameEn" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="BrandNameAr" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="BrandDescriptionEn" Nullable="true" />
+          <Property Type="String" Name="BrandDescriptionAr" Nullable="true" />
+          <Property Type="String" Name="BrandUrl" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="ReviewCounts" Nullable="true" />
+          <Property Type="Int32" Name="RecommendedCounts" Nullable="true" />
+          <Property Type="Int32" Name="RAvg" Nullable="true" />
+          <Property Type="Int32" Name="Score1Count" Nullable="true" />
+          <Property Type="Int32" Name="Score2Count" Nullable="true" />
+          <Property Type="Int32" Name="Score3Count" Nullable="true" />
+          <Property Type="Int32" Name="Score4Count" Nullable="true" />
+          <Property Type="Int32" Name="Score5Count" Nullable="true" />
+          <Property Type="String" Name="RecommendedPerc" Nullable="true" />
+          <Property Type="String" Name="Score1Perc" Nullable="true" />
+          <Property Type="String" Name="Score2Perc" Nullable="true" />
+          <Property Type="String" Name="Score3Perc" Nullable="true" />
+          <Property Type="String" Name="Score4Perc" Nullable="true" />
+          <Property Type="String" Name="Score5Perc" Nullable="true" />
+          <Property Type="Int32" Name="ReviewAvg" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="ProductPurpos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameEn" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NameAr" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedById" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastModByID" Type="Int32" />
+          <Property Name="LastModOnDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="PersonShippingAddress">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PersonId" Type="Int32" Nullable="false" />
+          <Property Name="CityId" Type="Int32" Nullable="false" />
+          <Property Name="Town" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Block" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Street" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="HouseNo" Type="Int32" />
+          <Property Name="ApartmentNo" Type="Int32" />
+          <Property Name="CreatedById" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Person" Relationship="productsModel1.FK_PersonShippingAddresses_Persons" FromRole="PersonShippingAddress" ToRole="Person" />
+          <Property Name="ContactNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CuttingNotes" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_PersonShippingAddresses_Persons">
+          <End Type="productsModel1.Person" Role="Person" Multiplicity="1" />
+          <End Type="productsModel1.PersonShippingAddress" Role="PersonShippingAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PersonShippingAddress">
+              <PropertyRef Name="PersonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="CityId" />
+          </Key>
+          <Property Name="CityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CityNameEn" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CityNameAr" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CountryId" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedById" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastModByID" Type="Int32" />
+          <Property Name="LastModOnDate" Type="DateTime" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="productsModel1StoreContainer" CdmEntityContainer="productsEntities">
+          <EntitySetMapping Name="Images">
+            <EntityTypeMapping TypeName="productsModel1.Image">
+              <MappingFragment StoreEntitySet="Images">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="IsMain" ColumnName="IsMain" />
+                <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+                <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+                <ScalarProperty Name="LastModById" ColumnName="LastModById" />
+                <ScalarProperty Name="LastModOnDate" ColumnName="LastModOnDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Prices">
+            <EntityTypeMapping TypeName="productsModel1.Price">
+              <MappingFragment StoreEntitySet="Prices1">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Usd" ColumnName="Usd" />
+                <ScalarProperty Name="Kwd" ColumnName="Kwd" />
+                <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+                <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+                <ScalarProperty Name="LastModById" ColumnName="LastModById" />
+                <ScalarProperty Name="LastModOnDate" ColumnName="LastModOnDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="productsModel1.Product">
+              <MappingFragment StoreEntitySet="Products1">
+                <ScalarProperty Name="MainToken" ColumnName="MainToken" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="IsNewArrival" ColumnName="IsNewArrival" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NameEn" ColumnName="NameEn" />
+                <ScalarProperty Name="NameAr" ColumnName="NameAr" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="SubCategoryId" ColumnName="SubCategoryId" />
+                <ScalarProperty Name="BrandId" ColumnName="BrandId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Token" ColumnName="Token" />
+                <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+                <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+                <ScalarProperty Name="LastModById" ColumnName="LastModById" />
+                <ScalarProperty Name="LastModOnDate" ColumnName="LastModOnDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stocks">
+            <EntityTypeMapping TypeName="productsModel1.Stock">
+              <MappingFragment StoreEntitySet="Stock">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+                <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+                <ScalarProperty Name="LastModById" ColumnName="LastModById" />
+                <ScalarProperty Name="LastModOnDate" ColumnName="LastModOnDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetProductsList" FunctionName="productsModel1.Store.GetProductsList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="productsModel1.GetProductsList_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Token" ColumnName="Token" />
+                <ScalarProperty Name="NameEn" ColumnName="NameEn" />
+                <ScalarProperty Name="NameAr" ColumnName="NameAr" />
+                <ScalarProperty Name="Usd" ColumnName="Usd" />
+                <ScalarProperty Name="Kwd" ColumnName="Kwd" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="CategoryNameEn" ColumnName="CategoryNameEn" />
+                <ScalarProperty Name="CategoryNameAr" ColumnName="CategoryNameAr" />
+                <ScalarProperty Name="SubCategoryNameEn" ColumnName="SubCategoryNameEn" />
+                <ScalarProperty Name="SubCategoryNameAr" ColumnName="SubCategoryNameAr" />
+                <ScalarProperty Name="Records" ColumnName="Records" />
+                <ScalarProperty Name="IsWishList" ColumnName="IsWishList" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+                   <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="BrandNameEn" ColumnName="BrandNameEn" />
+                <ScalarProperty Name="BrandNameAr" ColumnName="BrandNameAr" />
+                <ScalarProperty Name="BriefEn" ColumnName="BriefEn" />
+                <ScalarProperty Name="BriefAr" ColumnName="BriefAr" />
+             </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetAdminProducts" FunctionName="productsModel1.Store.GetAdminProducts">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="productsModel1.GetProductsList_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Token" ColumnName="Token" />
+                <ScalarProperty Name="NameEn" ColumnName="NameEn" />
+                <ScalarProperty Name="NameAr" ColumnName="NameAr" />
+                <ScalarProperty Name="Usd" ColumnName="Usd" />
+                <ScalarProperty Name="Kwd" ColumnName="Kwd" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="CategoryNameEn" ColumnName="CategoryNameEn" />
+                <ScalarProperty Name="CategoryNameAr" ColumnName="CategoryNameAr" />
+                <ScalarProperty Name="SubCategoryNameEn" ColumnName="SubCategoryNameEn" />
+                <ScalarProperty Name="SubCategoryNameAr" ColumnName="SubCategoryNameAr" />
+                <ScalarProperty Name="Records" ColumnName="Records" />
+                <ScalarProperty Name="IsWishList" ColumnName="IsWishList" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="BrandNameEn" ColumnName="BrandNameEn" />
+                <ScalarProperty Name="BrandNameAr" ColumnName="BrandNameAr" />
+                <ScalarProperty Name="BriefEn" ColumnName="BriefEn" />
+                <ScalarProperty Name="BriefAr" ColumnName="BriefAr" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Wishlists">
+            <EntityTypeMapping TypeName="productsModel1.Wishlist">
+              <MappingFragment StoreEntitySet="Wishlist">
+                <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetWishlist" FunctionName="productsModel1.Store.GetWishlist">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="productsModel1.GetWishlist_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Token" ColumnName="Token" />
+                <ScalarProperty Name="NameEn" ColumnName="NameEn" />
+                <ScalarProperty Name="NameAr" ColumnName="NameAr" />
+                <ScalarProperty Name="BrandNameEn" ColumnName="BrandNameEn" />
+                <ScalarProperty Name="BrandNameAr" ColumnName="BrandNameAr" />
+                <ScalarProperty Name="CategoryNameEn" ColumnName="CategoryNameEn" />
+                <ScalarProperty Name="CategoryNameAr" ColumnName="CategoryNameAr" />
+                <ScalarProperty Name="SubCategoryNameEn" ColumnName="SubCategoryNameEn" />
+                <ScalarProperty Name="SubCategoryNameAr" ColumnName="SubCategoryNameAr" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Kwd" ColumnName="Kwd" />
+                <ScalarProperty Name="Usd" ColumnName="Usd" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetHomePageLists" FunctionName="productsModel1.Store.GetHomePageLists">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="productsModel1.GetHomePageLists_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Token" ColumnName="Token" />
+                <ScalarProperty Name="NameEn" ColumnName="NameEn" />
+                <ScalarProperty Name="NameAr" ColumnName="NameAr" />
+                <ScalarProperty Name="Usd" ColumnName="Usd" />
+                <ScalarProperty Name="Kwd" ColumnName="Kwd" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="CategoryNameEn" ColumnName="CategoryNameEn" />
+                <ScalarProperty Name="CategoryNameAr" ColumnName="CategoryNameAr" />
+                <ScalarProperty Name="SubCategoryNameEn" ColumnName="SubCategoryNameEn" />
+                <ScalarProperty Name="SubCategoryNameAr" ColumnName="SubCategoryNameAr" />
+                <ScalarProperty Name="BrandNameEn" ColumnName="BrandNameEn" />
+                <ScalarProperty Name="BrandNameAr" ColumnName="BrandNameAr" />
+                <ScalarProperty Name="IsWishList" ColumnName="IsWishList" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Details">
+            <EntityTypeMapping TypeName="productsModel1.Detail">
+              <MappingFragment StoreEntitySet="Details1">
+                <ScalarProperty Name="countries" ColumnName="countries" />
+                <ScalarProperty Name="LastModOnDate" ColumnName="LastModOnDate" />
+                <ScalarProperty Name="LastModById" ColumnName="LastModById" />
+                <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+                <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+                <ScalarProperty Name="SpecificationAr" ColumnName="SpecificationAr" />
+                <ScalarProperty Name="SpecificationEn" ColumnName="SpecificationEn" />
+                <ScalarProperty Name="DescriptionAr" ColumnName="DescriptionAr" />
+                <ScalarProperty Name="DescriptionEn" ColumnName="DescriptionEn" />
+                <ScalarProperty Name="Sizes" ColumnName="Sizes" />
+                <ScalarProperty Name="Colors" ColumnName="Colors" />
+                <ScalarProperty Name="SKU" ColumnName="SKU" />
+                <ScalarProperty Name="BriefAr" ColumnName="BriefAr" />
+                <ScalarProperty Name="BriefEn" ColumnName="BriefEn" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reviews">
+            <EntityTypeMapping TypeName="productsModel1.Review">
+              <MappingFragment StoreEntitySet="Reviews">
+                <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Review1" ColumnName="Review" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="ProductToken" ColumnName="ProductToken" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetCartItems" FunctionName="productsModel1.Store.GetCartItems">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="productsModel1.GetCartItems_Result">
+                <ScalarProperty Name="Token" ColumnName="Token" />
+                <ScalarProperty Name="NameEn" ColumnName="NameEn" />
+                <ScalarProperty Name="NameAr" ColumnName="NameAr" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Usd" ColumnName="Usd" />
+                <ScalarProperty Name="Kwd" ColumnName="Kwd" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="Donation" ColumnName="Donation" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SubmitOrder" FunctionName="productsModel1.Store.SubmitOrder" />
+          <EntitySetMapping Name="Detail1">
+            <EntityTypeMapping TypeName="productsModel1.Detail1">
+              <MappingFragment StoreEntitySet="Details">
+                <ScalarProperty Name="ShippingNumber" ColumnName="ShippingNumber" />
+                <ScalarProperty Name="ShippingPaciNo" ColumnName="ShippingPaciNo" />
+                <ScalarProperty Name="ShippingApartmentNo" ColumnName="ShippingApartmentNo" />
+                <ScalarProperty Name="ShippingHouseNo" ColumnName="ShippingHouseNo" />
+                <ScalarProperty Name="ShippingStreet" ColumnName="ShippingStreet" />
+                <ScalarProperty Name="ShippingBlock" ColumnName="ShippingBlock" />
+                <ScalarProperty Name="ShippingTown" ColumnName="ShippingTown" />
+                <ScalarProperty Name="BillingPaciNo" ColumnName="BillingPaciNo" />
+                <ScalarProperty Name="BillingApartmentNo" ColumnName="BillingApartmentNo" />
+                <ScalarProperty Name="BillingHouseNo" ColumnName="BillingHouseNo" />
+                <ScalarProperty Name="BillingStreet" ColumnName="BillingStreet" />
+                <ScalarProperty Name="BillingBlock" ColumnName="BillingBlock" />
+                <ScalarProperty Name="BillingTown" ColumnName="BillingTown" />
+                <ScalarProperty Name="CreatedOndate" ColumnName="CreatedOndate" />
+                <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="ShippingCityId" ColumnName="ShippingCityId" />
+                <ScalarProperty Name="BillingCityId" ColumnName="BillingCityId" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="productsModel1.Order">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="CharityId" ColumnName="CharityId" />
+                <ScalarProperty Name="LastModOnDate" ColumnName="LastModOnDate" />
+                <ScalarProperty Name="LastModById" ColumnName="LastModById" />
+                <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+                <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Price1">
+            <EntityTypeMapping TypeName="productsModel1.Price1">
+              <MappingFragment StoreEntitySet="Prices">
+                <ScalarProperty Name="CodeValue" ColumnName="CodeValue" />
+                <ScalarProperty Name="PromoCode" ColumnName="PromoCode" />
+                <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+                <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+                <ScalarProperty Name="ShiipingPriceUsd" ColumnName="ShiipingPriceUsd" />
+                <ScalarProperty Name="ShippingPriceKwd" ColumnName="ShippingPriceKwd" />
+                <ScalarProperty Name="TotalPriceKwd" ColumnName="TotalPriceKwd" />
+                <ScalarProperty Name="TotalPriceUsd" ColumnName="TotalPriceUsd" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product1">
+            <EntityTypeMapping TypeName="productsModel1.Product1">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+                <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+                <ScalarProperty Name="Kwd" ColumnName="Kwd" />
+                <ScalarProperty Name="Usd" ColumnName="Usd" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tracks">
+            <EntityTypeMapping TypeName="productsModel1.Track">
+              <MappingFragment StoreEntitySet="Tracks1">
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+                <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Statuses">
+            <EntityTypeMapping TypeName="productsModel1.Status">
+              <MappingFragment StoreEntitySet="Statuses">
+                <ScalarProperty Name="LastModOnDate" ColumnName="LastModOnDate" />
+                <ScalarProperty Name="LastModByID" ColumnName="LastModByID" />
+                <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+                <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="NameAr" ColumnName="NameAr" />
+                <ScalarProperty Name="NameEn" ColumnName="NameEn" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetAdminOrders" FunctionName="productsModel1.Store.GetAdminOrders">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="productsModel1.GetAdminOrders_Result">
+               <ScalarProperty Name="RowNo" ColumnName="RowNo" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+                <ScalarProperty Name="StatusNameEn" ColumnName="StatusNameEn" />
+                <ScalarProperty Name="Kwd" ColumnName="Kwd" />
+                <ScalarProperty Name="Usd" ColumnName="Usd" />
+                <ScalarProperty Name="Records" ColumnName="Records" />
+                <ScalarProperty Name="PromoCode" ColumnName="PromoCode" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Ratings">
+            <EntityTypeMapping TypeName="productsModel1.Rating">
+              <MappingFragment StoreEntitySet="Rating">
+                <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+                <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+                <ScalarProperty Name="Rating1" ColumnName="Rating" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transactions">
+            <EntityTypeMapping TypeName="productsModel1.Transaction">
+              <MappingFragment StoreEntitySet="Transactions">
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="PaymentId" ColumnName="PaymentId" />
+                <ScalarProperty Name="TransId" ColumnName="TransId" />
+                <ScalarProperty Name="TrackId" ColumnName="TrackId" />
+                <ScalarProperty Name="Ref" ColumnName="Ref" />
+                <ScalarProperty Name="Result" ColumnName="Result" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Persons">
+            <EntityTypeMapping TypeName="productsModel1.Person">
+              <MappingFragment StoreEntitySet="Persons">
+                <ScalarProperty Name="ProductPurposeId" ColumnName="ProductPurposeId" />
+                <ScalarProperty Name="AddressDetails" ColumnName="AddressDetails" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="CharityId" ColumnName="CharityId" />
+                <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+                <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Charities">
+            <EntityTypeMapping TypeName="productsModel1.Charity">
+              <MappingFragment StoreEntitySet="Charities">
+                <ScalarProperty Name="FirebaseToken" ColumnName="FirebaseToken" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="AddressAr" ColumnName="AddressAr" />
+                <ScalarProperty Name="AddressEn" ColumnName="AddressEn" />
+                <ScalarProperty Name="LastModOnDate" ColumnName="LastModOnDate" />
+                <ScalarProperty Name="LastModById" ColumnName="LastModById" />
+                <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+                <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="DescriptionAr" ColumnName="DescriptionAr" />
+                <ScalarProperty Name="DescriptionEn" ColumnName="DescriptionEn" />
+                <ScalarProperty Name="NameAr" ColumnName="NameAr" />
+                <ScalarProperty Name="NameEn" ColumnName="NameEn" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetAvailableBatchProductsList" FunctionName="productsModel1.Store.GetAvailableBatchProductsList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="productsModel1.GetAvailableBatchProductsList_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="Shareholder" ColumnName="Shareholder" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+                  <ScalarProperty Name="Records" ColumnName="Records" />
+                <ScalarProperty Name="Quantities" ColumnName="Quantities" />
+                <ScalarProperty Name="AddressDetails" ColumnName="AddressDetails" />
+                <ScalarProperty Name="PurposeName" ColumnName="PurposeName" />
+                <ScalarProperty Name="IsNewArrival" ColumnName="IsNewArrival" />
+                </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GenerateBatch" FunctionName="productsModel1.Store.GenerateBatch">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="productsModel1.GenerateBatch_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="Shareholder" ColumnName="Shareholder" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+                <ScalarProperty Name="AddressDetails" ColumnName="AddressDetails" />
+                <ScalarProperty Name="PurposeName" ColumnName="PurposeName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Batches">
+            <EntityTypeMapping TypeName="productsModel1.Batch">
+              <MappingFragment StoreEntitySet="Batches">
+                <ScalarProperty Name="BatchType" ColumnName="BatchType" />
+                <ScalarProperty Name="QR" ColumnName="QR" />
+                <ScalarProperty Name="LastModOnDate" ColumnName="LastModOnDate" />
+                <ScalarProperty Name="LastModById" ColumnName="LastModById" />
+                <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+                <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="SlaughterhouseId" ColumnName="SlaughterhouseId" />
+                <ScalarProperty Name="CharityId" ColumnName="CharityId" />
+                <ScalarProperty Name="Subcategories" ColumnName="Subcategories" />
+                <ScalarProperty Name="Categories" ColumnName="Categories" />
+                <ScalarProperty Name="Brands" ColumnName="Brands" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Track1">
+            <EntityTypeMapping TypeName="productsModel1.Track1">
+              <MappingFragment StoreEntitySet="Tracks">
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+                <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="BatchId" ColumnName="BatchId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Items">
+            <EntityTypeMapping TypeName="productsModel1.Item">
+              <MappingFragment StoreEntitySet="Items">
+                <ScalarProperty Name="PurposeName" ColumnName="PurposeName" />
+                <ScalarProperty Name="ProductPurposeId" ColumnName="ProductPurposeId" />
+                <ScalarProperty Name="AddressDetails" ColumnName="AddressDetails" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="LastModOnDate" ColumnName="LastModOnDate" />
+                <ScalarProperty Name="LastModById" ColumnName="LastModById" />
+                <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+                <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+                <ScalarProperty Name="IsDistributed" ColumnName="IsDistributed" />
+                <ScalarProperty Name="IsRecorded" ColumnName="IsRecorded" />
+                <ScalarProperty Name="IsSlaughtered" ColumnName="IsSlaughtered" />
+                <ScalarProperty Name="Shareholder" ColumnName="Shareholder" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="Order_person_id" ColumnName="Order_person_id" />
+                <ScalarProperty Name="BatchId" ColumnName="BatchId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetAdminBatches1" FunctionName="productsModel1.Store.GetAdminBatches">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="productsModel1.GetAdminBatches1_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="StatusNameEn" ColumnName="StatusNameEn" />
+                <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+                <ScalarProperty Name="SlaughterhouseName" ColumnName="SlaughterhouseName" />
+                <ScalarProperty Name="CharityName" ColumnName="CharityName" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Records" ColumnName="Records" />
+                <ScalarProperty Name="BatchType" ColumnName="BatchType" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetBatchItems" FunctionName="productsModel1.Store.GetBatchItems">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="productsModel1.GetBatchItems_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="Shareholder" ColumnName="Shareholder" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="IsSlaughtered" ColumnName="IsSlaughtered" />
+                <ScalarProperty Name="IsRecorded" ColumnName="IsRecorded" />
+                <ScalarProperty Name="IsDistributed" ColumnName="IsDistributed" />
+                 <ScalarProperty Name="Records" ColumnName="Records" />
+                <ScalarProperty Name="QR" ColumnName="QR" />
+                <ScalarProperty Name="PurposeName" ColumnName="PurposeName" />
+                <ScalarProperty Name="AddressDetails" ColumnName="AddressDetails" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetCharityBatchesCounts" FunctionName="productsModel1.Store.GetCharityBatchesCounts">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="productsModel1.GetCharityBatchesCounts_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="StatusNameEn" ColumnName="StatusNameEn" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetSlaughterhouseBatchesCounts" FunctionName="productsModel1.Store.GetSlaughterhouseBatchesCounts">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="productsModel1.GetSlaughterhouseBatchesCounts_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="StatusNameEn" ColumnName="StatusNameEn" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Notifications">
+            <EntityTypeMapping TypeName="productsModel1.Notification">
+              <MappingFragment StoreEntitySet="Notifications">
+                <ScalarProperty Name="CharityId" ColumnName="CharityId" />
+                <ScalarProperty Name="SlaughterId" ColumnName="SlaughterId" />
+                <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+                <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+                <ScalarProperty Name="IsSeen" ColumnName="IsSeen" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="BatchId" ColumnName="BatchId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetProductDetails" FunctionName="productsModel1.Store.GetProductDetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="productsModel1.GetProductDetails_Result">
+                <ScalarProperty Name="NameEn" ColumnName="NameEn" />
+                <ScalarProperty Name="NameAr" ColumnName="NameAr" />
+                <ScalarProperty Name="Token" ColumnName="Token" />
+                <ScalarProperty Name="BriefEn" ColumnName="BriefEn" />
+                <ScalarProperty Name="BriefAr" ColumnName="BriefAr" />
+                <ScalarProperty Name="DescriptionEn" ColumnName="DescriptionEn" />
+                <ScalarProperty Name="DescriptionAr" ColumnName="DescriptionAr" />
+                <ScalarProperty Name="SKU" ColumnName="SKU" />
+                <ScalarProperty Name="SpecificationEn" ColumnName="SpecificationEn" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="SpecificationAr" ColumnName="SpecificationAr" />
+                <ScalarProperty Name="Kwd" ColumnName="Kwd" />
+                <ScalarProperty Name="Usd" ColumnName="Usd" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="CategoryNameEn" ColumnName="CategoryNameEn" />
+                <ScalarProperty Name="CategoryNameAr" ColumnName="CategoryNameAr" />
+                <ScalarProperty Name="SubCategoryNameEn" ColumnName="SubCategoryNameEn" />
+                <ScalarProperty Name="SubCategoryNameAr" ColumnName="SubCategoryNameAr" />
+                <ScalarProperty Name="IsWishList" ColumnName="IsWishList" />
+                <ScalarProperty Name="Colors" ColumnName="Colors" />
+                <ScalarProperty Name="SizesEn" ColumnName="SizesEn" />
+                <ScalarProperty Name="SizesAr" ColumnName="SizesAr" />
+                <ScalarProperty Name="BrandNameEn" ColumnName="BrandNameEn" />
+                <ScalarProperty Name="BrandNameAr" ColumnName="BrandNameAr" />
+                <ScalarProperty Name="BrandDescriptionEn" ColumnName="BrandDescriptionEn" />
+                <ScalarProperty Name="BrandDescriptionAr" ColumnName="BrandDescriptionAr" />
+                <ScalarProperty Name="BrandUrl" ColumnName="BrandUrl" />
+                <ScalarProperty Name="ReviewCounts" ColumnName="ReviewCounts" />
+                <ScalarProperty Name="RecommendedCounts" ColumnName="RecommendedCounts" />
+                <ScalarProperty Name="RAvg" ColumnName="RAvg" />
+                <ScalarProperty Name="Score1Count" ColumnName="Score1Count" />
+                <ScalarProperty Name="Score2Count" ColumnName="Score2Count" />
+                <ScalarProperty Name="Score3Count" ColumnName="Score3Count" />
+                <ScalarProperty Name="Score4Count" ColumnName="Score4Count" />
+                <ScalarProperty Name="Score5Count" ColumnName="Score5Count" />
+                <ScalarProperty Name="RecommendedPerc" ColumnName="RecommendedPerc" />
+                <ScalarProperty Name="Score1Perc" ColumnName="Score1Perc" />
+                <ScalarProperty Name="Score2Perc" ColumnName="Score2Perc" />
+                <ScalarProperty Name="Score3Perc" ColumnName="Score3Perc" />
+                <ScalarProperty Name="Score4Perc" ColumnName="Score4Perc" />
+                <ScalarProperty Name="Score5Perc" ColumnName="Score5Perc" />
+                <ScalarProperty Name="ReviewAvg" ColumnName="ReviewAvg" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="ProductPurposes">
+            <EntityTypeMapping TypeName="productsModel1.ProductPurpos">
+              <MappingFragment StoreEntitySet="ProductPurposes">
+                <ScalarProperty Name="LastModOnDate" ColumnName="LastModOnDate" />
+                <ScalarProperty Name="LastModByID" ColumnName="LastModByID" />
+                <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+                <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="NameAr" ColumnName="NameAr" />
+                <ScalarProperty Name="NameEn" ColumnName="NameEn" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PersonShippingAddresses">
+            <EntityTypeMapping TypeName="productsModel1.PersonShippingAddress">
+              <MappingFragment StoreEntitySet="PersonShippingAddresses">
+                <ScalarProperty Name="CuttingNotes" ColumnName="CuttingNotes" />
+                <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+                <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+                <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+                <ScalarProperty Name="ApartmentNo" ColumnName="ApartmentNo" />
+                <ScalarProperty Name="HouseNo" ColumnName="HouseNo" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="Block" ColumnName="Block" />
+                <ScalarProperty Name="Town" ColumnName="Town" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="productsModel1.City">
+              <MappingFragment StoreEntitySet="Cities">
+                <ScalarProperty Name="LastModOnDate" ColumnName="LastModOnDate" />
+                <ScalarProperty Name="LastModByID" ColumnName="LastModByID" />
+                <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+                <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="CityNameAr" ColumnName="CityNameAr" />
+                <ScalarProperty Name="CityNameEn" ColumnName="CityNameEn" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

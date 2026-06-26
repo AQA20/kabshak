@@ -1,0 +1,126 @@
+<style>
+    .social-icon-border-color .social-icon.social-facebook {
+        color: #1b4f9b;
+        border-color: #1b4f9b;
+        width: 120px;
+        border-radius: 5px;
+    }
+
+        .social-icon-border-color .social-icon.social-facebook:hover {
+            color: #ffffff;
+        }
+
+    .social-icon-border-color .social-icon.social-google {
+        background-color: #ffffff;
+        border-color: #dd4b39;
+        width: 120px;
+        border-radius: unset;
+        height: 36px;
+    }
+
+        .social-icon-border-color .social-icon.social-google:hover {
+            color: #05D7A0;
+            background-color: #ffffff !important;
+            box-shadow: 0 0 3px 3px #dd4b3938;
+        }
+
+    .abcRioButtonContentWrapper {
+        height: 100%;
+        width: 100%;
+        border: solid 1px #dd4b39;
+        box-shadow: unset !important;
+    }
+
+    .social-icon-border-color .social-icon.social-facebook {
+        height: 36px !important;
+        border-radius: unset !important;
+    }
+
+    .abcRioButtonLightBlue {
+        box-shadow: none;
+    }
+
+    .abcRioButtonContents {
+        padding: unset;
+        margin: unset;
+    }
+
+    .social-facebook:hover {
+        box-shadow: 0 0 3px 3px rgb(66 133 244 / 30%);
+        background: unset !important;
+        color: #05D7A0 !important;
+        transition: background-color .218s,border-color .218s,box-shadow .218s;
+    }
+</style>
+<div class="login-popup">
+    <div class="tab tab-nav-boxed tab-nav-center tab-nav-underline">
+        <ul class="nav nav-tabs text-uppercase" role="tablist">
+            <li class="nav-item">
+                <a href="#sign-in" class="nav-link active">Sign In</a>
+            </li>
+            <li class="nav-item">
+                <a href="#sign-up" class="nav-link">Sign Up</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="sign-in">
+                <div class="form-group">
+                    <label>Your Email address *</label>
+                    <input type="text" class="form-control" name="log_email_1" id="log_email_1" required>
+                </div>
+                <div class="form-group mb-0">
+                    <label>Password *</label>
+                    <input type="password" class="form-control" name="log_password_1" id="log_password_1" required>
+                </div>
+                <div class="form-checkbox d-flex align-items-center justify-content-between">
+                    <input type="checkbox" class="custom-checkbox" id="remember" name="remember" required="">
+                    <label for="remember">Remember me</label>
+                    <button style="background: unset; border: unset; cursor: pointer; color: #05D7A0;" onclick="Reset_Your_Password();">Reset your password?</button>
+                </div>
+                <button class="btn btn-primary w-100" onclick="LoginByEmail();">Sign In</button>
+            </div>
+            <div class="tab-pane" id="sign-up">
+                <div class="form-group">
+                    <label>Your Email address *</label>
+                    <input type="text" class="form-control" name="up_email_1" id="up_email_1" required>
+                </div>
+                <div class="form-group mb-5">
+                    <label>Password *</label>
+                    <input type="password" class="form-control" name="up_password_1" id="up_password_1" required>
+                </div>
+                <p>
+                    Your personal data will be used to support your experience
+                    throughout this website.
+                </p>
+                <div class="form-checkbox d-flex align-items-center justify-content-between mb-5">
+                    <input type="checkbox" class="custom-checkbox" id="agree" name="agree" required="">
+                    <label for="agree" class="font-size-md">I agree to the <a href="privacy-policy.aspx" target="_blank" class="text-primary font-size-md">privacy policy</a></label>
+                </div>
+                <button class="btn btn-primary w-100" onclick="SignupByEmail();">Sign Up</button>
+            </div>
+        </div>
+        <div id="divLoginError" class="alert alert-icon alert-error alert-bg alert-inline show-code-action d-none">
+            <h4 class="alert-title">
+                <i class="w-icon-times-circle"></i>
+            </h4> <p id="lblLoginError" style="margin-bottom:unset;">
+            </p>
+        </div>
+        <div id="divSuccessError" class="alert alert-icon alert-success alert-bg alert-inline show-code-action d-none">
+            <h4 class="alert-title">
+                <i class="fas fa-check"></i>
+            </h4> <p id="lblSuccessError">
+
+            </p>
+        </div>
+        <p class="text-center">Sign in with social account</p>
+        <div class="social-icons social-icon-border-color d-flex justify-content-center">
+            <a href="#" onclick="fbLogin();" class="social-icon social-facebook d-flex align-items-center">
+                <i style="width: 34px; font-size: 16px;" class="= w-icon-facebook"></i><p style="margin-bottom: unset; color: #757575; font-size: 13px;">Facebook</p>
+            </a>
+            <a href="#" onclick="gmailLogin();" class="social-icon social-google d-flex align-items-center">
+                <i style="width: 34px; font-size: 16px;" class="= w-icon-google"></i><p style="margin-bottom: unset; color: #757575; font-size: 13px;">Gmail</p>
+            </a>
+        </div>
+    </div>
+</div>
+<script src="/assets/js/Login.js"></script>

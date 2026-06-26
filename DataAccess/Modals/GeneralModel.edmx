@@ -1,0 +1,1202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="webModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Statuses">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameEn" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NameAr" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedById" Type="int" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="datetime" Nullable="false" />
+          <Property Name="LastModByID" Type="int" />
+          <Property Name="LastModOnDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="AboutUs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TitleEn" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="TitleAr" Type="nvarchar" MaxLength="40" />
+          <Property Name="DescriptionEn" Type="varchar(max)" Nullable="false" />
+          <Property Name="DescriptionAr" Type="nvarchar(max)" />
+          <Property Name="ImageURL" Type="varchar" MaxLength="200" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AppVersions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Version" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsRequiredUpdate" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CancellationPolicy">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TitleEn" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="TitleAr" Type="nvarchar" MaxLength="400" />
+          <Property Name="DescriptionEn" Type="varchar(max)" Nullable="false" />
+          <Property Name="DescriptionAr" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Charities">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameEn" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="NameAr" Type="nvarchar" MaxLength="400" Nullable="false" />
+          <Property Name="DescriptionEn" Type="varchar" MaxLength="1500" Nullable="false" />
+          <Property Name="DescriptionAr" Type="nvarchar" MaxLength="3000" Nullable="false" />
+          <Property Name="CountryId" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedById" Type="int" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="datetime" Nullable="false" />
+          <Property Name="LastModById" Type="int" />
+          <Property Name="LastModOnDate" Type="datetime" />
+          <Property Name="AddressEn" Type="varchar" MaxLength="500" />
+          <Property Name="AddressAr" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="Username" Type="varchar" MaxLength="100" />
+          <Property Name="Password" Type="varchar" MaxLength="100" />
+          <Property Name="FirebaseToken" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="ContactUs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Mobile" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Message" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContactUsChannels">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TitleEn" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="TitleAr" Type="nvarchar" MaxLength="40" />
+          <Property Name="DescriptionEn" Type="varchar(max)" Nullable="false" />
+          <Property Name="DescriptionAr" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContactUsPeopleAsks">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TitleEn" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="TitleAr" Type="nvarchar" MaxLength="40" />
+          <Property Name="DescriptionEn" Type="varchar(max)" Nullable="false" />
+          <Property Name="DescriptionAr" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FAQs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TitleEn" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="TitleAr" Type="nvarchar" MaxLength="40" />
+          <Property Name="DescriptionEn" Type="varchar(max)" Nullable="false" />
+          <Property Name="DescriptionAr" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OurServices">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TitleEn" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="TitleAr" Type="nvarchar" MaxLength="400" />
+          <Property Name="DescriptionEn" Type="varchar(max)" Nullable="false" />
+          <Property Name="DescriptionAr" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PrivacyPolicy">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TitleEn" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="TitleAr" Type="nvarchar" MaxLength="40" />
+          <Property Name="DescriptionEn" Type="varchar(max)" Nullable="false" />
+          <Property Name="DescriptionAr" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PromoCodes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" Nullable="false" />
+          <Property Name="Discount" Type="int" Nullable="false" />
+          <Property Name="FixValue" Type="int" Nullable="false" />
+          <Property Name="MinInvoice" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedOnDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedById" Type="int" Nullable="false" />
+          <Property Name="LastModByid" Type="int" />
+          <Property Name="LastModOnDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Slaughterhouses">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameEn" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="NameAr" Type="nvarchar" MaxLength="400" Nullable="false" />
+          <Property Name="DescriptionEn" Type="varchar" MaxLength="1500" Nullable="false" />
+          <Property Name="DescriptionAr" Type="nvarchar" MaxLength="3000" Nullable="false" />
+          <Property Name="CountryId" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedById" Type="int" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="datetime" Nullable="false" />
+          <Property Name="LastModById" Type="int" />
+          <Property Name="LastModOnDate" Type="datetime" />
+          <Property Name="AddressEn" Type="varchar" MaxLength="500" />
+          <Property Name="AddressAr" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="Username" Type="varchar" MaxLength="100" />
+          <Property Name="Password" Type="varchar" MaxLength="100" />
+          <Property Name="FirebaseToken" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="SubscribedEmails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TermAndConditions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TitleEn" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="TitleAr" Type="nvarchar" MaxLength="40" />
+          <Property Name="DescriptionEn" Type="varchar(max)" Nullable="false" />
+          <Property Name="DescriptionAr" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Brands">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameEn" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NameAr" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedById" Type="int" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="datetime" Nullable="false" />
+          <Property Name="LastModByID" Type="int" />
+          <Property Name="LastModOnDate" Type="datetime" />
+          <Property Name="DescriptionEn" Type="varchar(max)" />
+          <Property Name="DescriptionAr" Type="nvarchar(max)" />
+          <Property Name="Url" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameEn" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NameAr" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedById" Type="int" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="datetime" Nullable="false" />
+          <Property Name="LastModByID" Type="int" />
+          <Property Name="LastModOnDate" Type="datetime" />
+          <Property Name="Url" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Cities">
+          <Key>
+            <PropertyRef Name="CityId" />
+          </Key>
+          <Property Name="CityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CityNameEn" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CityNameAr" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CountryId" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedById" Type="int" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="datetime" Nullable="false" />
+          <Property Name="LastModByID" Type="int" />
+          <Property Name="LastModOnDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Colors">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedById" Type="int" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="datetime" Nullable="false" />
+          <Property Name="LastModByID" Type="int" />
+          <Property Name="LastModOnDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Countries">
+          <Key>
+            <PropertyRef Name="CountryId" />
+          </Key>
+          <Property Name="CountryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CountryNameEn" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CountryNameAr" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedById" Type="int" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="datetime" Nullable="false" />
+          <Property Name="LastModByID" Type="int" />
+          <Property Name="LastModOnDate" Type="datetime" />
+          <Property Name="Alpha_2_code" Type="varchar" MaxLength="5" />
+          <Property Name="Alpha_3_code" Type="varchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="ProductPurposes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameEn" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NameAr" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedById" Type="int" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="datetime" Nullable="false" />
+          <Property Name="LastModByID" Type="int" />
+          <Property Name="LastModOnDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Sizes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameEn" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NameAr" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedById" Type="int" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="datetime" Nullable="false" />
+          <Property Name="LastModByID" Type="int" />
+          <Property Name="LastModOnDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Statuses1">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameEn" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NameAr" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedById" Type="int" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="datetime" Nullable="false" />
+          <Property Name="LastModByID" Type="int" />
+          <Property Name="LastModOnDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="SubCategories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameEn" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NameAr" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CategoryId" Type="int" Nullable="false" />
+          <Property Name="CreatedById" Type="int" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="datetime" Nullable="false" />
+          <Property Name="LastModByID" Type="int" />
+          <Property Name="LastModOnDate" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_Cities_Cities">
+          <End Role="Countries" Type="Self.Countries" Multiplicity="1" />
+          <End Role="Cities" Type="Self.Cities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Countries">
+              <PropertyRef Name="CountryId" />
+            </Principal>
+            <Dependent Role="Cities">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubCategories_Categories">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
+          <End Role="SubCategories" Type="Self.SubCategories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SubCategories">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="GetCountriesList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Lookups">
+          <Parameter Name="txt" Type="nvarchar" Mode="In" />
+          <Parameter Name="IsActive" Type="int" Mode="In" />
+          <Parameter Name="InActive" Type="int" Mode="In" />
+          <Parameter Name="Start" Type="int" Mode="In" />
+          <Parameter Name="End" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="webModelStoreContainer">
+          <EntitySet Name="Statuses" EntityType="Self.Statuses" Schema="Batches" store:Type="Tables" />
+          <EntitySet Name="AboutUs" EntityType="Self.AboutUs" Schema="General" store:Type="Tables" />
+          <EntitySet Name="AppVersions" EntityType="Self.AppVersions" Schema="General" store:Type="Tables" />
+          <EntitySet Name="CancellationPolicy" EntityType="Self.CancellationPolicy" Schema="General" store:Type="Tables" />
+          <EntitySet Name="Charities" EntityType="Self.Charities" Schema="General" store:Type="Tables" />
+          <EntitySet Name="ContactUs" EntityType="Self.ContactUs" Schema="General" store:Type="Tables" />
+          <EntitySet Name="ContactUsChannels" EntityType="Self.ContactUsChannels" Schema="General" store:Type="Tables" />
+          <EntitySet Name="ContactUsPeopleAsks" EntityType="Self.ContactUsPeopleAsks" Schema="General" store:Type="Tables" />
+          <EntitySet Name="FAQs" EntityType="Self.FAQs" Schema="General" store:Type="Tables" />
+          <EntitySet Name="OurServices" EntityType="Self.OurServices" Schema="General" store:Type="Tables" />
+          <EntitySet Name="PrivacyPolicy" EntityType="Self.PrivacyPolicy" Schema="General" store:Type="Tables" />
+          <EntitySet Name="PromoCodes" EntityType="Self.PromoCodes" Schema="General" store:Type="Tables" />
+          <EntitySet Name="Slaughterhouses" EntityType="Self.Slaughterhouses" Schema="General" store:Type="Tables" />
+          <EntitySet Name="SubscribedEmails" EntityType="Self.SubscribedEmails" Schema="General" store:Type="Tables" />
+          <EntitySet Name="TermAndConditions" EntityType="Self.TermAndConditions" Schema="General" store:Type="Tables" />
+          <EntitySet Name="Brands" EntityType="Self.Brands" Schema="Lookups" store:Type="Tables" />
+          <EntitySet Name="Categories" EntityType="Self.Categories" Schema="Lookups" store:Type="Tables" />
+          <EntitySet Name="Cities" EntityType="Self.Cities" Schema="Lookups" store:Type="Tables" />
+          <EntitySet Name="Colors" EntityType="Self.Colors" Schema="Lookups" store:Type="Tables" />
+          <EntitySet Name="Countries" EntityType="Self.Countries" Schema="Lookups" store:Type="Tables" />
+          <EntitySet Name="ProductPurposes" EntityType="Self.ProductPurposes" Schema="Lookups" store:Type="Tables" />
+          <EntitySet Name="Sizes" EntityType="Self.Sizes" Schema="Lookups" store:Type="Tables" />
+          <EntitySet Name="Statuses1" EntityType="Self.Statuses1" Schema="Lookups" Table="Statuses" store:Type="Tables" />
+          <EntitySet Name="SubCategories" EntityType="Self.SubCategories" Schema="Lookups" store:Type="Tables" />
+          <AssociationSet Name="FK_Cities_Cities" Association="Self.FK_Cities_Cities">
+            <End Role="Countries" EntitySet="Countries" />
+            <End Role="Cities" EntitySet="Cities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubCategories_Categories" Association="Self.FK_SubCategories_Categories">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="SubCategories" EntitySet="SubCategories" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="webModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ContactU">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Mobile" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="SubscribedEmail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="GeneralEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ContactUs" EntityType="Self.ContactU" />
+          <EntitySet Name="SubscribedEmails" EntityType="Self.SubscribedEmail" />
+          <EntitySet Name="FAQs" EntityType="webModel.FAQ" />
+          <EntitySet Name="Brands" EntityType="webModel.Brand" />
+          <EntitySet Name="Categories" EntityType="webModel.Category" />
+          <EntitySet Name="SubCategories" EntityType="webModel.SubCategory" />
+          <AssociationSet Name="FK_SubCategories_Categories" Association="webModel.FK_SubCategories_Categories">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="SubCategory" EntitySet="SubCategories" />
+          </AssociationSet>
+          <EntitySet Name="Colors" EntityType="webModel.Color" />
+          <EntitySet Name="Sizes" EntityType="webModel.Size" />
+          <EntitySet Name="Cities" EntityType="webModel.City" />
+          <EntitySet Name="Countries" EntityType="webModel.Country" />
+          <AssociationSet Name="FK_Cities_Cities" Association="webModel.FK_Cities_Cities">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="City" EntitySet="Cities" />
+          </AssociationSet>
+          <EntitySet Name="Statuses" EntityType="webModel.Status" />
+          <FunctionImport Name="GetCountriesList" ReturnType="Collection(webModel.GetCountriesList_Result)">
+            <Parameter Name="txt" Mode="In" Type="String" />
+            <Parameter Name="IsActive" Mode="In" Type="Int32" />
+            <Parameter Name="InActive" Mode="In" Type="Int32" />
+            <Parameter Name="Start" Mode="In" Type="Int32" />
+            <Parameter Name="End" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="Charities" EntityType="webModel.Charity" />
+          <EntitySet Name="AboutUs" EntityType="webModel.AboutU" />
+          <EntitySet Name="ContactUsChannels" EntityType="webModel.ContactUsChannel" />
+          <EntitySet Name="ContactUsPeopleAsks" EntityType="webModel.ContactUsPeopleAsk" />
+          <EntitySet Name="PrivacyPolicies" EntityType="webModel.PrivacyPolicy" />
+          <EntitySet Name="TermAndConditions" EntityType="webModel.TermAndCondition" />
+          <EntitySet Name="Slaughterhouses" EntityType="webModel.Slaughterhouse" />
+          <EntitySet Name="Status1" EntityType="webModel.Status1" />
+          <EntitySet Name="AppVersions" EntityType="webModel.AppVersion" />
+          <EntitySet Name="PromoCodes" EntityType="webModel.PromoCode" />
+          <EntitySet Name="ProductPurposes" EntityType="webModel.ProductPurpos" />
+          <EntitySet Name="CancellationPolicies" EntityType="webModel.CancellationPolicy" />
+          <EntitySet Name="OurServices" EntityType="webModel.OurService" />
+        </EntityContainer>
+        <EntityType Name="FAQ">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TitleEn" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="TitleAr" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="DescriptionEn" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DescriptionAr" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Brand">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameEn" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NameAr" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedById" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastModByID" Type="Int32" />
+          <Property Name="LastModOnDate" Type="DateTime" Precision="3" />
+          <Property Name="DescriptionEn" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DescriptionAr" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Url" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameEn" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NameAr" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedById" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastModByID" Type="Int32" />
+          <Property Name="LastModOnDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="SubCategories" Relationship="webModel.FK_SubCategories_Categories" FromRole="Category" ToRole="SubCategory" />
+          <Property Name="Url" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SubCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameEn" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NameAr" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CategoryId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedById" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastModByID" Type="Int32" />
+          <Property Name="LastModOnDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Category" Relationship="webModel.FK_SubCategories_Categories" FromRole="SubCategory" ToRole="Category" />
+        </EntityType>
+        <Association Name="FK_SubCategories_Categories">
+          <End Type="webModel.Category" Role="Category" Multiplicity="1" />
+          <End Type="webModel.SubCategory" Role="SubCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SubCategory">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Color">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedById" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastModByID" Type="Int32" />
+          <Property Name="LastModOnDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Size">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameEn" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NameAr" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedById" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastModByID" Type="Int32" />
+          <Property Name="LastModOnDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="CityId" />
+          </Key>
+          <Property Name="CityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CityNameEn" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CityNameAr" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CountryId" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedById" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastModByID" Type="Int32" />
+          <Property Name="LastModOnDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Country" Relationship="webModel.FK_Cities_Cities" FromRole="City" ToRole="Country" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="CountryId" />
+          </Key>
+          <Property Name="CountryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CountryNameEn" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CountryNameAr" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedById" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastModByID" Type="Int32" />
+          <Property Name="LastModOnDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Cities" Relationship="webModel.FK_Cities_Cities" FromRole="Country" ToRole="City" />
+          <Property Name="Alpha_2_code" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Alpha_3_code" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_Cities_Cities">
+          <End Type="webModel.Country" Role="Country" Multiplicity="1" />
+          <End Type="webModel.City" Role="City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="CountryId" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameEn" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NameAr" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedById" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastModByID" Type="Int32" />
+          <Property Name="LastModOnDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <ComplexType Name="GetCountriesList_Result">
+          <Property Type="Int64" Name="RowNo" Nullable="true" />
+          <Property Type="Int32" Name="CountryId" Nullable="false" />
+          <Property Type="String" Name="CountryNameEn" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="CountryNameAr" Nullable="false" MaxLength="100" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="Int32" Name="CreatedById" Nullable="false" />
+          <Property Type="DateTime" Name="CreatedOnDate" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="LastModByID" Nullable="true" />
+          <Property Type="DateTime" Name="LastModOnDate" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="Records" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="Charity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameEn" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="NameAr" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="DescriptionEn" Type="String" Nullable="false" MaxLength="1500" FixedLength="false" Unicode="false" />
+          <Property Name="DescriptionAr" Type="String" Nullable="false" MaxLength="3000" FixedLength="false" Unicode="true" />
+          <Property Name="CountryId" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedById" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastModById" Type="Int32" />
+          <Property Name="LastModOnDate" Type="DateTime" Precision="3" />
+          <Property Name="AddressEn" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="AddressAr" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Username" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FirebaseToken" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AboutU">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TitleEn" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="TitleAr" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="DescriptionEn" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DescriptionAr" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ImageURL" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="ContactUsChannel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TitleEn" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="TitleAr" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="DescriptionEn" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DescriptionAr" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="ContactUsPeopleAsk">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TitleEn" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="TitleAr" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="DescriptionEn" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DescriptionAr" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="PrivacyPolicy">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TitleEn" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="TitleAr" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="DescriptionEn" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DescriptionAr" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="TermAndCondition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TitleEn" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="TitleAr" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="DescriptionEn" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DescriptionAr" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Slaughterhouse">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameEn" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="NameAr" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="DescriptionEn" Type="String" Nullable="false" MaxLength="1500" FixedLength="false" Unicode="false" />
+          <Property Name="DescriptionAr" Type="String" Nullable="false" MaxLength="3000" FixedLength="false" Unicode="true" />
+          <Property Name="CountryId" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedById" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastModById" Type="Int32" />
+          <Property Name="LastModOnDate" Type="DateTime" Precision="3" />
+          <Property Name="AddressEn" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="AddressAr" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Username" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FirebaseToken" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Status1">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameEn" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NameAr" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedById" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastModByID" Type="Int32" />
+          <Property Name="LastModOnDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="AppVersion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Version" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsRequiredUpdate" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PromoCode">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Discount" Type="Int32" Nullable="false" />
+          <Property Name="FixValue" Type="Int32" Nullable="false" />
+          <Property Name="MinInvoice" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedOnDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedById" Type="Int32" Nullable="false" />
+          <Property Name="LastModByid" Type="Int32" />
+          <Property Name="LastModOnDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="ProductPurpos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameEn" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NameAr" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedById" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastModByID" Type="Int32" />
+          <Property Name="LastModOnDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="CancellationPolicy">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TitleEn" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="TitleAr" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="DescriptionEn" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DescriptionAr" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="OurService">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TitleEn" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="TitleAr" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="DescriptionEn" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DescriptionAr" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOnDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="webModelStoreContainer" CdmEntityContainer="GeneralEntities">
+          <EntitySetMapping Name="ContactUs">
+            <EntityTypeMapping TypeName="webModel.ContactU">
+              <MappingFragment StoreEntitySet="ContactUs">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubscribedEmails">
+            <EntityTypeMapping TypeName="webModel.SubscribedEmail">
+              <MappingFragment StoreEntitySet="SubscribedEmails">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FAQs">
+            <EntityTypeMapping TypeName="webModel.FAQ">
+              <MappingFragment StoreEntitySet="FAQs">
+                <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="DescriptionAr" ColumnName="DescriptionAr" />
+                <ScalarProperty Name="DescriptionEn" ColumnName="DescriptionEn" />
+                <ScalarProperty Name="TitleAr" ColumnName="TitleAr" />
+                <ScalarProperty Name="TitleEn" ColumnName="TitleEn" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Brands">
+            <EntityTypeMapping TypeName="webModel.Brand">
+              <MappingFragment StoreEntitySet="Brands">
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="DescriptionAr" ColumnName="DescriptionAr" />
+                <ScalarProperty Name="DescriptionEn" ColumnName="DescriptionEn" />
+                <ScalarProperty Name="LastModOnDate" ColumnName="LastModOnDate" />
+                <ScalarProperty Name="LastModByID" ColumnName="LastModByID" />
+                <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+                <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="NameAr" ColumnName="NameAr" />
+                <ScalarProperty Name="NameEn" ColumnName="NameEn" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="webModel.Category">
+              <MappingFragment StoreEntitySet="Categories">
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="LastModOnDate" ColumnName="LastModOnDate" />
+                <ScalarProperty Name="LastModByID" ColumnName="LastModByID" />
+                <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+                <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="NameAr" ColumnName="NameAr" />
+                <ScalarProperty Name="NameEn" ColumnName="NameEn" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubCategories">
+            <EntityTypeMapping TypeName="webModel.SubCategory">
+              <MappingFragment StoreEntitySet="SubCategories">
+                <ScalarProperty Name="LastModOnDate" ColumnName="LastModOnDate" />
+                <ScalarProperty Name="LastModByID" ColumnName="LastModByID" />
+                <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+                <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="NameAr" ColumnName="NameAr" />
+                <ScalarProperty Name="NameEn" ColumnName="NameEn" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Colors">
+            <EntityTypeMapping TypeName="webModel.Color">
+              <MappingFragment StoreEntitySet="Colors">
+                <ScalarProperty Name="LastModOnDate" ColumnName="LastModOnDate" />
+                <ScalarProperty Name="LastModByID" ColumnName="LastModByID" />
+                <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+                <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sizes">
+            <EntityTypeMapping TypeName="webModel.Size">
+              <MappingFragment StoreEntitySet="Sizes">
+                <ScalarProperty Name="LastModOnDate" ColumnName="LastModOnDate" />
+                <ScalarProperty Name="LastModByID" ColumnName="LastModByID" />
+                <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+                <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="NameAr" ColumnName="NameAr" />
+                <ScalarProperty Name="NameEn" ColumnName="NameEn" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="webModel.City">
+              <MappingFragment StoreEntitySet="Cities">
+                <ScalarProperty Name="LastModOnDate" ColumnName="LastModOnDate" />
+                <ScalarProperty Name="LastModByID" ColumnName="LastModByID" />
+                <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+                <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="CityNameAr" ColumnName="CityNameAr" />
+                <ScalarProperty Name="CityNameEn" ColumnName="CityNameEn" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="webModel.Country">
+              <MappingFragment StoreEntitySet="Countries">
+                <ScalarProperty Name="Alpha_3_code" ColumnName="Alpha_3_code" />
+                <ScalarProperty Name="Alpha_2_code" ColumnName="Alpha_2_code" />
+                <ScalarProperty Name="LastModOnDate" ColumnName="LastModOnDate" />
+                <ScalarProperty Name="LastModByID" ColumnName="LastModByID" />
+                <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+                <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CountryNameAr" ColumnName="CountryNameAr" />
+                <ScalarProperty Name="CountryNameEn" ColumnName="CountryNameEn" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Statuses">
+            <EntityTypeMapping TypeName="webModel.Status">
+              <MappingFragment StoreEntitySet="Statuses1">
+                <ScalarProperty Name="LastModOnDate" ColumnName="LastModOnDate" />
+                <ScalarProperty Name="LastModByID" ColumnName="LastModByID" />
+                <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+                <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="NameAr" ColumnName="NameAr" />
+                <ScalarProperty Name="NameEn" ColumnName="NameEn" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetCountriesList" FunctionName="webModel.Store.GetCountriesList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="webModel.GetCountriesList_Result">
+                <ScalarProperty Name="RowNo" ColumnName="RowNo" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="CountryNameEn" ColumnName="CountryNameEn" />
+                <ScalarProperty Name="CountryNameAr" ColumnName="CountryNameAr" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+                <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+                <ScalarProperty Name="LastModByID" ColumnName="LastModByID" />
+                <ScalarProperty Name="LastModOnDate" ColumnName="LastModOnDate" />
+                <ScalarProperty Name="Records" ColumnName="Records" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Charities">
+            <EntityTypeMapping TypeName="webModel.Charity">
+              <MappingFragment StoreEntitySet="Charities">
+                <ScalarProperty Name="FirebaseToken" ColumnName="FirebaseToken" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="AddressAr" ColumnName="AddressAr" />
+                <ScalarProperty Name="AddressEn" ColumnName="AddressEn" />
+                <ScalarProperty Name="LastModOnDate" ColumnName="LastModOnDate" />
+                <ScalarProperty Name="LastModById" ColumnName="LastModById" />
+                <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+                <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="DescriptionAr" ColumnName="DescriptionAr" />
+                <ScalarProperty Name="DescriptionEn" ColumnName="DescriptionEn" />
+                <ScalarProperty Name="NameAr" ColumnName="NameAr" />
+                <ScalarProperty Name="NameEn" ColumnName="NameEn" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AboutUs">
+            <EntityTypeMapping TypeName="webModel.AboutU">
+              <MappingFragment StoreEntitySet="AboutUs">
+                <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+                <ScalarProperty Name="DescriptionAr" ColumnName="DescriptionAr" />
+                <ScalarProperty Name="DescriptionEn" ColumnName="DescriptionEn" />
+                <ScalarProperty Name="TitleAr" ColumnName="TitleAr" />
+                <ScalarProperty Name="TitleEn" ColumnName="TitleEn" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContactUsChannels">
+            <EntityTypeMapping TypeName="webModel.ContactUsChannel">
+              <MappingFragment StoreEntitySet="ContactUsChannels">
+                <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="DescriptionAr" ColumnName="DescriptionAr" />
+                <ScalarProperty Name="DescriptionEn" ColumnName="DescriptionEn" />
+                <ScalarProperty Name="TitleAr" ColumnName="TitleAr" />
+                <ScalarProperty Name="TitleEn" ColumnName="TitleEn" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContactUsPeopleAsks">
+            <EntityTypeMapping TypeName="webModel.ContactUsPeopleAsk">
+              <MappingFragment StoreEntitySet="ContactUsPeopleAsks">
+                <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="DescriptionAr" ColumnName="DescriptionAr" />
+                <ScalarProperty Name="DescriptionEn" ColumnName="DescriptionEn" />
+                <ScalarProperty Name="TitleAr" ColumnName="TitleAr" />
+                <ScalarProperty Name="TitleEn" ColumnName="TitleEn" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PrivacyPolicies">
+            <EntityTypeMapping TypeName="webModel.PrivacyPolicy">
+              <MappingFragment StoreEntitySet="PrivacyPolicy">
+                <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="DescriptionAr" ColumnName="DescriptionAr" />
+                <ScalarProperty Name="DescriptionEn" ColumnName="DescriptionEn" />
+                <ScalarProperty Name="TitleAr" ColumnName="TitleAr" />
+                <ScalarProperty Name="TitleEn" ColumnName="TitleEn" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TermAndConditions">
+            <EntityTypeMapping TypeName="webModel.TermAndCondition">
+              <MappingFragment StoreEntitySet="TermAndConditions">
+                <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="DescriptionAr" ColumnName="DescriptionAr" />
+                <ScalarProperty Name="DescriptionEn" ColumnName="DescriptionEn" />
+                <ScalarProperty Name="TitleAr" ColumnName="TitleAr" />
+                <ScalarProperty Name="TitleEn" ColumnName="TitleEn" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Slaughterhouses">
+            <EntityTypeMapping TypeName="webModel.Slaughterhouse">
+              <MappingFragment StoreEntitySet="Slaughterhouses">
+                <ScalarProperty Name="FirebaseToken" ColumnName="FirebaseToken" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="AddressAr" ColumnName="AddressAr" />
+                <ScalarProperty Name="AddressEn" ColumnName="AddressEn" />
+                <ScalarProperty Name="LastModOnDate" ColumnName="LastModOnDate" />
+                <ScalarProperty Name="LastModById" ColumnName="LastModById" />
+                <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+                <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="DescriptionAr" ColumnName="DescriptionAr" />
+                <ScalarProperty Name="DescriptionEn" ColumnName="DescriptionEn" />
+                <ScalarProperty Name="NameAr" ColumnName="NameAr" />
+                <ScalarProperty Name="NameEn" ColumnName="NameEn" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Status1">
+            <EntityTypeMapping TypeName="webModel.Status1">
+              <MappingFragment StoreEntitySet="Statuses">
+                <ScalarProperty Name="LastModOnDate" ColumnName="LastModOnDate" />
+                <ScalarProperty Name="LastModByID" ColumnName="LastModByID" />
+                <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+                <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="NameAr" ColumnName="NameAr" />
+                <ScalarProperty Name="NameEn" ColumnName="NameEn" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AppVersions">
+            <EntityTypeMapping TypeName="webModel.AppVersion">
+              <MappingFragment StoreEntitySet="AppVersions">
+                <ScalarProperty Name="IsRequiredUpdate" ColumnName="IsRequiredUpdate" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PromoCodes">
+            <EntityTypeMapping TypeName="webModel.PromoCode">
+              <MappingFragment StoreEntitySet="PromoCodes">
+                <ScalarProperty Name="LastModOnDate" ColumnName="LastModOnDate" />
+                <ScalarProperty Name="LastModByid" ColumnName="LastModByid" />
+                <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+                <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="MinInvoice" ColumnName="MinInvoice" />
+                <ScalarProperty Name="FixValue" ColumnName="FixValue" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductPurposes">
+            <EntityTypeMapping TypeName="webModel.ProductPurpos">
+              <MappingFragment StoreEntitySet="ProductPurposes">
+                <ScalarProperty Name="LastModOnDate" ColumnName="LastModOnDate" />
+                <ScalarProperty Name="LastModByID" ColumnName="LastModByID" />
+                <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+                <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="NameAr" ColumnName="NameAr" />
+                <ScalarProperty Name="NameEn" ColumnName="NameEn" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CancellationPolicies">
+            <EntityTypeMapping TypeName="webModel.CancellationPolicy">
+              <MappingFragment StoreEntitySet="CancellationPolicy">
+                <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="DescriptionAr" ColumnName="DescriptionAr" />
+                <ScalarProperty Name="DescriptionEn" ColumnName="DescriptionEn" />
+                <ScalarProperty Name="TitleAr" ColumnName="TitleAr" />
+                <ScalarProperty Name="TitleEn" ColumnName="TitleEn" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OurServices">
+            <EntityTypeMapping TypeName="webModel.OurService">
+              <MappingFragment StoreEntitySet="OurServices">
+                <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="DescriptionAr" ColumnName="DescriptionAr" />
+                <ScalarProperty Name="DescriptionEn" ColumnName="DescriptionEn" />
+                <ScalarProperty Name="TitleAr" ColumnName="TitleAr" />
+                <ScalarProperty Name="TitleEn" ColumnName="TitleEn" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
