@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="wishlist.aspx.cs" Inherits="web.wishlist" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="wishlist.aspx.cs" Inherits="web.wishlist" %>
 <asp:Content ID="Content3" ContentPlaceHolderID="HeadCss" runat="server">
     <meta name="robots" content="noindex,nofollow" />
 </asp:Content>
@@ -42,5 +42,5 @@
     </main>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
-       <script src="/assets/js/wishlist.js"></script>
+       <script src="/assets/js/wishlist.js?v=2.0"></script>
 </asp:Content>

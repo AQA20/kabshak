@@ -121,5 +121,5 @@
     </main>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
-    <script src="/assets/js/shop.js"></script>
+    <script src="/assets/js/shop.js?v=2.0"></script>
 </asp:Content>

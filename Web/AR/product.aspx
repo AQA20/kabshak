@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="product.aspx.cs" Inherits="web.AR.product" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="product.aspx.cs" Inherits="web.AR.product" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadCss" runat="server">
     <link href="/assets/css/product.css" rel="stylesheet" />
@@ -558,6 +558,6 @@
     <script src="/assets/vendor/zoom/jquery.zoom.js"></script>
     <script src="/assets/vendor/photoswipe/photoswipe.js"></script>
     <script src="/assets/vendor/photoswipe/photoswipe-ui-default.js"></script>
-    <script src="/assets/js/details.js"></script>
+    <script src="/assets/js/details.js?v=2.0"></script>
     <script src="/assets/vendor/magnific-popup/jquery.magnific-popup.js"></script>
 </asp:Content>
