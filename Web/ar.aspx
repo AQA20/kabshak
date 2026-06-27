@@ -22,24 +22,24 @@
 
         @media (max-width: 575px) {
             .category-banner-wrapper2 .banner-content {
-                width: 60% !important;
+                width: 65% !important;
                 right: 15px !important;
                 left: auto !important;
                 text-align: right !important;
             }
             .category-banner-wrapper2 .banner-title {
-                font-size: 1.85rem !important;
+                font-size: 2.15rem !important;
                 line-height: 1.2 !important;
                 margin-bottom: 4px !important;
             }
             .category-banner-wrapper2 .banner-price-info {
-                font-size: 1.15rem !important;
+                font-size: 1.3rem !important;
                 line-height: 1.3 !important;
                 margin-bottom: 8px !important;
             }
             .category-banner-wrapper2 .banner-content .btn {
-                padding: 8px 22px !important;
-                font-size: 1.0rem !important;
+                padding: 9px 25px !important;
+                font-size: 1.1rem !important;
                 line-height: 1.2 !important;
             }
         }
