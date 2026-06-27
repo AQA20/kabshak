@@ -19,18 +19,18 @@
                 text-align: left !important;
             }
             .category-banner-wrapper2 .banner-title {
-                font-size: 1.25rem !important;
+                font-size: 1.55rem !important;
                 line-height: 1.2 !important;
                 margin-bottom: 4px !important;
             }
             .category-banner-wrapper2 .banner-price-info {
-                font-size: 0.85rem !important;
+                font-size: 1rem !important;
                 line-height: 1.3 !important;
                 margin-bottom: 8px !important;
             }
             .category-banner-wrapper2 .banner-content .btn {
-                padding: 6px 15px !important;
-                font-size: 0.8rem !important;
+                padding: 7px 18px !important;
+                font-size: 0.9rem !important;
                 line-height: 1.2 !important;
             }
         }
