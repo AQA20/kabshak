@@ -643,17 +643,20 @@ function ChangeCurrentLanguage(lang, src) {
 
         var theme = document.getElementsByTagName('a');
         for (let i = 0; i < theme.length; i++) {
-            if (!theme[i].href.trim().includes('ar/')
-                && !theme[i].href.trim().includes('void(0)')
-                && !theme[i].href.trim().includes('#')
-                && !theme[i].href.trim().includes('00965')
-                && !theme[i].href.trim().includes('login.html')
-                && !theme[i].href.trim().includes('whatsapp')
-                && !theme[i].href.trim().includes('logout')
-                && !theme[i].href.trim().includes('admin')
-                && !theme[i].href.trim().includes('@')) {
-                if (theme[i].getAttribute('href') !== null)
-                    theme[i].setAttribute('href', '/ar/' + theme[i].getAttribute('href').replace('/', ''));
+            let rawHref = theme[i].getAttribute('href');
+            if (rawHref !== null) {
+                let isAlreadyArabic = rawHref.trim() === '/ar' || rawHref.trim() === '/ar/' || rawHref.trim().startsWith('/ar/') || rawHref.trim().startsWith('ar/');
+                if (!isAlreadyArabic
+                    && !theme[i].href.trim().includes('void(0)')
+                    && !theme[i].href.trim().includes('#')
+                    && !theme[i].href.trim().includes('00965')
+                    && !theme[i].href.trim().includes('login.html')
+                    && !theme[i].href.trim().includes('whatsapp')
+                    && !theme[i].href.trim().includes('logout')
+                    && !theme[i].href.trim().includes('admin')
+                    && !theme[i].href.trim().includes('@')) {
+                    theme[i].setAttribute('href', '/ar/' + rawHref.replace('/', ''));
+                }
             }
 
             if (theme[i].href.trim().includes('home')) {
