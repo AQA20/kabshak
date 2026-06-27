@@ -1,5 +1,3 @@
-window.location = "/" + (IsArabic ? 'ar' : 'home')
-
 let urlSearchQuery = location.search;
 let urlParams = new URLSearchParams(urlSearchQuery);
 let urlHasQueryString = Array.from(urlParams).length > 0;

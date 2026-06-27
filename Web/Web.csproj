@@ -150,6 +150,7 @@
     <Content Include="AR\privacy-policy.aspx" />
     <Content Include="AR\product.aspx" />
     <Content Include="AR\shipping-shop.aspx" />
+    <Content Include="AR\shop.aspx" />
     <Content Include="AR\term-and-conditions.aspx" />
     <Content Include="AR\wishlist.aspx" />
     <Content Include="assets\ajax\arlogin.html" />
@@ -643,6 +644,7 @@
     <Content Include="reset-password.aspx" />
     <Content Include="robots.txt" />
     <Content Include="shipping-shop.aspx" />
+    <Content Include="shop.aspx" />
     <Content Include="sitemap.xml" />
     <Content Include="term-and-conditions.aspx" />
     <Content Include="Web.config" />
@@ -659,6 +661,8 @@
     <Content Include="SEO\home.txt" />
     <Content Include="SEO\home_ar.txt" />
     <Content Include="SEO\our_services.txt" />
+    <Content Include="SEO\shop.txt" />
+    <Content Include="SEO\shop_ar.txt" />
     <Content Include="SEO\our_services_ar.txt" />
     <Content Include="SEO\privacy_policy.txt" />
     <Content Include="SEO\privacy_policy_ar.txt" />
@@ -961,6 +965,13 @@
     <Compile Include="AR\shipping-shop.aspx.designer.cs">
       <DependentUpon>shipping-shop.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AR\shop.aspx.cs">
+      <DependentUpon>shop.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AR\shop.aspx.designer.cs">
+      <DependentUpon>shop.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AR\term-and-conditions.aspx.cs">
       <DependentUpon>term-and-conditions.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1116,6 +1127,13 @@
     </Compile>
     <Compile Include="shipping-shop.aspx.designer.cs">
       <DependentUpon>shipping-shop.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="shop.aspx.cs">
+      <DependentUpon>shop.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="shop.aspx.designer.cs">
+      <DependentUpon>shop.aspx</DependentUpon>
     </Compile>
     <Compile Include="site.Master.cs">
       <DependentUpon>site.Master</DependentUpon>
