@@ -148,10 +148,6 @@
                                     <a href="/assets/ajax/login.html" class="d-lg-show login sign-in">
                                         <script>Languag_IsArabic('Sign In', 'الدخول')</script>
                                     </a>
-                                    <span class="delimiter d-lg-show" style="color: #FFFFFF;">/</span>
-                                    <a href="/assets/ajax/login.html" class="ml-0 d-lg-show login register">
-                                        <script>Languag_IsArabic('Register', 'تسجيل')</script>
-                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -515,9 +511,7 @@
                                 <li id="lbllogin_mob" runat="server"><a href="/assets/ajax/login.html" class="d-lg-show login sign-in" style="display: block !important;">
                                     <script>Languag_IsArabic('Sign In', 'تسجيل الدخول')</script>
                                 </a></li>
-                                <li id="lblRegister_mob" runat="server"><a href="/assets/ajax/login.html" class="d-lg-show login register" style="display: block !important;">
-                                    <script>Languag_IsArabic('Register', 'التسجيل')</script>
-                                </a></li>
+                                <li id="lblRegister_mob" runat="server" class="d-none"></li>
                                 <li id="lbl_my_account_mob" runat="server" class="d-none"><a href="/account">
                                     <script>Languag_IsArabic('My Account', 'حسابي')</script>
                                 </a></li>

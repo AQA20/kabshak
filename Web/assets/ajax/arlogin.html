@@ -1,4 +1,4 @@
-﻿<style>
+<style>
     .social-icon-border-color .social-icon.social-facebook {
         color: #1b4f9b;
         border-color: #1b4f9b;
@@ -78,6 +78,9 @@
                     <button style="background: unset; border: unset; cursor: pointer; color: #05D7A0;" onclick="Reset_Your_Password();">اعد ضبط كلمه السر؟</button>
                 </div>
                 <button class="btn btn-primary w-100" onclick="LoginByEmail();">تسجيل الدخول</button>
+                <div class="text-center mt-4">
+                    <p class="mb-0">ليس لديك حساب؟ <a href="#" style="color: #05D7A0; font-weight: bold;" onclick="document.querySelector('a[href=\'#sign-up\']').click(); return false;">قم بالتسجيل الان</a></p>
+                </div>
             </div>
             <div class="tab-pane" id="sign-up">
                 <div class="form-group">
@@ -97,6 +100,9 @@
                     <label for="agree" class="font-size-md">أنا أوافق على <a href="privacy-policy.aspx" target="_blank" class="text-primary font-size-md">سياسة الخصوصية</a></label>
                 </div>
                 <button class="btn btn-primary w-100" onclick="SignupByEmail();">قم بالتسجيل</button>
+                <div class="text-center mt-4">
+                    <p class="mb-0">لديك حساب بالفعل؟ <a href="#" style="color: #05D7A0; font-weight: bold;" onclick="document.querySelector('a[href=\'#sign-in\']').click(); return false;">تسجيل الدخول</a></p>
+                </div>
             </div>
         </div>
         <div id="divLoginError" class="alert alert-icon alert-error alert-bg alert-inline show-code-action d-none">

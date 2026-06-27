@@ -78,6 +78,9 @@
                     <button style="background: unset; border: unset; cursor: pointer; color: #05D7A0;" onclick="Reset_Your_Password();">Reset your password?</button>
                 </div>
                 <button class="btn btn-primary w-100" onclick="LoginByEmail();">Sign In</button>
+                <div class="text-center mt-4">
+                    <p class="mb-0">Don't you have an account? <a href="#" style="color: #05D7A0; font-weight: bold;" onclick="document.querySelector('a[href=\'#sign-up\']').click(); return false;">Register</a></p>
+                </div>
             </div>
             <div class="tab-pane" id="sign-up">
                 <div class="form-group">
@@ -97,6 +100,9 @@
                     <label for="agree" class="font-size-md">I agree to the <a href="privacy-policy.aspx" target="_blank" class="text-primary font-size-md">privacy policy</a></label>
                 </div>
                 <button class="btn btn-primary w-100" onclick="SignupByEmail();">Sign Up</button>
+                <div class="text-center mt-4">
+                    <p class="mb-0">Already have an account? <a href="#" style="color: #05D7A0; font-weight: bold;" onclick="document.querySelector('a[href=\'#sign-in\']').click(); return false;">Sign In</a></p>
+                </div>
             </div>
         </div>
         <div id="divLoginError" class="alert alert-icon alert-error alert-bg alert-inline show-code-action d-none">
