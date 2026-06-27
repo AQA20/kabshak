@@ -2296,5 +2296,116 @@ namespace web.api
             }
         }
 
+        public class MobileHomepageData
+        {
+            public List<MobileKabshakOption> KabshakOptions { get; set; }
+            public List<MobileSwiperText> SwiperText { get; set; }
+            public List<MobileVideo> Videos { get; set; }
+            public List<MobileButton> Buttons { get; set; }
+            public MobilePaymentKeys PaymentKeys { get; set; }
+        }
+
+        public class MobileKabshakOption
+        {
+            public int Id { get; set; }
+            public string TitleEn { get; set; }
+            public string TitleAr { get; set; }
+            public string Url { get; set; }
+            public bool IsActive { get; set; }
+        }
+
+        public class MobileSwiperText
+        {
+            public int Id { get; set; }
+            public string TitleEn { get; set; }
+            public string TitleAr { get; set; }
+            public string DescriptionEn { get; set; }
+            public string DescriptionAr { get; set; }
+        }
+
+        public class MobileVideo
+        {
+            public int Id { get; set; }
+            public string TitleEn { get; set; }
+            public string TitleAr { get; set; }
+            public string URL { get; set; }
+        }
+
+        public class MobileButton
+        {
+            public int Id { get; set; }
+            public string TitleEn { get; set; }
+            public string TitleAr { get; set; }
+            public string URL { get; set; }
+        }
+
+        public class MobilePaymentKeys
+        {
+            public string serverKey { get; set; }
+            public string clientKey { get; set; }
+        }
+
+        [WebMethod(EnableSession = true)]
+        [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
+        public void get_mobile_app_homepage()
+        {
+            try
+            {
+                string auth_token = HttpContext.Current.Request["auth_token"].ToString(); 
+                
+                if (!IsAuthorized(auth_token))
+                {
+                    throw new InvalidOperationException("You are not authorized to use the API");
+                }
+
+                var data = new MobileHomepageData();
+
+                data.KabshakOptions = new List<MobileKabshakOption>
+                {
+                    new MobileKabshakOption { Id = 1, TitleEn = "Fidya", TitleAr = "الفدية", Url = "https://www.kabshak.com/assets/images/categories/898249.png", IsActive = true },
+                    new MobileKabshakOption { Id = 2, TitleEn = "Sacrifice", TitleAr = "الاضحية", Url = "https://www.kabshak.com/assets/images/categories/871500.png", IsActive = true },
+                    new MobileKabshakOption { Id = 3, TitleEn = "Aqeeqah", TitleAr = "العقيقة", Url = "https://www.kabshak.com/assets/images/categories/567915.png", IsActive = true },
+                    new MobileKabshakOption { Id = 4, TitleEn = "Vow", TitleAr = "النذر", Url = "https://www.kabshak.com/assets/images/categories/240420.png", IsActive = true },
+                    new MobileKabshakOption { Id = 5, TitleEn = "Charity", TitleAr = "الصدقة", Url = "https://www.kabshak.com/assets/images/categories/898249.png", IsActive = true }
+                };
+
+                data.SwiperText = new List<MobileSwiperText>
+                {
+                    new MobileSwiperText { Id = 1, TitleEn = "Shipping", TitleAr = "الشحن", DescriptionEn = "Fast delivery on time", DescriptionAr = "التسليم السريع في الوقت المحدد" },
+                    new MobileSwiperText { Id = 2, TitleEn = "Secure Payment", TitleAr = "الدفع الآمن", DescriptionEn = "We guarantee secure payment", DescriptionAr = "نحن نضمن لك الدفع الامن" },
+                    new MobileSwiperText { Id = 3, TitleEn = "Money Back Guarantee", TitleAr = "ضمان استعادة الاموال", DescriptionEn = "According to terms and conditions", DescriptionAr = "وذلك حسب الشروط والاحكام" },
+                    new MobileSwiperText { Id = 4, TitleEn = "Contact Us", TitleAr = "اتصل بنا", DescriptionEn = "You can contact and write to us daily from 8 AM to 9 PM", DescriptionAr = "يمكنك الاتصال بنا ومراسلتنا يوميا من الساعة الثامنة صباحا وحتى الساعة التاسعة مساء" }
+                };
+
+                data.Videos = new List<MobileVideo>
+                {
+                    new MobileVideo { Id = 1, TitleEn = "About Kabshak", TitleAr = "عن كبشك", URL = "https://www.w3schools.com/html/mov_bbb.mp4" }
+                };
+
+                data.Buttons = new List<MobileButton>
+                {
+                    new MobileButton { Id = 1, TitleEn = "Donate Now", TitleAr = "تبرع الأن", URL = "donate-shop.aspx" },
+                    new MobileButton { Id = 2, TitleEn = "Order Now", TitleAr = "أطلب الأن", URL = "shipping-shop.aspx" }
+                };
+
+                string serverKeyVal = ConfigurationManager.AppSettings["payment_ServerKey"];
+                string clientKeyVal = ConfigurationManager.AppSettings["payment_ClientKey"];
+
+                data.PaymentKeys = new MobilePaymentKeys
+                {
+                    serverKey = serverKeyVal ?? "SBJNJNBTJW-J62RDRTDDW-WTMMGNJM6J",
+                    clientKey = clientKeyVal ?? ""
+                };
+
+                Context.Response.Clear();
+                Context.Response.ContentType = "application/json";
+                Context.Response.Write(JsonConvert.SerializeObject(data));
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+        }
+
     }
 }
