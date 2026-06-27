@@ -79,7 +79,7 @@
                 </div>
                 <button class="btn btn-primary w-100" onclick="LoginByEmail();">Sign In</button>
                 <div class="text-center mt-4">
-                    <p class="mb-0">Don't you have an account? <a href="#" style="color: #05D7A0; font-weight: bold;" onclick="document.querySelector('a[href=\'#sign-up\']').click(); return false;">Register</a></p>
+                    <p class="mb-0">Don't you have an account? <a href="#" style="color: #05D7A0; font-weight: bold;" onclick="var signUpTab = document.querySelector('a[href=\'#sign-up\']'); signUpTab.closest('.nav-item').classList.remove('d-none'); signUpTab.click(); return false;">Register</a></p>
                 </div>
             </div>
             <div class="tab-pane" id="sign-up">
