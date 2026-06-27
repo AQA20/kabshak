@@ -20,6 +20,30 @@
             }
         }
 
+        @media (max-width: 575px) {
+            .category-banner-wrapper2 .banner-content {
+                width: 55% !important;
+                right: 15px !important;
+                left: auto !important;
+                text-align: right !important;
+            }
+            .category-banner-wrapper2 .banner-title {
+                font-size: 1.25rem !important;
+                line-height: 1.2 !important;
+                margin-bottom: 4px !important;
+            }
+            .category-banner-wrapper2 .banner-price-info {
+                font-size: 0.85rem !important;
+                line-height: 1.3 !important;
+                margin-bottom: 8px !important;
+            }
+            .category-banner-wrapper2 .banner-content .btn {
+                padding: 6px 15px !important;
+                font-size: 0.8rem !important;
+                line-height: 1.2 !important;
+            }
+        }
+
         .category-banner-3cols .text-center .banner-title {
             margin-bottom: unset;
         }

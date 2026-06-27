@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="home.aspx.cs" Inherits="web.home" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="home.aspx.cs" Inherits="web.home" %>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="headCss" runat="server">
     <link rel="stylesheet" type="text/css" href="/assets/vendor/animate/animate.min.css">
@@ -8,6 +8,30 @@
         @media (min-width: 768px) {
             .category-banner {
                 width: 50% !important;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .category-banner-wrapper2 .banner-content {
+                width: 55% !important;
+                left: 15px !important;
+                right: auto !important;
+                text-align: left !important;
+            }
+            .category-banner-wrapper2 .banner-title {
+                font-size: 1.25rem !important;
+                line-height: 1.2 !important;
+                margin-bottom: 4px !important;
+            }
+            .category-banner-wrapper2 .banner-price-info {
+                font-size: 0.85rem !important;
+                line-height: 1.3 !important;
+                margin-bottom: 8px !important;
+            }
+            .category-banner-wrapper2 .banner-content .btn {
+                padding: 6px 15px !important;
+                font-size: 0.8rem !important;
+                line-height: 1.2 !important;
             }
         }
 
