@@ -246,7 +246,7 @@ function FillProductDetailsData(data) {
     else
         $(".sale-tag").remove();
     $(".Brief").html(IsArabic ? item.BriefAr : item.BriefEn);
-    $(".product-category").html((IsArabic ? item.CategoryNameAr : item.CategoryNameEn) + (item.SubCategoryNameEn != null && item.SubCategoryNameEn.trim() != '' ? ', ' + (IsArabic ? item.SubCategoryNameAr : item.SubCategoryNameEn) : ''));
+    $(".product-category").html((IsArabic ? item.CategoryNameAr : item.CategoryNameEn) + (item.SubCategoryNameEn != null && item.SubCategoryNameEn.trim() != '' && item.SubCategoryNameEn.toLowerCase() != 'null' ? ', ' + (IsArabic ? item.SubCategoryNameAr : item.SubCategoryNameEn) : ''));
     $(".product-link-wrapper").html(``);
 
     if (item.Colors != null && item.Colors.trim() != '') {
@@ -566,7 +566,7 @@ function FillProductsLists(data) {
                                                 </div>
                                             </figure>
                                             <div class="product-details">
-                                                <div class="product-cat"><a href="#" onclick="voidclick(); return false">${IsArabic ? item.CategoryNameAr : item.CategoryNameEn}, ${IsArabic ? item.SubCategoryNameAr : item.SubCategoryNameEn}</a>
+                                                <div class="product-cat"><a href="#" onclick="voidclick(); return false">${IsArabic ? item.CategoryNameAr : item.CategoryNameEn}${((sub) => sub && sub.toString().toLowerCase() !== 'null' && sub.toString().trim() !== '' ? ', ' + sub : '')(IsArabic ? item.SubCategoryNameAr : item.SubCategoryNameEn)}</a>
                                                 </div>
                                                 <h4 class="product-name"><a href="#" onclick="voidclick(); return false">${IsArabic ? item.NameAr : item.NameEn}</a>
                                                 </h4>
@@ -593,7 +593,7 @@ function FillProductsLists(data) {
                                                 </div>
                                             </figure>
                                             <div class="product-details">
-                                                <div class="product-cat"><a href="#" onclick="voidclick(); return false"">${IsArabic ? item.CategoryNameAr : item.CategoryNameEn}, ${IsArabic ? item.SubCategoryNameAr : item.SubCategoryNameEn}</a>
+                                                <div class="product-cat"><a href="#" onclick="voidclick(); return false"">${IsArabic ? item.CategoryNameAr : item.CategoryNameEn}${((sub) => sub && sub.toString().toLowerCase() !== 'null' && sub.toString().trim() !== '' ? ', ' + sub : '')(IsArabic ? item.SubCategoryNameAr : item.SubCategoryNameEn)}</a>
                                                 </div>
                                                 <h4 class="product-name"><a href="#" onclick="voidclick(); return false">${IsArabic ? item.NameAr : item.NameEn}</a></h4>
                                                 <div class="product-pa-wrapper">
@@ -620,7 +620,7 @@ function FillProductsLists(data) {
                                                 </div>
                                             </figure>
                                             <div class="product-details">
-                                                <div class="product-cat"><a href="#" onclick="voidclick(); return false">${IsArabic ? item.CategoryNameAr : item.CategoryNameEn}, ${IsArabic ? item.SubCategoryNameAr : item.SubCategoryNameEn}</a></div>
+                                                <div class="product-cat"><a href="#" onclick="voidclick(); return false">${IsArabic ? item.CategoryNameAr : item.CategoryNameEn}${((sub) => sub && sub.toString().toLowerCase() !== 'null' && sub.toString().trim() !== '' ? ', ' + sub : '')(IsArabic ? item.SubCategoryNameAr : item.SubCategoryNameEn)}</a></div>
                                                 <h4 class="product-name"><a href="#" onclick="voidclick(); return false">${IsArabic ? item.NameAr : item.NameEn}</a></h4>
                                                 <div class="product-pa-wrapper">
                                                     <div class="product-price">

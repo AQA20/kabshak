@@ -52,7 +52,7 @@ function FillWishListData(data) {
                                 <a href="${productURL}">${IsArabic ? item.NameAr : item.NameEn}
                                 </a>
                                 <div class="product-cat">
-                                        <a href="#" onclick="voidclick(); return false">${IsArabic ? item.CategoryNameAr : item.CategoryNameEn}, ${IsArabic ? item.SubCategoryNameAr : item.SubCategoryNameEn}</a>
+                                        <a href="#" onclick="voidclick(); return false">${IsArabic ? item.CategoryNameAr : item.CategoryNameEn}${((sub) => sub && sub.toString().toLowerCase() !== 'null' && sub.toString().trim() !== '' ? ', ' + sub : '')(IsArabic ? item.SubCategoryNameAr : item.SubCategoryNameEn)}</a>
                                 </div>
                                 <div class="product-cat"  style="color: #05D7A0;">
                                         <a href="#" onclick="voidclick(); return false">${IsArabic ? item.BrandNameAr : item.BrandNameEn}</a>

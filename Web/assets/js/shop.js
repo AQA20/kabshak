@@ -215,7 +215,7 @@ function FillProducts(data, end, start) {
                                     </figure>
                                     <div class="product-details" style="width:100%;min-height: 265px;">
                                         <div class="product-cat">
-                                            <a href="#" onclick="voidclick(); return false" style="padding: 10px;background: #FF9800;color: #ffffff;border-radius: 5px;    font-weight: 600;">${IsArabic ? item.CategoryNameAr : item.CategoryNameEn}, ${IsArabic ? item.SubCategoryNameAr : item.SubCategoryNameEn}</a>
+                                            <a href="#" onclick="voidclick(); return false" style="padding: 10px;background: #FF9800;color: #ffffff;border-radius: 5px;    font-weight: 600;">${IsArabic ? item.CategoryNameAr : item.CategoryNameEn}${((sub) => sub && sub.toString().toLowerCase() !== 'null' && sub.toString().trim() !== '' ? ', ' + sub : '')(IsArabic ? item.SubCategoryNameAr : item.SubCategoryNameEn)}</a>
                                         </div>
                                         <h4 class="product-name">
                                             <a href="${productURL}">${IsArabic ? item.NameAr : item.NameEn}</a>
