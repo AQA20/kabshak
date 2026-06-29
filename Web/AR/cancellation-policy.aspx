@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="cancellation-policy.aspx.cs" Inherits="vape.AR.cancellation_policy" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="cancellation-policy.aspx.cs" Inherits="vape.AR.cancellation_policy" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <main class="main">
@@ -33,7 +33,7 @@
                         </div>
                         <div class="col-md-6 mb-8">
                             <figure class="br-lg">
-                                <img src="/assets/images/CancellationPolicy.png" alt="Banner" width="610" height="500" style="background-color: #CECECC;">
+                                <img src="/assets/images/cancellation-policy.png" alt="Banner" width="610" height="500" style="background-color: #CECECC;">
                             </figure>
                         </div>
                     </div>

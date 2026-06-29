@@ -232,7 +232,7 @@
                                 <cite>NADHAR – VOW OR OATH
                                 </cite>
                                 <blockquote>
-                                    It is the obligation of the taxpayer to himself something that he did not owe, whether it was completed or suspended. It is also defined as: “Commitment to an act of worship that is not necessary for the origin of the Sharia.                               
+                                    It is the obligation of the taxpayer on himself something that he did not owe, whether it was completed or suspended. It is also defined as: “Commitment to an act of worship that is not necessary in the origin of the Sharia, with a word that conveys that, such as when a person says: To Allah, I have to sacrifice to Allah if Allah heals my sickness, and so on.                               
                                 </blockquote>
                             </div>
                         </div>

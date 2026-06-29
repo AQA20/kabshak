@@ -469,6 +469,66 @@ function AddToCart(product_token, no_items) {
     CalculateCartPrices(cookie_cart_items);
 }
 
+function AddToCartFromShop(elem, token, quantity) {
+    let $product = $(elem).closest('.product');
+    let name = $product.find('.product-name a').text().trim() || $product.find('.product-title a').text().trim() || $product.find('.product-title').text().trim() || '';
+    let image = $product.find('.product-media img').attr('src') || $product.find('.product-image:first-child img').attr('src') || '';
+    let categoryName = $product.find('.product-cat a').text().trim() || $product.find('.product-cat').text().trim() || '';
+    
+    let isDonation = (categoryName.toLowerCase().indexOf('donation') > -1 || categoryName.indexOf('تبرع') > -1) ? 1 : 0;
+    
+    if (image) {
+        if (!image.startsWith('/') && !image.startsWith('http')) {
+            image = '/' + image;
+        }
+    } else {
+        image = '/assets/images/defult_image.png';
+    }
+    
+    const Item = {
+        Donation: isDonation,
+        PurposeId: 6,
+        CharityId: -1,
+        productToken: token,
+        productName: name,
+        productImage: image,
+        Quantity: quantity,
+        Shareholder: '',
+        ShippingCityid: -1,
+        ShippingTown: '',
+        ShippingHouse: 0,
+        ShippingStreet: '',
+        ShippingApartment: 0,
+        ShippingNumber: '',
+        cuttingNotes: ''
+    };
+    
+    console.log("AddToCartFromShop details:", { name: name, image: image, categoryName: categoryName, isDonation: isDonation, Item: Item });
+    
+    add_shareholders_value(Item);
+    AddToCart(token, quantity);
+}
+
+function add_shareholders_value(json) {
+    let cookieValue = '';
+    let expire = '';
+    let period = 7;
+
+    let Shareholders = getCookie("Shareholders");
+
+    if (Shareholders == '') {
+        cookieValue = 'Shareholders' + '=' + encodeURIComponent(JSON.stringify(json)) + ';';
+    }
+    else {
+        cookieValue = 'Shareholders' + '=' + encodeURIComponent(Shareholders + '|' + JSON.stringify(json)) + ';';
+    }
+    cookieValue += 'path=/;';
+    expire = new Date();
+    expire.setTime(expire.getTime() + 1000 * 3600 * 24 * period);
+    cookieValue += 'expires=' + expire.toUTCString() + ';';
+    document.cookie = cookieValue;
+}
+
 function CalculateCartPrices(items) {
     var fdata = new FormData();
     fdata.append('cookie_cart_items', items);

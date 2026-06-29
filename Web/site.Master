@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title></title>
     <meta name="keywords" content="kabshak,kabshak.com,kabsh,sheep,Qurban,kurban,Audhia,aladha,eid,Islam,donate,donation,Shop online,Zakat,Sacrifices for sale,Buy food for sacrifices,Alms and donations,Sheep for sale,Camels for sale,Bulls for sale,Goats for sale,Online sacrifice delivery,Ship sacrifices to your door,Donate sacrifices to the less fortunate,Halal meat delivery,Fresh meat delivery,Qurbani services,Eid sacrifices online,Affordable sacrifices,Home delivery of sacrifices,Meat donations,Islamic rituals and sacrifices,Animal sacrifices for religious purposes,Online store for qurbani animals,Sacrifices for sale online,Buy sacrificial animals,Qurbani animals for sale,Fresh meat delivery service,Halal food delivery,Online alms donation,Donate to the less fortunate,Ship sacrifices to your doorstep,Buy sheep for qurbani,Camels for Eid sacrifice,Bulls for religious sacrifices,Goats for sale for qurbani,Affordable sacrificial animals,Online store for sacrificial items,Home delivery of sacrificial animals,Meat donations for the needy,Islamic sacrifices and food,Order sacrificial animals online,Halal meat shipping service,Donate food to the less fortunate,أضاحي للبيع,شراء الطعام والأضاحي,الصدقات والتبرعات,غنم للبيع,جمل للبيع,ثيران للبيع,ماعز للبيع,تسليم الأضاحي عبر الإنترنت,اشحن الأضاحي إلى بابك,تبرع بالأضاحي لمن هم أقل حظا,توصيل اللحوم الحلال,توصيل اللحوم الطازجة,خدمات قرباني,أضاحي العيد اون لاين,أضاحي ميسورة التكلفة,توصيل الأضاحي إلى المنزل,التبرعات باللحوم,الشعائر والأضاحي الإسلامية,القرابين الحيوانية لأغراض دينية,متجر إلكتروني للحيوانات قرباني,أضاحي للبيع على الإنترنت,شراء الأضاحي,حيوانات قرباني للبيع,خدمة توصيل اللحوم الطازجة,توصيل الطعام الحلال,تبرع الصدقات عبر الإنترنت,تبرع لمن هم أقل حظا,اشحن الأضاحي إلى عتبة داركم,شراء الأغنام للقرباني,الإبل لأضاحي العيد,الثيران للأضاحي الدينية,ماعز للبيع قرباني,الأضاحي بأسعار معقولة,متجر على الإنترنت للأضاحي,توصيل الأضاحي للمنزل,التبرع باللحوم للمحتاجين,القرابين والمأكولات الإسلامية,اطلب الأضاحي عبر الإنترنت,خدمة شحن اللحوم الحلال,تبرع بالطعام لمن هم أقل حظا,اضحية,عيد الأضحى,شروط الاضحية,كبشك,كبش,مواقع الاضاحي,اضاحي العيد,شراء اضاحي,زكاة,صلاة العيد,تسوق اون لاين,عقيقة,نذر,تبرعات,تبرع,السوق المفتوح,تكية ام علي,موضوع,طقس العرب" />
-    <meta name="description" content="Kabshak is an online retailer developed and created to provide high-quality, premium, and unique Halal livestock’s meat. Focusing  and aiming to bring all of that to you wherever you are, and through our platforms, you can also buy and donate to a well-known associations or organizations to be distributed to families or communities in need.">
+    <meta name="description" content="Kabshak is an online retailer developed and created to provide high-quality, premium, and unique Halal livestock’s meat. Focusing and aiming to bring all of that to you wherever you are, and through our platforms, you can also buy and donate to a well-known associations or organizations to be distributed to families or communities in need.">
     <meta property="og:site_name" content="Kabshak" />
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicons/favicon-16x16.png">
@@ -170,6 +170,11 @@
                                         <nav class="main-nav">
                                             <ul class="menu">
                                                 <li>
+                                                    <a href="/shop.aspx">
+                                                        <script>Languag_IsArabic('SHOP', 'المتجر')</script>
+                                                    </a>
+                                                </li>
+                                                <li>
                                                     <a href="/our-services.aspx">
                                                         <script>Languag_IsArabic('OUR SERVICES', 'خدماتنا')</script>
                                                     </a>
@@ -235,7 +240,7 @@
                     <div class="sticky-content-wrapper" style="display: block !important;">
                         <div class="main-nav" style="padding: 10px; background: #FFD264; color: #000000;">
                             <i class="w-icon-exclamation-circle" style="padding: 3px;"></i>
-                            <script>Languag_IsArabic('Your order will be distributed and delivered under the supervision of a specialized team to ensure the quality of progress of the process at the time and place you choose and documented to be send to your e-mail accordingly.', 'سيتم توزيع طلبك وتسليمه تحت إشراف فريق متخصص لضمان جودة سير العملية في الوقت والمكان الذي تختاره وتوثيقه ليتم إرساله إلى بريدك الإلكتروني بناءً على طلبك.')</script>
+                            <script>Languag_IsArabic('Your order will be distributed and delivered under the supervision of a specialized team to ensure the quality of progress of the process at the time and place you choose and documented to be send to your e-mail accordingly.', 'سوف يتم توزيع وإيصال طلبك تحت اشراف فريق مختص لضمان الجودة وسير العملية بشكل منظم في الوقت والمكان الذي يتم اختياره , باإلضافة الى توثيق العملية وإرسالها على البريد االلكتروني وذلك حسب طلبكم.')</script>
                         </div>
                     </div>
                 </div>
@@ -607,7 +612,7 @@
     <script src="/assets/vendor/sticky/sticky.js"></script>
     <script src="/assets/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
     <script src="/assets/js/floating-wpp.js"></script>
-    <script src="/assets/js/master.js?v=2.0"></script>
+    <script src="/assets/js/master.js?v=3.1"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <script src="/assets/vendor/swiper/swiper-bundle.min.js"></script>

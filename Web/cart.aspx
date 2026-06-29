@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="cart.aspx.cs" Inherits="web.cart" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="cart.aspx.cs" Inherits="web.cart" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadCss" runat="server">
     <meta name="robots" content="noindex,nofollow" />
@@ -69,7 +69,7 @@
                         </table>
 
                         <div class="cart-action mb-6">
-                            <a href="/home" class="btn btn-dark btn-rounded btn-icon-left btn-shopping mr-auto"><i class="w-icon-long-arrow-left"></i>Continue Shopping</a>
+                            <a href="/shop" class="btn btn-dark btn-rounded btn-icon-left btn-shopping mr-auto"><i class="w-icon-long-arrow-left"></i>Continue Shopping</a>
                             <button type="button" class="btn btn-rounded btn-default btn-clear" onclick="clearCart();" name="clear_cart" value="Clear Cart">Clear Cart</button>
                         </div>
                     </div>
@@ -100,5 +100,5 @@
     <!-- End of Main -->
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
-    <script src="/assets/js/cart.js"></script>
+    <script src="/assets/js/cart.js?v=3.0"></script>
 </asp:Content>

@@ -1,4 +1,4 @@
-﻿const Shareholders = [];
+const Shareholders = [];
 const Shipping_Shareholders = [];
 const ProductList = [];
 const ShippingProductList = [];
@@ -61,14 +61,14 @@ function FillCartPageItems() {
                     if (item.Donation == 0) {
                         const Item_product = {
                             PurposeId: item.PurposeId,
-                            PurposeName: IsArabic ? Purpos.NameAr : Purpos.NameEn,
+                            PurposeName: Purpos ? (IsArabic ? Purpos.NameAr : Purpos.NameEn) : '',
                             productToken: item.productToken,
                             productName: IsArabic ? product.NameAr : product.NameEn,
                             Quantity: item.Quantity,
                             ShippingName: item.Shareholder,
                             ShippingNumber: item.ShippingNumber,
                             ShippingCityid: item.ShippingCityid,
-                            ShippingCityText: IsArabic ? City.CityNameAr : City.CityNameEn,
+                            ShippingCityText: City ? (IsArabic ? City.CityNameAr : City.CityNameEn) : '',
                             ShippingTown: item.ShippingTown,
                             ShippingBlock: '',
                             ShippingHouse: item.ShippingHouse,
@@ -82,9 +82,9 @@ function FillCartPageItems() {
                     else {
                         const Item_product = {
                             CharityId: item.CharityId,
-                            CharityName: IsArabic ? Charity.NameAr : Charity.NameEn,
+                            CharityName: Charity ? (IsArabic ? Charity.NameAr : Charity.NameEn) : '',
                             PurposeId: item.PurposeId,
-                            PurposeName: IsArabic ? Purpos.NameAr : Purpos.NameEn,
+                            PurposeName: Purpos ? (IsArabic ? Purpos.NameAr : Purpos.NameEn) : '',
                             productToken: item.productToken,
                             productName: IsArabic ? product.NameAr : product.NameEn,
                             Quantity: item.Quantity,
@@ -106,13 +106,20 @@ function FillCartPageItems() {
                     }
 
                     let productURL = (IsArabic ? '/ar/' : '/') + "shop/product/" + FixProductName(product.NameEn.trim().toLowerCase()) + "/" + product.Token;
-
+                    let imgSrc = item.productImage;
+                    if (imgSrc) {
+                        if (!imgSrc.startsWith('/') && !imgSrc.startsWith('http')) {
+                            imgSrc = '/' + imgSrc;
+                        }
+                    } else {
+                        imgSrc = '/assets/images/defult_image.png';
+                    }
                     items.push(`<tr class="${product.Token}">
                         <td class="product-thumbnail">
                             <div class="p-relative">
                                 <a href="#" onclick="voidclick(); return false">
                                     <figure style="display: flex;justify-content: center;">
-                                        <img src="${item.productImage}" alt="product"
+                                        <img src="${imgSrc}" alt="product"
                                             width="300" height="338"  style="border: solid 1px #eee;">
                                     </figure>
                                 </a>

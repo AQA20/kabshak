@@ -558,6 +558,6 @@
     <script src="/assets/vendor/zoom/jquery.zoom.js"></script>
     <script src="/assets/vendor/photoswipe/photoswipe.js"></script>
     <script src="/assets/vendor/photoswipe/photoswipe-ui-default.js"></script>
-    <script src="/assets/js/details.js?v=2.0"></script>
+    <script src="/assets/js/details.js?v=3.0"></script>
     <script src="/assets/vendor/magnific-popup/jquery.magnific-popup.js"></script>
 </asp:Content>

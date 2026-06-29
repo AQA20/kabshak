@@ -558,7 +558,7 @@ function FillProductsLists(data) {
                                                     <img src="/${item.Url}" alt="Product" width="300" height="338"  class="product-media-custom">
                                                 </a>
                                                 <div class="product-action-vertical">
-                                                    <a href="#" onclick="AddToCart('${item.Token}',1);" class="btn-product-icon btn-cart w-icon-cart ${(item.Amount <= 0) ? 'd-none' : ''}" title="Add to cart"></a>
+                                                    <a href="#" onclick="AddToCartFromShop(this, '${item.Token}',1);" class="btn-product-icon btn-cart w-icon-cart ${(item.Amount <= 0) ? 'd-none' : ''}" title="Add to cart"></a>
                                                     <a href="${productURL}" class="btn-product-icon w-icon-dots-circle" title="details" style="font-size: 1.7em;"></a>
                                                 </div>
                                                 <div class="product-action">
@@ -585,7 +585,7 @@ function FillProductsLists(data) {
                                                     <img src="/${item.Url}" alt="Product" width="300" height="338"  class="product-media-custom">
                                                 </a>
                                                    <div class="product-action-vertical">
-                                                        <a href="#" onclick="AddToCart('${item.Token}',1);" class="btn-product-icon btn-cart w-icon-cart ${(item.Amount <= 0) ? 'd-none' : ''}" title="Add to cart"></a>
+                                                        <a href="#" onclick="AddToCartFromShop(this, '${item.Token}',1);" class="btn-product-icon btn-cart w-icon-cart ${(item.Amount <= 0) ? 'd-none' : ''}" title="Add to cart"></a>
                                                         <a href="${productURL}" class="btn-product-icon w-icon-dots-circle" title="details" style="font-size: 1.7em;"></a>
                                                     </div>
                                                 <div class="product-action">
@@ -612,7 +612,7 @@ function FillProductsLists(data) {
                                                     <img src="/${item.Url}" alt="Product" width="300" height="338"  class="product-media-custom">
                                                 </a>
                                                  <div class="product-action-vertical">
-                                                    <a href="#" onclick="AddToCart('${item.Token}',1);" class="btn-product-icon btn-cart w-icon-cart ${(item.Amount <= 0) ? 'd-none' : ''}" title="Add to cart"></a>
+                                                    <a href="#" onclick="AddToCartFromShop(this, '${item.Token}',1);" class="btn-product-icon btn-cart w-icon-cart ${(item.Amount <= 0) ? 'd-none' : ''}" title="Add to cart"></a>
                                                     <a href="${productURL}" class="btn-product-icon w-icon-dots-circle" title="details" style="font-size: 1.7em;"></a>
                                                 </div>
                                                 <div class="product-action">
@@ -881,7 +881,8 @@ function SaveShareholderInfo(token) {
 
     if (val) {
         let name = $('.product-single-swiper .product-title').html() + ' - ' + $('.collapse').html();
-        let image = $('.swiper-container-horizontal img')[0].src;
+        let imageElement = $('.product-single-swiper img')[0];
+        let image = imageElement ? imageElement.src : '';
         const Item = {
             Donation: 1,
             PurposeId: purposeId,
@@ -913,22 +914,20 @@ function SaveShareholderInfo(token) {
 function add_shareholders_value(json) {
     let cookieValue = '';
     let expire = '';
-    let period = '';
+    let period = 7;
 
     let Shareholders = getCookie("Shareholders");
 
     if (Shareholders == '') {
-        cookieValue = 'Shareholders' + '=' + JSON.stringify(json) + ';';
+        cookieValue = 'Shareholders' + '=' + encodeURIComponent(JSON.stringify(json)) + ';';
     }
     else {
-        cookieValue = 'Shareholders' + '=' + Shareholders + '|' + JSON.stringify(json) + ';';
+        cookieValue = 'Shareholders' + '=' + encodeURIComponent(Shareholders + '|' + JSON.stringify(json)) + ';';
     }
-    cookieValue += 'path=/ ;';
-    period = 7; 
+    cookieValue += 'path=/;';
     expire = new Date();
     expire.setTime(expire.getTime() + 1000 * 3600 * 24 * period);
-    expire.toUTCString();
-    cookieValue += 'expires=' + expire + ';';
+    cookieValue += 'expires=' + expire.toUTCString() + ';';
     document.cookie = cookieValue;
 }
 
@@ -1024,7 +1023,8 @@ function SaveShippingShareholderInfo(token) {
 
     if (val) {
         let name = $('.product-single-swiper .product-title').html() + ' - ' + $('.collapse').html();
-        let image = $('.swiper-container-horizontal img')[0].src;
+        let imageElement = $('.product-single-swiper img')[0];
+        let image = imageElement ? imageElement.src : '';
         const Item = {
             Donation: 0,
             PurposeId: purposeId,

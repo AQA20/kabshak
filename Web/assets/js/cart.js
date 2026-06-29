@@ -1,4 +1,4 @@
-﻿ViewLoaderCart();
+ViewLoaderCart();
 BindProductPurposesList();
 BindProductCharitiesList();
 BindShippingCities(107);
@@ -123,12 +123,20 @@ function FillCartPageItems() {
                     if (product.Discount > 0) {
                         price = product.Usd - (product.Usd * product.Discount / 100)
                     }
+                    let imgSrc = item.productImage;
+                    if (imgSrc) {
+                        if (!imgSrc.startsWith('/') && !imgSrc.startsWith('http')) {
+                            imgSrc = '/' + imgSrc;
+                        }
+                    } else {
+                        imgSrc = '/assets/images/defult_image.png';
+                    }
                     items.push(`<tr class="${product.Token}">
                         <td class="product-thumbnail">
                             <div class="p-relative">
                                 <a href="#" onclick="voidclick(); return false">
                                     <figure>
-                                        <img src="${item.productImage}" alt="product"
+                                        <img src="${imgSrc}" alt="product"
                                             width="300" height="338"  style="border: solid 1px #eee;">
                                     </figure>
                                 </a>
@@ -155,11 +163,11 @@ function FillCartPageItems() {
                                 padding: 3px;
                                 border-radius: 3px;
                                 font-size: 10px;
-                            "> ${IsArabic ? Purpos.NameAr : Purpos.NameEn}</span >
+                            "> ${Purpos ? (IsArabic ? Purpos.NameAr : Purpos.NameEn) : ''}</span >
                             <p style='font-size: 12px; margin-bottom : 0px'>${IsArabic ? '<i class="w-icon-check-solid"></i> عن الاسم:' : '<i class="w-icon-check-solid"></i> For the name:'} ${item.Shareholder}</p>
-                            ${item.CharityId > 0 ? `<p style ='font-size: 12px; margin-bottom : 0px'>${IsArabic ? '<i class="w-icon-check-solid"></i> المؤسسة الخيرية:' : '<i class="w-icon-check-solid"></i> Charity:'} ${IsArabic ? Charity.NameAr : Charity.NameEn}</p>` : ``}
-                            ${item.ShippingCityid > 0 ? `<p style ='font-size: 12px; margin-bottom : 0px'>${IsArabic ? '<i class="w-icon-check-solid"></i> عنوان الشحن:' : '<i class="w-icon-check-solid"></i> Shippin address:'} ${IsArabic ? City.CityNameAr + ' | ' + item.ShippingTown + ' | house# ' + item.ShippingHouse + ',' + item.ShippingApartment + ' | ' + item.ShippingStreet : City.CityNameEn + ' | ' + item.ShippingTown + ' | house# ' + item.ShippingHouse + ',' + item.ShippingApartment + ' | ' + item.ShippingStreet}</p>` : ``}
-                            ${item.ShippingCityid > 0 ? `<p style ='font-size: 12px; margin-bottom : 0px'>${IsArabic ? '<i class="w-icon-check-solid"></i> رقم التواصل:' : '<i class="w-icon-check-solid"></i> Contact #:'} ${item.ShippingNumber}</p>` : ``}
+                            ${item.CharityId > 0 && Charity ? `<p style ='font-size: 12px; margin-bottom : 0px'>${IsArabic ? '<i class="w-icon-check-solid"></i> المؤسسة الخيرية:' : '<i class="w-icon-check-solid"></i> Charity:'} ${IsArabic ? Charity.NameAr : Charity.NameEn}</p>` : ``}
+                            ${item.ShippingCityid > 0 && City ? `<p style ='font-size: 12px; margin-bottom : 0px'>${IsArabic ? '<i class="w-icon-check-solid"></i> عنوان الشحن:' : '<i class="w-icon-check-solid"></i> Shippin address:'} ${IsArabic ? City.CityNameAr + ' | ' + item.ShippingTown + ' | house# ' + item.ShippingHouse + ',' + item.ShippingApartment + ' | ' + item.ShippingStreet : City.CityNameEn + ' | ' + item.ShippingTown + ' | house# ' + item.ShippingHouse + ',' + item.ShippingApartment + ' | ' + item.ShippingStreet}</p>` : ``}
+                            ${item.ShippingCityid > 0 && City ? `<p style ='font-size: 12px; margin-bottom : 0px'>${IsArabic ? '<i class="w-icon-check-solid"></i> رقم التواصل:' : '<i class="w-icon-check-solid"></i> Contact #:'} ${item.ShippingNumber}</p>` : ``}
                             ${item.cuttingNotes !== undefined && item.cuttingNotes.trim() != '' ? `<p style ='font-size: 12px; margin-bottom : 0px'>${IsArabic ? '<i class="w-icon-check-solid"></i> ملاحظات:' : '<i class="w-icon-check-solid"></i> Notes:'} ${item.cuttingNotes}</p>` : ``}
                         </td>
                         ${IsArabic ? `<td class="product-price" style="display: table-cell;"><span class="amount"> ${rate_code} ${product.Amount > 0 ? (price * rate_value).toFixed(2) : 0} X ${item.Quantity} </span></td>` : `<td class="product - price" style="display: table - cell; "><span class="amount">${item.Quantity} X ${product.Amount > 0 ? (price * rate_value).toFixed(2) : 0} ${rate_code}</span></td>`}
@@ -385,21 +393,19 @@ function RemoveItemFromTheList(i, token, quantity) {
 function add_shareholders_value(json) {
     let cookieValue = '';
     let expire = '';
-    let period = '';
+    let period = 7;
 
     let Shareholders = getCookie("Shareholders");
 
     if (Shareholders == '') {
-        cookieValue = 'Shareholders' + '=' + JSON.stringify(json) + ';';
+        cookieValue = 'Shareholders' + '=' + encodeURIComponent(JSON.stringify(json)) + ';';
     }
     else {
-        cookieValue = 'Shareholders' + '=' + Shareholders + '|' + JSON.stringify(json) + ';';
+        cookieValue = 'Shareholders' + '=' + encodeURIComponent(Shareholders + '|' + JSON.stringify(json)) + ';';
     }
-    cookieValue += 'path=/ ;';
-    period = 7;
+    cookieValue += 'path=/;';
     expire = new Date();
     expire.setTime(expire.getTime() + 1000 * 3600 * 24 * period);
-    expire.toUTCString();
-    cookieValue += 'expires=' + expire + ';';
+    cookieValue += 'expires=' + expire.toUTCString() + ';';
     document.cookie = cookieValue;
 }

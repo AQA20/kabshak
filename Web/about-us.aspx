@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="about-us.aspx.cs" Inherits="web.about_us" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="about-us.aspx.cs" Inherits="web.about_us" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <main class="main">
@@ -20,7 +20,7 @@
                     <h1 class="title title-center">About Kabshak
                     </h1>
                     <p class=" mx-auto text-center">
-Kabshak is an online retailer developed and created to provide high-quality, premium, and unique Halal livestock’s meat. Focusing  and aiming to bring all of that to you wherever you are, and through our platforms, you can also buy and donate to a well-known associations or organizations to be distributed to families or communities in need.
+Kabshak is an online retailer developed and created to provide high-quality, premium, and unique Halal livestock’s meat. Focusing and aiming to bring all of that to you wherever you are, and through our platforms, you can also buy and donate to a well-known associations or organizations to be distributed to families or communities in need.
                 </section>
 
                 <section class="customer-service">
@@ -29,7 +29,9 @@ Kabshak is an online retailer developed and created to provide high-quality, pre
                             <h2 class="title text-left">Our Online Channels</h2>
                             <div class="accordion accordion-simple accordion-plus">
                                 <p>
-One of the biggest channels that allows you to order almost everything related to halal items and much more. Simply you can use our application from your mobile phone with a few clicks, and your product will arrive in less than a few days or even a few hours.
+One of the biggest channels that allows you to order almost everything related to halal items
+and much more. Simply you can use our application from your mobile phone with a few
+clicks, and your product will arrive in less than a few days or even a few hours.
 
                                 </p>
                             </div>

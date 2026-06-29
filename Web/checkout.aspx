@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="checkout.aspx.cs" Inherits="web.checkout" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="checkout.aspx.cs" Inherits="web.checkout" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadCss" runat="server">
     <meta name="robots" content="noindex,nofollow" />
@@ -215,7 +215,7 @@
 
                             <div class="d-flex justify-content-end">
                                 <div class="cart-action">
-                                    <a href="/home" class="btn btn-dark btn-rounded btn-icon-left btn-shopping mr-auto  mt-1"><i class="w-icon-long-arrow-left"></i>Continue Shopping</a>
+                                    <a href="/shop" class="btn btn-dark btn-rounded btn-icon-left btn-shopping mr-auto  mt-1"><i class="w-icon-long-arrow-left"></i>Continue Shopping</a>
                                     <a href="/cart.aspx" class="btn btn-dark btn-outline btn-rounded mb-1  mt-1"><i class="w-icon-cart pl-1 pr-1"></i>View Cart</a>
                                 </div>
                             </div>
@@ -309,6 +309,6 @@ Sharia laws stipulate that the buyer, once the purchase is completed and then th
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
     <script src="/assets/vendor/intlTelInput/intlTelInput.js"></script>
-    <script src="/assets/js/checkout.js"></script>
+    <script src="/assets/js/checkout.js?v=3.1"></script>
     <script src="/assets/js/admin.js"></script>
 </asp:Content>

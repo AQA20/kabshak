@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="checkout.aspx.cs" Inherits="web.AR.checkout" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="checkout.aspx.cs" Inherits="web.AR.checkout" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadCss" runat="server">
     <meta name="robots" content="noindex,nofollow" />
@@ -220,7 +220,7 @@
                             </div>
                             <div class="d-flex justify-content-end">
                                 <div class="cart-action">
-                                    <a href="/ar" class="btn btn-dark btn-rounded btn-icon-left btn-shopping mr-auto mt-1"><i class="w-icon-long-arrow-left" style="transform: rotate(180deg);"></i>مواصلة التسوق</a>
+                                    <a href="/ar/shop" class="btn btn-dark btn-rounded btn-icon-left btn-shopping mr-auto mt-1"><i class="w-icon-long-arrow-left" style="transform: rotate(180deg);"></i>مواصلة التسوق</a>
                                     <a href="/ar/cart.aspx" class="btn btn-dark btn-outline btn-rounded mt-1"><i class="w-icon-cart pl-1 pr-1"></i>مشاهدة عربة التسوق</a>
                                 </div>
                             </div>
@@ -315,6 +315,6 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
     <script src="/assets/vendor/intlTelInput/intlTelInput.js"></script>
-    <script src="/assets/js/checkout.js"></script>
+    <script src="/assets/js/checkout.js?v=3.1"></script>
     <script src="/assets/js/admin.js"></script>
 </asp:Content>
