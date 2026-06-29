@@ -199,6 +199,7 @@
     <Content Include="assets\images\alter_logo.png" />
     <Content Include="assets\images\banner-1.jpg" />
     <Content Include="assets\images\banner.jpg" />
+    <Content Include="assets\images\cancellation-policy.png" />
     <Content Include="assets\images\categories\240420.png" />
     <Content Include="assets\images\categories\567915.png" />
     <Content Include="assets\images\categories\871500.png" />
