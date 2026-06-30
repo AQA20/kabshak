@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="contact-us.aspx.cs" Inherits="web.AR.contact_us" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="contact-us.aspx.cs" Inherits="web.AR.contact_us" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link rel="stylesheet" href="/assets/vendor/swiper/swiper-bundle.min.css">
@@ -56,7 +56,7 @@
                                 </span>
                                 <div class="icon-box-content">
                                     <h4 class="icon-box-title">رقم الهاتف</h4>
-                                    <p>796097475 (962)</p>
+                                    <p>7 9895 9933 (962)</p>
                                 </div>
                             </div>
                             <div class="swiper-slide icon-box text-center icon-box-primary" role="group" aria-label="3 / 4" style="width: 295px; margin-right: 20px;">

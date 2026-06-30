@@ -199,7 +199,7 @@
                                     </div>
                                     <div class="header-right ml-4">
                                         <div class="header-call d-xs-show d-lg-flex align-items-center">
-                                            <a href="https://api.whatsapp.com/send?phone=962796097475" target="_blank">
+                                            <a href="https://api.whatsapp.com/send?phone=962798959933" target="_blank">
                                                 <img src="/assets/images/icons/whatsapp.png" style="width: 40px;" alt="whatsapp" />
                                             </a>
                                         </div>
@@ -338,15 +338,15 @@
                                                 <i class="fas fa-phone" style="font-size: 16px;"></i>
                                             </div>
                                             <a href="tel:009597195707" style="margin-left: 5px; margin-right: 5px;">
-                                                <script>Languag_IsArabic('+962 796097475', '796097475 962+')</script>
+                                                <script>Languag_IsArabic('+962 7 9895 9933', '7 9895 9933 962+')</script>
                                             </a>
                                         </li>
                                         <li class="d-flex">
                                             <div>
                                                 <i class="fab fa-whatsapp" style="font-size: 17px;"></i>
                                             </div>
-                                            <a href="https://api.whatsapp.com/send?phone=962796097475" target="_blank" style="margin-left: 5px; margin-right: 5px;">
-                                                <script>Languag_IsArabic('+962 796097475', '796097475 962+')</script>
+                                            <a href="https://api.whatsapp.com/send?phone=962798959933" target="_blank" style="margin-left: 5px; margin-right: 5px;">
+                                                <script>Languag_IsArabic('+962 7 9895 9933', '7 9895 9933 962+')</script>
                                             </a>
                                         </li>
                                         <li class="d-flex">
@@ -612,7 +612,7 @@
     <script src="/assets/vendor/sticky/sticky.js"></script>
     <script src="/assets/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
     <script src="/assets/js/floating-wpp.js"></script>
-    <script src="/assets/js/master.js?v=3.1"></script>
+    <script src="/assets/js/master.js?v=3.2"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <script src="/assets/vendor/swiper/swiper-bundle.min.js"></script>

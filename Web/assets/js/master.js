@@ -118,7 +118,7 @@ if (cookie_cart_items !== "") {
 $('#WhatsappButton').floatingWhatsApp(
     IsArabic ?
         {
-            phone: '962796097475',
+            phone: '962798959933',
             popupMessage: 'تواصل معنا مباشرة عبر الواتساب للطلب من موقع كبشك.',
             message: "أريد تقديم طلب ",
             showPopup: true,
@@ -128,7 +128,7 @@ $('#WhatsappButton').floatingWhatsApp(
         }
         :
         {
-            phone: '962796097475',
+            phone: '962798959933',
             popupMessage: 'Contact us directly through WhatsApp to order from our Kabshak website.',
             message: "I'd like to order ",
             showPopup: true,

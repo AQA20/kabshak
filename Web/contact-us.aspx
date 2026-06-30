@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="contact-us.aspx.cs"
+<%@ Page Title="" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="contact-us.aspx.cs"
     Inherits="web.contact_us" %>
 
     <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -61,7 +61,7 @@
                                     </span>
                                     <div class="icon-box-content">
                                         <h4 class="icon-box-title">Phone Number</h4>
-                                        <p>(962) 796097475</p>
+                                        <p>(962) 7 9895 9933</p>
                                     </div>
                                 </div>
                                 <div class="swiper-slide icon-box text-center icon-box-primary" role="group"
