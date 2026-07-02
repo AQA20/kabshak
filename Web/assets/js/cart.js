@@ -85,11 +85,10 @@ function FillCartPageItems() {
             data.push(JSON.parse(cart_json[i]))
         }
 
-        let index = 0;
-        let items = [];
+        let items = new Array(data.length);
         let total = 0;
 
-        for (index; index < data.length; index++) {
+        for (let index = 0; index < data.length; index++) {
             let item = data[index];
 
             const Purpos = Purposes.find((x) => x.Id == item.PurposeId);
@@ -131,7 +130,7 @@ function FillCartPageItems() {
                     } else {
                         imgSrc = '/assets/images/defult_image.png';
                     }
-                    items.push(`<tr class="${product.Token}">
+                    items[index] = `<tr class="${product.Token}">
                         <td class="product-thumbnail">
                             <div class="p-relative">
                                 <a href="#" onclick="voidclick(); return false">
@@ -140,7 +139,7 @@ function FillCartPageItems() {
                                             width="300" height="338"  style="border: solid 1px #eee;">
                                     </figure>
                                 </a>
-                                <button type="button" class="btn btn-close" onclick="RemoveItemFromTheList(${index - 1},'${item.productToken}',${item.Quantity})">
+                                <button type="button" class="btn btn-close" onclick="RemoveItemFromTheList(${index},'${item.productToken}',${item.Quantity})">
                                     <i
                                         class="fas fa-times"></i>
                                 </button>
@@ -174,10 +173,15 @@ function FillCartPageItems() {
                         <td class="product-subtotal">
                             <span class="amount">${product.Amount > 0 ? (item.Quantity * (price * rate_value)).toFixed(2) : "Out Of Stock"} ${product.Amount > 0 ? rate_code : ""}</span>
                         </td>
-                    </tr>`);
+                    </tr>`;
 
-                    if (items.length == data.length) {
-                        $(".productlist").html(items);
+                    let loadedCount = 0;
+                    for (let j = 0; j < items.length; j++) {
+                        if (items[j] !== undefined) loadedCount++;
+                    }
+
+                    if (loadedCount == data.length) {
+                        $(".productlist").html(items.join(''));
                         $(".cart-subtotal span").html(total.toFixed(2) + " " + rate_code);
                         $(".order-total span").html(total.toFixed(2) + " " + rate_code);
 

@@ -101,5 +101,5 @@
     <!-- End of Main -->
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
-    <script src="/assets/js/cart.js?v=3.0"></script>
+    <script src="/assets/js/cart.js?v=3.2"></script>
 </asp:Content>
