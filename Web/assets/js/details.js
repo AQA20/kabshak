@@ -688,8 +688,8 @@ function FillProductSubCategories(data) {
                                         </div>
                                         <!-- End of Store Content -->
                                         <div class="store-footer">
-                                            <figure class="seller-brand" style="background: transparent !important; border: none !important; box-shadow: none !important;">
-                                                <img src="/assets/images/site_icon.png" alt="not fill image" width="80" height="80" style="object-fit: contain;">
+                                            <figure class="seller-brand" style="background: #ffffff !important; border: 2px solid #F29811 !important; box-shadow: 0 5px 10px rgba(0,0,0,0.1) !important; display: flex !important; align-items: center !important; justify-content: center !important;">
+                                                <img src="/assets/images/site_icon.png" alt="not fill image" width="80" height="80" style="object-fit: contain; max-width: 80% !important; max-height: 80% !important;">
                                             </figure>
                                             <a href="javascript:void(0)" onclick="manageprdouctcart('${item.Token}','${IsArabic ? item.NameAr : item.NameEn}','${Math.ceil((netPriceUsd * rate_value).toFixed(2)) + ' ' + rate_code}');" class="btn btn-dark btn-link btn-underline btn-icon-right btn-visit"><i class="w-icon-cart"></i>${IsArabic ? ' أضف الى عربة التسوق' : ' Add to Cart'}</a>
                                         </div>
