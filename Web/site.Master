@@ -94,10 +94,32 @@
             content: url('/assets/images/logo_ar.png?v=4.0');
         }
 
+        .logo img {
+            width: 140px !important;
+            height: auto !important;
+        }
+
         @media (max-width: 479px) {
             .logo img {
-                max-width: 200px;
+                width: 120px !important;
             }
+        }
+
+        html[lang=ar] .logo-footer img {
+            content: url('/assets/images/logo-footer-ar.png?v=4.0');
+        }
+
+        .widget-about {
+            text-align: center;
+        }
+
+        .widget-about .logo-footer {
+            display: inline-block !important;
+            margin-bottom: 1.5rem;
+        }
+
+        .widget-about .social-icons {
+            justify-content: center;
         }
     </style>
 </head>
@@ -163,7 +185,7 @@
                                     <div id="image-container" class="header-left mr-md-4" style="max-width: 195px;">
                                         <a href="#" onclick="voidclick(); return false" class="mobile-menu-toggle  w-icon-hamburger" aria-label="menu-toggle"></a>
                                         <a href="/home.aspx" class="logo ml-lg-0">
-                                            <img src="/assets/images/logo.png?v=4.0" alt="logo" style="margin-bottom: 10px; margin-top: 10px; }" />
+                                            <img src="/assets/images/logo.png?v=4.0" alt="logo" style="margin-bottom: 10px; margin-top: 10px;" />
                                         </a>
                                     </div>
                                     <div class="header-center">
@@ -314,7 +336,7 @@
                             <div class="col-lg-4 col-sm-6">
                                 <div class="widget widget-about">
                                     <a href="/home.aspx" class="logo-footer">
-                                        <img src="/assets/images/logo_footer.png" alt="logo-footer" width="200" height="45" />
+                                        <img src="/assets/images/logo-footer.png?v=4.0" alt="logo-footer" style="max-width: 180px; height: auto;" />
                                     </a>
                                     <div class="widget-body">
                                         <div class="social-icons social-icons-colored">
