@@ -54,7 +54,7 @@ function FillWishListData(data) {
                                 <div class="product-cat">
                                         <a href="#" onclick="voidclick(); return false">${IsArabic ? item.CategoryNameAr : item.CategoryNameEn}${((sub) => sub && sub.toString().trim().toLowerCase() !== 'null' && sub.toString().trim().toLowerCase() !== 'undefined' && sub.toString().trim() !== '' ? ', ' + sub : '')(IsArabic ? item.SubCategoryNameAr : item.SubCategoryNameEn)}</a>
                                 </div>
-                                <div class="product-cat"  style="color: #05D7A0;">
+                                <div class="product-cat"  style="color: #F29811;">
                                         <a href="#" onclick="voidclick(); return false">${IsArabic ? item.BrandNameAr : item.BrandNameEn}</a>
                                 </div>
                             </td>
@@ -75,7 +75,7 @@ function FillWishListData(data) {
         $('.Records').html(data.length.toString());
     }
     else {
-        $('.wishlist-table').html('<div style="font-weight: 500;color: #05D7A0;padding: 5px;font-size: 20px;"><span class="w-icon-search-plus" style="padding-right: 5px;padding-left: 5px;"></span>No result found!</div>');
+        $('.wishlist-table').html('<div style="font-weight: 500;color: #F29811;padding: 5px;font-size: 20px;"><span class="w-icon-search-plus" style="padding-right: 5px;padding-left: 5px;"></span>No result found!</div>');
         $('.toolbox-pagination').html(' ');
     }
 
@@ -108,7 +108,7 @@ function RemoveWishsItems(e, token, classname) {
                 if ((parseInt(NoOfRecords) - 1) > 0)
                     $('.Records').html((parseInt(NoOfRecords) - 1).toString())
                 else {
-                    $('.wishlist-table').html('<div style="font-weight: 500;color: #05D7A0;padding: 5px;font-size: 20px;"><span class="w-icon-search-plus" style="padding-right: 5px;padding-left: 5px;"></span>No result found!</div>');
+                    $('.wishlist-table').html('<div style="font-weight: 500;color: #F29811;padding: 5px;font-size: 20px;"><span class="w-icon-search-plus" style="padding-right: 5px;padding-left: 5px;"></span>No result found!</div>');
                     $('.toolbox-pagination').html(' ');
                 }
 

@@ -1,4 +1,4 @@
-﻿.choices {
+.choices {
     position: relative;
     margin-bottom: 24px;
     font-size: 16px
@@ -62,7 +62,7 @@
             }
 
             .choices[data-type*=select-one] .choices__button:focus {
-                box-shadow: 0 0 0 2px #05D7A0
+                box-shadow: 0 0 0 2px #F29811
             }
 
         .choices[data-type*=select-one]:after {
@@ -134,7 +134,7 @@
 }
 
 .is-focused .choices__inner, .is-open .choices__inner {
-    border-color: #05D7A0;
+    border-color: #F29811;
 }
 
 .is-open .choices__inner {
@@ -179,8 +179,8 @@
         font-weight: 500;
         margin-right: 3.75px;
         margin-bottom: 3.75px;
-        background-color: #05D7A0;
-        border: 1px solid #05D7A0;
+        background-color: #F29811;
+        border: 1px solid #F29811;
         color: #fff;
         word-break: break-all
     }
@@ -224,7 +224,7 @@
     }
 
 .is-open .choices__list--dropdown {
-    border-color: #05D7A0;
+    border-color: #F29811;
 }
 
 .is-flipped .choices__list--dropdown {

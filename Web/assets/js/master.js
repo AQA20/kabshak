@@ -650,7 +650,7 @@ function RemoveItemCart(Token, value) {
         $(".products").html(`<div class="cart-action" style="padding-top: 2.1rem;">${IsArabic ? 'لا يوجد منتج مضاف للسلة' : 'No product added to the cart!'}</div>`);
         $(".cart-subtotal span").html("0");
         $(".order-total span").html("0");
-        $(".productlist").html('<tr><td colspan="5" style="text-align: center;font-size: 17px;font-weight: 600;color: #05D7A0;">No Result Found! </tr></td>');
+        $(".productlist").html('<tr><td colspan="5" style="text-align: center;font-size: 17px;font-weight: 600;color: #F29811;">No Result Found! </tr></td>');
     }
 
     if (window.location.href.trim() == "/checkout") {
@@ -696,8 +696,9 @@ function ChangeCurrentLanguage(lang, src) {
     if (lang == 'ar') {
         var theme = document.getElementsByTagName('link');
         for (let i = 0; i < theme.length; i++) {
-            if (theme[i].getAttribute('href') == '/assets/css/style.min.css') {
-                theme[i].setAttribute('href', '/assets/css/style-rtl.min.css');
+            var hrefVal = theme[i].getAttribute('href');
+            if (hrefVal && hrefVal.indexOf('/assets/css/style.min.css') !== -1) {
+                theme[i].setAttribute('href', '/assets/css/style-rtl.min.css?v=4.0');
             }
         }
 

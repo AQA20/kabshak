@@ -673,7 +673,7 @@ function FillProductSubCategories(data) {
                 items.push(`<div class="store-wrap mb-4">
                                     <div class="store store-grid">
                                         <div class="store-header">
-                                            <figure class="store-banner" style="background: #05D7A0; min-height: 160px;">
+                                            <figure class="store-banner" style="background: #F29811; min-height: 160px;">
                                             </figure>
                                         </div>
                                         <!-- End of Store Header -->
@@ -688,7 +688,7 @@ function FillProductSubCategories(data) {
                                         </div>
                                         <!-- End of Store Content -->
                                         <div class="store-footer">
-                                            <figure class="seller-brand" style="background-color: #05D7A0;">
+                                            <figure class="seller-brand" style="background-color: #F29811;">
                                                 <img src="${mainImg == '#' ? '/assets/images/alter_logo.png' : mainImg}" alt="not fill image" width="80" height="80">
                                             </figure>
                                             <a href="javascript:void(0)" onclick="manageprdouctcart('${item.Token}','${IsArabic ? item.NameAr : item.NameEn}','${Math.ceil((netPriceUsd * rate_value).toFixed(2)) + ' ' + rate_code}');" class="btn btn-dark btn-link btn-underline btn-icon-right btn-visit"><i class="w-icon-cart"></i>${IsArabic ? ' أضف الى عربة التسوق' : ' Add to Cart'}</a>

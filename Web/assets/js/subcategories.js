@@ -1,4 +1,4 @@
-﻿const urlSearchParams = new URLSearchParams(window.location.search);
+const urlSearchParams = new URLSearchParams(window.location.search);
 const params = Object.fromEntries(urlSearchParams.entries());
 let CategoryId = params.id
 let CategoryName = params.name
@@ -60,7 +60,7 @@ function FillSubCategories(data) {
                                 <div class="product-cat">
                                     <ins class="new-price">Id: ${item.Id}</ins>
                                 </div>
-                                <div class="product-cat" style="color: #05D7A0;">
+                                <div class="product-cat" style="color: #F29811;">
                                     <ins class="new-price">Name: ${item.NameEn}</ins>
                                 </div>
                             </td>
@@ -98,7 +98,7 @@ function FillSubCategories(data) {
         $('.productsList').prepend(items);
     }
     else {
-        $('.result').html('<div style="font-weight: 500;color: #05D7A0;padding: 5px;font-size: 20px;padding-bottom: 350px;"><span class="w-icon-search-plus" style="padding-right: 5px;padding-left: 5px;"></span>No result found!</div>');
+        $('.result').html('<div style="font-weight: 500;color: #F29811;padding: 5px;font-size: 20px;padding-bottom: 350px;"><span class="w-icon-search-plus" style="padding-right: 5px;padding-left: 5px;"></span>No result found!</div>');
     }
     setTimeout(
         function () {

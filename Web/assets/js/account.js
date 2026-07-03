@@ -1,4 +1,4 @@
-﻿let billingCityId = "-1";
+let billingCityId = "-1";
 let shippingCityId = "-1";
 
 var input = document.querySelector("#phone");
@@ -726,7 +726,7 @@ function FillOrdersList(data) {
             $('.nooforders').html(`<p class="showing-info mb-2 mb-sm-0">Found <span>${orders.length.toString()}</span> Orders</p>`);
 
         if (orders.length <= 0) {
-            $('.account-orders-table').html(`<tbody class="productlist"><tr><td colspan="5" style="text-align: center;font-size: 17px;font-weight: 600;color: #05D7A0;">${IsArabic ? "لم يتم العثور على نتائج!" : "No Result Found!"} </td></tr></tbody>`);
+            $('.account-orders-table').html(`<tbody class="productlist"><tr><td colspan="5" style="text-align: center;font-size: 17px;font-weight: 600;color: #F29811;">${IsArabic ? "لم يتم العثور على نتائج!" : "No Result Found!"} </td></tr></tbody>`);
         }
     }
 }

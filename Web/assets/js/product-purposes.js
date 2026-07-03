@@ -1,4 +1,4 @@
-﻿GetAllProductPurposesList();
+GetAllProductPurposesList();
 
 function GetAllProductPurposesList() {
     document.getElementById("divloader").classList.add('d-flex');
@@ -46,7 +46,7 @@ function FillProductPurposes(data) {
                                 <div class="product-cat">
                                     <ins class="new-price">Id: ${item.Id}</ins>
                                 </div>
-                                <div class="product-cat" style="color: #05D7A0;">
+                                <div class="product-cat" style="color: #F29811;">
                                     <ins class="new-price">Name: ${item.NameEn}</ins>
                                 </div>
                             </td>
@@ -84,7 +84,7 @@ function FillProductPurposes(data) {
         $('.productsList').prepend(items);
     }
     else {
-        $('.result').html('<div style="font-weight: 500;color: #05D7A0;padding: 5px;font-size: 20px;padding-bottom: 350px;"><span class="w-icon-search-plus" style="padding-right: 5px;padding-left: 5px;"></span>No result found!</div>');
+        $('.result').html('<div style="font-weight: 500;color: #F29811;padding: 5px;font-size: 20px;padding-bottom: 350px;"><span class="w-icon-search-plus" style="padding-right: 5px;padding-left: 5px;"></span>No result found!</div>');
     }
     setTimeout(
         function () {

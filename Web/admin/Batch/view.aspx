@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="view.aspx.cs" Inherits="vape.admin.Batch.view" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="view.aspx.cs" Inherits="vape.admin.Batch.view" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadCss" runat="server">
     <script>
@@ -47,7 +47,7 @@
                     </li>
                     <li>
                         <label>Status</label>
-                        <strong style="color: #05D7A0" class="status"></strong>
+                        <strong style="color: #F29811" class="status"></strong>
                     </li>
                     <li>
                         <label>Slaughterhouse</label>
@@ -70,7 +70,7 @@
                 <!-- End of Order View -->
                 <iframe id="my_iframe" style="display: none;"></iframe>
                 <!-- End of Account Address -->
-                <div class="order-details-wrapper order-Persons mb-0 d-flex justify-content-between" style="border-top: solid 5px #05D7A0; padding-top: 5px;">
+                <div class="order-details-wrapper order-Persons mb-0 d-flex justify-content-between" style="border-top: solid 5px #F29811; padding-top: 5px;">
                     <h4 class="title text-uppercase ls-25 mb-2">PRODUCTS INFORMATION</h4>
                     <div class="d-flex">
                         <div class="btn-wrap show-code-action mb-2 excel-option mr-2">
@@ -109,7 +109,7 @@
                     </ul>
                 </div>
 
-                <div class="order-details-wrapper order-Tracking mb-5" style="border-top: solid 5px #05D7A0; padding-top: 15px;">
+                <div class="order-details-wrapper order-Tracking mb-5" style="border-top: solid 5px #F29811; padding-top: 15px;">
                     <h4 class="title text-uppercase ls-25 mb-5">Batch Tracking</h4>
                     <div class="d-flex">
                         <table class="order-table">

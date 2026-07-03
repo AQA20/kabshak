@@ -1,4 +1,4 @@
-﻿let urlSearchQuery = location.search;
+let urlSearchQuery = location.search;
 let urlParams = new URLSearchParams(urlSearchQuery);
 
 $('#FilterCurrency').html(currency.toLocaleUpperCase());
@@ -68,7 +68,7 @@ function FillOrders(data, end, start) {
                                 <span class="wishlist-in-stock">
                                     ${currency.toLocaleUpperCase() == "USD" ? item.Usd.toFixed(2) : item.Kwd.toFixed(2) }
                                     ${currency.toLocaleUpperCase()}
-                                    <br/><span class="${item.PromoCode.trim() == '' ? 'd-none' : '' }" style="font-size: 10px;background: #05D7A0;color: #ffffff;padding: 5px;border-radius: 3px;">Promo code: ${item.PromoCode.trim()}</span>
+                                    <br/><span class="${item.PromoCode.trim() == '' ? 'd-none' : '' }" style="font-size: 10px;background: #F29811;color: #ffffff;padding: 5px;border-radius: 3px;">Promo code: ${item.PromoCode.trim()}</span>
                                 </span>
                             </td>
                             <td class="wishlist-action">
@@ -102,7 +102,7 @@ function FillOrders(data, end, start) {
         $('.pagination').html(' ');
         $('.excel-option').addClass('d-none');
         $('.showing-info').html(' ');
-        $('.result').html('<div style="font-weight: 500;color: #05D7A0;padding: 5px;font-size: 20px;padding-bottom: 350px;"><span class="w-icon-search-plus" style="padding-right: 5px;padding-left: 5px;"></span>No result found!</div>');
+        $('.result').html('<div style="font-weight: 500;color: #F29811;padding: 5px;font-size: 20px;padding-bottom: 350px;"><span class="w-icon-search-plus" style="padding-right: 5px;padding-left: 5px;"></span>No result found!</div>');
         $('body , html').animate({
             scrollTop: $('.page-wrapper').offset().top
         }, 300)

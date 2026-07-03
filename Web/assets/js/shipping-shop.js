@@ -244,9 +244,9 @@ function FillProducts(data, end, start) {
         $('.pagination').html(' ');
         $('.showing-info').html(' ');
         if (IsArabic)
-            $('.list-Noresult').html('<div style="font-weight: 500;color: #05D7A0;padding: 5px;font-size: 20px;"><span class="w-icon-search-plus" style="padding-right: 5px;padding-left: 5px;"></span>لم يتم العثور على نتائج!</div>');
+            $('.list-Noresult').html('<div style="font-weight: 500;color: #F29811;padding: 5px;font-size: 20px;"><span class="w-icon-search-plus" style="padding-right: 5px;padding-left: 5px;"></span>لم يتم العثور على نتائج!</div>');
         else
-            $('.list-Noresult').html('<div style="font-weight: 500;color: #05D7A0;padding: 5px;font-size: 20px;"><span class="w-icon-search-plus" style="padding-right: 5px;padding-left: 5px;"></span>No result found!</div>');
+            $('.list-Noresult').html('<div style="font-weight: 500;color: #F29811;padding: 5px;font-size: 20px;"><span class="w-icon-search-plus" style="padding-right: 5px;padding-left: 5px;"></span>No result found!</div>');
         $('.list').html(' ');
         $('body , html').animate({
             scrollTop: $('.page-wrapper').offset().top

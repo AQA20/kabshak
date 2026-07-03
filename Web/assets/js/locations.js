@@ -1,4 +1,4 @@
-﻿window.currnetNavClicked = 1
+window.currnetNavClicked = 1
 GetAllCountriesList();
 
 function GetAllCountriesList() {
@@ -55,7 +55,7 @@ function FillCountries(data, end, start) {
                                 <div class="product-cat">
                                     <ins class="new-price">Id: ${item.CountryId}</ins>
                                 </div>
-                                <div class="product-cat" style="color: #05D7A0;">
+                                <div class="product-cat" style="color: #F29811;">
                                     <ins class="new-price">Name: ${item.CountryNameEn}</ins>
                                 </div>
                             </td>
@@ -98,7 +98,7 @@ function FillCountries(data, end, start) {
         window.currnetNavClicked = 1
         $('[name="start"]').val(1);
         $('[name="end"]').val(20);
-        $('.result').html('<div style="font-weight: 500;color: #05D7A0;padding: 5px;font-size: 20px;padding-bottom: 350px;"><span class="w-icon-search-plus" style="padding-right: 5px;padding-left: 5px;"></span>No result found!</div>');
+        $('.result').html('<div style="font-weight: 500;color: #F29811;padding: 5px;font-size: 20px;padding-bottom: 350px;"><span class="w-icon-search-plus" style="padding-right: 5px;padding-left: 5px;"></span>No result found!</div>');
         $('.pagination').html(' ');
         $('.showing-info').html(' ');
         $('body , html').animate({

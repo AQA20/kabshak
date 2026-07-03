@@ -72,18 +72,18 @@
     <link rel="stylesheet" href="/assets/vendor/swiper/swiper-bundle.min.css">
     <asp:ContentPlaceHolder ID="HeadCss" runat="server">
     </asp:ContentPlaceHolder>
-    <link rel="stylesheet" type="text/css" href="/assets/css/style.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.min.css?v=4.0">
     <style>
         .dropdown-box a:not(.btn):hover {
-            color: #05D7A0;
+            color: #F29811;
         }
 
         .cart-dropdown a:not(.btn):hover {
-            color: #05D7A0;
+            color: #F29811;
         }
 
         .call-info a:not(.btn):hover {
-            color: #05D7A0;
+            color: #F29811;
         }
 
         .dropdown-currency a::after {
@@ -106,7 +106,7 @@
     <div id="popup_box" style="display: none; visibility: hidden;">
         <input type="button" id="cancel_button" value="X">
         <p id="info_text" style="display: flex; align-items: center;">
-            <i class="w-icon-check" style="font-size: 46px; padding: 10px; color: #05D7A0;"></i>
+            <i class="w-icon-check" style="font-size: 46px; padding: 10px; color: #F29811;"></i>
             <span id="MessagePopupInfo"></span>
         </p>
     </div>
@@ -496,7 +496,7 @@
                     <div class="tab-content">
                         <div class="tab-pane active" id="main-menu">
                             <ul class="mobile-menu">
-                                <li id="liAccountName_mob" runat="server" class="d-none" style="padding: 10px; background: #05D7A0; border-radius: 5px;"><i class="w-icon-account"></i>
+                                <li id="liAccountName_mob" runat="server" class="d-none" style="padding: 10px; background: #F29811; border-radius: 5px;"><i class="w-icon-account"></i>
                                     <p id="lblAccountName_mob" runat="server"></p>
                                 </li>
                                 <li><a href="/home.aspx">

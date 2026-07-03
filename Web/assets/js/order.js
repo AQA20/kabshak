@@ -1,4 +1,4 @@
-﻿order_id = getCookie("OrderId");
+order_id = getCookie("OrderId");
 
 if (order_id.trim() == "") {
     window.location = "/ar/cart";
@@ -246,9 +246,9 @@ function BindRequestPersons(data) {
                 items.push(`<tr><td  style="direction: ltr;text-align: ${IsArabic ? 'right' : 'left'};">
                                     <a href="#" onclick="voidclick(); return false">${IsArabic ? item.NameAr : item.NameEn}</a>&nbsp;<strong>x ${item.Quantity}</strong></a></br>
                                     <a href="#" onclick="voidclick(); return false"><strong>${IsArabic ? item.CountryNameAr + "/" + item.CharityNameAr : item.CountryNameEn + "/" + item.CharityNameEn}</strong></a></br>
-                                    <a href="#" onclick="voidclick(); return false"><strong style="background: #05D7A0;color: #ffffff;padding: 3px;border-radius: 3px;">${IsArabic ? item.PurposeNameAr : item.PurposeName}</strong></a>
+                                    <a href="#" onclick="voidclick(); return false"><strong style="background: #F29811;color: #ffffff;padding: 3px;border-radius: 3px;">${IsArabic ? item.PurposeNameAr : item.PurposeName}</strong></a>
                                 </td>
-                                <td>${item.FullName}<br/><span style="font-size: 9px;color: #05D7A0;">${item.AddressDetails}</span></td>
+                                <td>${item.FullName}<br/><span style="font-size: 9px;color: #F29811;">${item.AddressDetails}</span></td>
                             </tr>`);
             }
             else {
@@ -259,7 +259,7 @@ function BindRequestPersons(data) {
                                                                     <a href="#" onclick="voidclick(); return false"><strong style="font-weight: 100;font-size: 12px;">${IsArabic ? 'الملاحظات: ' + item.CuttingNotes : 'Notes: ' + item.CuttingNotes}</strong></a>
 </td>
                                 <td>${item.FullName}<br/>
-                                    <a href="#" onclick="voidclick(); return false"><strong style="background: #05D7A0;color: #ffffff;padding: 3px;border-radius: 3px;">${IsArabic ? item.PurposeNameAr : item.PurposeName}</strong></a></td>
+                                    <a href="#" onclick="voidclick(); return false"><strong style="background: #F29811;color: #ffffff;padding: 3px;border-radius: 3px;">${IsArabic ? item.PurposeNameAr : item.PurposeName}</strong></a></td>
                             </tr>`);
             }
         }

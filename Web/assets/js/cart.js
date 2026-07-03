@@ -150,7 +150,7 @@ function FillCartPageItems() {
                             </a>
                             <br/>
                             <span style="
-                                ${item.Donation ? "background: #05D7A0;" : "background: #2196F3;"}
+                                ${item.Donation ? "background: #F29811;" : "background: #2196F3;"}
                                 color: #ffffff;
                                 padding: 3px;
                                 border-radius: 3px;
@@ -201,7 +201,7 @@ function FillCartPageItems() {
         document.getElementById("divloader").classList.remove('d-flex');
         $(".cart-subtotal span").html("0");
         $(".order-total span").html("0");
-        $(".productlist").html('<tr><td colspan="5" style="text-align: center;font-size: 17px;font-weight: 600;color: #05D7A0;">' + (IsArabic ? 'لم يتم العثور على نتائج!' : 'No Result Found!') + '</tr></td>');
+        $(".productlist").html('<tr><td colspan="5" style="text-align: center;font-size: 17px;font-weight: 600;color: #F29811;">' + (IsArabic ? 'لم يتم العثور على نتائج!' : 'No Result Found!') + '</tr></td>');
     }
 }
 
@@ -257,7 +257,7 @@ function RemoveItemPageCart(Token, value) {
         $(".products").html(`<div class="cart-action" style="padding-top: 2.1rem;">No product added to the cart!</div>`);
         $(".cart-subtotal span").html("0");
         $(".order-total span").html("0");
-        $(".productlist").html('<tr><td colspan="5" style="text-align: center;font-size: 17px;font-weight: 600;color: #05D7A0;">' + (IsArabic ? 'لم يتم العثور على نتائج!' : 'No Result Found!') + '</tr></td>');
+        $(".productlist").html('<tr><td colspan="5" style="text-align: center;font-size: 17px;font-weight: 600;color: #F29811;">' + (IsArabic ? 'لم يتم العثور على نتائج!' : 'No Result Found!') + '</tr></td>');
     }
 }
 

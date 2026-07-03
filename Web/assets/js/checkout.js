@@ -139,7 +139,7 @@ function FillCartPageItems() {
                         </td>
                         <td class="product-name" style="width: 160px;">
                             <span style="
-                                ${item.Donation ? "background: #05D7A0;" : "background: #2196F3;"}
+                                ${item.Donation ? "background: #F29811;" : "background: #2196F3;"}
                                 color: #ffffff;
                                 padding: 10px;
                                 border-radius: 3px;
@@ -176,7 +176,7 @@ function FillCartPageItems() {
         document.getElementById("divloader").classList.remove('d-flex');
         $(".cart-subtotal span").html("0");
         $(".order-total span").html("0");
-        $(".productlist").html('<tr><td colspan="5" style="text-align: center;font-size: 17px;font-weight: 600;color: #05D7A0;">' + (IsArabic ? 'لم يتم العثور على نتائج!' : 'No Result Found!') + '</tr></td>');
+        $(".productlist").html('<tr><td colspan="5" style="text-align: center;font-size: 17px;font-weight: 600;color: #F29811;">' + (IsArabic ? 'لم يتم العثور على نتائج!' : 'No Result Found!') + '</tr></td>');
     }
 }
 
@@ -399,7 +399,7 @@ function FillCheckoutPageItems(data) {
 
             items.push(` <tr class="bb-no">
                                 <td class="product-name" style=" max-width:200px;word-wrap:break-word;">${IsArabic ? item.NameAr : item.NameEn}<br/>
-                             <span style="${item.Donation ? "background: #05D7A0;" : "background: #2196F3;"}
+                             <span style="${item.Donation ? "background: #F29811;" : "background: #2196F3;"}
                                 color: #ffffff;
                                 padding: 3px;
                                 border-radius: 3px;
@@ -724,7 +724,7 @@ function FillProductsWithShareholderItems(data, shareholder, shipping_shareholde
 
             items.push(` <tr class="bb-no">
                                 <td class="product-name" style=" max-width:200px;word-wrap:break-word;${item.Count == shareholderquantity ? 'border-bottom: solid 4px #FFC107;padding-bottom: 4px;' : ''}"><i class="w-icon-check ${item.Count == shareholderquantity ? '' : 'd-none'}" style="color:#FFC107;"></i>${IsArabic ? item.NameAr : item.NameEn}<br/>
-                             <span style="${item.Donation ? "background: #05D7A0;" : "background: #2196F3;"}
+                             <span style="${item.Donation ? "background: #F29811;" : "background: #2196F3;"}
                                 color: #ffffff;
                                 padding: 3px;
                                 border-radius: 3px;
@@ -1103,7 +1103,7 @@ function BindShippingShareholderData(data) {
         let items = [];
         for (index; index < data.length; index++) {
             let item = data[index];
-            items.push(`<tr><td>${item.Quantity} X ${item.productName}</td><td>${item.ShippingName}</td><td>${item.ShippingCityText}</br><span style="font-size: 10px;color: #05D7A0;">${item.ShippingTown}, ${item.ShippingBlock}, ${item.ShippingHouse}, ${item.ShippingApartment}, ${item.ShippingStreet}.</br>${item.ShippingNumber}</span></td><td style="text-align: center;">${item.PurposeName}</td></tr>`);
+            items.push(`<tr><td>${item.Quantity} X ${item.productName}</td><td>${item.ShippingName}</td><td>${item.ShippingCityText}</br><span style="font-size: 10px;color: #F29811;">${item.ShippingTown}, ${item.ShippingBlock}, ${item.ShippingHouse}, ${item.ShippingApartment}, ${item.ShippingStreet}.</br>${item.ShippingNumber}</span></td><td style="text-align: center;">${item.PurposeName}</td></tr>`);
         }
         $('.shippingShareholdersList').html(items);
         $('.shipping-order-shareholders').removeClass("d-none");
