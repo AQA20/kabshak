@@ -91,7 +91,7 @@
         }
 
         html[lang=ar] #image-container img {
-            content: url('/assets/images/logo_ar.png');
+            content: url('/assets/images/logo_ar.png?v=4.0');
         }
 
         @media (max-width: 479px) {
@@ -163,7 +163,7 @@
                                     <div id="image-container" class="header-left mr-md-4" style="max-width: 195px;">
                                         <a href="#" onclick="voidclick(); return false" class="mobile-menu-toggle  w-icon-hamburger" aria-label="menu-toggle"></a>
                                         <a href="/home.aspx" class="logo ml-lg-0">
-                                            <img src="/assets/images/logo.png" alt="logo" style="margin-bottom: 10px; margin-top: 10px; }" />
+                                            <img src="/assets/images/logo.png?v=4.0" alt="logo" style="margin-bottom: 10px; margin-top: 10px; }" />
                                         </a>
                                     </div>
                                     <div class="header-center">
