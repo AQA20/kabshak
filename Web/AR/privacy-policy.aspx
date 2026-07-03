@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="privacy-policy.aspx.cs" Inherits="web.AR.privacy_policy" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="privacy-policy.aspx.cs" Inherits="web.AR.privacy_policy" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <main class="main">
@@ -275,22 +275,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-12 mb-8">
-                            <div class="accordion accordion-bg accordion-gutter-md accordion-border">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <a href="#collapse-10" class="collapse">خصوصية الأطفال</a>
-                                    </div>
-                                    <div id="collapse-10" class="card-body expanded" style="display: block;">
-                                        <p class="mb-0">
-                                            لا تقوم كبشك عن عمد بجمع معلومات التعريف الشخصية من الأطفال أو القصر الآخرين الذين تقل أعمارهم عن ثمانية عشر عامًا (18). إذا كنت والدًا أو وصيًا وكنت تعلم أن طفلك قد زودنا بمعلومات شخصية ، فيرجى الاتصال بنا حتى نتمكن من حذف المعلومات.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
                     <div class="row">
                         <div class="col-md-12 mb-8">
                             <div class="accordion accordion-bg accordion-gutter-md accordion-border">

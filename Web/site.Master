@@ -240,7 +240,7 @@
                     <div class="sticky-content-wrapper" style="display: block !important;">
                         <div class="main-nav" style="padding: 10px; background: #FFD264; color: #000000;">
                             <i class="w-icon-exclamation-circle" style="padding: 3px;"></i>
-                            <script>Languag_IsArabic('Your order will be distributed and delivered under the supervision of a specialized team to ensure the quality of the process at your chosen time and place, and it will be documented and sent to your email accordingly.', 'سوف يتم توزيع وإيصال طلبك تحت اشراف فريق مختص لضمان الجودة وسير العملية بشكل منظم في الوقت والمكان الذي يتم اختياره , باإلضافة الى توثيق العملية وإرسالها على البريد االلكتروني وذلك حسب طلبكم.')</script>
+                            <script>Languag_IsArabic('Your order will be distributed and delivered under the supervision of a specialized team to ensure the quality of the process at your chosen time and place, and it will be documented and sent to your email accordingly.', 'سوف يتم توزيع وإيصال طلبك تحت اشراف فريق مختص لضمان الجودة وسير العملية بشكل منظم في الوقت والمكان الذي يتم اختياره , باإلضافة الى توثيق العملية وإرسالها على البريد الإلكتروني وذلك حسب طلبكم.')</script>
                         </div>
                     </div>
                 </div>

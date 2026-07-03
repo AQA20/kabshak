@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="privacy-policy.aspx.cs" Inherits="web.privacy_policy" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="privacy-policy.aspx.cs" Inherits="web.privacy_policy" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <main class="main">
@@ -275,22 +275,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-12 mb-8">
-                            <div class="accordion accordion-bg accordion-gutter-md accordion-border">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <a href="#collapse-10" class="collapse">Children’s Privacy</a>
-                                    </div>
-                                    <div id="collapse-10" class="card-body expanded" style="display: block;">
-                                        <p class="mb-0">
-                                            The Kabshak does not knowingly collect personally identifiable information from children or other minors under the age of eighteen (18). If you are a parent or guardian and you are aware that your child has provided us with personal information, please contact us so that we can delete the information.                                       
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
                     <div class="row">
                         <div class="col-md-12 mb-8">
                             <div class="accordion accordion-bg accordion-gutter-md accordion-border">
