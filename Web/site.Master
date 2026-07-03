@@ -121,6 +121,10 @@
         .widget-about .social-icons {
             justify-content: center;
         }
+
+        figure.testimonial-author-thumbnail img {
+            filter: brightness(0) saturate(100%) invert(67%) sepia(61%) saturate(1478%) hue-rotate(5deg) brightness(98%) contrast(92%);
+        }
     </style>
 </head>
 <body>
