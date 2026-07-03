@@ -344,7 +344,6 @@
                                             <a href="#" onclick="voidclick(); return false" class="social-icon social-twitter w-icon-twitter"></a>
                                             <a href="#" onclick="voidclick(); return false" class="social-icon social-instagram w-icon-instagram"></a>
                                             <a href="#" onclick="voidclick(); return false" class="social-icon social-youtube w-icon-youtube"></a>
-                                            <a href="#" onclick="voidclick(); return false" class="social-icon social-pinterest w-icon-pinterest"></a>
                                         </div>
                                     </div>
                                 </div>
