@@ -121,6 +121,10 @@
         .widget-about .social-icons {
             justify-content: center;
         }
+
+        .social-icons-colored .social-icon.social-twitter {
+            background-color: #000000 !important;
+        }
     </style>
 </head>
 <body>
@@ -341,7 +345,9 @@
                                     <div class="widget-body">
                                         <div class="social-icons social-icons-colored">
                                             <a href="#" onclick="voidclick(); return false" class="social-icon social-facebook w-icon-facebook"></a>
-                                            <a href="#" onclick="voidclick(); return false" class="social-icon social-twitter w-icon-twitter"></a>
+                                            <a href="#" onclick="voidclick(); return false" class="social-icon social-twitter" style="display: flex; align-items: center; justify-content: center;">
+                                                <img src="/assets/images/X_icon.png" alt="X" style="width: 14px; height: 14px; filter: brightness(0) invert(1);" />
+                                            </a>
                                             <a href="#" onclick="voidclick(); return false" class="social-icon social-instagram w-icon-instagram"></a>
                                             <a href="#" onclick="voidclick(); return false" class="social-icon social-youtube w-icon-youtube"></a>
                                         </div>
