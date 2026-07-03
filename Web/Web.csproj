@@ -197,6 +197,10 @@
     <Content Include="assets\images\aboutUs-1.jpg" />
     <Content Include="assets\images\aboutUs-2.jpg" />
     <Content Include="assets\images\alter_logo.png" />
+    <Content Include="assets\images\logo-footer.png" />
+    <Content Include="assets\images\logo-footer-ar.png" />
+    <Content Include="assets\images\X_icon.png" />
+    <Content Include="assets\images\site_icon.png" />
     <Content Include="assets\images\banner-1.jpg" />
     <Content Include="assets\images\banner.jpg" />
     <Content Include="assets\images\cancellation-policy.png" />
