@@ -121,10 +121,6 @@
         .widget-about .social-icons {
             justify-content: center;
         }
-
-        figure.testimonial-author-thumbnail img {
-            filter: brightness(0) saturate(100%) invert(67%) sepia(61%) saturate(1478%) hue-rotate(5deg) brightness(98%) contrast(92%);
-        }
     </style>
 </head>
 <body>
@@ -438,7 +434,7 @@
                                     <h4 class="widget-title">
                                         <script>Languag_IsArabic('Company', 'الشركة')</script>
                                     </h4>
-                                    <ul class="widget-body">
+                                    <ul class="widget-body company-links">
                                         <li id="lnkAdminDashboard2" runat="server"><a href="/admin/dashboard.aspx" class="d-lg-show">
                                             <script>Languag_IsArabic('Admin Dashboard', 'لوحة تحكم المسؤول')</script>
                                         </a></li>
@@ -461,7 +457,7 @@
                                         <li><a href="/Privacy-Policy.aspx">
                                             <script>Languag_IsArabic('Privacy Policy', 'سياسة الخصوصية')</script>
                                         </a></li>
-                                        <li><a href="/cancellation-policy.aspx.aspx">
+                                        <li><a href="/cancellation-policy.aspx">
                                             <script>Languag_IsArabic('Cancellation Policy', 'سياسة الإلغاء والاسترداد')</script>
                                         </a></li>
                                         <li><a href="/Term-and-Conditions.aspx">
@@ -644,6 +640,22 @@
     </asp:ContentPlaceHolder>
     <script src="/assets/vendor/swiper/swiper-bundle.min.js"></script>
     <script src="/assets/js/main.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var path = window.location.pathname.toLowerCase();
+            $('.menu li a, .mobile-menu li a, .footer .widget-body li a').each(function () {
+                var href = $(this).attr('href');
+                if (href) {
+                    var cleanHref = href.toLowerCase().split('?')[0].replace('..', '').replace('~', '');
+                    var baseHref = cleanHref.replace('.aspx', '');
+                    if (cleanHref !== '/' && cleanHref !== '' && (path.indexOf(cleanHref) !== -1 || path.indexOf(baseHref) !== -1)) {
+                        $(this).closest('li').addClass('active');
+                        $(this).css('color', '#F29811');
+                    }
+                }
+            });
+        });
+    </script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y3G7WH5Q7H"></script>
     <script>
