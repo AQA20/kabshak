@@ -1,4 +1,4 @@
-﻿using business_logic;
+using business_logic;
 using DataAccess.Modals;
 using Entities;
 using QRCoder;
@@ -851,6 +851,7 @@ namespace BusinessLogic
             catch (Exception ex)
             {
                 Console.WriteLine("Exception caught! " + ex.ToString());
+                return new List<string> { "Error: " + ex.Message + " | Inner: " + (ex.InnerException != null ? ex.InnerException.Message : "None") + " | Stack: " + ex.StackTrace };
             }
 
             return data;
