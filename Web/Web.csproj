@@ -505,7 +505,6 @@
     <Content Include="assets\images\Loading_2.gif" />
     <Content Include="assets\images\logo.png" />
     <Content Include="assets\images\logo_ar.png" />
-    <Content Include="assets\images\logo_footer.png" />
     <Content Include="assets\images\model1.png" />
     <Content Include="assets\images\model2.png" />
     <Content Include="assets\images\newsletter-1.jpg" />
