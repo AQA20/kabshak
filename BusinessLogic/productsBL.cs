@@ -840,18 +840,79 @@ namespace BusinessLogic
 
         public object GetCartItems(string cookie_cart_items)
         {
-            var data = new object();
+            var data = new List<DataAccess.Modals.GetCartItems_Result>();
 
             try
             {
-                productsEntities context = new productsEntities();
-                var query = context.GetCartItems(cookie_cart_items);
-                data = query.ToList();
+                if (string.IsNullOrEmpty(cookie_cart_items))
+                    return data;
+
+                // Parse token|count from cookie_cart_items
+                var itemsList = cookie_cart_items.Split(',')
+                    .Select(x => x.Split('|'))
+                    .Where(x => x.Length == 2)
+                    .Select(x => {
+                        int cnt = 0;
+                        int.TryParse(x[1], out cnt);
+                        return new { Token = x[0].Trim(), Count = cnt };
+                    })
+                    .GroupBy(x => x.Token)
+                    .Select(x => new { Token = x.Key, Count = x.Sum(y => y.Count) })
+                    .ToList();
+
+                if (!itemsList.Any())
+                    return data;
+
+                using (productsEntities context = new productsEntities())
+                {
+                    var tokens = itemsList.Select(i => i.Token).ToList();
+                    
+                    // Fetch products matching the tokens
+                    var dbProducts = context.Products.Where(p => tokens.Contains(p.Token)).ToList();
+                    
+                    foreach (var item in itemsList)
+                    {
+                        var p = dbProducts.FirstOrDefault(x => x.Token.Equals(item.Token, StringComparison.OrdinalIgnoreCase));
+                        if (p == null) continue;
+
+                        // Determine MainToken product for image and donation status
+                        var p2Token = string.IsNullOrEmpty(p.MainToken) || string.IsNullOrEmpty(p.MainToken.Trim()) ? p.Token : p.MainToken.Trim();
+                        var p2 = dbProducts.FirstOrDefault(x => x.Token.Equals(p2Token, StringComparison.OrdinalIgnoreCase)) 
+                                 ?? context.Products.FirstOrDefault(x => x.Token == p2Token);
+                        
+                        if (p2 == null) continue;
+
+                        var image = context.Images.FirstOrDefault(i => i.IsMain == true && i.ProductId == p2.Id);
+                        var stock = context.Stocks.FirstOrDefault(s => s.ProductId == p.Id);
+                        var price = context.Prices.FirstOrDefault(pr => pr.ProductId == p.Id);
+
+                        double? usd = price != null ? price.Usd : 0;
+                        double? kwd = price != null ? price.Kwd : 0;
+                        
+                        if (p.Discount != null && p.Discount > 0)
+                        {
+                            usd = usd - (usd * p.Discount / 100.0);
+                            kwd = kwd - (kwd * p.Discount / 100.0);
+                        }
+
+                        data.Add(new DataAccess.Modals.GetCartItems_Result
+                        {
+                            Token = p.Token,
+                            NameEn = p.NameEn,
+                            NameAr = p.NameAr,
+                            Url = image != null ? image.Url : "",
+                            Amount = stock != null ? stock.Amount : 0,
+                            Usd = usd,
+                            Kwd = kwd,
+                            Count = item.Count,
+                            Donation = p2.IsNewArrival
+                        });
+                    }
+                }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Exception caught! " + ex.ToString());
-                return new List<string> { "Error: " + ex.Message + " | Inner: " + (ex.InnerException != null ? ex.InnerException.Message : "None") + " | Stack: " + ex.StackTrace };
+                Console.WriteLine("Exception caught in GetCartItems LINQ! " + ex.ToString());
             }
 
             return data;
