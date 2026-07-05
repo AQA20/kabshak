@@ -99,6 +99,10 @@
             height: auto !important;
         }
 
+        .footer-newsletter {
+            background: #593930 !important;
+        }
+
         @media (max-width: 479px) {
             .logo img {
                 width: 120px !important;
@@ -298,7 +302,7 @@
             </asp:UpdatePanel>
             <!-- Start of Footer -->
             <footer class="footer">
-                <div class="footer-newsletter bg-primary pt-6 pb-6" style="background-color: #4B646E !important;">
+                <div class="footer-newsletter bg-primary pt-6 pb-6" style="background-color: #593930 !important;">
                     <div class="container">
                         <div class="row justify-content-center align-items-center">
                             <div class="col-xl-5 col-lg-6">
