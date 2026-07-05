@@ -11,17 +11,17 @@
 }
 
 .product-thumbs-wrap .swiper-button-prev {
-    background: #F29811 !important;
+    background: #593930 !important;
     color: #fff !important;
 }
 
 .product-thumbs-wrap .swiper-button-next {
-    background: #F29811 !important;
+    background: #593930 !important;
     color: #fff !important;
 }
 
 .swiper-slide-thumb-active {
-    border: solid 1px #F29811 !important;
+    border: solid 1px #593930 !important;
 }
 
 .zoomImg {

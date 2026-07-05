@@ -112,7 +112,7 @@ function FillBatches(data, end, start) {
         $('.pagination').html(' ');
         $('.showing-info').html(' ');
         $('.excel-option').addClass('d-none');
-        $('.result').html('<div style="font-weight: 500;color: #F29811;padding: 5px;font-size: 20px;padding-bottom: 350px;"><span class="w-icon-search-plus" style="padding-right: 5px;padding-left: 5px;"></span>No result found!</div>');
+        $('.result').html('<div style="font-weight: 500;color: #593930;padding: 5px;font-size: 20px;padding-bottom: 350px;"><span class="w-icon-search-plus" style="padding-right: 5px;padding-left: 5px;"></span>No result found!</div>');
         $('body , html').animate({
             scrollTop: $('.page-wrapper').offset().top
         }, 300)

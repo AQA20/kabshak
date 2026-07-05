@@ -470,7 +470,7 @@ function BindProductImages(Images) {
         $('.product-gallery').prepend(items);
     }
     else {
-        $('.product-gallery').html('<div style="font-weight: 500;color: #F29811;padding: 5px;font-size: 20px;"><span class="w-icon-search-plus" style="padding-right: 5px;padding-left: 5px;"></span>No result found!</div>');
+        $('.product-gallery').html('<div style="font-weight: 500;color: #593930;padding: 5px;font-size: 20px;"><span class="w-icon-search-plus" style="padding-right: 5px;padding-left: 5px;"></span>No result found!</div>');
     }
 }
 
@@ -822,7 +822,7 @@ function DeleteProductImage(id) {
 
     var elementsArray = document.getElementsByClassName("swiper-slide");
     if (elementsArray == null || elementsArray.length <= 1) {
-        $('.product-gallery').html('<div style="font-weight: 500;color: #F29811;padding: 5px;font-size: 20px;"><span class="w-icon-search-plus" style="padding-right: 5px;padding-left: 5px;"></span>No result found!</div>');
+        $('.product-gallery').html('<div style="font-weight: 500;color: #593930;padding: 5px;font-size: 20px;"><span class="w-icon-search-plus" style="padding-right: 5px;padding-left: 5px;"></span>No result found!</div>');
     }
 
     var fdata = new FormData();
@@ -1059,7 +1059,7 @@ function FillOrdersList(data) {
         $('.nooforders').html(`<p class="showing-info mb-2 mb-sm-0">Found <span>${orders.length.toString()}</span> Orders</p>`);
 
         if (orders.length <= 0) {
-            $('.account-orders-table').html('<tbody class="productlist"><tr><td colspan="5" style="text-align: center;font-size: 17px;font-weight: 600;color: #F29811;">No Result Found! </td></tr></tbody>');
+            $('.account-orders-table').html('<tbody class="productlist"><tr><td colspan="5" style="text-align: center;font-size: 17px;font-weight: 600;color: #593930;">No Result Found! </td></tr></tbody>');
         }
     }
 }

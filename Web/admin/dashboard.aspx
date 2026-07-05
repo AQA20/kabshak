@@ -10,7 +10,7 @@
         }
 
         a:hover {
-            color: #F29811 !important;
+            color: #593930 !important;
         }
 
         .header a:not(.btn):hover {

@@ -650,7 +650,7 @@ function RemoveItemCart(Token, value) {
         $(".products").html(`<div class="cart-action" style="padding-top: 2.1rem;">${IsArabic ? 'لا يوجد منتج مضاف للسلة' : 'No product added to the cart!'}</div>`);
         $(".cart-subtotal span").html("0");
         $(".order-total span").html("0");
-        $(".productlist").html('<tr><td colspan="5" style="text-align: center;font-size: 17px;font-weight: 600;color: #F29811;">No Result Found! </tr></td>');
+        $(".productlist").html('<tr><td colspan="5" style="text-align: center;font-size: 17px;font-weight: 600;color: #593930;">No Result Found! </tr></td>');
     }
 
     if (window.location.href.trim() == "/checkout") {

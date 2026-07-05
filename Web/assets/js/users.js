@@ -86,7 +86,7 @@ function FillUsersInfo(data, end, start) {
         window.currnetNavClicked = 1
         $('[name="start"]').val(1);
         $('[name="end"]').val(20);
-        $('.main-content').html('<div style="font-weight: 500;color: #F29811;padding: 5px;font-size: 20px;padding-bottom: 350px;"><span class="w-icon-search-plus" style="padding-right: 5px;padding-left: 5px;"></span>No result found!</div>');
+        $('.main-content').html('<div style="font-weight: 500;color: #593930;padding: 5px;font-size: 20px;padding-bottom: 350px;"><span class="w-icon-search-plus" style="padding-right: 5px;padding-left: 5px;"></span>No result found!</div>');
         $('.pagination').html(' ');
         $('.showing-info').html(' ');
         $('body , html').animate({

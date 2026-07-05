@@ -75,15 +75,15 @@
     <link rel="stylesheet" type="text/css" href="/assets/css/style.min.css?v=4.0">
     <style>
         .dropdown-box a:not(.btn):hover {
-            color: #F29811;
+            color: #593930;
         }
 
         .cart-dropdown a:not(.btn):hover {
-            color: #F29811;
+            color: #593930;
         }
 
         .call-info a:not(.btn):hover {
-            color: #F29811;
+            color: #593930;
         }
 
         .dropdown-currency a::after {
@@ -128,7 +128,7 @@
     <div id="popup_box" style="display: none; visibility: hidden;">
         <input type="button" id="cancel_button" value="X">
         <p id="info_text" style="display: flex; align-items: center;">
-            <i class="w-icon-check" style="font-size: 46px; padding: 10px; color: #F29811;"></i>
+            <i class="w-icon-check" style="font-size: 46px; padding: 10px; color: #593930;"></i>
             <span id="MessagePopupInfo"></span>
         </p>
     </div>
@@ -519,7 +519,7 @@
                     <div class="tab-content">
                         <div class="tab-pane active" id="main-menu">
                             <ul class="mobile-menu">
-                                <li id="liAccountName_mob" runat="server" class="d-none" style="padding: 10px; background: #F29811; border-radius: 5px;"><i class="w-icon-account"></i>
+                                <li id="liAccountName_mob" runat="server" class="d-none" style="padding: 10px; background: #593930; border-radius: 5px;"><i class="w-icon-account"></i>
                                     <p id="lblAccountName_mob" runat="server"></p>
                                 </li>
                                 <li><a href="/home.aspx">
@@ -650,7 +650,7 @@
                     var baseHref = cleanHref.replace('.aspx', '');
                     if (cleanHref !== '/' && cleanHref !== '' && (path.indexOf(cleanHref) !== -1 || path.indexOf(baseHref) !== -1)) {
                         $(this).closest('li').addClass('active');
-                        $(this).css('color', '#F29811');
+                        $(this).css('color', '#593930');
                     }
                 }
             });
