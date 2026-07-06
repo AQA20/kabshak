@@ -224,6 +224,12 @@
     <Content Include="assets\images\favicons\favicon.ico" />
     <Content Include="assets\images\favicons\Logo.svg" />
     <Content Include="assets\images\favicons\mstile-150x150.png" />
+    <Content Include="assets\images\Slides\1.jpg" />
+    <Content Include="assets\images\Slides\2.jpg" />
+    <Content Include="assets\images\Slides\3.jpg" />
+    <Content Include="assets\images\Slides\4.jpg" />
+    <Content Include="assets\images\Slides\5.jpg" />
+    <Content Include="assets\images\Slides\6.jpg" />
     <Content Include="assets\images\FinalLogo2.png" />
     <Content Include="assets\images\flags\ac.svg" />
     <Content Include="assets\images\flags\ad.svg" />
