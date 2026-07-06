@@ -446,7 +446,7 @@
                         <div class="goal-content-box pr-md-4">
                             <h2 class="goal-title font-weight-bolder text-dark mb-4">Our Goal</h2>
                             <p class="goal-desc text-default mb-4">
-                                Our goal at Kabshak is to extend a helping hand to families in need and support less fortunate communities. Through our platform, we make it seamless for you to donate fresh, high-quality sacrifices and charitable contributions to verified associations. Together, we aim to combat hunger, foster solidarity, and bring joy and nourishment to chaste families across the world.
+                                At the end of the day, our goal is simple: to help as many people as possible. With the convenience of online charitable giving, we reach a wider audience and make a broader impact than ever before. Whether you're a busy professional looking to make a difference in your spare time or a philanthropist with a passion for social justice, we make it easy to get involved and make a meaningful contribution to our cause. Through our online platform, you can browse a variety of projects and choose the one that speaks to you.
                             </p>
                             <a href="about-us.aspx" class="btn btn-dark btn-rounded btn-outline btn-icon-right">
                                 Learn More<i class="w-icon-long-arrow-right"></i>
