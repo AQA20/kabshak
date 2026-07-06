@@ -14,31 +14,31 @@
 
             @media (max-width: 575px) {
                 .category-banner-wrapper2 .banner-content {
-                    width: 65% !important;
-                    left: 15px !important;
+                    width: 80% !important;
+                    left: 10px !important;
                     right: auto !important;
                     text-align: left !important;
+                    padding: 1.5rem !important;
                 }
 
                 .category-banner-wrapper2 .banner-title {
-                    font-size: 2.15rem !important;
+                    font-size: 1.8rem !important;
                     line-height: 1.2 !important;
                     margin-bottom: 4px !important;
                 }
 
                 .category-banner-wrapper2 .banner-price-info {
-                    font-size: 1.3rem !important;
+                    font-size: 1.1rem !important;
                     line-height: 1.3 !important;
                     margin-bottom: 8px !important;
                 }
 
                 .category-banner-wrapper2 .banner-content .btn {
-                    padding: 9px 25px !important;
-                    font-size: 1.1rem !important;
+                    padding: 8px 18px !important;
+                    font-size: 1rem !important;
                     line-height: 1.2 !important;
                 }
             }
-
 
             .category-banner-3cols .text-center .banner-title {
                 margin-bottom: unset;
@@ -46,6 +46,359 @@
 
             .footer-newsletter {
                 max-width: unset;
+            }
+
+            /* Custom Premium Animations */
+            @keyframes float {
+                0% { transform: translateY(0px) rotate(0deg); }
+                50% { transform: translateY(-6px) rotate(2deg); }
+                100% { transform: translateY(0px) rotate(0deg); }
+            }
+            @keyframes slide-truck {
+                0% { transform: translateX(0); }
+                50% { transform: translateX(6px); }
+                100% { transform: translateX(0); }
+            }
+            @keyframes scale-pulse {
+                0% { transform: scale(1); }
+                50% { transform: scale(1.12); }
+                100% { transform: scale(1); }
+            }
+            @keyframes bounce-chat {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(-6px); }
+            }
+
+            /* Category Banners Zoom */
+            .category-banner-wrapper2 .banner {
+                overflow: hidden;
+                border-radius: 16px;
+                box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+                transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            }
+            .category-banner-wrapper2 .banner-media {
+                transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+            }
+            .category-banner-wrapper2 .banner:hover .banner-media {
+                transform: scale(1.05);
+            }
+            .category-banner-wrapper2 .banner-content {
+                background: rgba(0, 0, 0, 0.35) !important;
+                backdrop-filter: blur(8px);
+                -webkit-backdrop-filter: blur(8px);
+                padding: 3rem !important;
+                border-radius: 16px;
+                border: 1px solid rgba(255, 255, 255, 0.15);
+                max-width: 85%;
+                box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+                transition: all 0.4s ease;
+            }
+            .category-banner-wrapper2 .banner:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 15px 40px rgba(89, 57, 48, 0.12);
+            }
+            .category-banner-wrapper2 .banner:hover .banner-content {
+                background: rgba(0, 0, 0, 0.5) !important;
+                border-color: rgba(89, 57, 48, 0.4);
+            }
+            .category-banner-wrapper2 .banner-title {
+                font-family: 'Poppins', sans-serif;
+                font-weight: 700 !important;
+                letter-spacing: 0.5px;
+                margin-bottom: 0.8rem;
+            }
+            .category-banner-wrapper2 .banner-price-info {
+                color: #f8f8f8 !important;
+                font-size: 1.35rem !important;
+                line-height: 1.4;
+                margin-bottom: 1.8rem !important;
+            }
+            .category-banner-wrapper2 .banner-content .btn {
+                transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            }
+            .category-banner-wrapper2 .banner-content .btn:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 25px rgba(89, 57, 48, 0.5);
+            }
+
+            /* Kabshak Options Section redone */
+            .title.title-center {
+                position: relative;
+                font-size: 2.8rem;
+                font-weight: 700;
+                color: #593930;
+                margin-bottom: 4rem !important;
+            }
+            .title.title-center::after {
+                content: '';
+                position: absolute;
+                bottom: -10px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 65px;
+                height: 3px;
+                background: #593930;
+                border-radius: 2px;
+            }
+
+            .testimonial.testimonial-shadow {
+                background: linear-gradient(135deg, #ffffff 0%, #fbf9f6 100%) !important;
+                border: 1px solid rgba(89, 57, 48, 0.08) !important;
+                border-radius: 24px !important;
+                padding: 4rem 3rem !important;
+                box-shadow: 0 12px 45px rgba(89, 57, 48, 0.04) !important;
+                transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+            }
+            .testimonial-wrap:hover .testimonial.testimonial-shadow {
+                transform: translateY(-8px);
+                box-shadow: 0 22px 55px rgba(89, 57, 48, 0.12) !important;
+                border-color: rgba(89, 57, 48, 0.7) !important;
+            }
+
+            .testimonial-author-thumbnail {
+                width: 95px !important;
+                height: 95px !important;
+                border-radius: 50% !important;
+                border: 4px solid #ffffff !important;
+                box-shadow: 0 8px 25px rgba(89, 57, 48, 0.12) !important;
+                background: #ffffff;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 2.2rem !important;
+                transition: all 0.4s ease;
+            }
+            .testimonial-wrap:hover .testimonial-author-thumbnail {
+                animation: float 2.5s ease-in-out infinite;
+                box-shadow: 0 8px 30px rgba(89, 57, 48, 0.4) !important;
+                border-color: #593930 !important;
+            }
+
+            .testimonial cite {
+                font-size: 1.6rem !important;
+                font-weight: 700 !important;
+                color: #593930 !important;
+                text-transform: uppercase;
+                letter-spacing: 0.8px;
+                margin-bottom: 1.8rem !important;
+                display: block;
+            }
+
+            .testimonial blockquote {
+                font-size: 1.35rem !important;
+                color: #665d59 !important;
+                line-height: 1.75 !important;
+                font-style: normal !important;
+                margin: 0 !important;
+            }
+
+            /* Icon Boxes modern redesign */
+            .icon-box-wrapper {
+                background: linear-gradient(135deg, #ffffff 0%, #FAF8F5 100%) !important;
+                border-radius: 24px !important;
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03) !important;
+                padding: 2.8rem 1.8rem !important;
+                border: 1px solid rgba(0, 0, 0, 0.04) !important;
+                transition: all 0.4s ease;
+            }
+            .icon-box-wrapper:hover {
+                box-shadow: 0 15px 50px rgba(89, 57, 48, 0.08) !important;
+            }
+
+            .icon-box {
+                padding: 1.8rem !important;
+                border-radius: 16px;
+                transition: all 0.3s ease;
+            }
+            .icon-box:hover {
+                background: rgba(89, 57, 48, 0.06);
+            }
+
+            .icon-box-icon {
+                width: 64px !important;
+                height: 64px !important;
+                background: rgba(89, 57, 48, 0.06);
+                border-radius: 16px;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+                color: #593930;
+                padding: 0 !important;
+                margin: 0 !important;
+                margin-right: 1.8rem !important;
+            }
+            html[lang=ar] .icon-box-icon {
+                margin-right: 0 !important;
+                margin-left: 1.8rem !important;
+            }
+            .icon-box-icon i {
+                font-size: 2.6rem !important;
+                transition: all 0.3s ease;
+                display: inline-flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                position: static !important;
+                line-height: 1 !important;
+                width: auto !important;
+                height: auto !important;
+            }
+
+            .icon-box:hover .icon-box-icon {
+                background: #593930;
+                color: #ffffff;
+                transform: scale(1.08);
+            }
+
+            .icon-box:hover .icon-shipping i {
+                animation: slide-truck 0.6s ease-in-out infinite;
+            }
+            .icon-box:hover .icon-payment i {
+                animation: scale-pulse 0.6s ease-in-out infinite;
+            }
+            .icon-box:hover .icon-money i {
+                animation: scale-pulse 0.6s ease-in-out infinite;
+            }
+            .icon-box:hover .icon-chat i {
+                animation: bounce-chat 0.6s ease-in-out infinite;
+            }
+
+            .icon-box-content .icon-box-title {
+                font-size: 1.6rem !important;
+                color: #593930 !important;
+                margin-bottom: 0.6rem;
+            }
+
+            .icon-box-content p.text-default {
+                font-size: 1.3rem !important;
+                color: #726863 !important;
+            }
+
+            /* Home Slider Container Styling */
+            .home-slider-container {
+                display: block !important;
+                margin: 0 !important;
+                max-width: 100% !important;
+            }
+            .home-slider-container .swiper-container {
+                border-radius: 16px;
+                overflow: hidden;
+                box-shadow: 0 12px 40px rgba(89, 57, 48, 0.12);
+            }
+            .home-slider-container .swiper-slide {
+                border-radius: 16px;
+                overflow: hidden;
+            }
+            .home-slider-container img {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 1024/860 !important; /* Exact match of the image dimensions */
+                object-fit: cover;
+                border-radius: 16px;
+                display: block;
+            }
+
+            @media (max-width: 767px) {
+                .home-slider-container {
+                    margin-bottom: 2rem !important;
+                }
+                .home-slider-container img {
+                    aspect-ratio: 1024/860 !important;
+                }
+                /* Hide navigation arrows on mobile for clean touch interaction */
+                .home-slider-container .swiper-button-next,
+                .home-slider-container .swiper-button-prev {
+                    display: none !important;
+                }
+            }
+
+            /* Goal Section Styling */
+            .home-goal-section {
+                padding: 4rem 0;
+            }
+            .goal-content-box {
+                padding: 3rem;
+                background: rgba(89, 57, 48, 0.02);
+                border-radius: 20px;
+                border: 1px solid rgba(89, 57, 48, 0.06);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                transition: all 0.4s ease;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+            .goal-content-box:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 15px 35px rgba(89, 57, 48, 0.05);
+                background: rgba(89, 57, 48, 0.04);
+            }
+            .goal-title {
+                font-size: 2.8rem !important;
+                color: #593930 !important;
+                position: relative;
+            }
+            .goal-title::after {
+                content: '';
+                display: block;
+                width: 50px;
+                height: 3px;
+                background: #593930;
+                margin-top: 12px;
+                border-radius: 2px;
+                transition: width 0.4s ease;
+            }
+            .goal-content-box:hover .goal-title::after {
+                width: 80px;
+            }
+            .goal-desc {
+                font-size: 1.5rem !important;
+                line-height: 1.8 !important;
+                color: #6a5e5a !important;
+            }
+
+
+            .home-slider-container .swiper-pagination-bullet {
+                background: rgba(89, 57, 48, 0.3) !important;
+                opacity: 1;
+                width: 8px;
+                height: 8px;
+                transition: all 0.3s ease;
+            }
+            .home-slider-container .swiper-pagination-bullet-active {
+                background: #593930 !important;
+                width: 20px;
+                border-radius: 4px;
+            }
+
+            /* Navigation arrows styling */
+            .home-slider-container .swiper-button-next,
+            .home-slider-container .swiper-button-prev {
+                color: #593930 !important;
+                background: rgba(255, 255, 255, 0.95);
+                width: 46px;
+                height: 46px;
+                border-radius: 50%;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+                transition: all 0.3s ease;
+            }
+            .home-slider-container .swiper-button-next:hover,
+            .home-slider-container .swiper-button-prev:hover {
+                background: #593930;
+                color: #ffffff !important;
+            }
+            .home-slider-container .swiper-button-next::after,
+            .home-slider-container .swiper-button-prev::after {
+                font-size: 1.6rem !important;
+                font-weight: bold;
             }
         </style>
     </asp:Content>
@@ -86,6 +439,72 @@
                     </div>
                 </div>
             </div>
+            <div class="container home-goal-section mt-5">
+                <div class="row align-items-center">
+                    <!-- Left Column: Our Goal Message -->
+                    <div class="col-md-6 mb-4 mb-md-0">
+                        <div class="goal-content-box pr-md-4">
+                            <h2 class="goal-title font-weight-bolder text-dark mb-4">Our Goal</h2>
+                            <p class="goal-desc text-default mb-4">
+                                Our goal at Kabshak is to extend a helping hand to families in need and support less fortunate communities. Through our platform, we make it seamless for you to donate fresh, high-quality sacrifices and charitable contributions to verified associations. Together, we aim to combat hunger, foster solidarity, and bring joy and nourishment to chaste families across the world.
+                            </p>
+                            <a href="about-us.aspx" class="btn btn-dark btn-rounded btn-outline btn-icon-right">
+                                Learn More<i class="w-icon-long-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Right Column: Swiper Slider -->
+                    <div class="col-md-6">
+                        <div class="home-slider-container">
+                            <div class="swiper-container swiper-theme" data-swiper-options="{
+                                'autoplay': {
+                                    'delay': 3500,
+                                    'disableOnInteraction': false
+                                },
+                                'loop': true,
+                                'slidesPerView': 1,
+                                'spaceBetween': 10
+                            }">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <figure class="banner-media">
+                                            <img src="/assets/images/Slides/1.jpg" alt="Slide 1" />
+                                        </figure>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <figure class="banner-media">
+                                            <img src="/assets/images/Slides/2.jpg" alt="Slide 2" />
+                                        </figure>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <figure class="banner-media">
+                                            <img src="/assets/images/Slides/3.jpg" alt="Slide 3" />
+                                        </figure>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <figure class="banner-media">
+                                            <img src="/assets/images/Slides/4.jpg" alt="Slide 4" />
+                                        </figure>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <figure class="banner-media">
+                                            <img src="/assets/images/Slides/5.jpg" alt="Slide 5" />
+                                        </figure>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <figure class="banner-media">
+                                            <img src="/assets/images/Slides/6.jpg" alt="Slide 6" />
+                                        </figure>
+                                    </div>
+                                </div>
+                                <div class="swiper-pagination"></div>
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="soldoutalert container d-none">
                 <div class="row">
                     <div class="col-md-12 mb-4">
@@ -114,74 +533,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="container mt-5">
-                <div class="swiper-container swiper-theme icon-box-wrapper br-sm bg-white"
-                    style="border: solid 1px #eee;" data-swiper-options="{
-                    'loop': true,
-                    'spaceBetween': 10,
-                    'autoplay': false,
-                    'autoplayTimeout': 4000,
-                    'slidesPerView': 1,
-                    'breakpoints': {
-                        '576': {
-                            'slidesPerView': 2
-                        },
-                        '768': {
-                            'slidesPerView': 2
-                        },
-                        '992': {
-                            'slidesPerView': 3
-                        },
-                        '1200': {
-                            'slidesPerView': 4
-                        }
-                    }
-                    }">
-                    <div class="swiper-wrapper row cols-md-4 cols-sm-3 cols-1">
-                        <div class="swiper-slide icon-box icon-box-side text-dark">
-                            <span class="icon-box-icon icon-shipping">
-                                <i class="w-icon-truck"></i>
-                            </span>
-                            <div class="icon-box-content">
-                                <h4 class="icon-box-title font-weight-bolder">Shipping</h4>
-                                <p class="text-default">Express delivery on time</p>
-                            </div>
-                        </div>
-                        <div class="swiper-slide icon-box icon-box-side text-dark">
-                            <span class="icon-box-icon icon-payment">
-                                <i class="w-icon-bag"></i>
-                            </span>
-                            <div class="icon-box-content">
-                                <h4 class="icon-box-title font-weight-bolder">Secure Payment</h4>
-                                <p class="text-default">We ensure secure payment</p>
-                            </div>
-                        </div>
-                        <div class="swiper-slide icon-box icon-box-side text-dark icon-box-money">
-                            <span class="icon-box-icon icon-money">
-                                <i class="w-icon-money"></i>
-                            </span>
-                            <div class="icon-box-content">
-                                <h4 class="icon-box-title font-weight-bolder">Money Back Guarantee</h4>
-                                <p class="text-default">
-                                    According to the laws and
-                                    <br />
-                                    conditions that are stipulated
-                                </p>
-                            </div>
-                        </div>
-                        <div class="swiper-slide icon-box icon-box-side text-dark icon-box-chat">
-                            <span class="icon-box-icon icon-chat">
-                                <i class="w-icon-chat"></i>
-                            </span>
-                            <div class="icon-box-content">
-                                <h4 class="icon-box-title font-weight-bolder">Customer Support</h4>
-                                <p class="text-default">From 8:00 AM till 9:00 PM</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End of Icon Box Wrapper -->
             </div>
             <div class="container mt-8">
                 <section class="mb-10">
@@ -298,6 +649,74 @@
                         <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
                     </div>
                 </section>
+            </div>
+            <div class="container mt-5 mb-10">
+                <div class="swiper-container swiper-theme icon-box-wrapper br-sm bg-white"
+                    style="border: solid 1px #eee;" data-swiper-options="{
+                    'loop': true,
+                    'spaceBetween': 10,
+                    'autoplay': false,
+                    'autoplayTimeout': 4000,
+                    'slidesPerView': 1,
+                    'breakpoints': {
+                        '576': {
+                            'slidesPerView': 2
+                        },
+                        '768': {
+                            'slidesPerView': 2
+                        },
+                        '992': {
+                            'slidesPerView': 3
+                        },
+                        '1200': {
+                            'slidesPerView': 4
+                        }
+                    }
+                    }">
+                    <div class="swiper-wrapper row cols-md-4 cols-sm-3 cols-1">
+                        <div class="swiper-slide icon-box icon-box-side text-dark">
+                            <span class="icon-box-icon icon-shipping">
+                                <i class="w-icon-truck"></i>
+                            </span>
+                            <div class="icon-box-content">
+                                <h4 class="icon-box-title font-weight-bolder">Shipping</h4>
+                                <p class="text-default">Express delivery on time</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide icon-box icon-box-side text-dark">
+                            <span class="icon-box-icon icon-payment">
+                                <i class="w-icon-bag"></i>
+                            </span>
+                            <div class="icon-box-content">
+                                <h4 class="icon-box-title font-weight-bolder">Secure Payment</h4>
+                                <p class="text-default">We ensure secure payment</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide icon-box icon-box-side text-dark icon-box-money">
+                            <span class="icon-box-icon icon-money">
+                                <i class="w-icon-money"></i>
+                            </span>
+                            <div class="icon-box-content">
+                                <h4 class="icon-box-title font-weight-bolder">Money Back Guarantee</h4>
+                                <p class="text-default">
+                                    According to the laws and
+                                    <br />
+                                    conditions that are stipulated
+                                </p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide icon-box icon-box-side text-dark icon-box-chat">
+                            <span class="icon-box-icon icon-chat">
+                                <i class="w-icon-chat"></i>
+                            </span>
+                            <div class="icon-box-content">
+                                <h4 class="icon-box-title font-weight-bolder">Customer Support</h4>
+                                <p class="text-default">From 8:00 AM till 9:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End of Icon Box Wrapper -->
             </div>
         </main>
     </asp:Content>

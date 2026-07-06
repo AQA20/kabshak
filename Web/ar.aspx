@@ -51,6 +51,113 @@
         .footer-newsletter {
             max-width: unset;
         }
+
+        /* Home Slider & Goal Section Styling */
+        .home-slider-container {
+            display: block !important;
+            margin: 0 !important;
+            max-width: 100% !important;
+        }
+        .home-slider-container .swiper-container {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 12px 40px rgba(89, 57, 48, 0.12);
+        }
+        .home-slider-container .swiper-slide {
+            border-radius: 16px;
+            overflow: hidden;
+        }
+        .home-slider-container img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 1024/860 !important;
+            object-fit: cover;
+            border-radius: 16px;
+            display: block;
+        }
+
+        @media (max-width: 767px) {
+            .home-slider-container {
+                margin-bottom: 2rem !important;
+            }
+            .home-slider-container img {
+                aspect-ratio: 1024/860 !important;
+            }
+            .home-slider-container .swiper-button-next,
+            .home-slider-container .swiper-button-prev {
+                display: none !important;
+            }
+        }
+
+        .home-goal-section {
+            padding: 4rem 0;
+        }
+        .goal-content-box {
+            padding: 3rem;
+            background: rgba(89, 57, 48, 0.02);
+            border-radius: 20px;
+            border: 1px solid rgba(89, 57, 48, 0.06);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            direction: rtl !important;
+            text-align: right !important;
+        }
+        .goal-content-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(89, 57, 48, 0.05);
+            background: rgba(89, 57, 48, 0.04);
+        }
+        .goal-title {
+            font-size: 2.8rem !important;
+            color: #593930 !important;
+            position: relative;
+        }
+        .goal-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: #593930;
+            margin-top: 12px;
+            border-radius: 2px;
+            transition: width 0.4s ease;
+            margin-left: auto;
+            margin-right: 0;
+        }
+        .goal-content-box:hover .goal-title::after {
+            width: 80px;
+        }
+        .goal-desc {
+            font-size: 1.5rem !important;
+            line-height: 1.8 !important;
+            color: #6a5e5a !important;
+        }
+
+        .home-slider-container .swiper-button-next,
+        .home-slider-container .swiper-button-prev {
+            color: #593930 !important;
+            background: rgba(255, 255, 255, 0.95);
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        .home-slider-container .swiper-button-next:hover,
+        .home-slider-container .swiper-button-prev:hover {
+            background: #593930;
+            color: #ffffff !important;
+        }
+        .home-slider-container .swiper-button-next::after,
+        .home-slider-container .swiper-button-prev::after {
+            font-size: 1.6rem !important;
+            font-weight: bold;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -79,6 +186,72 @@
                         <h5 class="banner-price-info font-weight-normal ls-25">الشحن الى جميع مناطق المملكة</h5>
                         <a href="shipping-shop.aspx" class="btn btn-dark btn-rounded btn-icon-right">أطلب الأن<i class="w-icon-long-arrow-right"></i>
                         </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container home-goal-section mt-5">
+            <div class="row align-items-center">
+                <!-- Left Column: Our Goal Arabic Message -->
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <div class="goal-content-box pr-md-4">
+                        <h2 class="goal-title font-weight-bolder text-dark mb-4">هدفنا</h2>
+                        <p class="goal-desc text-default mb-4">
+                            هدفنا في كبشك هو تقديم يد العون للأسر العفيفة والمحتاجة ودعم المجتمعات الأقل حظاً. من خلال منصتنا، نسهل عليك التبرع بالأضاحي الطازجة وذات الجودة العالية والصدقات إلى الجمعيات الخيرية المعتمدة. معاً، نسعى لمحاربة الجوع وتوطيد أواصر التكافل الاجتماعي وإدخال الفرحة والغذاء إلى قلوب العائلات في جميع أنحاء العالم.
+                        </p>
+                        <a href="about-us.aspx" class="btn btn-dark btn-rounded btn-outline btn-icon-right">
+                            اقرأ المزيد<i class="w-icon-long-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Right Column: Swiper Slider -->
+                <div class="col-md-6">
+                    <div class="home-slider-container">
+                        <div class="swiper-container swiper-theme" data-swiper-options="{
+                            'autoplay': {
+                                'delay': 3500,
+                                'disableOnInteraction': false
+                            },
+                            'loop': true,
+                            'slidesPerView': 1,
+                            'spaceBetween': 10
+                        }">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <figure class="banner-media">
+                                        <img src="/assets/images/Slides/1.jpg" alt="Slide 1" />
+                                    </figure>
+                                </div>
+                                <div class="swiper-slide">
+                                    <figure class="banner-media">
+                                        <img src="/assets/images/Slides/2.jpg" alt="Slide 2" />
+                                    </figure>
+                                </div>
+                                <div class="swiper-slide">
+                                    <figure class="banner-media">
+                                        <img src="/assets/images/Slides/3.jpg" alt="Slide 3" />
+                                    </figure>
+                                </div>
+                                <div class="swiper-slide">
+                                    <figure class="banner-media">
+                                        <img src="/assets/images/Slides/4.jpg" alt="Slide 4" />
+                                    </figure>
+                                </div>
+                                <div class="swiper-slide">
+                                    <figure class="banner-media">
+                                        <img src="/assets/images/Slides/5.jpg" alt="Slide 5" />
+                                    </figure>
+                                </div>
+                                <div class="swiper-slide">
+                                    <figure class="banner-media">
+                                        <img src="/assets/images/Slides/6.jpg" alt="Slide 6" />
+                                    </figure>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                        </div>
                     </div>
                 </div>
             </div>

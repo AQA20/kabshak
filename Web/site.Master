@@ -196,6 +196,11 @@
                                         <nav class="main-nav">
                                             <ul class="menu">
                                                 <li>
+                                                    <a href="/home.aspx">
+                                                        <script>Languag_IsArabic('HOME', 'الرئيسية')</script>
+                                                    </a>
+                                                </li>
+                                                <li>
                                                     <a href="/shop.aspx">
                                                         <script>Languag_IsArabic('SHOP', 'المتجر')</script>
                                                     </a>
@@ -264,7 +269,7 @@
                 </div>
                 <div class="sticky-content-wrapper" style="display: block !important;">
                     <div class="sticky-content-wrapper" style="display: block !important;">
-                        <div class="main-nav" style="padding: 10px; background: #FFD264; color: #000000;">
+                        <div class="main-nav" style="padding: 10px; background: #593930; color: #ffffff;">
                             <i class="w-icon-exclamation-circle" style="padding: 3px;"></i>
                             <script>Languag_IsArabic('Your order will be distributed and delivered under the supervision of a specialized team to ensure the quality of the process at your chosen time and place, and it will be documented and sent to your email accordingly.', 'سوف يتم توزيع وإيصال طلبك تحت اشراف فريق مختص لضمان الجودة وسير العملية بشكل منظم في الوقت والمكان الذي يتم اختياره , باإلضافة الى توثيق العملية وإرسالها على البريد الإلكتروني وذلك حسب طلبكم.')</script>
                         </div>
@@ -481,7 +486,7 @@
                     <div class="footer-bottom">
                         <div class="footer-left">
                             <p class="copyright">
-                                <script>Languag_IsArabic('Copyright ©2023 Kabshak. All Rights Reserved.', 'حقوق النشر © 2023 Kabshak. كل الحقوق محفوظة.')</script>
+                                <script>Languag_IsArabic('Copyright ©' + new Date().getFullYear() + ' Kabshak. All Rights Reserved.', 'حقوق النشر © ' + new Date().getFullYear() + ' Kabshak. كل الحقوق محفوظة.')</script>
                             </p>
                         </div>
                     </div>
