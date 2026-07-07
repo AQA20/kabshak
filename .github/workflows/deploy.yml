@@ -37,6 +37,17 @@ jobs:
       run: |
         msbuild Web\Web.csproj /p:Configuration=Release /p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=false /p:AutoParameterizationWebConfigConnectionStrings=false
 
+    - name: Copy asset files to Publish directory
+      shell: powershell
+      run: |
+        if (Test-Path "Web\assets") {
+            New-Item -ItemType Directory -Force -Path "Web\obj\Release\Package\PackageTmp\assets"
+            Copy-Item -Path "Web\assets\*" -Destination "Web\obj\Release\Package\PackageTmp\assets" -Recurse -Force
+            Write-Output "Successfully copied Web\assets to Publish directory."
+        } else {
+            Write-Warning "Web\assets directory not found."
+        }
+
     - name: List published files
       continue-on-error: true
       run: Get-ChildItem "Web\obj\Release\Package\PackageTmp" -Recurse | Select-Object -First 30
