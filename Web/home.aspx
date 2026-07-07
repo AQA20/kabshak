@@ -83,14 +83,14 @@
                 transform: scale(1.05);
             }
             .category-banner-wrapper2 .banner-content {
-                background: rgba(0, 0, 0, 0.35) !important;
-                backdrop-filter: blur(8px);
-                -webkit-backdrop-filter: blur(8px);
+                background: transparent !important;
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
                 padding: 3rem !important;
-                border-radius: 16px;
-                border: 1px solid rgba(255, 255, 255, 0.15);
+                border-radius: 0 !important;
+                border: none !important;
                 max-width: 85%;
-                box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+                box-shadow: none !important;
                 transition: all 0.4s ease;
             }
             .category-banner-wrapper2 .banner:hover {
@@ -98,20 +98,37 @@
                 box-shadow: 0 15px 40px rgba(89, 57, 48, 0.12);
             }
             .category-banner-wrapper2 .banner:hover .banner-content {
-                background: rgba(0, 0, 0, 0.5) !important;
-                border-color: rgba(89, 57, 48, 0.4);
+                background: transparent !important;
+                border-color: transparent !important;
             }
             .category-banner-wrapper2 .banner-title {
                 font-family: 'Poppins', sans-serif;
                 font-weight: 700 !important;
                 letter-spacing: 0.5px;
                 margin-bottom: 0.8rem;
+                text-shadow: none !important;
+            }
+            .category-banner-wrapper2 .banner-1 .banner-title {
+                color: #ffffff !important;
+            }
+            .category-banner-wrapper2 .banner-2 .banner-title {
+                color: #593930 !important;
             }
             .category-banner-wrapper2 .banner-price-info {
-                color: #f8f8f8 !important;
                 font-size: 1.35rem !important;
                 line-height: 1.4;
                 margin-bottom: 1.8rem !important;
+            }
+            @media (min-width: 992px) {
+                .category-banner-wrapper2 .banner-price-info {
+                    font-size: 1.9rem !important;
+                }
+            }
+            .category-banner-wrapper2 .banner-1 .banner-price-info {
+                color: #6a5e5a !important;
+            }
+            .category-banner-wrapper2 .banner-2 .banner-price-info {
+                color: #6a5e5a !important;
             }
             .category-banner-wrapper2 .banner-content .btn {
                 transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -413,10 +430,8 @@
                                 style="background-color: #31343B;">
                         </figure>
                         <div class="banner-content y-50">
-                            <h3 class="banner-title text-white ls-25" style="text-shadow: 2px 1px 1px #000000;">Donate
-                                now <span class="text-primary">to</span></h3>
-                            <h5 class="banner-price-info text-white font-weight-normal ls-25">charities and chaste and
-                                needy families</h5>
+                            <h3 class="banner-title ls-25" style="color: #593930 !important; text-shadow: none !important;">Donate now <span class="text-primary">to</span></h3>
+                            <h5 class="banner-price-info font-weight-normal ls-25" style="color: #6a5e5a !important;">charities and chaste and needy families</h5>
                             <a href="donate-shop.aspx" class="btn btn-white btn-rounded btn-icon-right">Donate Now<i
                                     class="w-icon-long-arrow-right"></i>
                             </a>
@@ -428,10 +443,8 @@
                                 style="background-color: #DEDEDE;">
                         </figure>
                         <div class="banner-content y-50">
-                            <h3 class="banner-title text-white ls-25" style="text-shadow: 2px 1px 1px #000000;">Your
-                                sheep to your door</h3>
-                            <h5 class="banner-price-info font-weight-normal ls-25">Shipping to all regions of the
-                                Kingdom</h5>
+                            <h3 class="banner-title ls-25" style="color: #593930 !important; text-shadow: none !important;">Your sheep to your door</h3>
+                            <h5 class="banner-price-info font-weight-normal ls-25" style="color: #6a5e5a !important;">Shipping to all regions of the Kingdom</h5>
                             <a href="shipping-shop.aspx" class="btn btn-dark btn-rounded btn-icon-right">Order Now<i
                                     class="w-icon-long-arrow-right"></i>
                             </a>
@@ -536,7 +549,7 @@
             </div>
             <div class="container mt-8">
                 <section class="mb-10">
-                    <h2 class="title title-center mb-5">Kabshak Options</h2>
+                    <h2 class="title title-center mb-5">Kabshak Services</h2>
                     <div class="swiper-container shadow-swiper swiper-theme show-code-action swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events"
                         data-swiper-options="{
                             'slidesPerView': 1,

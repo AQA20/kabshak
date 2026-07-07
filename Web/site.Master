@@ -70,10 +70,53 @@
     <link rel="stylesheet" type="text/css" href="/assets/vendor/photoswipe/photoswipe.min.css">
     <link rel="stylesheet" type="text/css" href="/assets/vendor/photoswipe/default-skin/default-skin.min.css">
     <link rel="stylesheet" href="/assets/vendor/swiper/swiper-bundle.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;600;700&family=Bricolage+Grotesque:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <asp:ContentPlaceHolder ID="HeadCss" runat="server">
     </asp:ContentPlaceHolder>
     <link rel="stylesheet" type="text/css" href="/assets/css/style.min.css?v=4.0">
     <style>
+        /* Noto Kufi Arabic font for all Arabic text, excluding icon elements */
+        html[lang="ar"],
+        html[lang="ar"] body,
+        html[lang="ar"] *:not([class^="w-icon-"]):not([class*=" w-icon-"]):not([class^="fa-"]):not([class*=" fa-"]),
+        [dir="rtl"],
+        [dir="rtl"] body,
+        [dir="rtl"] *:not([class^="w-icon-"]):not([class*=" w-icon-"]):not([class^="fa-"]):not([class*=" fa-"]) {
+            font-family: 'Noto Kufi Arabic', 'Poppins', sans-serif !important;
+        }
+
+        /* Bricolage Grotesque font for all English text, excluding icon elements */
+        html[lang="en"],
+        html[lang="en"] body,
+        html[lang="en"] *:not([class^="w-icon-"]):not([class*=" w-icon-"]):not([class^="fa-"]):not([class*=" fa-"]),
+        html:not([lang="ar"]),
+        html:not([lang="ar"]) body,
+        html:not([lang="ar"]) *:not([class^="w-icon-"]):not([class*=" w-icon-"]):not([class^="fa-"]):not([class*=" fa-"]) {
+            font-family: 'Bricolage Grotesque', 'Poppins', sans-serif !important;
+        }
+
+        /* Force footer newsletter elements to display and be white */
+        .footer-newsletter .icon-box-icon {
+            display: inline-flex !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+        .footer-newsletter .icon-box-icon i {
+            font-family: 'wolmart' !important;
+            color: #fff !important;
+            display: inline-block !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+        .footer-newsletter .icon-box-title {
+            display: block !important;
+            color: #fff !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+
         .dropdown-box a:not(.btn):hover {
             color: #593930;
         }
@@ -312,11 +355,11 @@
                         <div class="row justify-content-center align-items-center">
                             <div class="col-xl-5 col-lg-6">
                                 <div class="icon-box icon-box-side text-white">
-                                    <div class="icon-box-icon d-inline-flex">
-                                        <i class="w-icon-envelop3"></i>
+                                    <div class="icon-box-icon d-inline-flex" style="opacity: 1 !important; visibility: visible !important;">
+                                        <i class="w-icon-envelop3" style="font-family: 'wolmart' !important; color: #fff !important; display: inline-block !important; opacity: 1 !important; visibility: visible !important;"></i>
                                     </div>
                                     <div class="icon-box-content">
-                                        <h4 class="icon-box-title text-white text-uppercase mb-0">
+                                        <h4 class="icon-box-title text-white text-uppercase mb-0" style="color: #fff !important; display: block !important; opacity: 1 !important; visibility: visible !important;">
                                             <script>Languag_IsArabic('Subscribe To  Our Newsletter', 'اشترك في النشرة الإخبارية لدينا')</script>
                                         </h4>
                                         <p class="text-white">

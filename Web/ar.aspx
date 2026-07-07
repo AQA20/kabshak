@@ -158,6 +158,253 @@
             font-size: 1.6rem !important;
             font-weight: bold;
         }
+
+        /* Category Banners Zoom overrides */
+        .category-banner-wrapper2 .banner {
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .category-banner-wrapper2 .banner-media {
+            transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .category-banner-wrapper2 .banner:hover .banner-media {
+            transform: scale(1.05);
+        }
+        .category-banner-wrapper2 .banner-content {
+            background: transparent !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            padding: 3rem !important;
+            border-radius: 0 !important;
+            border: none !important;
+            max-width: 85%;
+            box-shadow: none !important;
+            transition: all 0.4s ease;
+        }
+        .category-banner-wrapper2 .banner:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(89, 57, 48, 0.12);
+        }
+        .category-banner-wrapper2 .banner:hover .banner-content {
+            background: transparent !important;
+            border-color: transparent !important;
+        }
+        .category-banner-wrapper2 .banner-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700 !important;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.8rem;
+            text-shadow: none !important;
+        }
+        .category-banner-wrapper2 .banner-1 .banner-title {
+            color: #ffffff !important;
+        }
+        .category-banner-wrapper2 .banner-2 .banner-title {
+            color: #593930 !important;
+        }
+        .category-banner-wrapper2 .banner-price-info {
+            font-size: 1.35rem !important;
+            line-height: 1.4;
+            margin-bottom: 1.8rem !important;
+        }
+        @media (min-width: 992px) {
+            .category-banner-wrapper2 .banner-price-info {
+                font-size: 1.9rem !important;
+            }
+        }
+        .category-banner-wrapper2 .banner-1 .banner-price-info {
+            color: #6a5e5a !important;
+        }
+        .category-banner-wrapper2 .banner-2 .banner-price-info {
+            color: #6a5e5a !important;
+        }
+        .category-banner-wrapper2 .banner-content .btn {
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+        .category-banner-wrapper2 .banner-content .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(89, 57, 48, 0.5);
+        }
+
+        /* Custom Premium Animations */
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-6px) rotate(2deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+        @keyframes slide-truck {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(-6px); } /* negative for RTL */
+            100% { transform: translateX(0); }
+        }
+        @keyframes scale-pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.12); }
+            100% { transform: scale(1); }
+        }
+        @keyframes bounce-chat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+
+        /* Kabshak Options Section redone */
+        .title.title-center {
+            position: relative;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #593930;
+            margin-bottom: 4rem !important;
+        }
+        .title.title-center::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 65px;
+            height: 3px;
+            background: #593930;
+            border-radius: 2px;
+        }
+
+        .testimonial.testimonial-shadow {
+            background: linear-gradient(135deg, #ffffff 0%, #fbf9f6 100%) !important;
+            border: 1px solid rgba(89, 57, 48, 0.08) !important;
+            border-radius: 24px !important;
+            padding: 4rem 3rem !important;
+            box-shadow: 0 12px 45px rgba(89, 57, 48, 0.04) !important;
+            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+        .testimonial-wrap:hover .testimonial.testimonial-shadow {
+            transform: translateY(-8px);
+            box-shadow: 0 22px 55px rgba(89, 57, 48, 0.12) !important;
+            border-color: rgba(89, 57, 48, 0.7) !important;
+        }
+
+        .testimonial-author-thumbnail {
+            width: 95px !important;
+            height: 95px !important;
+            border-radius: 50% !important;
+            border: 4px solid #ffffff !important;
+            box-shadow: 0 8px 25px rgba(89, 57, 48, 0.12) !important;
+            background: #ffffff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2.2rem !important;
+            transition: all 0.4s ease;
+        }
+        .testimonial-wrap:hover .testimonial-author-thumbnail {
+            animation: float 2.5s ease-in-out infinite;
+            box-shadow: 0 8px 30px rgba(89, 57, 48, 0.4) !important;
+            border-color: #593930 !important;
+        }
+
+        .testimonial cite {
+            font-size: 1.6rem !important;
+            font-weight: 700 !important;
+            color: #593930 !important;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 1.8rem !important;
+            display: block;
+        }
+
+        .testimonial blockquote {
+            font-size: 1.35rem !important;
+            color: #665d59 !important;
+            line-height: 1.75 !important;
+            font-style: normal !important;
+            margin: 0 !important;
+        }
+
+        /* Icon Boxes modern redesign */
+        .icon-box-wrapper {
+            background: linear-gradient(135deg, #ffffff 0%, #FAF8F5 100%) !important;
+            border-radius: 24px !important;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03) !important;
+            padding: 2.8rem 1.8rem !important;
+            border: 1px solid rgba(0, 0, 0, 0.04) !important;
+            transition: all 0.4s ease;
+        }
+        .icon-box-wrapper:hover {
+            box-shadow: 0 15px 50px rgba(89, 57, 48, 0.08) !important;
+        }
+
+        .icon-box {
+            padding: 1.8rem !important;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+        .icon-box:hover {
+            background: rgba(89, 57, 48, 0.06);
+        }
+
+        .icon-box-icon {
+            width: 64px !important;
+            height: 64px !important;
+            background: rgba(89, 57, 48, 0.06);
+            border-radius: 16px;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+            color: #593930;
+            padding: 0 !important;
+            margin: 0 !important;
+            margin-left: 1.8rem !important; /* RTL margins */
+            margin-right: 0 !important;
+        }
+        .icon-box-icon i {
+            font-size: 2.6rem !important;
+            transition: all 0.3s ease;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            position: static !important;
+            line-height: 1 !important;
+            width: auto !important;
+            height: auto !important;
+        }
+
+        .icon-box:hover .icon-box-icon {
+            background: #593930;
+            color: #ffffff;
+            transform: scale(1.08);
+        }
+
+        .icon-box:hover .icon-shipping i {
+            animation: slide-truck 0.6s ease-in-out infinite;
+        }
+        .icon-box:hover .icon-payment i {
+            animation: scale-pulse 0.6s ease-in-out infinite;
+        }
+        .icon-box:hover .icon-money i {
+            animation: scale-pulse 0.6s ease-in-out infinite;
+        }
+        .icon-box:hover .icon-chat i {
+            animation: bounce-chat 0.6s ease-in-out infinite;
+        }
+
+        .icon-box-content .icon-box-title {
+            font-size: 1.6rem !important;
+            color: #593930 !important;
+            margin-bottom: 0.6rem;
+        }
+
+        .icon-box-content p.text-default {
+            font-size: 1.3rem !important;
+            color: #726863 !important;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -169,9 +416,8 @@
                         <img src="/assets/images/donate-rtl.png" alt="Category Banner" width="880" height="300" style="background-color: #31343B;">
                     </figure>
                     <div class="banner-content y-50">
-                        <h3 class="banner-title text-white ls-25" style="text-shadow: 2px 1px 1px #000000;">تبرع الأن</h3>
-                        <h5 class="banner-price-info text-white font-weight-normal ls-25">للجمعيات
-والأسر العفيفة والمحتاجة</h5>
+                        <h3 class="banner-title ls-25" style="color: #593930 !important; text-shadow: none !important;">تبرع الأن</h3>
+                        <h5 class="banner-price-info font-weight-normal ls-25" style="color: #6a5e5a !important;">للجمعيات والأسر العفيفة والمحتاجة</h5>
                         <a href="donate-shop.aspx" class="btn btn-white btn-rounded btn-icon-right">تبرع الأن<i class="w-icon-long-arrow-right"></i>
                         </a>
                     </div>
@@ -181,9 +427,8 @@
                         <img src="/assets/images/ship-rtl.png" alt="Category Banner" width="880" height="300" style="background-color: #DEDEDE;">
                     </figure>
                     <div class="banner-content y-50">
-                        <h3 class="banner-title text-white ls-25" style="text-shadow: 2px 1px 1px #000000;">خروفك لباب بيتك
-                        </h3>
-                        <h5 class="banner-price-info font-weight-normal ls-25">الشحن الى جميع مناطق المملكة</h5>
+                        <h3 class="banner-title ls-25" style="color: #593930 !important; text-shadow: none !important;">خروفك لباب بيتك</h3>
+                        <h5 class="banner-price-info font-weight-normal ls-25" style="color: #6a5e5a !important;">الشحن الى جميع مناطق المملكة</h5>
                         <a href="shipping-shop.aspx" class="btn btn-dark btn-rounded btn-icon-right">أطلب الأن<i class="w-icon-long-arrow-right"></i>
                         </a>
                     </div>
@@ -279,76 +524,9 @@
                 </div>
             </div>
         </div>
-        <div class="container mt-5">
-            <div class="swiper-container swiper-theme icon-box-wrapper br-sm bg-white" style="border: solid 1px #eee;" data-swiper-options="{
-                    'loop': true,
-                    'spaceBetween': 10,
-                    'autoplay': false,
-                    'autoplayTimeout': 4000,
-                    'slidesPerView': 1,
-                    'breakpoints': {
-                        '576': {
-                            'slidesPerView': 2
-                        },
-                        '768': {
-                            'slidesPerView': 2
-                        },
-                        '992': {
-                            'slidesPerView': 3
-                        },
-                        '1200': {
-                            'slidesPerView': 4
-                        }
-                    }
-                    }">
-                <div class="swiper-wrapper row cols-md-4 cols-sm-3 cols-1">
-                    <div class="swiper-slide icon-box icon-box-side text-dark">
-                        <span class="icon-box-icon icon-shipping">
-                            <i class="w-icon-truck"></i>
-                        </span>
-                        <div class="icon-box-content">
-                            <h4 class="icon-box-title font-weight-bolder">الشحن</h4>
-                            <p class="text-default">التسليم السريع في الوقت المحدد</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide icon-box icon-box-side text-dark">
-                        <span class="icon-box-icon icon-payment">
-                            <i class="w-icon-bag"></i>
-                        </span>
-                        <div class="icon-box-content">
-                            <h4 class="icon-box-title font-weight-bolder">الدفع الآمن</h4>
-                            <p class="text-default">نحن نضمن لك الدفع الامن</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide icon-box icon-box-side text-dark icon-box-money">
-                        <span class="icon-box-icon icon-money">
-                            <i class="w-icon-money"></i>
-                        </span>
-                        <div class="icon-box-content">
-                            <h4 class="icon-box-title font-weight-bolder">ضمان استعادة الاموال</h4>
-                            <p class="text-default">
-                                وذلك حسب الشروط والاحكام
-                            </p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide icon-box icon-box-side text-dark icon-box-chat">
-                        <span class="icon-box-icon icon-chat">
-                            <i class="w-icon-chat"></i>
-                        </span>
-                        <p class="text-default">
-                            يمكنك الاتصال بنا ومراسلتنا يوميا من
-                                <br>
-                            الساعة الثامنة صباحا وحتى الساعة<br>
-                            التاسعة مساء 
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <!-- End of Icon Box Wrapper -->
-        </div>
         <div class="container mt-8">
             <section class="mb-10">
-                <h2 class="title title-center mb-5">خيارات كبشك</h2>
+                <h2 class="title title-center mb-5">خدمات كبشك</h2>
                 <div class="swiper-container shadow-swiper swiper-theme show-code-action swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events" data-swiper-options="{
                             'slidesPerView': 1,
                             'spaceBetween': 20,
@@ -443,6 +621,71 @@
                     <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
                 </div>
             </section>
+        </div>
+        <div class="container mt-5 mb-10">
+            <div class="swiper-container swiper-theme icon-box-wrapper br-sm bg-white" style="border: solid 1px #eee;" data-swiper-options="{
+                    'loop': true,
+                    'spaceBetween': 10,
+                    'autoplay': false,
+                    'autoplayTimeout': 4000,
+                    'slidesPerView': 1,
+                    'breakpoints': {
+                        '576': {
+                            'slidesPerView': 2
+                        },
+                        '768': {
+                            'slidesPerView': 2
+                        },
+                        '992': {
+                            'slidesPerView': 3
+                        },
+                        '1200': {
+                            'slidesPerView': 4
+                        }
+                    }
+                    }">
+                <div class="swiper-wrapper row cols-md-4 cols-sm-3 cols-1">
+                    <div class="swiper-slide icon-box icon-box-side text-dark">
+                        <span class="icon-box-icon icon-shipping">
+                            <i class="w-icon-truck"></i>
+                        </span>
+                        <div class="icon-box-content">
+                            <h4 class="icon-box-title font-weight-bolder">الشحن</h4>
+                            <p class="text-default">التسليم السريع في الوقت المحدد</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide icon-box icon-box-side text-dark">
+                        <span class="icon-box-icon icon-payment">
+                            <i class="w-icon-bag"></i>
+                        </span>
+                        <div class="icon-box-content">
+                            <h4 class="icon-box-title font-weight-bolder">الدفع الآمن</h4>
+                            <p class="text-default">نحن نضمن لك الدفع الامن</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide icon-box icon-box-side text-dark icon-box-money">
+                        <span class="icon-box-icon icon-money">
+                            <i class="w-icon-money"></i>
+                        </span>
+                        <div class="icon-box-content">
+                            <h4 class="icon-box-title font-weight-bolder">ضمان استعادة الاموال</h4>
+                            <p class="text-default">
+                                وذلك حسب الشروط والاحكام
+                            </p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide icon-box icon-box-side text-dark icon-box-chat">
+                        <span class="icon-box-icon icon-chat">
+                            <i class="w-icon-chat"></i>
+                        </span>
+                        <div class="icon-box-content">
+                            <h4 class="icon-box-title font-weight-bolder">دعم العملاء</h4>
+                            <p class="text-default">من 8:00 صباحاً حتى 9:00 مساءً</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End of Icon Box Wrapper -->
         </div>
     </main>
 </asp:Content>

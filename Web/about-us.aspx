@@ -16,38 +16,38 @@
         <!-- Start of Page Content -->
         <div class="page-content">
             <div class="container">
-                <section class="introduce  pb-10">
-                    <h1 class="title title-center">About Kabshak
-                    </h1>
-                    <p class=" mx-auto text-center">
-Kabshak is an online retailer developed and created to provide high-quality, premium, and unique Halal livestock’s meat. Focusing and aiming to bring all of that to you wherever you are, and through our platforms, you can also buy and donate to a well-known associations or organizations to be distributed to families or communities in need.
-                </section>
+                <div class="about-logo-container text-center mb-10 mt-5">
+                    <img src="/assets/images/logo-footer.png" alt="Kabshak Logo" style="max-width: 180px; height: auto;" />
+                </div>
 
-                <section class="customer-service">
-                    <div class="row align-items-center">
-                        <div class="col-md-6 pr-lg-8 mb-8">
-                            <h2 class="title text-left">Our Online Channels</h2>
-                            <div class="accordion accordion-simple accordion-plus">
-                                <p>
-One of the biggest channels that allows you to order almost everything related to halal items
-and much more. Simply you can use our application from your mobile phone with a few
-clicks, and your product will arrive in less than a few days or even a few hours.
-
+                <section class="core-values pb-10">
+                    <div class="row">
+                        <!-- About Kabshak -->
+                        <div class="col-lg-4 col-md-6 mb-6">
+                            <div class="about-grid-card">
+                                <div class="about-card-icon">
+                                    <i class="w-icon-store"></i>
+                                </div>
+                                <h3 class="about-card-title">About Kabshak</h3>
+                                <p class="about-card-text">
+                                    Kabshak is an online retailer developed and created to provide high-quality, premium, and unique Halal livestock’s meat. Focusing and aiming to bring all of that to you wherever you are, and through our platforms, you can also buy and donate to a well-known associations or organizations to be distributed to families or communities in need.
                                 </p>
                             </div>
                         </div>
-                        <div class="col-md-6 mb-8">
-                            <figure class="br-lg">
-                                <img src="assets/images/aboutUs-1.jpg" alt="Banner" width="610" height="500" style="background-color: #CECECC;">
-                            </figure>
+                        <!-- Our Online Channels -->
+                        <div class="col-lg-4 col-md-6 mb-6">
+                            <div class="about-grid-card">
+                                <div class="about-card-icon">
+                                    <i class="w-icon-phone"></i>
+                                </div>
+                                <h3 class="about-card-title">Our Online Channels</h3>
+                                <p class="about-card-text">
+                                    One of the biggest channels that allows you to order almost everything related to halal items and much more. Simply you can use our application from your mobile phone with a few clicks, and your product will arrive in less than a few days or even a few hours.
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                </section>
-
-                <!-- Start of Core Values (Experience, Vision, Mission, Goal) -->
-                <section class="core-values pb-10">
-                    <div class="row cols-md-2 cols-1">
-                        <div class="mb-6">
+                        <!-- Our Experience -->
+                        <div class="col-lg-4 col-md-6 mb-6">
                             <div class="about-grid-card">
                                 <div class="about-card-icon">
                                     <i class="w-icon-star-full"></i>
@@ -58,7 +58,8 @@ clicks, and your product will arrive in less than a few days or even a few hours
                                 </p>
                             </div>
                         </div>
-                        <div class="mb-6">
+                        <!-- Our Vision -->
+                        <div class="col-lg-4 col-md-6 mb-6">
                             <div class="about-grid-card">
                                 <div class="about-card-icon">
                                     <i class="w-icon-search"></i>
@@ -69,7 +70,8 @@ clicks, and your product will arrive in less than a few days or even a few hours
                                 </p>
                             </div>
                         </div>
-                        <div class="mb-6">
+                        <!-- Our Mission -->
+                        <div class="col-lg-4 col-md-6 mb-6">
                             <div class="about-grid-card">
                                 <div class="about-card-icon">
                                     <i class="w-icon-heart"></i>
@@ -80,7 +82,8 @@ clicks, and your product will arrive in less than a few days or even a few hours
                                 </p>
                             </div>
                         </div>
-                        <div class="mb-6">
+                        <!-- Our Goal -->
+                        <div class="col-lg-4 col-md-6 mb-6">
                             <div class="about-grid-card">
                                 <div class="about-card-icon">
                                     <i class="w-icon-check"></i>
