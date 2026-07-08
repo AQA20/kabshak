@@ -576,6 +576,23 @@ namespace business_logic
 
             return _data;
         }
+        public object get_all_contact_us_addresses()
+        {
+            var _data = new object();
+            try
+            {
+                GeneralEntities context = new GeneralEntities();
+                var query = (from data in context.ContactUsChannels select data);
+
+                _data = query.ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception caught! " + ex.ToString());
+            }
+
+            return _data;
+        }
         public object get_about_us()
         {
             var _data = new object();
@@ -961,6 +978,30 @@ namespace business_logic
                 GeneralEntities context2 = new GeneralEntities();
 
                 var record = context2.ContactUsPeopleAsks.SingleOrDefault(d => d.Id == id);
+
+                if (record != null)
+                {
+                    record.IsActive = status;
+                    context2.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception caught! " + ex.ToString());
+            }
+        }
+
+        public void chnage_ContactUsChannel_activation_status(int id, string user_token, bool status)
+        {
+            try
+            {
+                UsersEntities context = new UsersEntities();
+                var User = context.Users.SingleOrDefault(d => d.Token == user_token);
+                int userid = int.Parse(GetObjectValue(User, "Id"));
+
+                GeneralEntities context2 = new GeneralEntities();
+
+                var record = context2.ContactUsChannels.SingleOrDefault(d => d.Id == id);
 
                 if (record != null)
                 {
@@ -1765,6 +1806,60 @@ namespace business_logic
                     record.TitleAr = name_ar.Trim();
                     record.DescriptionEn = answer_en.Trim();
                     record.DescriptionAr = answer_ar.Trim();
+                    record.IsActive = true;
+                    context2.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception caught! " + ex.ToString());
+            }
+        }
+
+        public void add_contact_us_address_info(string user_token, string name_en, string name_ar, string description_en, string description_ar)
+        {
+            try
+            {
+                UsersEntities context = new UsersEntities();
+                var User = context.Users.SingleOrDefault(d => d.Token == user_token);
+                int userid = int.Parse(GetObjectValue(User, "Id"));
+
+                GeneralEntities context2 = new GeneralEntities();
+
+                ContactUsChannel obj = new ContactUsChannel();
+                obj.TitleEn = name_en.Trim();
+                obj.TitleAr = name_ar.Trim();
+                obj.DescriptionEn = description_en.Trim();
+                obj.DescriptionAr = description_ar.Trim();
+                obj.IsActive = true;
+                obj.CreatedOnDate = DateTime.Now;
+                context2.ContactUsChannels.Add(obj);
+                context2.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception caught! " + ex.ToString());
+            }
+        }
+
+        public void edit_contact_us_address_info(int id, string user_token, string name_en, string name_ar, string description_en, string description_ar)
+        {
+            try
+            {
+                UsersEntities context = new UsersEntities();
+                var User = context.Users.SingleOrDefault(d => d.Token == user_token);
+                int userid = int.Parse(GetObjectValue(User, "Id"));
+
+                GeneralEntities context2 = new GeneralEntities();
+
+                var record = context2.ContactUsChannels.SingleOrDefault(d => d.Id == id);
+
+                if (record != null)
+                {
+                    record.TitleEn = name_en.Trim();
+                    record.TitleAr = name_ar.Trim();
+                    record.DescriptionEn = description_en.Trim();
+                    record.DescriptionAr = description_ar.Trim();
                     record.IsActive = true;
                     context2.SaveChanges();
                 }

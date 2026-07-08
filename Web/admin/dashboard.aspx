@@ -93,6 +93,9 @@
                                     <a href="/admin/contact-us-faqs.aspx">Contact Us FAQs</a>
                                 </li>
                                 <li class="link-item">
+                                    <a href="/admin/contact-us-addresses.aspx">Contact Us Addresses</a>
+                                </li>
+                                <li class="link-item">
                                     <a href="/logout.aspx">Logout</a>
                                 </li>
                             </ul>
@@ -402,6 +405,17 @@
                                                      </svg>
                                                      <p style="margin-top: 10px;">
                                                          Contact Us FAQs
+                                                     </p>
+                                                 </a>
+                                             </div>
+                                             <div class="mb-4">
+                                                 <a href="/admin/contact-us-addresses.aspx" class="element">
+                                                     <svg xmlns="http://www.w3.org/2000/svg" width="50px" style="margin-top: 10px; fill: none !important; stroke: #000000 !important; stroke-dasharray: none !important; stroke-dashoffset: 0 !important;" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" style="fill: none !important; stroke: #000000 !important; stroke-width: 2px !important; stroke-dasharray: none !important; stroke-dashoffset: 0 !important;"></path>
+                                                         <circle cx="12" cy="10" r="3" style="fill: none !important; stroke: #000000 !important; stroke-width: 2px !important; stroke-dasharray: none !important; stroke-dashoffset: 0 !important;"></circle>
+                                                     </svg>
+                                                     <p style="margin-top: 10px;">
+                                                         Contact Us Addresses
                                                      </p>
                                                  </a>
                                              </div>
