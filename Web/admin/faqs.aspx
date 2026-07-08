@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="faqs.aspx.cs" Inherits="web.admin.faqs" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="faqs.aspx.cs" Inherits="web.admin.faqs" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadCss" runat="server">
     <meta name="robots" content="noindex,nofollow" />
@@ -146,5 +146,5 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
     <script src="/assets/js/admin.js"></script>
-    <script src="/assets/js/admin-faqs.js"></script>
+    <script src="/assets/js/admin-faqs.js?v=1.1"></script>
 </asp:Content>
