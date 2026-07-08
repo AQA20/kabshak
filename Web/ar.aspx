@@ -416,8 +416,8 @@
                         <img src="/assets/images/donate-rtl.png" alt="Category Banner" width="880" height="300" style="background-color: #31343B;">
                     </figure>
                     <div class="banner-content y-50">
-                        <h3 class="banner-title ls-25" style="color: #593930 !important; text-shadow: none !important;">تبرع الأن</h3>
-                        <h5 class="banner-price-info font-weight-normal ls-25" style="color: #6a5e5a !important;">للجمعيات والأسر العفيفة والمحتاجة</h5>
+                        <h3 class="banner-title ls-25" style="color: #000000 !important; text-shadow: none !important;">تبرع الأن</h3>
+                        <h5 class="banner-price-info font-weight-normal ls-25" style="color: #000000 !important;">للجمعيات والأسر العفيفة والمحتاجة</h5>
                         <a href="donate-shop.aspx" class="btn btn-white btn-rounded btn-icon-right">تبرع الأن<i class="w-icon-long-arrow-right"></i>
                         </a>
                     </div>
@@ -427,8 +427,8 @@
                         <img src="/assets/images/ship-rtl.png" alt="Category Banner" width="880" height="300" style="background-color: #DEDEDE;">
                     </figure>
                     <div class="banner-content y-50">
-                        <h3 class="banner-title ls-25" style="color: #593930 !important; text-shadow: none !important;">خروفك لباب بيتك</h3>
-                        <h5 class="banner-price-info font-weight-normal ls-25" style="color: #6a5e5a !important;">الشحن الى جميع مناطق المملكة</h5>
+                        <h3 class="banner-title ls-25" style="color: #000000 !important; text-shadow: none !important;">خروفك لباب بيتك</h3>
+                        <h5 class="banner-price-info font-weight-normal ls-25" style="color: #000000 !important;">الشحن الى جميع مناطق المملكة</h5>
                         <a href="shipping-shop.aspx" class="btn btn-dark btn-rounded btn-icon-right">أطلب الأن<i class="w-icon-long-arrow-right"></i>
                         </a>
                     </div>

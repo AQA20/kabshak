@@ -430,8 +430,8 @@
                                 style="background-color: #31343B;">
                         </figure>
                         <div class="banner-content y-50">
-                            <h3 class="banner-title ls-25" style="color: #593930 !important; text-shadow: none !important;">Donate now <span class="text-primary">to</span></h3>
-                            <h5 class="banner-price-info font-weight-normal ls-25" style="color: #6a5e5a !important;">charities and chaste and needy families</h5>
+                            <h3 class="banner-title ls-25" style="color: #000000 !important; text-shadow: none !important;">Donate now <span class="text-primary" style="color: #000000 !important;">to</span></h3>
+                            <h5 class="banner-price-info font-weight-normal ls-25" style="color: #000000 !important;">charities and chaste and needy families</h5>
                             <a href="donate-shop.aspx" class="btn btn-white btn-rounded btn-icon-right">Donate Now<i
                                     class="w-icon-long-arrow-right"></i>
                             </a>
@@ -443,8 +443,8 @@
                                 style="background-color: #DEDEDE;">
                         </figure>
                         <div class="banner-content y-50">
-                            <h3 class="banner-title ls-25" style="color: #593930 !important; text-shadow: none !important;">Your sheep to your door</h3>
-                            <h5 class="banner-price-info font-weight-normal ls-25" style="color: #6a5e5a !important;">Shipping to all regions of the Kingdom</h5>
+                            <h3 class="banner-title ls-25" style="color: #000000 !important; text-shadow: none !important;">Your sheep to your door</h3>
+                            <h5 class="banner-price-info font-weight-normal ls-25" style="color: #000000 !important;">Shipping to all regions of the Kingdom</h5>
                             <a href="shipping-shop.aspx" class="btn btn-dark btn-rounded btn-icon-right">Order Now<i
                                     class="w-icon-long-arrow-right"></i>
                             </a>
