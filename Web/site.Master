@@ -168,6 +168,10 @@
         .widget-about .social-icons {
             justify-content: center;
         }
+
+        .main-nav .menu > li > a {
+            font-size: 1.6rem !important;
+        }
     </style>
 </head>
 <body>
