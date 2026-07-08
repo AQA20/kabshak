@@ -1,3 +1,4 @@
+let contactFaqsList = [];
 GetAllFAQSList();
 
 function GetAllFAQSList() {
@@ -24,6 +25,7 @@ function GetAllFAQSList() {
 }
 
 function FillFAQS(data) {
+    contactFaqsList = data;
     $('.productsList').html(' ');
     if (data.length > 0) {
         let index = 0;
@@ -57,7 +59,7 @@ function FillFAQS(data) {
                             </td>
                             <td class="wishlist-action">
                                 <div class="d-lg-flex justify-content-between">
-                                    <button type="button" class="btn btn-quickview btn-outline btn-default btn-rounded btn-sm mb-2 mb-lg-0" onClick="EditQuestionInfo(${item.Id},'${item.TitleEn}','${item.TitleAr}','${item.DescriptionEn.trim()}','${item.DescriptionAr.trim()}');">Edit</button>
+                                    <button type="button" class="btn btn-quickview btn-outline btn-default btn-rounded btn-sm mb-2 mb-lg-0" onClick="EditContactFaq(${index});">Edit</button>
                                     <button type="button" class="btn btn-quickview btn-outline btn-default btn-rounded btn-sm mb-2 mb-lg-0" style=" padding-left: 20px;padding-right: 20px;" onClick="ChangeQuestionStatus(this,'active${classRandom}',${item.Id},${item.IsActive})">${item.IsActive ? 'Dectivate' : 'Activate'}</button>
                                     </div>
                                 <div class="alert alert-icon alert-success alert-bg alert-inline show-code-action mt-2 d-none alert${classRandom}">
@@ -244,6 +246,11 @@ function ClearAddQuestionData() {
     txtFAQsAnswerNameAr.value = '';
 }
 
+
+function EditContactFaq(index) {
+    let item = contactFaqsList[index];
+    EditQuestionInfo(item.Id, item.TitleEn, item.TitleAr, item.DescriptionEn.trim(), item.DescriptionAr.trim());
+}
 
 function EditQuestionInfo(id, en, ar, DescEn, DescAr) {
     $('#lnkEditCategory').click();

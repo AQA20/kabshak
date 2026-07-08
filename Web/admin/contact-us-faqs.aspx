@@ -146,5 +146,5 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
     <script src="/assets/js/admin.js"></script>
-    <script src="/assets/js/admin-contact-us-faqs.js"></script>
+    <script src="/assets/js/admin-contact-us-faqs.js?v=1.1"></script>
 </asp:Content>
