@@ -1,4 +1,5 @@
 using DataAccess.Modals;
+using Entities;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -682,6 +683,24 @@ namespace business_logic
             return _data;
         }
 
+        public object get_all_our_services()
+        {
+            var _data = new object();
+            try
+            {
+                GeneralEntities context = new GeneralEntities();
+                var query = (from data in context.OurServices select data);
+
+                _data = query.ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception caught! " + ex.ToString());
+            }
+
+            return _data;
+        }
+
         public object get_all_faqs()
         {
             var _data = new object();
@@ -1006,6 +1025,54 @@ namespace business_logic
                 if (record != null)
                 {
                     record.IsActive = status;
+                    context2.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception caught! " + ex.ToString());
+            }
+        }
+
+        public void chnage_our_service_activation_status(int id, string user_token, bool status)
+        {
+            try
+            {
+                UsersEntities context = new UsersEntities();
+                var User = context.Users.SingleOrDefault(d => d.Token == user_token);
+                int userid = int.Parse(GetObjectValue(User, "Id"));
+
+                GeneralEntities context2 = new GeneralEntities();
+
+                var record = context2.OurServices.SingleOrDefault(d => d.Id == id);
+
+                if (record != null)
+                {
+                    record.IsActive = status;
+                    context2.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception caught! " + ex.ToString());
+            }
+        }
+
+        public void delete_our_service(int id, string user_token)
+        {
+            try
+            {
+                UsersEntities context = new UsersEntities();
+                var User = context.Users.SingleOrDefault(d => d.Token == user_token);
+                int userid = int.Parse(GetObjectValue(User, "Id"));
+
+                GeneralEntities context2 = new GeneralEntities();
+
+                var record = context2.OurServices.SingleOrDefault(d => d.Id == id);
+
+                if (record != null)
+                {
+                    context2.OurServices.Remove(record);
                     context2.SaveChanges();
                 }
             }
@@ -1861,6 +1928,59 @@ namespace business_logic
                     record.DescriptionEn = description_en.Trim();
                     record.DescriptionAr = description_ar.Trim();
                     record.IsActive = true;
+                    context2.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception caught! " + ex.ToString());
+            }
+        }
+
+        public void add_our_service_info(string user_token, string name_en, string name_ar, string description_en, string description_ar)
+        {
+            try
+            {
+                UsersEntities context = new UsersEntities();
+                var User = context.Users.SingleOrDefault(d => d.Token == user_token);
+                int userid = int.Parse(GetObjectValue(User, "Id"));
+
+                GeneralEntities context2 = new GeneralEntities();
+
+                OurService obj = new OurService();
+                obj.TitleEn = name_en.Trim();
+                obj.TitleAr = name_ar.Trim();
+                obj.DescriptionEn = description_en.Trim();
+                obj.DescriptionAr = description_ar.Trim();
+                obj.IsActive = true;
+                obj.CreatedOnDate = DateTime.Now;
+                context2.OurServices.Add(obj);
+                context2.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception caught! " + ex.ToString());
+            }
+        }
+
+        public void edit_our_service_info(int id, string user_token, string name_en, string name_ar, string description_en, string description_ar)
+        {
+            try
+            {
+                UsersEntities context = new UsersEntities();
+                var User = context.Users.SingleOrDefault(d => d.Token == user_token);
+                int userid = int.Parse(GetObjectValue(User, "Id"));
+
+                GeneralEntities context2 = new GeneralEntities();
+
+                var record = context2.OurServices.SingleOrDefault(d => d.Id == id);
+
+                if (record != null)
+                {
+                    record.TitleEn = name_en.Trim();
+                    record.TitleAr = name_ar.Trim();
+                    record.DescriptionEn = description_en.Trim();
+                    record.DescriptionAr = description_ar.Trim();
                     context2.SaveChanges();
                 }
             }

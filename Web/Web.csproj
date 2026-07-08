@@ -116,6 +116,7 @@
     <Content Include="admin\charities.aspx" />
     <Content Include="admin\cities.aspx" />
     <Content Include="admin\contact-us-addresses.aspx" />
+    <Content Include="admin\our-services.aspx" />
     <Content Include="admin\contact-us-faqs.aspx" />
     <Content Include="admin\faqs.aspx" />
     <Content Include="admin\locations.aspx" />
@@ -533,6 +534,7 @@
     <Content Include="assets\js\actions.js" />
     <Content Include="assets\js\admin-charities.js" />
     <Content Include="assets\js\admin-contact-us-addresses.js" />
+    <Content Include="assets\js\admin-our-services.js" />
     <Content Include="assets\js\admin-contact-us-faqs.js" />
     <Content Include="assets\js\admin-faqs.js" />
     <Content Include="assets\js\admin-slaughterhouses.js" />
@@ -560,6 +562,7 @@
     <Content Include="assets\js\main.js" />
     <Content Include="assets\js\main.min.js" />
     <Content Include="assets\js\master.js" />
+    <Content Include="assets\js\our_services.js" />
     <Content Include="assets\js\admin-order-details.js" />
     <Content Include="assets\js\order.js" />
     <Content Include="assets\js\order-details.js" />
@@ -772,6 +775,13 @@
     </Compile>
     <Compile Include="admin\contact-us-addresses.aspx.designer.cs">
       <DependentUpon>contact-us-addresses.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\our-services.aspx.cs">
+      <DependentUpon>our-services.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\our-services.aspx.designer.cs">
+      <DependentUpon>our-services.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\contact-us-faqs.aspx.cs">
       <DependentUpon>contact-us-faqs.aspx</DependentUpon>
