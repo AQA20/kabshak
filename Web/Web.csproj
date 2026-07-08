@@ -117,6 +117,9 @@
     <Content Include="admin\cities.aspx" />
     <Content Include="admin\contact-us-addresses.aspx" />
     <Content Include="admin\our-services.aspx" />
+    <Content Include="admin\cancellation-policy.aspx" />
+    <Content Include="admin\privacy-policy.aspx" />
+    <Content Include="admin\terms-of-use.aspx" />
     <Content Include="admin\contact-us-faqs.aspx" />
     <Content Include="admin\faqs.aspx" />
     <Content Include="admin\locations.aspx" />
@@ -208,7 +211,6 @@
     <Content Include="assets\images\site_icon.png" />
     <Content Include="assets\images\banner-1.jpg" />
     <Content Include="assets\images\banner.jpg" />
-    <Content Include="assets\images\cancellation-policy.png" />
     <Content Include="assets\images\categories\240420.png" />
     <Content Include="assets\images\categories\567915.png" />
     <Content Include="assets\images\categories\871500.png" />
@@ -535,6 +537,9 @@
     <Content Include="assets\js\admin-charities.js" />
     <Content Include="assets\js\admin-contact-us-addresses.js" />
     <Content Include="assets\js\admin-our-services.js" />
+    <Content Include="assets\js\admin-cancellation-policy.js" />
+    <Content Include="assets\js\admin-privacy-policy.js" />
+    <Content Include="assets\js\admin-terms-of-use.js" />
     <Content Include="assets\js\admin-contact-us-faqs.js" />
     <Content Include="assets\js\admin-faqs.js" />
     <Content Include="assets\js\admin-slaughterhouses.js" />
@@ -562,7 +567,10 @@
     <Content Include="assets\js\main.js" />
     <Content Include="assets\js\main.min.js" />
     <Content Include="assets\js\master.js" />
+    <Content Include="assets\js\cancellation-policy.js" />
     <Content Include="assets\js\our_services.js" />
+    <Content Include="assets\js\privacy-policy.js" />
+    <Content Include="assets\js\term-and-conditions.js" />
     <Content Include="assets\js\admin-order-details.js" />
     <Content Include="assets\js\order.js" />
     <Content Include="assets\js\order-details.js" />
@@ -782,6 +790,27 @@
     </Compile>
     <Compile Include="admin\our-services.aspx.designer.cs">
       <DependentUpon>our-services.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\cancellation-policy.aspx.cs">
+      <DependentUpon>cancellation-policy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\cancellation-policy.aspx.designer.cs">
+      <DependentUpon>cancellation-policy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\privacy-policy.aspx.cs">
+      <DependentUpon>privacy-policy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\privacy-policy.aspx.designer.cs">
+      <DependentUpon>privacy-policy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\terms-of-use.aspx.cs">
+      <DependentUpon>terms-of-use.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\terms-of-use.aspx.designer.cs">
+      <DependentUpon>terms-of-use.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\contact-us-faqs.aspx.cs">
       <DependentUpon>contact-us-faqs.aspx</DependentUpon>

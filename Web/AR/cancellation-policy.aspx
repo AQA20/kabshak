@@ -16,26 +16,11 @@
         <!-- Start of Page Content -->
         <div class="page-content">
             <div class="container">
-                <section class="introduce  pb-10">
-                    <h1 class="title title-center">سياسة الإلغاء والاسترداد
-                    </h1>
+                <section class="introduce pb-10">
+                    <h1 class="title title-center">سياسة الإلغاء والاسترداد</h1>
                 </section>
-                <section class="customer-service">
-                    <div class="row align-items-center">
-                        <div class="col-md-6 pr-lg-8 mb-8">
-                            <div class="accordion accordion-simple accordion-plus">
-                                <p class=" mx-auto text-center">
-                                    تقوم كبشك بأداء نسك الذبح سواء اضحية او غيرها وتوزيعها وايصالها الى الجهات او الاسر العفيفة والمحتاجة وذلك من خلال فريق متخصص, مع الالتزام بالتوقيت الزمني المحدد ما لم تظهر ظروف خارجة عن ارادتها.
-                        <br />
-                                    وتنص القوانين الشرعية على ان المشتري بمجرد إتمام عملية الشراء ومن ثم إتمام عملية الذبح من قبل كبشك فلا يحق له الإلغاء او الاسترجاع 
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-8">
-                            <figure class="br-lg">
-                                <img src="/assets/images/cancellation-policy.png" alt="Banner" width="610" height="500" style="background-color: #CECECC;">
-                            </figure>
-                        </div>
+                <section class="mb-6 cancellation-policy-section">
+                    <div class="row items">
                     </div>
                 </section>
             </div>
@@ -43,4 +28,5 @@
     </main>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
+    <script src="/assets/js/cancellation-policy.js"></script>
 </asp:Content>

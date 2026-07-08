@@ -719,6 +719,62 @@ namespace business_logic
             return _data;
         }
 
+        public object get_all_privacy_policy()
+        {
+            var _data = new object();
+            try
+            {
+                GeneralEntities context = new GeneralEntities();
+                var query = (from data in context.PrivacyPolicies select data);
+
+                _data = query.ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception caught! " + ex.ToString());
+            }
+
+            return _data;
+        }
+
+        public object get_all_terms_of_use()
+        {
+            var _data = new object();
+            try
+            {
+                GeneralEntities context = new GeneralEntities();
+                var query = (from data in context.TermAndConditions select data);
+
+                _data = query.ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception caught! " + ex.ToString());
+            }
+
+            return _data;
+        }
+
+        public object get_all_cancellation_policy()
+        {
+            var _data = new object();
+            try
+            {
+                GeneralEntities context = new GeneralEntities();
+                var query = (from data in context.CancellationPolicies select data);
+
+                _data = query.ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception caught! " + ex.ToString());
+            }
+
+            return _data;
+        }
+
+
+
         public void send_contact_us_message(string[] contact_info)
         {
             try
@@ -986,6 +1042,80 @@ namespace business_logic
             }
         }
 
+        public void chnage_privacy_policy_activation_status(int id, string user_token, bool status)
+        {
+            try
+            {
+                UsersEntities context = new UsersEntities();
+                var User = context.Users.SingleOrDefault(d => d.Token == user_token);
+                int userid = int.Parse(GetObjectValue(User, "Id"));
+
+                GeneralEntities context2 = new GeneralEntities();
+
+                var record = context2.PrivacyPolicies.SingleOrDefault(d => d.Id == id);
+
+                if (record != null)
+                {
+                    record.IsActive = status;
+                    context2.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception caught! " + ex.ToString());
+            }
+        }
+
+        public void chnage_terms_of_use_activation_status(int id, string user_token, bool status)
+        {
+            try
+            {
+                UsersEntities context = new UsersEntities();
+                var User = context.Users.SingleOrDefault(d => d.Token == user_token);
+                int userid = int.Parse(GetObjectValue(User, "Id"));
+
+                GeneralEntities context2 = new GeneralEntities();
+
+                var record = context2.TermAndConditions.SingleOrDefault(d => d.Id == id);
+
+                if (record != null)
+                {
+                    record.IsActive = status;
+                    context2.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception caught! " + ex.ToString());
+            }
+        }
+
+        public void chnage_cancellation_policy_activation_status(int id, string user_token, bool status)
+        {
+            try
+            {
+                UsersEntities context = new UsersEntities();
+                var User = context.Users.SingleOrDefault(d => d.Token == user_token);
+                int userid = int.Parse(GetObjectValue(User, "Id"));
+
+                GeneralEntities context2 = new GeneralEntities();
+
+                var record = context2.CancellationPolicies.SingleOrDefault(d => d.Id == id);
+
+                if (record != null)
+                {
+                    record.IsActive = status;
+                    context2.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception caught! " + ex.ToString());
+            }
+        }
+
+
+
         public void chnage_ContactUsPeopleAsk_activation_status(int id, string user_token, bool status)
         {
             try
@@ -1081,6 +1211,80 @@ namespace business_logic
                 Console.WriteLine("Exception caught! " + ex.ToString());
             }
         }
+
+        public void delete_privacy_policy(int id, string user_token)
+        {
+            try
+            {
+                UsersEntities context = new UsersEntities();
+                var User = context.Users.SingleOrDefault(d => d.Token == user_token);
+                int userid = int.Parse(GetObjectValue(User, "Id"));
+
+                GeneralEntities context2 = new GeneralEntities();
+
+                var record = context2.PrivacyPolicies.SingleOrDefault(d => d.Id == id);
+
+                if (record != null)
+                {
+                    context2.PrivacyPolicies.Remove(record);
+                    context2.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception caught! " + ex.ToString());
+            }
+        }
+
+        public void delete_terms_of_use(int id, string user_token)
+        {
+            try
+            {
+                UsersEntities context = new UsersEntities();
+                var User = context.Users.SingleOrDefault(d => d.Token == user_token);
+                int userid = int.Parse(GetObjectValue(User, "Id"));
+
+                GeneralEntities context2 = new GeneralEntities();
+
+                var record = context2.TermAndConditions.SingleOrDefault(d => d.Id == id);
+
+                if (record != null)
+                {
+                    context2.TermAndConditions.Remove(record);
+                    context2.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception caught! " + ex.ToString());
+            }
+        }
+
+        public void delete_cancellation_policy(int id, string user_token)
+        {
+            try
+            {
+                UsersEntities context = new UsersEntities();
+                var User = context.Users.SingleOrDefault(d => d.Token == user_token);
+                int userid = int.Parse(GetObjectValue(User, "Id"));
+
+                GeneralEntities context2 = new GeneralEntities();
+
+                var record = context2.CancellationPolicies.SingleOrDefault(d => d.Id == id);
+
+                if (record != null)
+                {
+                    context2.CancellationPolicies.Remove(record);
+                    context2.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception caught! " + ex.ToString());
+            }
+        }
+
+
 
         public void chnage_brand_activation_status(int id, string user_token, bool status)
         {
@@ -1828,6 +2032,170 @@ namespace business_logic
                 Console.WriteLine("Exception caught! " + ex.ToString());
             }
         }
+
+        public void add_privacy_policy_info(string user_token, string name_en, string name_ar, string answer_en, string answer_ar)
+        {
+            try
+            {
+                UsersEntities context = new UsersEntities();
+                var User = context.Users.SingleOrDefault(d => d.Token == user_token);
+                int userid = int.Parse(GetObjectValue(User, "Id"));
+
+                GeneralEntities context2 = new GeneralEntities();
+
+                PrivacyPolicy obj = new PrivacyPolicy();
+                obj.TitleEn = name_en.Trim();
+                obj.TitleAr = name_ar.Trim();
+                obj.DescriptionEn = answer_en.Trim();
+                obj.DescriptionAr = answer_ar.Trim();
+                obj.IsActive = true;
+                obj.CreatedOnDate = DateTime.Now;
+                context2.PrivacyPolicies.Add(obj);
+                context2.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception caught! " + ex.ToString());
+            }
+        }
+
+        public void edit_privacy_policy_info(int id, string user_token, string name_en, string name_ar, string answer_en, string answer_ar)
+        {
+            try
+            {
+                UsersEntities context = new UsersEntities();
+                var User = context.Users.SingleOrDefault(d => d.Token == user_token);
+                int userid = int.Parse(GetObjectValue(User, "Id"));
+
+                GeneralEntities context2 = new GeneralEntities();
+
+                var record = context2.PrivacyPolicies.SingleOrDefault(d => d.Id == id);
+
+                if (record != null)
+                {
+                    record.TitleEn = name_en.Trim();
+                    record.TitleAr = name_ar.Trim();
+                    record.DescriptionEn = answer_en.Trim();
+                    record.DescriptionAr = answer_ar.Trim();
+                    record.IsActive = true;
+                    context2.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception caught! " + ex.ToString());
+            }
+        }
+
+        public void add_terms_of_use_info(string user_token, string name_en, string name_ar, string answer_en, string answer_ar)
+        {
+            try
+            {
+                UsersEntities context = new UsersEntities();
+                var User = context.Users.SingleOrDefault(d => d.Token == user_token);
+                int userid = int.Parse(GetObjectValue(User, "Id"));
+
+                GeneralEntities context2 = new GeneralEntities();
+
+                TermAndCondition obj = new TermAndCondition();
+                obj.TitleEn = name_en.Trim();
+                obj.TitleAr = name_ar.Trim();
+                obj.DescriptionEn = answer_en.Trim();
+                obj.DescriptionAr = answer_ar.Trim();
+                obj.IsActive = true;
+                obj.CreatedOnDate = DateTime.Now;
+                context2.TermAndConditions.Add(obj);
+                context2.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception caught! " + ex.ToString());
+            }
+        }
+
+        public void edit_terms_of_use_info(int id, string user_token, string name_en, string name_ar, string answer_en, string answer_ar)
+        {
+            try
+            {
+                UsersEntities context = new UsersEntities();
+                var User = context.Users.SingleOrDefault(d => d.Token == user_token);
+                int userid = int.Parse(GetObjectValue(User, "Id"));
+
+                GeneralEntities context2 = new GeneralEntities();
+
+                var record = context2.TermAndConditions.SingleOrDefault(d => d.Id == id);
+
+                if (record != null)
+                {
+                    record.TitleEn = name_en.Trim();
+                    record.TitleAr = name_ar.Trim();
+                    record.DescriptionEn = answer_en.Trim();
+                    record.DescriptionAr = answer_ar.Trim();
+                    record.IsActive = true;
+                    context2.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception caught! " + ex.ToString());
+            }
+        }
+
+        public void add_cancellation_policy_info(string user_token, string name_en, string name_ar, string answer_en, string answer_ar)
+        {
+            try
+            {
+                UsersEntities context = new UsersEntities();
+                var User = context.Users.SingleOrDefault(d => d.Token == user_token);
+                int userid = int.Parse(GetObjectValue(User, "Id"));
+
+                GeneralEntities context2 = new GeneralEntities();
+
+                CancellationPolicy obj = new CancellationPolicy();
+                obj.TitleEn = name_en.Trim();
+                obj.TitleAr = name_ar.Trim();
+                obj.DescriptionEn = answer_en.Trim();
+                obj.DescriptionAr = answer_ar.Trim();
+                obj.IsActive = true;
+                obj.CreatedOnDate = DateTime.Now;
+                context2.CancellationPolicies.Add(obj);
+                context2.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception caught! " + ex.ToString());
+            }
+        }
+
+        public void edit_cancellation_policy_info(int id, string user_token, string name_en, string name_ar, string answer_en, string answer_ar)
+        {
+            try
+            {
+                UsersEntities context = new UsersEntities();
+                var User = context.Users.SingleOrDefault(d => d.Token == user_token);
+                int userid = int.Parse(GetObjectValue(User, "Id"));
+
+                GeneralEntities context2 = new GeneralEntities();
+
+                var record = context2.CancellationPolicies.SingleOrDefault(d => d.Id == id);
+
+                if (record != null)
+                {
+                    record.TitleEn = name_en.Trim();
+                    record.TitleAr = name_ar.Trim();
+                    record.DescriptionEn = answer_en.Trim();
+                    record.DescriptionAr = answer_ar.Trim();
+                    record.IsActive = true;
+                    context2.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception caught! " + ex.ToString());
+            }
+        }
+
+
 
         public void add_contact_us_people_ask_info(string user_token, string name_en, string name_ar, string answer_en, string answer_ar)
         {

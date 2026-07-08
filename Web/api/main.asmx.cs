@@ -320,6 +320,89 @@ namespace web.api
         }
 
         [WebMethod(EnableSession = true)]
+        public void delete_privacy_policy()
+        {
+            try
+            {
+                string auth_token = HttpContext.Current.Request["auth_token"].ToString();
+                if (!IsAuthorized(auth_token))
+                {
+                    throw new InvalidOperationException("You are not authorized to use the API");
+                }
+
+                int id = int.Parse(HttpContext.Current.Request["id"].ToString());
+                string user_token = HttpContext.Current.Request["user_token"].ToString();
+
+                _commonBL.delete_privacy_policy(id, user_token);
+
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                Context.Response.Clear();
+                Context.Response.ContentType = "application/json";
+                Context.Response.Write(JsonConvert.SerializeObject(string.Empty));
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+        }
+
+        [WebMethod(EnableSession = true)]
+        public void delete_terms_of_use()
+        {
+            try
+            {
+                string auth_token = HttpContext.Current.Request["auth_token"].ToString();
+                if (!IsAuthorized(auth_token))
+                {
+                    throw new InvalidOperationException("You are not authorized to use the API");
+                }
+
+                int id = int.Parse(HttpContext.Current.Request["id"].ToString());
+                string user_token = HttpContext.Current.Request["user_token"].ToString();
+
+                _commonBL.delete_terms_of_use(id, user_token);
+
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                Context.Response.Clear();
+                Context.Response.ContentType = "application/json";
+                Context.Response.Write(JsonConvert.SerializeObject(string.Empty));
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+        }
+
+        [WebMethod(EnableSession = true)]
+        public void delete_cancellation_policy()
+        {
+            try
+            {
+                string auth_token = HttpContext.Current.Request["auth_token"].ToString();
+                if (!IsAuthorized(auth_token))
+                {
+                    throw new InvalidOperationException("You are not authorized to use the API");
+                }
+
+                int id = int.Parse(HttpContext.Current.Request["id"].ToString());
+                string user_token = HttpContext.Current.Request["user_token"].ToString();
+
+                _commonBL.delete_cancellation_policy(id, user_token);
+
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                Context.Response.Clear();
+                Context.Response.ContentType = "application/json";
+                Context.Response.Write(JsonConvert.SerializeObject(string.Empty));
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+        }
+
+
+
+        [WebMethod(EnableSession = true)]
         [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
         public void terms_of_use()
         {
@@ -433,6 +516,77 @@ namespace web.api
                 throw (ex);
             }
         }
+
+        [WebMethod(EnableSession = true)]
+        [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
+        public void all_privacy_policy()
+        {
+            try
+            {
+                string auth_token = HttpContext.Current.Request["auth_token"].ToString(); if (!IsAuthorized(auth_token))
+                {
+                    throw new InvalidOperationException("You are not authorized to use the API");
+                }
+
+                var data = _commonBL.get_all_privacy_policy();
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                Context.Response.Clear();
+                Context.Response.ContentType = "application/json";
+                Context.Response.Write(JsonConvert.SerializeObject(data));
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+        }
+
+        [WebMethod(EnableSession = true)]
+        [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
+        public void all_terms_of_use()
+        {
+            try
+            {
+                string auth_token = HttpContext.Current.Request["auth_token"].ToString(); if (!IsAuthorized(auth_token))
+                {
+                    throw new InvalidOperationException("You are not authorized to use the API");
+                }
+
+                var data = _commonBL.get_all_terms_of_use();
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                Context.Response.Clear();
+                Context.Response.ContentType = "application/json";
+                Context.Response.Write(JsonConvert.SerializeObject(data));
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+        }
+
+        [WebMethod(EnableSession = true)]
+        [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
+        public void all_cancellation_policy()
+        {
+            try
+            {
+                string auth_token = HttpContext.Current.Request["auth_token"].ToString(); if (!IsAuthorized(auth_token))
+                {
+                    throw new InvalidOperationException("You are not authorized to use the API");
+                }
+
+                var data = _commonBL.get_all_cancellation_policy();
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                Context.Response.Clear();
+                Context.Response.ContentType = "application/json";
+                Context.Response.Write(JsonConvert.SerializeObject(data));
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+        }
+
+
 
         [WebMethod(EnableSession = true)]
         [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
@@ -1230,6 +1384,89 @@ namespace web.api
         }
 
         [WebMethod(EnableSession = true)]
+        public void chnage_privacy_policy_activation_status()
+        {
+            try
+            {
+                string auth_token = HttpContext.Current.Request["auth_token"].ToString(); if (!IsAuthorized(auth_token))
+                {
+                    throw new InvalidOperationException("You are not authorized to use the API");
+                }
+
+                int id = int.Parse(HttpContext.Current.Request["id"].ToString());
+                string user_token = HttpContext.Current.Request["user_token"].ToString();
+                bool status = (HttpContext.Current.Request["status"].ToString().ToLower() == "true") ? true : false;
+
+                _commonBL.chnage_privacy_policy_activation_status(id, user_token, status);
+
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                Context.Response.Clear();
+                Context.Response.ContentType = "application/json";
+                Context.Response.Write(JsonConvert.SerializeObject(string.Empty));
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+        }
+
+        [WebMethod(EnableSession = true)]
+        public void chnage_terms_of_use_activation_status()
+        {
+            try
+            {
+                string auth_token = HttpContext.Current.Request["auth_token"].ToString(); if (!IsAuthorized(auth_token))
+                {
+                    throw new InvalidOperationException("You are not authorized to use the API");
+                }
+
+                int id = int.Parse(HttpContext.Current.Request["id"].ToString());
+                string user_token = HttpContext.Current.Request["user_token"].ToString();
+                bool status = (HttpContext.Current.Request["status"].ToString().ToLower() == "true") ? true : false;
+
+                _commonBL.chnage_terms_of_use_activation_status(id, user_token, status);
+
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                Context.Response.Clear();
+                Context.Response.ContentType = "application/json";
+                Context.Response.Write(JsonConvert.SerializeObject(string.Empty));
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+        }
+
+        [WebMethod(EnableSession = true)]
+        public void chnage_cancellation_policy_activation_status()
+        {
+            try
+            {
+                string auth_token = HttpContext.Current.Request["auth_token"].ToString(); if (!IsAuthorized(auth_token))
+                {
+                    throw new InvalidOperationException("You are not authorized to use the API");
+                }
+
+                int id = int.Parse(HttpContext.Current.Request["id"].ToString());
+                string user_token = HttpContext.Current.Request["user_token"].ToString();
+                bool status = (HttpContext.Current.Request["status"].ToString().ToLower() == "true") ? true : false;
+
+                _commonBL.chnage_cancellation_policy_activation_status(id, user_token, status);
+
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                Context.Response.Clear();
+                Context.Response.ContentType = "application/json";
+                Context.Response.Write(JsonConvert.SerializeObject(string.Empty));
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+        }
+
+
+
+        [WebMethod(EnableSession = true)]
         public void chnage_contact_us_people_ask_activation_status()
         {
             try
@@ -1863,6 +2100,95 @@ namespace web.api
         }
 
         [WebMethod(EnableSession = true)]
+        public void add_privacy_policy_info()
+        {
+            try
+            {
+                string auth_token = HttpContext.Current.Request["auth_token"].ToString(); if (!IsAuthorized(auth_token))
+                {
+                    throw new InvalidOperationException("You are not authorized to use the API");
+                }
+
+                string user_token = HttpContext.Current.Request["user_token"].ToString();
+                string name_en = HttpContext.Current.Request["name_en"].ToString();
+                string name_ar = HttpContext.Current.Request["name_ar"].ToString();
+                string answer_en = HttpContext.Current.Request["answer_en"].ToString();
+                string answer_ar = HttpContext.Current.Request["answer_ar"].ToString();
+
+                _commonBL.add_privacy_policy_info(user_token, name_en, name_ar, answer_en, answer_ar);
+
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                Context.Response.Clear();
+                Context.Response.ContentType = "application/json";
+                Context.Response.Write(JsonConvert.SerializeObject(string.Empty));
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+        }
+
+        [WebMethod(EnableSession = true)]
+        public void add_terms_of_use_info()
+        {
+            try
+            {
+                string auth_token = HttpContext.Current.Request["auth_token"].ToString(); if (!IsAuthorized(auth_token))
+                {
+                    throw new InvalidOperationException("You are not authorized to use the API");
+                }
+
+                string user_token = HttpContext.Current.Request["user_token"].ToString();
+                string name_en = HttpContext.Current.Request["name_en"].ToString();
+                string name_ar = HttpContext.Current.Request["name_ar"].ToString();
+                string answer_en = HttpContext.Current.Request["answer_en"].ToString();
+                string answer_ar = HttpContext.Current.Request["answer_ar"].ToString();
+
+                _commonBL.add_terms_of_use_info(user_token, name_en, name_ar, answer_en, answer_ar);
+
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                Context.Response.Clear();
+                Context.Response.ContentType = "application/json";
+                Context.Response.Write(JsonConvert.SerializeObject(string.Empty));
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+        }
+
+        [WebMethod(EnableSession = true)]
+        public void add_cancellation_policy_info()
+        {
+            try
+            {
+                string auth_token = HttpContext.Current.Request["auth_token"].ToString(); if (!IsAuthorized(auth_token))
+                {
+                    throw new InvalidOperationException("You are not authorized to use the API");
+                }
+
+                string user_token = HttpContext.Current.Request["user_token"].ToString();
+                string name_en = HttpContext.Current.Request["name_en"].ToString();
+                string name_ar = HttpContext.Current.Request["name_ar"].ToString();
+                string answer_en = HttpContext.Current.Request["answer_en"].ToString();
+                string answer_ar = HttpContext.Current.Request["answer_ar"].ToString();
+
+                _commonBL.add_cancellation_policy_info(user_token, name_en, name_ar, answer_en, answer_ar);
+
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                Context.Response.Clear();
+                Context.Response.ContentType = "application/json";
+                Context.Response.Write(JsonConvert.SerializeObject(string.Empty));
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+        }
+
+
+
+        [WebMethod(EnableSession = true)]
         public void add_contact_us_people_ask_info()
         {
             try
@@ -2015,6 +2341,98 @@ namespace web.api
                 throw (ex);
             }
         }
+
+        [WebMethod(EnableSession = true)]
+        public void edit_privacy_policy_info()
+        {
+            try
+            {
+                string auth_token = HttpContext.Current.Request["auth_token"].ToString(); if (!IsAuthorized(auth_token))
+                {
+                    throw new InvalidOperationException("You are not authorized to use the API");
+                }
+
+                string user_token = HttpContext.Current.Request["user_token"].ToString();
+                string name_en = HttpContext.Current.Request["name_en"].ToString();
+                string name_ar = HttpContext.Current.Request["name_ar"].ToString();
+                string answer_en = HttpContext.Current.Request["answer_en"].ToString();
+                string answer_ar = HttpContext.Current.Request["answer_ar"].ToString();
+                int id = int.Parse(HttpContext.Current.Request["id"].ToString());
+
+                _commonBL.edit_privacy_policy_info(id, user_token, name_en, name_ar, answer_en, answer_ar);
+
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                Context.Response.Clear();
+                Context.Response.ContentType = "application/json";
+                Context.Response.Write(JsonConvert.SerializeObject(string.Empty));
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+        }
+
+        [WebMethod(EnableSession = true)]
+        public void edit_terms_of_use_info()
+        {
+            try
+            {
+                string auth_token = HttpContext.Current.Request["auth_token"].ToString(); if (!IsAuthorized(auth_token))
+                {
+                    throw new InvalidOperationException("You are not authorized to use the API");
+                }
+
+                string user_token = HttpContext.Current.Request["user_token"].ToString();
+                string name_en = HttpContext.Current.Request["name_en"].ToString();
+                string name_ar = HttpContext.Current.Request["name_ar"].ToString();
+                string answer_en = HttpContext.Current.Request["answer_en"].ToString();
+                string answer_ar = HttpContext.Current.Request["answer_ar"].ToString();
+                int id = int.Parse(HttpContext.Current.Request["id"].ToString());
+
+                _commonBL.edit_terms_of_use_info(id, user_token, name_en, name_ar, answer_en, answer_ar);
+
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                Context.Response.Clear();
+                Context.Response.ContentType = "application/json";
+                Context.Response.Write(JsonConvert.SerializeObject(string.Empty));
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+        }
+
+        [WebMethod(EnableSession = true)]
+        public void edit_cancellation_policy_info()
+        {
+            try
+            {
+                string auth_token = HttpContext.Current.Request["auth_token"].ToString(); if (!IsAuthorized(auth_token))
+                {
+                    throw new InvalidOperationException("You are not authorized to use the API");
+                }
+
+                string user_token = HttpContext.Current.Request["user_token"].ToString();
+                string name_en = HttpContext.Current.Request["name_en"].ToString();
+                string name_ar = HttpContext.Current.Request["name_ar"].ToString();
+                string answer_en = HttpContext.Current.Request["answer_en"].ToString();
+                string answer_ar = HttpContext.Current.Request["answer_ar"].ToString();
+                int id = int.Parse(HttpContext.Current.Request["id"].ToString());
+
+                _commonBL.edit_cancellation_policy_info(id, user_token, name_en, name_ar, answer_en, answer_ar);
+
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                Context.Response.Clear();
+                Context.Response.ContentType = "application/json";
+                Context.Response.Write(JsonConvert.SerializeObject(string.Empty));
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+        }
+
+
 
         [WebMethod(EnableSession = true)]
         public void edit_contact_us_people_ask_info()
