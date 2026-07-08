@@ -296,6 +296,29 @@ namespace web.api
 
         [WebMethod(EnableSession = true)]
         [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
+        public void all_contact_us_people_ask()
+        {
+            try
+            {
+                string auth_token = HttpContext.Current.Request["auth_token"].ToString(); if (!IsAuthorized(auth_token))
+                {
+                    throw new InvalidOperationException("You are not authorized to use the API");
+                }
+
+                var data = _commonBL.get_all_contact_us_people_ask();
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                Context.Response.Clear();
+                Context.Response.ContentType = "application/json";
+                Context.Response.Write(JsonConvert.SerializeObject(data));
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+        }
+
+        [WebMethod(EnableSession = true)]
+        [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
         public void all_charities()
         {
             try
@@ -1042,6 +1065,35 @@ namespace web.api
                 throw (ex);
             }
         }
+
+        [WebMethod(EnableSession = true)]
+        public void chnage_contact_us_people_ask_activation_status()
+        {
+            try
+            {
+                string auth_token = HttpContext.Current.Request["auth_token"].ToString(); if (!IsAuthorized(auth_token))
+                {
+                    throw new InvalidOperationException("You are not authorized to use the API");
+                }
+
+                common obj = new common();
+                int id = int.Parse(HttpContext.Current.Request["id"].ToString());
+                string user_token = HttpContext.Current.Request["user_token"].ToString();
+                bool status = (HttpContext.Current.Request["status"].ToString().ToLower() == "true") ? true : false;
+
+                _commonBL.chnage_ContactUsPeopleAsk_activation_status(id, user_token, status);
+
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                Context.Response.Clear();
+                Context.Response.ContentType = "application/json";
+                Context.Response.Write(JsonConvert.SerializeObject(string.Empty));
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+        }
+
         [WebMethod(EnableSession = true)]
         public void chnage_charity_activation_status()
         {
@@ -1620,6 +1672,35 @@ namespace web.api
         }
 
         [WebMethod(EnableSession = true)]
+        public void add_contact_us_people_ask_info()
+        {
+            try
+            {
+                string auth_token = HttpContext.Current.Request["auth_token"].ToString(); if (!IsAuthorized(auth_token))
+                {
+                    throw new InvalidOperationException("You are not authorized to use the API");
+                }
+
+                string user_token = HttpContext.Current.Request["user_token"].ToString();
+                string name_en = HttpContext.Current.Request["name_en"].ToString();
+                string name_ar = HttpContext.Current.Request["name_ar"].ToString();
+                string answer_en = HttpContext.Current.Request["answer_en"].ToString();
+                string answer_ar = HttpContext.Current.Request["answer_ar"].ToString();
+
+                _commonBL.add_contact_us_people_ask_info(user_token, name_en, name_ar, answer_en, answer_ar);
+
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                Context.Response.Clear();
+                Context.Response.ContentType = "application/json";
+                Context.Response.Write(JsonConvert.SerializeObject(string.Empty));
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+        }
+
+        [WebMethod(EnableSession = true)]
         public void add_charity_info()
         {
             try
@@ -1714,6 +1795,37 @@ namespace web.api
                 throw (ex);
             }
         }
+
+        [WebMethod(EnableSession = true)]
+        public void edit_contact_us_people_ask_info()
+        {
+            try
+            {
+                string auth_token = HttpContext.Current.Request["auth_token"].ToString(); if (!IsAuthorized(auth_token))
+                {
+                    throw new InvalidOperationException("You are not authorized to use the API");
+                }
+
+                string user_token = HttpContext.Current.Request["user_token"].ToString();
+                string name_en = HttpContext.Current.Request["name_en"].ToString();
+                string name_ar = HttpContext.Current.Request["name_ar"].ToString();
+                string answer_en = HttpContext.Current.Request["answer_en"].ToString();
+                string answer_ar = HttpContext.Current.Request["answer_ar"].ToString();
+                int id = int.Parse(HttpContext.Current.Request["id"].ToString());
+
+                _commonBL.edit_contact_us_people_ask_info(id, user_token, name_en, name_ar, answer_en, answer_ar);
+
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                Context.Response.Clear();
+                Context.Response.ContentType = "application/json";
+                Context.Response.Write(JsonConvert.SerializeObject(string.Empty));
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+        }
+
         [WebMethod(EnableSession = true)]
         public void edit_charity_info()
         {

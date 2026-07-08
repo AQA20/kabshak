@@ -90,68 +90,8 @@
                 <section class="contact-section">
                     <div class="row gutter-lg pb-3">
                         <div class="col-lg-6 mb-8">
-                            <h4 class="title mb-3">اسأله متكررة من المستخدمين 
-</h4>
-                            <div class="accordion accordion-bg accordion-gutter-md accordion-border">
-<%--                                <div class="card">
-                                    <div class="card-header">
-                                        <a href="#collapse1" class="expand">كيف يمكنني إلغاء طلبي؟</a>
-                                    </div>
-                                    <div id="collapse1" class="card-body collapsed" style="display: none;">
-                                        <p class="mb-0">
-                                            يمكنك إلغاء طلب عبر الإنترنت كتابيًا أو بالفاكس أو بالبريد الإلكتروني ، كما يجب توفير نموذج إلغاء بالرغم من أنه من المعقول الالتزام بالعملية التي أعدها بائع التجزئة.
-                                        </p>
-                                    </div>
-                                </div>--%>
-
-                                <div class="card">
-                                    <div class="card-header">
-                                        <a href="#collapse2" class="expand">لماذا تأخر طلبي؟</a>
-                                    </div>
-                                    <div id="collapse2" class="card-body collapsed">
-                                        <p class="mb-0">
-                                            فيما يلي أهم أسباب تأخير شحنة البيع بالتجزئة:
-                                        </p>
-                                        <ul>
-                                            <li>حركة المرور. </li>
-                                            <li>الطقس. </li>
-                                            <li>محاولات التسليم الفاشلة. </li>
-                                            <li>الأعطال الفنية. </li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                                <div class="card">
-                                    <div class="card-header">
-                                        <a href="#collapse3" class="expand">ما الذي أحتاجه لشراء المنتجات؟</a>
-                                    </div>
-                                    <div id="collapse3" class="card-body collapsed">
-                                        <p class="mb-0">
-يمكنك الذهاب و الضغط على  (أطلب ألآن) او (تبرع ألآن) في الصفحة الرئيسة او استخدام ميزة البحث للعثور على المنتج المراد اختيارها بالإضافة الى طريقة دفع معتمدة لإتمام عملية الطلب    
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="card">
-                                    <div class="card-header">
-                                        <a href="#collapse4" class="expand">كيف يمكنني تتبع الطلب؟</a>
-                                    </div>
-                                    <div id="collapse4" class="card-body collapsed">
-                                        <p class="mb-0">
-سوف نقوم بإرسال تنبيه على تطبيق كبشك او رسالة قصيرة الى هاتفك او ارسال رسالة الى بريدك الالكتروني لإعلامك بسير طلبك مع العلم انه يمكنك التواصل معنا عبر قنوات الاتصال وفي أي وقت 
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="card">
-                                    <div class="card-header">
-                                        <a href="#collapse5" class="expand">متى وكيف يمكنني استرداد المال؟</a>
-                                    </div>
-                                    <div id="collapse5" class="card-body collapsed">
-                                        <p class="mb-0">
-في حالة وجود خلل فني او تقني أواذا كان هناك تأخير في موعد التسليم أو نقص في الشحنة او لا تتفق مع الطلب يمكنك إلغائها من خلال التواصل معنا عبر قنوات الاتصال وسنقوم بإرجاع المبلغ خلال 7 أيام عمل من تاريخ الطلب
-                                    </div>
-                                </div>
+                            <h4 class="title mb-3">اسأله متكررة من المستخدمين </h4>
+                            <div class="accordion accordion-bg accordion-gutter-md accordion-border" id="contact-us-faqs-accordion">
                             </div>
                         </div>
                         <div class="col-lg-6 mb-8">
@@ -187,5 +127,5 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
     <script src="/assets/vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="/assets/js/contact_us.js"></script>
+    <script src="/assets/js/contact_us.js?v=1.1"></script>
 </asp:Content>
