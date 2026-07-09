@@ -1,4 +1,4 @@
-﻿function SignupByEmail() {
+function SignupByEmail() {
     document.getElementById('lblLoginError').innerText = "";
     document.getElementById("divLoginError").classList.add('d-none');
     document.getElementById("divLoginError").classList.remove('d-flex');
@@ -228,7 +228,7 @@ function ValidatePassword(myInput) {
 
 window.fbAsyncInit = function () {
     FB.init({
-        appId: '513424114160709',
+        appId: '1539322571019652',
         cookie: true,
         xfbml: true,
         version: 'v3.2'
