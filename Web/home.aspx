@@ -427,7 +427,7 @@
                     <div class="banner banner-1 banner-fixed br-sm mb-4" style="padding: 1px;">
                         <figure class="banner-media br-sm">
                             <img src="/assets/images/donate.png" alt="Category Banner" width="880" height="300"
-                                style="background-color: #31343B;">
+                                style="background-color: #31343B; width: 880px !important; height: 300px !important; object-fit: cover;">
                         </figure>
                         <div class="banner-content y-50">
                             <h3 class="banner-title ls-25" style="color: #593930 !important; text-shadow: none !important;">Donate now <span class="text-primary">to</span></h3>
@@ -440,7 +440,7 @@
                     <div class="banner banner-2 banner-fixed br-sm mb-4" style="padding: 1px;">
                         <figure class="banner-media br-sm">
                             <img src="/assets/images/ship.png" alt="Category Banner" width="880" height="300"
-                                style="background-color: #DEDEDE;">
+                                style="background-color: #DEDEDE; width: 880px !important; height: 300px !important; object-fit: cover;">
                         </figure>
                         <div class="banner-content y-50">
                             <h3 class="banner-title ls-25" style="color: #593930 !important; text-shadow: none !important;">Your sheep to your door</h3>
