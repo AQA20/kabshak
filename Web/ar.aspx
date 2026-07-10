@@ -7,23 +7,13 @@
         <link rel="stylesheet" type="text/css" href="/assets/css/style-rtl.min.css">
         <link rel="stylesheet" type="text/css" href="/assets/css/demo1-rtl.min.css">
         <style>
-            .header-right {
-                margin-left: 0 !important;
-                margin-right: auto !important;
-            }
-
-            .header-middle .header-right > *:not(:last-child) {
-                margin-right: 0 !important;
-                margin-left: 2rem !important;
-            }
-
             .header-call {
-                margin-left: 6rem !important;
+                margin-left: 4.8rem !important;
                 margin-right: 0 !important;
             }
 
             .header-call::after {
-                left: -3rem !important;
+                left: -2.5rem !important;
                 right: auto !important;
             }
 
@@ -522,7 +512,7 @@
                         </figure>
                         <div class="banner-content y-50">
                             <h3 class="banner-title ls-25"
-                                style="color: #593930 !important; text-shadow: none !important;">خروفك لباب بيتك</h3>
+                                style="color: #593930 !important; text-shadow: none !important;">خروفك لباب<br />بيتك</h3>
                             <h5 class="banner-price-info font-weight-normal ls-25" style="color: #000000 !important;">
                                 الشحن الى جميع مناطق المملكة</h5>
                             <a href="shipping-shop.aspx" class="btn btn-dark btn-rounded btn-icon-right">أطلب الأن<i
