@@ -7,11 +7,11 @@
     <link rel="stylesheet" type="text/css" href="/assets/css/demo1-rtl.min.css">
     <style>
         .header-call {
-            margin-left: 4.8rem !important;
+            margin-left: 5.2rem !important;
             margin-right: 0 !important;
         }
         .header-call::after {
-            left: -2.5rem !important;
+            left: -3.5rem !important;
             right: auto !important;
         }
         @media (min-width: 768px) {
