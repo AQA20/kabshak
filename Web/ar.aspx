@@ -18,12 +18,12 @@
             }
 
             .header-call {
-                margin-left: 4.8rem !important;
+                margin-left: 6rem !important;
                 margin-right: 0 !important;
             }
 
             .header-call::after {
-                left: -2.5rem !important;
+                left: -3rem !important;
                 right: auto !important;
             }
 
