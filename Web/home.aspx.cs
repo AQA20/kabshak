@@ -17,7 +17,7 @@ namespace web
             if (rawUrl == "/home.aspx" || rawUrl == "/home" || rawUrl == "/home/")
             {
                 string protocol = HttpContext.Current.Request.Url.Scheme;
-                string host = HttpContext.Current.Request.Url.Host;
+                string host = HttpContext.Current.Request.Url.Authority;
                 string targetUrl = protocol + "://" + host + "/";
                 Page.Response.Redirect(targetUrl, true);
             }

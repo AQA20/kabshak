@@ -444,7 +444,7 @@
                         </figure>
                         <div class="banner-content y-50">
                             <h3 class="banner-title ls-25" style="color: #593930 !important; text-shadow: none !important;">Your sheep to<br />your door</h3>
-                            <h5 class="banner-price-info font-weight-normal ls-25" style="color: #000000 !important;">Shipping to all regions of<br />the Kingdom</h5>
+                            <h5 class="banner-price-info font-weight-normal ls-25" style="color: #000000 !important;">Shipping to all provinces of<br />the Kingdom</h5>
                             <a href="shipping-shop.aspx" class="btn btn-dark btn-rounded btn-icon-right">Order Now<i
                                     class="w-icon-long-arrow-right"></i>
                             </a>
@@ -515,6 +515,26 @@
                                 <div class="swiper-button-prev"></div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container partner-section mt-5 mb-5">
+                <div class="row align-items-center bg-white" style="border-radius: 20px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03); padding: 3rem; border: 1px solid rgba(0, 0, 0, 0.04);">
+                    <div class="col-md-4 text-center mb-4 mb-md-0">
+                        <img src="/assets/images/جمعية-المركز-الإسلامي.png" alt="Islamic Charitable Center Association" style="max-width: 250px; height: auto;" />
+                    </div>
+                    <div class="col-md-8">
+                        <h4 class="mb-1" style="color: #593930 !important;">Our partner in distributing donations</h4>
+                        <h3 class="font-weight-bolder text-dark mb-3">Islamic Charitable Center Association</h3>
+                        <p class="text-default mb-3" style="font-size: 1.2rem; line-height: 1.6;">
+                            We work for humanity, empowering them economically, educationally and healthily, and in order to provide relief and aid to those in need.
+                        </p>
+                        <p class="text-default mb-4" style="font-size: 1.2rem; line-height: 1.6;">
+                            Our branches are spread all over the Kingdom, except for zatari.
+                        </p>
+                        <a href="https://islamicc.org/ws/" target="_blank" class="btn btn-dark btn-rounded btn-outline btn-icon-right">
+                            Read More<i class="w-icon-long-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
             </div>
