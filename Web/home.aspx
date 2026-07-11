@@ -431,7 +431,7 @@
                         </figure>
                         <div class="banner-content y-50">
                             <h3 class="banner-title ls-25" style="color: #593930 !important; text-shadow: none !important;">Donate now <span class="text-primary">to</span></h3>
-                            <h5 class="banner-price-info font-weight-normal ls-25" style="color: #000000 !important;">charities and chaste and<br />needy families</h5>
+                            <h5 class="banner-price-info font-weight-normal ls-25" style="color: #000000 !important;">Charities and families<br />in need</h5>
                             <a href="donate-shop.aspx" class="btn btn-white btn-rounded btn-icon-right">Donate Now<i
                                     class="w-icon-long-arrow-right"></i>
                             </a>
