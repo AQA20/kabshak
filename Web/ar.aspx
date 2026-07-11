@@ -490,21 +490,6 @@
             <div class="container-fluid mt-5">
                 <div class="category-banner-wrapper2 row cols-md-2 appear-animate fadeIn appear-animation-visible"
                     style="animation-duration: 1.2s;">
-                    <div class="banner banner-1 banner-fixed br-sm mb-4" style="padding: 1px;">
-                        <figure class="banner-media br-sm">
-                            <img src="/assets/images/donate.png" alt="Category Banner" width="898" height="503"
-                                style="background-color: #31343B; width: 898px !important; height: 503px !important; object-fit: cover; transform: scaleX(-1);">
-                        </figure>
-                        <div class="banner-content y-50">
-                            <h3 class="banner-title ls-25"
-                                style="color: #593930 !important; text-shadow: none !important;">تبرع الأن</h3>
-                            <h5 class="banner-price-info font-weight-normal ls-25" style="color: #000000 !important;">
-                                للجمعيات والأسر العفيفة والمحتاجة</h5>
-                            <a href="donate-shop.aspx" class="btn btn-white btn-rounded btn-icon-right">تبرع الأن<i
-                                    class="w-icon-long-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
                     <div class="banner banner-2 banner-fixed br-sm mb-4" style="padding: 1px;">
                         <figure class="banner-media br-sm">
                             <img src="/assets/images/donate.png" alt="Category Banner" width="898" height="503"
@@ -516,6 +501,21 @@
                             <h5 class="banner-price-info font-weight-normal ls-25" style="color: #000000 !important;">
                                 الشحن الى جميع مناطق المملكة</h5>
                             <a href="shipping-shop.aspx" class="btn btn-dark btn-rounded btn-icon-right">أطلب الأن<i
+                                    class="w-icon-long-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="banner banner-1 banner-fixed br-sm mb-4" style="padding: 1px;">
+                        <figure class="banner-media br-sm">
+                            <img src="/assets/images/donate.png" alt="Category Banner" width="898" height="503"
+                                style="background-color: #31343B; width: 898px !important; height: 503px !important; object-fit: cover; transform: scaleX(-1);">
+                        </figure>
+                        <div class="banner-content y-50">
+                            <h3 class="banner-title ls-25"
+                                style="color: #593930 !important; text-shadow: none !important;">تبرع الأن</h3>
+                            <h5 class="banner-price-info font-weight-normal ls-25" style="color: #000000 !important;">
+                                للجمعيات والأسر العفيفة والمحتاجة</h5>
+                            <a href="donate-shop.aspx" class="btn btn-white btn-rounded btn-icon-right">تبرع الأن<i
                                     class="w-icon-long-arrow-right"></i>
                             </a>
                         </div>
