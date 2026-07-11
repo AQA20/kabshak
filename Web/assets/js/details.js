@@ -670,16 +670,21 @@ function FillProductSubCategories(data) {
             if (item.IsActive) {
                 let netPriceUsd = item.Discount > 0 ? (item.Price - (item.Price * item.Discount / 100)) : item.Price
 
-                items.push(`<div class="store-wrap mb-4">
+                items.push(`<style>
+                                    .white-store-text, .white-store-text * { color: white !important; }
+                                    h4.store-title a.white-store-link { color: white !important; }
+                                    h4.store-title a.white-store-link:hover { color: white !important; }
+                                </style>
+                                <div class="store-wrap mb-4">
                                     <div class="store store-grid">
                                         <div class="store-header">
                                             <figure class="store-banner" style="background: #593930; min-height: 160px;">
                                             </figure>
                                         </div>
                                         <!-- End of Store Header -->
-                                        <div class="store-content">
+                                        <div class="store-content white-store-text">
                                             <h4 class="store-title mb-2">
-                                                <a href="#">${IsArabic ? item.NameAr : item.NameEn}</a>
+                                                <a href="#" class="white-store-link">${IsArabic ? item.NameAr : item.NameEn}</a>
                                             </h4>
                                             <h5 class="sub-title font-weight-bold mb-1">${Math.ceil((netPriceUsd * rate_value).toFixed(2)) + " " + rate_code}</h5>
                                             <div class="store-address store-address-${item.Token}">
@@ -870,7 +875,7 @@ function SaveShareholderInfo(token) {
         Shareholder.style.background = "#ffffff";
     }
 
-   let qunt = $('#quantity' + token)[0].value;
+    let qunt = $('#quantity' + token)[0].value;
     if (qunt == '0') {
         val = false;
         $('.product-qty-form .input-group')[0].style.background = "#fff9b3";
