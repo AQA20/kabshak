@@ -492,8 +492,8 @@
                     style="animation-duration: 1.2s;">
                     <div class="banner banner-2 banner-fixed br-sm mb-4" style="padding: 1px;">
                         <figure class="banner-media br-sm">
-                            <img src="/assets/images/donate.png" alt="Category Banner" width="898" height="503"
-                                style="background-color: #31343B; width: 898px !important; height: 503px !important; object-fit: cover; transform: scaleX(-1);">
+                            <img src="/assets/images/ship.png" alt="Category Banner" width="898" height="503"
+                                style="background-color: #DEDEDE; width: 898px !important; height: 503px !important; object-fit: cover; transform: scaleX(-1);">
                         </figure>
                         <div class="banner-content y-50">
                             <h3 class="banner-title ls-25"
