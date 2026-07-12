@@ -223,7 +223,7 @@ function FillProducts(data, end, start) {
                                         <div class="ratings-container">
                                             <a href="#" onclick="voidclick(); return false" class="rating-reviews">${IsArabic ? item.BrandNameAr : item.BrandNameEn}</a>
                                         </div>
-                                        <div class="product-price"> ${(item.Usd * rate_value).toFixed(2)} ${rate_code}</div>
+                                        <div class="product-price"> ${Math.ceil(item.Usd * rate_value)} ${rate_code}</div>
                                         <div class="ratings-container">
                                             <p style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 3; line-clamp: 3;-webkit-box-orient: vertical;">${IsArabic ? item.BriefAr : item.BriefEn}</p>
                                         </div>

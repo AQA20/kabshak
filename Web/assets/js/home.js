@@ -1,4 +1,4 @@
-﻿
+
 $(document).ready(function () {
    /* BindHomePageLists();*/
 });
@@ -50,7 +50,7 @@ function FillHomePageListData(data) {
                                     </div>
                                     <h4 class="post-title"><a href="${productURL}"">${IsArabic ? item.NameAr : item.NameEn}</a>
                                     </h4>
-                                    <a href="${productURL}" class="btn btn-link btn-dark btn-underline">${(item.Usd * rate_value).toFixed(2)} ${rate_code}</i></a>
+                                    <a href="${productURL}" class="btn btn-link btn-dark btn-underline">${Math.ceil(item.Usd * rate_value)} ${rate_code}</i></a>
                                 </div>
                             </div>`);
         }

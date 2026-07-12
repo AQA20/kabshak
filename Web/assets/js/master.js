@@ -42,10 +42,33 @@ else {
 
 
 function GetExchangePriceRate(code) {
-    var rate = (code.toUpperCase() == 'JOD') ? 0.708 : 1;
-    setCookie("rate_code", code, 2);
-    setCookie("rate_value", rate, 2);
-    window.location.reload();
+    var defaultRate = (code.toUpperCase() == 'JOD') ? 0.708 : 1;
+    
+    if (code.toUpperCase() === 'USD') {
+        setCookie("rate_code", code, 2);
+        setCookie("rate_value", 1, 2);
+        window.location.reload();
+        return;
+    }
+
+    // Use a free API to get the latest exchange rate
+    fetch('https://open.er-api.com/v6/latest/USD')
+        .then(response => response.json())
+        .then(data => {
+            var rate = defaultRate;
+            if (data && data.rates && data.rates[code.toUpperCase()]) {
+                rate = data.rates[code.toUpperCase()];
+            }
+            setCookie("rate_code", code, 2);
+            setCookie("rate_value", rate, 2);
+            window.location.reload();
+        })
+        .catch(error => {
+            console.error('Error fetching exchange rate:', error);
+            setCookie("rate_code", code, 2);
+            setCookie("rate_value", defaultRate, 2);
+            window.location.reload();
+        });
 }
 
 
@@ -566,7 +589,7 @@ function FillCartItems(data) {
                                 <a href="#" onclick="voidclick(); return false" class="product-name">${IsArabic ? item.NameAr : item.NameEn}</a>
                                 <div class="price-box">
                                     <span class="product-quantity">${item.Amount > 0 ? item.Count : 0}</span>
-                                    <span class="product-price" style="color: #999;">${item.Amount > 0 ? (item.Usd * rate_value).toFixed(2) : 0} ${rate_code}</span>
+                                    <span class="product-price" style="color: #999;">${item.Amount > 0 ? Math.ceil(item.Usd * rate_value) : 0} ${rate_code}</span>
                                 </div>
                                 <div class="price-box">
                                     <span  class="product-price" style="background: #f5f5f5;padding-left: 5px;padding-right: 5px;border-radius: 3px;">${item.Amount > 0 ? (item.Count * (item.Usd * rate_value)).toFixed(2) : "Out Of Stock"} ${item.Amount > 0 ? rate_code : ""}</span>
