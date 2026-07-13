@@ -444,9 +444,9 @@
                                         <li class="d-flex">
                                             <i class="far fa-clock" style="font-size: 16px;"></i>
                                             <div style="margin-left: 5px; margin-right: 5px;">
-                                                <script>Languag_IsArabic('Support: 24/24', 'الدعم: 24/24')</script>
+                                                <script>Languag_IsArabic('Support: 8 am – 6 pm', 'الدعم: 8 صباحا - 6 مساءا')</script>
                                                 <br />
-                                                <script>Languag_IsArabic('(Saturday – Friday)', '(السبت - الجمعة)')</script>
+                                                <script>Languag_IsArabic('(Saturday – Thursday)', '(السبت - الخميس)')</script>
                                             </div>
                                         </li>
                                     </ul>
