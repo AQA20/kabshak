@@ -674,7 +674,7 @@ function FillProductSubCategories(data) {
                                     .white-store-text, .white-store-text * { color: white !important; }
                                     h4.store-title a.white-store-link { color: white !important; }
                                     h4.store-title a.white-store-link:hover { color: white !important; }
-                                    .white-store-text .ql-editor { padding-left: 15px; }
+                                    .white-store-text .ql-editor { padding: 0 !important; margin: 0 !important; word-break: break-word; }
                                 </style>
                                 <div class="store-wrap mb-4">
                                     <div class="store store-grid">
@@ -688,7 +688,7 @@ function FillProductSubCategories(data) {
                                                 <a href="#" class="white-store-link">${IsArabic ? item.NameAr : item.NameEn}</a>
                                             </h4>
                                             <h5 class="sub-title font-weight-bold mb-1">${Math.ceil((netPriceUsd * rate_value).toFixed(2)) + " " + rate_code}</h5>
-                                            <div class="store-address store-address-${item.Token}" style="padding-left: 15px; margin-bottom: 20px; display: block;">
+                                            <div class="store-address store-address-${item.Token}" style="padding-${IsArabic ? 'left' : 'right'}: 25px; margin-bottom: 20px; display: block; box-sizing: border-box; max-width: 100%; overflow: hidden;">
                                                ${IsArabic ? item.DescriptionAr.replaceAll('contenteditable', 'nonn') : item.DescriptionEn.replaceAll('contenteditable', 'nonn')}
                                             </div>
                                         </div>
