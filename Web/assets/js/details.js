@@ -674,28 +674,26 @@ function FillProductSubCategories(data) {
                                     .white-store-text, .white-store-text * { color: white !important; }
                                     h4.store-title a.white-store-link { color: white !important; }
                                     h4.store-title a.white-store-link:hover { color: white !important; }
+                                    .white-store-text .ql-editor { padding-left: 15px; }
                                 </style>
                                 <div class="store-wrap mb-4">
                                     <div class="store store-grid">
                                         <div class="store-header">
-                                            <figure class="store-banner" style="background: #593930; min-height: 160px;">
+                                            <figure class="store-banner" style="background: #593930; min-height: 185px;">
                                             </figure>
                                         </div>
                                         <!-- End of Store Header -->
-                                        <div class="store-content white-store-text">
+                                        <div class="store-content white-store-text" style="min-height: 150px;">
                                             <h4 class="store-title mb-2">
                                                 <a href="#" class="white-store-link">${IsArabic ? item.NameAr : item.NameEn}</a>
                                             </h4>
                                             <h5 class="sub-title font-weight-bold mb-1">${Math.ceil((netPriceUsd * rate_value).toFixed(2)) + " " + rate_code}</h5>
-                                            <div class="store-address store-address-${item.Token}">
+                                            <div class="store-address store-address-${item.Token}" style="padding-left: 15px; margin-bottom: 20px; display: block;">
                                                ${IsArabic ? item.DescriptionAr.replaceAll('contenteditable', 'nonn') : item.DescriptionEn.replaceAll('contenteditable', 'nonn')}
                                             </div>
                                         </div>
                                         <!-- End of Store Content -->
                                         <div class="store-footer">
-                                            <figure class="seller-brand" style="background-color: #593930 !important;">
-                                                <img src="/assets/images/site_icon.png?v=5.0" alt="not fill image" width="80" height="80" style="background-color: #ffffff !important; border-radius: 50% !important; padding: 12px !important; object-fit: contain;">
-                                            </figure>
                                             <a href="javascript:void(0)" onclick="manageprdouctcart('${item.Token}','${IsArabic ? item.NameAr : item.NameEn}','${Math.ceil((netPriceUsd * rate_value).toFixed(2)) + ' ' + rate_code}');" class="btn btn-dark btn-link btn-underline btn-icon-right btn-visit"><i class="w-icon-cart"></i>${IsArabic ? ' أضف الى عربة التسوق' : ' Add to Cart'}</a>
                                         </div>
                                         <!-- End of Store Footer -->

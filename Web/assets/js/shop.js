@@ -170,7 +170,7 @@ function GetProductsList() {
     document.getElementById("divloader").classList.add('d-flex');
     document.getElementById("divloader").classList.remove('d-none');
 
-    fdata.append('auth_token', "");  $.ajax({
+    fdata.append('auth_token', ""); $.ajax({
         cache: false,
         data: fdata,
         url: '/api/products.asmx/get_products_list',
@@ -183,8 +183,8 @@ function GetProductsList() {
         error: function (xhr, ajaxOptions, thrownError) {
             document.getElementById("divloader").classList.add('d-none');
             document.getElementById("divloader").classList.remove('d-flex');
-           
-            
+
+
         }
     });
 }
@@ -216,6 +216,7 @@ function FillProducts(data, end, start) {
                                     <div class="product-details" style="width:100%;min-height: 265px;">
                                         <div class="product-cat">
                                             <a href="#" onclick="voidclick(); return false" style="padding: 10px;background: #FF9800;color: #ffffff;border-radius: 5px;    font-weight: 600;">${IsArabic ? item.CategoryNameAr : item.CategoryNameEn}${((sub) => sub && sub.toString().trim().toLowerCase() !== 'null' && sub.toString().trim().toLowerCase() !== 'undefined' && sub.toString().trim() !== '' ? ', ' + sub : '')(IsArabic ? item.SubCategoryNameAr : item.SubCategoryNameEn)}</a>
+                                            ${((item.CategoryNameEn && item.CategoryNameEn.toLowerCase().includes('sheep')) || (item.NameEn && item.NameEn.toLowerCase().includes('sheep'))) && ((item.NameEn && item.NameEn.toLowerCase().includes('romanian')) || (item.BrandNameEn && item.BrandNameEn.toLowerCase().includes('romanian'))) ? `<a href="#" onclick="voidclick(); return false" style="padding: 10px;background: #28a745;color: #ffffff;border-radius: 5px; font-weight: 600; margin-left: 5px;">${IsArabic ? "الأكثر مبيعا" : "Best Selling"}</a>` : ''}
                                         </div>
                                         <h4 class="product-name">
                                             <a href="${productURL}">${IsArabic ? item.NameAr : item.NameEn}</a>
@@ -262,7 +263,7 @@ function FillProducts(data, end, start) {
 
 function GetBrandsList() {
     var fdata = new FormData();
-    fdata.append('auth_token', "");  $.ajax({
+    fdata.append('auth_token', ""); $.ajax({
         cache: false,
         data: fdata,
         url: '/api/main.asmx/brands',
@@ -277,7 +278,7 @@ function GetBrandsList() {
 
 function GetCategoriesList() {
     var fdata = new FormData();
-    fdata.append('auth_token', "");  $.ajax({
+    fdata.append('auth_token', ""); $.ajax({
         cache: false,
         data: fdata,
         url: '/api/main.asmx/categories',

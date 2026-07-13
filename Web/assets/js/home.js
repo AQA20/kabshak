@@ -1,6 +1,6 @@
 
 $(document).ready(function () {
-   /* BindHomePageLists();*/
+    /* BindHomePageLists();*/
 });
 
 $('.product-wrapper-1').addClass('d-none');
@@ -10,7 +10,7 @@ CheckSouldOutProducts();
 function BindHomePageLists() {
     var fdata = new FormData();
     fdata.append('user_token', (userId ? decodeURIComponent(userId) : "-1").toString());
-    fdata.append('auth_token', "");  $.ajax({
+    fdata.append('auth_token', ""); $.ajax({
         cache: false,
         data: fdata,
         url: '/api/products.asmx/get_homepagelists',
@@ -21,8 +21,8 @@ function BindHomePageLists() {
             FillHomePageListData(data);
         },
         error: function (xhr, ajaxOptions, thrownError) {
-           
-            
+
+
         }
     });
 }
