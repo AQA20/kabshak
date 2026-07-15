@@ -402,12 +402,12 @@
                                     </a>
                                     <div class="widget-body">
                                         <div class="social-icons social-icons-colored">
-                                            <a href="#" onclick="voidclick(); return false" class="social-icon social-facebook w-icon-facebook" aria-label="Facebook" style="padding: 10px;"></a>
-                                            <a href="#" onclick="voidclick(); return false" class="social-icon social-twitter" aria-label="Twitter" style="padding: 10px; display: flex; align-items: center; justify-content: center; border: none; background: transparent !important;">
+                                            <a href="#" onclick="voidclick(); return false" class="social-icon social-facebook w-icon-facebook" aria-label="Facebook"></a>
+                                            <a href="#" onclick="voidclick(); return false" class="social-icon social-twitter" aria-label="Twitter" style="display: flex; align-items: center; justify-content: center; border: none; background: transparent !important;">
                                                 <img src="/assets/images/X_icon.png" width="32" height="32" alt="X" style="width: 32px; height: 32px;" />
                                             </a>
-                                            <a href="#" onclick="voidclick(); return false" class="social-icon social-instagram w-icon-instagram" aria-label="Instagram" style="padding: 10px;"></a>
-                                            <a href="#" onclick="voidclick(); return false" class="social-icon social-youtube w-icon-youtube" aria-label="YouTube" style="padding: 10px;"></a>
+                                            <a href="#" onclick="voidclick(); return false" class="social-icon social-instagram w-icon-instagram" aria-label="Instagram"></a>
+                                            <a href="#" onclick="voidclick(); return false" class="social-icon social-youtube w-icon-youtube" aria-label="YouTube"></a>
                                         </div>
                                     </div>
                                 </div>
