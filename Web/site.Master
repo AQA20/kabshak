@@ -94,16 +94,7 @@
         body.mmenu-active .mobile-menu-wrapper {
             touch-action: auto;
         }
-        .mobile-menu-close {
-            left: auto !important;
-            right: 15px !important;
-            padding: 10px;
-        }
-        html[lang="ar"] .mobile-menu-close,
-        [dir="rtl"] .mobile-menu-close {
-            right: auto !important;
-            left: 15px !important;
-        }
+
         /* Noto Kufi Arabic font for all Arabic text, excluding icon elements */
         html[lang="ar"],
         html[lang="ar"] body,
@@ -584,13 +575,12 @@
             <div class="mobile-menu-wrapper">
                 <div class="mobile-menu-overlay"></div>
                 <!-- End of .mobile-menu-overlay -->
-
-                <a href="#" class="mobile-menu-close" aria-label="Close Mobile Menu" style="opacity: 1 !important; visibility: visible !important; z-index: 99999 !important; display: block !important; right: 15px !important; left: auto !important; position: fixed !important; top: 25px !important;">
-                    <span style="font-size: 4rem; color: #ffffff; text-shadow: 0 0 5px rgba(0,0,0,0.5); line-height: 1;">&times;</span>
-                </a>
-                <!-- End of .mobile-menu-close -->
-
-                <div class="mobile-menu-container scrollable">
+                <div class="mobile-menu-container scrollable" style="position: relative;">
+                    <!-- Close button inside the menu container -->
+                    <a href="#" class="mobile-menu-close" aria-label="Close Mobile Menu" style="position: absolute; top: 15px; right: 15px; z-index: 10001; opacity: 1; left: auto;">
+                        <i class="w-icon-times-solid" style="color: #ffffff; font-size: 2.4rem;"></i>
+                    </a>
+                    
                     <div class="tab">
                         <ul class="nav nav-tabs" role="tablist">
                             <li class="nav-item">
