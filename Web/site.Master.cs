@@ -20,13 +20,6 @@ namespace web
         {
             try
             {
-                Page.Header.Controls.Add(new LiteralControl("<link rel=\"stylesheet\" type=\"text/css\" href=\"/assets/vendor/fontawesome-free/css/all.min.css\" media=\"print\" onload=\"this.media='all'\">\n"));
-                Page.Header.Controls.Add(new LiteralControl("<link rel=\"stylesheet\" type=\"text/css\" href=\"/assets/vendor/magnific-popup/magnific-popup.min.css\" media=\"print\" onload=\"this.media='all'\">\n"));
-                Page.Header.Controls.Add(new LiteralControl("<link href=\"/assets/css/floating-wpp.css\" rel=\"stylesheet\" media=\"print\" onload=\"this.media='all'\" />\n"));
-                Page.Header.Controls.Add(new LiteralControl("<link rel=\"stylesheet\" type=\"text/css\" href=\"/assets/vendor/photoswipe/photoswipe.min.css\" media=\"print\" onload=\"this.media='all'\">\n"));
-                Page.Header.Controls.Add(new LiteralControl("<link rel=\"stylesheet\" type=\"text/css\" href=\"/assets/vendor/photoswipe/default-skin/default-skin.min.css\" media=\"print\" onload=\"this.media='all'\">\n"));
-                Page.Header.Controls.Add(new LiteralControl("<link rel=\"stylesheet\" href=\"/assets/vendor/swiper/swiper-bundle.min.css\" media=\"print\" onload=\"this.media='all'\">\n"));
-
                 if (Session["AuthServiceToken"] == null || Session["AuthServiceToken"].ToString().Trim() == string.Empty)
                 {
                     Guid tokenGuid = Guid.NewGuid();
