@@ -556,32 +556,32 @@
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
                                         <figure class="banner-media">
-                                            <img src="/assets/images/Slides/1.webp" alt="Slide 1"  loading="lazy" />
+                                            <img src="/assets/images/Slides/1.webp" alt="Slide 1" width="2248" height="1888" loading="lazy" />
                                         </figure>
                                     </div>
                                     <div class="swiper-slide">
                                         <figure class="banner-media">
-                                            <img src="/assets/images/Slides/2.webp" alt="Slide 2"  loading="lazy" />
+                                            <img src="/assets/images/Slides/2.webp" alt="Slide 2" width="2248" height="1888" loading="lazy" />
                                         </figure>
                                     </div>
                                     <div class="swiper-slide">
                                         <figure class="banner-media">
-                                            <img src="/assets/images/Slides/3.webp" alt="Slide 3"  loading="lazy" />
+                                            <img src="/assets/images/Slides/3.webp" alt="Slide 3" width="2248" height="1888" loading="lazy" />
                                         </figure>
                                     </div>
                                     <div class="swiper-slide">
                                         <figure class="banner-media">
-                                            <img src="/assets/images/Slides/4.webp" alt="Slide 4"  loading="lazy" />
+                                            <img src="/assets/images/Slides/4.webp" alt="Slide 4" width="2248" height="1888" loading="lazy" />
                                         </figure>
                                     </div>
                                     <div class="swiper-slide">
                                         <figure class="banner-media">
-                                            <img src="/assets/images/Slides/5.webp" alt="Slide 5"  loading="lazy" />
+                                            <img src="/assets/images/Slides/5.webp" alt="Slide 5" width="2248" height="1888" loading="lazy" />
                                         </figure>
                                     </div>
                                     <div class="swiper-slide">
                                         <figure class="banner-media">
-                                            <img src="/assets/images/Slides/6.webp" alt="Slide 6"  loading="lazy" />
+                                            <img src="/assets/images/Slides/6.webp" alt="Slide 6" width="2248" height="1888" loading="lazy" />
                                         </figure>
                                     </div>
                                 </div>

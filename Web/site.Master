@@ -230,7 +230,7 @@
                                     <div id="image-container" class="header-left mr-md-4" style="max-width: 195px;">
                                         <a href="#" onclick="voidclick(); return false" class="mobile-menu-toggle  w-icon-hamburger" aria-label="menu-toggle"></a>
                                         <a href="/home.aspx" class="logo ml-lg-0">
-                                            <img src="/assets/images/logo.png?v=4.0" alt="logo" style="margin-bottom: 10px; margin-top: 10px;" />
+                                            <img src="/assets/images/logo.png?v=4.0" alt="Kabshak Logo" width="694" height="553" style="margin-bottom: 10px; margin-top: 10px;" />
                                         </a>
                                     </div>
                                     <div class="header-center">
@@ -272,7 +272,7 @@
                                     <div class="header-right ml-4">
                                         <div class="header-call d-xs-show d-lg-flex align-items-center">
                                             <a href="https://api.whatsapp.com/send?phone=962798959933" target="_blank">
-                                                <img src="/assets/images/icons/whatsapp.png" style="width: 40px;" alt="whatsapp" />
+                                                <img src="/assets/images/icons/whatsapp.png" width="40" height="40" style="width: 40px; height: 40px;" alt="WhatsApp Contact" />
                                             </a>
                                         </div>
                                         <div class="dropdown cart-dropdown cart-offcanvas mr-0 mr-lg-2">
@@ -323,7 +323,7 @@
             <asp:UpdatePanel ID="up" runat="server" UpdateMode="Always">
                 <ContentTemplate>
                     <div id="divloader" class="spinner-border text-primary d-none" role="status" style="background: #ffffff; position: fixed; top: 0; bottom: 0; left: 0; right: 0; z-index: 9999; justify-content: center; align-items: center;">
-                        <img src="/assets/images/Loading_2.gif" style="width: 50px;" />
+                        <img src="/assets/images/Loading_2.gif" width="480" height="480" alt="Loading" style="width: 50px; height: auto;" />
                     </div>
                     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                     </asp:ContentPlaceHolder>
@@ -386,16 +386,16 @@
                             <div class="col-lg-4 col-sm-6">
                                 <div class="widget widget-about">
                                     <a href="/home.aspx" class="logo-footer">
-                                        <img src="/assets/images/logo-footer.png?v=4.0" alt="logo-footer" style="max-width: 180px; height: auto;" />
+                                        <img src="/assets/images/logo-footer.png?v=4.0" alt="Kabshak Footer Logo" width="694" height="553" style="max-width: 180px; height: auto;" />
                                     </a>
                                     <div class="widget-body">
                                         <div class="social-icons social-icons-colored">
-                                            <a href="#" onclick="voidclick(); return false" class="social-icon social-facebook w-icon-facebook"></a>
-                                            <a href="#" onclick="voidclick(); return false" class="social-icon social-twitter" style="display: flex; align-items: center; justify-content: center; border: none; background: transparent !important;">
-                                                <img src="/assets/images/X_icon.png" alt="X" style="width: 32px; height: 32px;" />
+                                            <a href="#" onclick="voidclick(); return false" class="social-icon social-facebook w-icon-facebook" aria-label="Facebook" style="padding: 10px;"></a>
+                                            <a href="#" onclick="voidclick(); return false" class="social-icon social-twitter" aria-label="Twitter" style="padding: 10px; display: flex; align-items: center; justify-content: center; border: none; background: transparent !important;">
+                                                <img src="/assets/images/X_icon.png" width="32" height="32" alt="X" style="width: 32px; height: 32px;" />
                                             </a>
-                                            <a href="#" onclick="voidclick(); return false" class="social-icon social-instagram w-icon-instagram"></a>
-                                            <a href="#" onclick="voidclick(); return false" class="social-icon social-youtube w-icon-youtube"></a>
+                                            <a href="#" onclick="voidclick(); return false" class="social-icon social-instagram w-icon-instagram" aria-label="Instagram" style="padding: 10px;"></a>
+                                            <a href="#" onclick="voidclick(); return false" class="social-icon social-youtube w-icon-youtube" aria-label="YouTube" style="padding: 10px;"></a>
                                         </div>
                                     </div>
                                 </div>
@@ -548,7 +548,7 @@
                 <div class="mobile-menu-overlay"></div>
                 <!-- End of .mobile-menu-overlay -->
 
-                <a href="#" class="mobile-menu-close"><i class="close-icon"></i></a>
+                <a href="#" class="mobile-menu-close" aria-label="Close Mobile Menu" style="padding: 10px;"><i class="close-icon"></i></a>
                 <!-- End of .mobile-menu-close -->
 
                 <div class="mobile-menu-container scrollable">
