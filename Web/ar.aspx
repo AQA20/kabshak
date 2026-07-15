@@ -1,4 +1,4 @@
-<%@ Page Title="" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="ar.aspx.cs"
+<%@ Page Title="كبشك | لحوم حلال وتبرعات خيرية" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="ar.aspx.cs"
     Inherits="web.ar" %>
 
     <asp:Content ID="Content3" ContentPlaceHolderID="headCss" runat="server">

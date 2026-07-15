@@ -1,4 +1,4 @@
-<%@ Page Title="" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="home.aspx.cs"
+<%@ Page Title="Kabshak | Premium Halal Livestock & Charity Donations" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="home.aspx.cs"
     Inherits="web.home" %>
 
     <asp:Content ID="Content3" ContentPlaceHolderID="headCss" runat="server">
