@@ -77,8 +77,11 @@
     </asp:ContentPlaceHolder>
     <link rel="stylesheet" type="text/css" href="/assets/css/style.min.css?v=4.0">
     <style>
-
-
+        /* Mobile menu hover style */
+        .mobile-menu li a:hover {
+            background-color: #593930 !important;
+            color: #ffffff !important;
+        }
         /* Noto Kufi Arabic font for all Arabic text, excluding icon elements */
         html[lang="ar"],
         html[lang="ar"] body,
@@ -560,7 +563,7 @@
                 <div class="mobile-menu-overlay"></div>
                 <!-- End of .mobile-menu-overlay -->
 
-                <a href="#" class="mobile-menu-close" aria-label="Close Mobile Menu" style="padding: 10px;"><i class="close-icon"></i></a>
+                <a href="#" class="mobile-menu-close" aria-label="Close Mobile Menu"><i class="close-icon"></i></a>
                 <!-- End of .mobile-menu-close -->
 
                 <div class="mobile-menu-container scrollable">
@@ -712,7 +715,12 @@
                     var baseHref = cleanHref.replace('.aspx', '');
                     if (cleanHref !== '/' && cleanHref !== '' && (path.indexOf(cleanHref) !== -1 || path.indexOf(baseHref) !== -1)) {
                         $(this).closest('li').addClass('active');
-                        $(this).css('color', '#593930');
+                        if ($(this).closest('.mobile-menu').length > 0) {
+                            $(this).css('background-color', '#593930');
+                            $(this).css('color', '#ffffff');
+                        } else {
+                            $(this).css('color', '#593930');
+                        }
                     }
                 }
             });
