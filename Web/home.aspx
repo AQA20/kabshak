@@ -227,16 +227,16 @@
                 box-shadow: 0 15px 50px rgba(89, 57, 48, 0.08) !important;
             }
 
-            .icon-box {
+            .icon-box-wrapper .icon-box {
                 padding: 1.8rem !important;
                 border-radius: 16px;
                 transition: all 0.3s ease;
             }
-            .icon-box:hover {
+            .icon-box-wrapper .icon-box:hover {
                 background: rgba(89, 57, 48, 0.06);
             }
 
-            .icon-box-icon {
+            .icon-box-wrapper .icon-box-icon {
                 width: 64px !important;
                 height: 64px !important;
                 background: rgba(89, 57, 48, 0.06);
@@ -250,11 +250,11 @@
                 margin: 0 !important;
                 margin-right: 1.8rem !important;
             }
-            html[lang=ar] .icon-box-icon {
+            html[lang=ar] .icon-box-wrapper .icon-box-icon {
                 margin-right: 0 !important;
                 margin-left: 1.8rem !important;
             }
-            .icon-box-icon i {
+            .icon-box-wrapper .icon-box-icon i {
                 font-size: 2.6rem !important;
                 transition: all 0.3s ease;
                 display: inline-flex !important;
@@ -268,32 +268,32 @@
                 height: auto !important;
             }
 
-            .icon-box:hover .icon-box-icon {
+            .icon-box-wrapper .icon-box:hover .icon-box-icon {
                 background: #593930;
                 color: #ffffff;
                 transform: scale(1.08);
             }
 
-            .icon-box:hover .icon-shipping i {
+            .icon-box-wrapper .icon-box:hover .icon-shipping i {
                 animation: slide-truck 0.6s ease-in-out infinite;
             }
-            .icon-box:hover .icon-payment i {
+            .icon-box-wrapper .icon-box:hover .icon-payment i {
                 animation: scale-pulse 0.6s ease-in-out infinite;
             }
-            .icon-box:hover .icon-money i {
+            .icon-box-wrapper .icon-box:hover .icon-money i {
                 animation: scale-pulse 0.6s ease-in-out infinite;
             }
-            .icon-box:hover .icon-chat i {
+            .icon-box-wrapper .icon-box:hover .icon-chat i {
                 animation: bounce-chat 0.6s ease-in-out infinite;
             }
 
-            .icon-box-content .icon-box-title {
+            .icon-box-wrapper .icon-box-content .icon-box-title {
                 font-size: 1.6rem !important;
                 color: #593930 !important;
                 margin-bottom: 0.6rem;
             }
 
-            .icon-box-content p.text-default {
+            .icon-box-wrapper .icon-box-content p.text-default {
                 font-size: 1.3rem !important;
                 color: #726863 !important;
             }
