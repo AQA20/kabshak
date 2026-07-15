@@ -426,7 +426,7 @@
                     style="animation-duration: 1.2s;">
                     <div class="banner banner-1 banner-fixed br-sm mb-4" style="padding: 1px;">
                         <figure class="banner-media br-sm">
-                            <img src="/assets/images/donate.png" alt="Category Banner" width="898" height="503"
+                            <img src="/assets/images/donate.webp" alt="Category Banner" width="898" height="503"
                                 style="background-color: #31343B; width: 898px !important; height: 503px !important; object-fit: cover;">
                         </figure>
                         <div class="banner-content y-50">
@@ -439,7 +439,7 @@
                     </div>
                     <div class="banner banner-2 banner-fixed br-sm mb-4" style="padding: 1px;">
                         <figure class="banner-media br-sm">
-                            <img src="/assets/images/ship.png" alt="Category Banner" width="898" height="503"
+                            <img src="/assets/images/ship.webp" alt="Category Banner" width="898" height="503"
                                 style="background-color: #DEDEDE; width: 898px !important; height: 503px !important; object-fit: cover;">
                         </figure>
                         <div class="banner-content y-50">
@@ -481,32 +481,32 @@
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
                                         <figure class="banner-media">
-                                            <img src="/assets/images/Slides/1.jpg" alt="Slide 1" />
+                                            <img src="/assets/images/Slides/1.webp" alt="Slide 1" loading="lazy" />
                                         </figure>
                                     </div>
                                     <div class="swiper-slide">
                                         <figure class="banner-media">
-                                            <img src="/assets/images/Slides/2.jpg" alt="Slide 2" />
+                                            <img src="/assets/images/Slides/2.webp" alt="Slide 2" loading="lazy" />
                                         </figure>
                                     </div>
                                     <div class="swiper-slide">
                                         <figure class="banner-media">
-                                            <img src="/assets/images/Slides/3.jpg" alt="Slide 3" />
+                                            <img src="/assets/images/Slides/3.webp" alt="Slide 3" loading="lazy" />
                                         </figure>
                                     </div>
                                     <div class="swiper-slide">
                                         <figure class="banner-media">
-                                            <img src="/assets/images/Slides/4.jpg" alt="Slide 4" />
+                                            <img src="/assets/images/Slides/4.webp" alt="Slide 4" loading="lazy" />
                                         </figure>
                                     </div>
                                     <div class="swiper-slide">
                                         <figure class="banner-media">
-                                            <img src="/assets/images/Slides/5.jpg" alt="Slide 5" />
+                                            <img src="/assets/images/Slides/5.webp" alt="Slide 5" loading="lazy" />
                                         </figure>
                                     </div>
                                     <div class="swiper-slide">
                                         <figure class="banner-media">
-                                            <img src="/assets/images/Slides/6.jpg" alt="Slide 6" />
+                                            <img src="/assets/images/Slides/6.webp" alt="Slide 6" loading="lazy" />
                                         </figure>
                                     </div>
                                 </div>
@@ -521,7 +521,7 @@
             <div class="container partner-section mt-5 mb-5">
                 <div class="row align-items-center bg-white" style="border-radius: 20px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03); padding: 3rem; border: 1px solid rgba(0, 0, 0, 0.04);">
                     <div class="col-md-4 text-center mb-4 mb-md-0">
-                        <img src="/assets/images/جمعية-المركز-الإسلامي.png" alt="Islamic Charitable Center Association" style="max-width: 250px; height: auto;" />
+                        <img src="/assets/images/جمعية-المركز-الإسلامي.webp" alt="Islamic Charitable Center Association" style="max-width: 250px; height: auto;"  loading="lazy" />
                     </div>
                     <div class="col-md-8">
                         <h4 class="mb-1" style="color: #593930 !important;">Our partner in distributing donations</h4>
@@ -588,8 +588,8 @@
                                 <div class="testimonial testimonial-centered testimonial-shadow">
                                     <div class="testimonial-info">
                                         <figure class="testimonial-author-thumbnail">
-                                            <img src="/assets/images/categories/898249.png" alt="Testimonial"
-                                                width="100" height="100">
+                                            <img src="/assets/images/categories/898249.webp" alt="Testimonial"
+                                                width="100" height="100" loading="lazy">
                                         </figure>
                                     </div>
                                     <cite>AL FEDIYAH - RANSOM
@@ -605,8 +605,8 @@
                                 <div class="testimonial testimonial-centered testimonial-shadow">
                                     <div class="testimonial-info">
                                         <figure class="testimonial-author-thumbnail">
-                                            <img src="/assets/images/categories/871500.png" alt="Testimonial"
-                                                width="100" height="100">
+                                            <img src="/assets/images/categories/871500.webp" alt="Testimonial"
+                                                width="100" height="100" loading="lazy">
                                         </figure>
                                     </div>
                                     <cite>AL AUDHIYAH QURBAN
@@ -623,8 +623,8 @@
                                 <div class="testimonial testimonial-centered testimonial-shadow">
                                     <div class="testimonial-info">
                                         <figure class="testimonial-author-thumbnail">
-                                            <img src="/assets/images/categories/567915.png" alt="Testimonial"
-                                                width="100" height="100">
+                                            <img src="/assets/images/categories/567915.webp" alt="Testimonial"
+                                                width="100" height="100" loading="lazy">
                                         </figure>
                                     </div>
                                     <cite>AL AQEQAH
@@ -641,8 +641,8 @@
                                 <div class="testimonial testimonial-centered testimonial-shadow">
                                     <div class="testimonial-info">
                                         <figure class="testimonial-author-thumbnail">
-                                            <img src="/assets/images/categories/240420.png" alt="Testimonial"
-                                                width="100" height="100">
+                                            <img src="/assets/images/categories/240420.webp" alt="Testimonial"
+                                                width="100" height="100" loading="lazy">
                                         </figure>
                                     </div>
                                     <cite>NADHAR – VOW OR OATH
@@ -660,8 +660,8 @@
                                 <div class="testimonial testimonial-centered testimonial-shadow">
                                     <div class="testimonial-info">
                                         <figure class="testimonial-author-thumbnail">
-                                            <img src="/assets/images/categories/898249.png" alt="Testimonial"
-                                                width="100" height="100">
+                                            <img src="/assets/images/categories/898249.webp" alt="Testimonial"
+                                                width="100" height="100" loading="lazy">
                                         </figure>
                                     </div>
                                     <cite>AL SADAQAH – CHARITY
