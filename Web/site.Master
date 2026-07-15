@@ -77,10 +77,32 @@
     </asp:ContentPlaceHolder>
     <link rel="stylesheet" type="text/css" href="/assets/css/style.min.css?v=4.0">
     <style>
-        /* Mobile menu hover style */
+        /* Mobile menu styling */
+        .mobile-menu li a {
+            font-size: 1.7rem !important;
+            padding: 1.5rem 1.5rem !important;
+        }
         .mobile-menu li a:hover {
             background-color: #593930 !important;
             color: #ffffff !important;
+        }
+        /* Fix mobile menu scrolling and close button positioning */
+        body.mmenu-active {
+            overflow: hidden !important;
+            touch-action: none;
+        }
+        body.mmenu-active .mobile-menu-wrapper {
+            touch-action: auto;
+        }
+        .mobile-menu-close {
+            left: auto !important;
+            right: 15px !important;
+            padding: 10px;
+        }
+        html[lang="ar"] .mobile-menu-close,
+        [dir="rtl"] .mobile-menu-close {
+            right: auto !important;
+            left: 15px !important;
         }
         /* Noto Kufi Arabic font for all Arabic text, excluding icon elements */
         html[lang="ar"],
@@ -563,7 +585,9 @@
                 <div class="mobile-menu-overlay"></div>
                 <!-- End of .mobile-menu-overlay -->
 
-                <a href="#" class="mobile-menu-close" aria-label="Close Mobile Menu"><i class="close-icon"></i></a>
+                <a href="#" class="mobile-menu-close" aria-label="Close Mobile Menu" style="opacity: 1 !important; visibility: visible !important; z-index: 99999 !important; display: block !important; right: 15px !important; left: auto !important; position: fixed !important; top: 25px !important;">
+                    <span style="font-size: 4rem; color: #ffffff; text-shadow: 0 0 5px rgba(0,0,0,0.5); line-height: 1;">&times;</span>
+                </a>
                 <!-- End of .mobile-menu-close -->
 
                 <div class="mobile-menu-container scrollable">
