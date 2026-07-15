@@ -431,7 +431,7 @@
                         </figure>
                         <div class="banner-content y-50">
                             <h3 class="banner-title ls-25" style="color: #593930 !important; text-shadow: none !important;">Donate now <span class="text-primary">to</span></h3>
-                            <h5 class="banner-price-info font-weight-normal ls-25" style="color: #000000 !important;">Charities and families<br />in need</h5>
+                            <h4 class="banner-price-info font-weight-normal ls-25" style="color: #000000 !important;">Charities and families<br />in need</h4>
                             <a href="donate-shop.aspx" class="btn btn-white btn-rounded btn-icon-right">Donate Now<i
                                     class="w-icon-long-arrow-right"></i>
                             </a>
@@ -444,7 +444,7 @@
                         </figure>
                         <div class="banner-content y-50">
                             <h3 class="banner-title ls-25" style="color: #593930 !important; text-shadow: none !important;">Your sheep to<br />your door</h3>
-                            <h5 class="banner-price-info font-weight-normal ls-25" style="color: #000000 !important;">Shipping to all provinces of<br />the Kingdom</h5>
+                            <h4 class="banner-price-info font-weight-normal ls-25" style="color: #000000 !important;">Shipping to all provinces of<br />the Kingdom</h4>
                             <a href="shipping-shop.aspx" class="btn btn-dark btn-rounded btn-icon-right">Order Now<i
                                     class="w-icon-long-arrow-right"></i>
                             </a>
@@ -524,7 +524,7 @@
                         <img src="/assets/images/جمعية-المركز-الإسلامي.webp" alt="Islamic Charitable Center Association" style="max-width: 250px; height: auto;"  loading="lazy" />
                     </div>
                     <div class="col-md-8">
-                        <h4 class="mb-1" style="color: #593930 !important;">Our partner in distributing donations</h4>
+                        <h2 class="mb-1" style="color: #593930 !important;">Our partner in distributing donations</h2>
                         <h3 class="font-weight-bolder text-dark mb-3">Islamic Charitable Center Association</h3>
                         <p class="text-default mb-3" style="font-size: 1.2rem; line-height: 1.6;">
                             We work for humanity, empowering them economically, educationally and healthily, and in order to provide relief and aid to those in need.
@@ -712,7 +712,7 @@
                                 <i class="w-icon-truck"></i>
                             </span>
                             <div class="icon-box-content">
-                                <h4 class="icon-box-title font-weight-bolder">Shipping</h4>
+                                <h3 class="icon-box-title font-weight-bolder">Shipping</h3>
                                 <p class="text-default">Express delivery on time</p>
                             </div>
                         </div>
@@ -721,7 +721,7 @@
                                 <i class="w-icon-bag"></i>
                             </span>
                             <div class="icon-box-content">
-                                <h4 class="icon-box-title font-weight-bolder">Secure Payment</h4>
+                                <h3 class="icon-box-title font-weight-bolder">Secure Payment</h3>
                                 <p class="text-default">We ensure secure payment</p>
                             </div>
                         </div>
@@ -730,7 +730,7 @@
                                 <i class="w-icon-money"></i>
                             </span>
                             <div class="icon-box-content">
-                                <h4 class="icon-box-title font-weight-bolder">Money Back Guarantee</h4>
+                                <h3 class="icon-box-title font-weight-bolder">Money Back Guarantee</h3>
                                 <p class="text-default">
                                     According to the laws and
                                     <br />
@@ -743,7 +743,7 @@
                                 <i class="w-icon-chat"></i>
                             </span>
                             <div class="icon-box-content">
-                                <h4 class="icon-box-title font-weight-bolder">Customer Support</h4>
+                                <h3 class="icon-box-title font-weight-bolder">Customer Support</h3>
                                 <p class="text-default">From 8:00 AM till 9:00 PM</p>
                             </div>
                         </div>

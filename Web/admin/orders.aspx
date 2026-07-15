@@ -153,7 +153,7 @@
 
                                             <div class="btn-wrap show-code-action mb-5 excel-option">
                                                 <a href="#" class="btn btn-success btn-outline btn-rounded w-100" onclick="ExportOrdersDataAsExcelSheet();">
-                                                    <img src="/assets/images/icons/excel.png" style="width: 40px; margin-right: 5px;">Export data as excel</a>
+                                                    <img src="/assets/images/icons/excel.png" alt="Excel Icon" style="width: 40px; margin-right: 5px;">Export data as excel</a>
                                             </div>
                                         </div>
                                     </div>

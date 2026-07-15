@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="Batches.aspx.cs" Inherits="vape.admin.Batches" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="Batches.aspx.cs" Inherits="vape.admin.Batches" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadCss" runat="server">
     <meta name="robots" content="noindex,nofollow" />
@@ -165,7 +165,7 @@
                                             </div>
                                             <div class="btn-wrap show-code-action mb-5 excel-option">
                                                 <a href="#" class="btn btn-success btn-outline btn-rounded w-100 mb-5" onclick="ExportBatchesDataAsExcelSheet();">
-                                                    <img src="/assets/images/icons/excel.png" style="width: 40px; margin-right: 5px;">Export data as excel</a>
+                                                    <img src="/assets/images/icons/excel.png" alt="Excel Icon" style="width: 40px; margin-right: 5px;">Export data as excel</a>
                                             </div>
                                         </div>
                                     </div>

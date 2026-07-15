@@ -75,11 +75,11 @@
                     <div class="d-flex">
                         <div class="btn-wrap show-code-action mb-2 excel-option mr-2">
                             <a href="#" class="btn btn-success btn-outline btn-rounded" onclick="ExportItemsDataAsExcelSheet();">
-                                <img src="/assets/images/icons/excel.png" style="width: 40px; margin-right: 5px;">Export data as excel</a>
+                                <img src="/assets/images/icons/excel.png" alt="Excel Icon" style="width: 40px; margin-right: 5px;">Export data as excel</a>
                         </div>
                         <div class="btn-wrap show-code-action mb-2 excel-option">
                             <a href="#" class="btn btn-success btn-outline btn-rounded" onclick="ExportQRcodes();" style="color: #000000; border-color: #000000;">
-                                <img src="/assets/images/icons/qr.png" style="width: 40px; margin-right: 5px;">Export QR codes</a>
+                                <img src="/assets/images/icons/qr.png" alt="QR Icon" style="width: 40px; margin-right: 5px;">Export QR codes</a>
                         </div>
                     </div>
 
@@ -123,7 +123,7 @@
                             </tbody>
                         </table>
                         <div class="QR-code d-sm-show" style="text-align: center;">
-                            <img src="non" class="QR" style="height: 250px" />
+                            <img src="non" class="QR" alt="Batch QR Code" style="height: 250px" />
                             Batch QR code
                         </div>
                     </div>

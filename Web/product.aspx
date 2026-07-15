@@ -126,7 +126,7 @@
                                                 <figure class="product-image">
                                                     <img src="/assets/images/defult_image.png"
                                                         data-zoom-image="/assets/images/defult_image.png"
-                                                        alt="Electronics Black Wrist Watch" width="800"
+                                                        alt="Product Image" width="800"
                                                         height="900">
                                                 </figure>
                                             </div>

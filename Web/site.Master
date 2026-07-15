@@ -77,6 +77,8 @@
     </asp:ContentPlaceHolder>
     <link rel="stylesheet" type="text/css" href="/assets/css/style.min.css?v=4.0">
     <style>
+
+
         /* Noto Kufi Arabic font for all Arabic text, excluding icon elements */
         html[lang="ar"],
         html[lang="ar"] body,
@@ -209,10 +211,10 @@
                             <a id="lnkAdminDashboard" runat="server" href="/admin/dashboard.aspx" class="d-lg-show">
                                 <script>Languag_IsArabic('Admin Dashboard', 'لوحة تحكم المسؤول')</script>
                             </a>
-                            <a id="lblMyAccount" runat="server" href="/account" class="d-lg-show d-none">
+                            <a id="lblMyAccount" runat="server" href="/account" class="d-lg-show d-none" aria-label="My Account">
                                 <script>Languag_IsArabic('My Account', 'حسابي')</script>
                             </a>
-                            <a id="lblLogout" runat="server" href="/logout.aspx" class="d-lg-show d-none"><i class="w-icon-logout"></i>
+                            <a id="lblLogout" runat="server" href="/logout.aspx" class="d-lg-show d-none" aria-label="Logout"><i class="w-icon-logout"></i>
                                 <script>Languag_IsArabic('Logout', 'تسجيل خروج')</script>
                             </a>
                             <div class="d-lg-show d-flex">
@@ -283,7 +285,7 @@
                                         </div>
                                         <div class="dropdown cart-dropdown cart-offcanvas mr-0 mr-lg-2">
                                             <div class="cart-overlay"></div>
-                                            <a href="#" onclick="voidclick(); return false" class="cart-toggle label-down link">
+                                            <a href="#" onclick="voidclick(); return false" class="cart-toggle label-down link" aria-label="Shopping Cart">
                                                 <i class="w-icon-cart">
                                                     <span class="cart-count" style="color: #ffffff !important;">0</span>
                                                 </i>
@@ -296,7 +298,7 @@
                                                     <span>
                                                         <script>Languag_IsArabic('Shopping Cart', 'عربة التسوق')</script>
                                                     </span>
-                                                    <a href="#" onclick="voidclick(); return false" class="btn-close">
+                                                    <a href="#" onclick="voidclick(); return false" class="btn-close" aria-label="Close">
                                                         <script>Languag_IsArabic('Close', 'إغلاق')</script>
                                                         <i class="w-icon-long-arrow-right"></i></a>
                                                 </div>
@@ -334,21 +336,21 @@
                     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                     </asp:ContentPlaceHolder>
                     <div class="d-none">
-                        <a href="https://islamwep.net" class="d-none"></a>
-                        <a href="https://tua.jo" class="d-none"></a>
-                        <a href="https://madoo3.com" class="d-none"></a>
-                        <a href="https://islamqa.info" class="d-none"></a>
-                        <a href="https://arabianweather.com" class="d-none"></a>
-                        <a href="https://ar.wikipedia.org/wiki/%D8%A3%D8%B6%D8%AD%D9%8A%D8%A9" class="d-none"></a>
-                        <a href="https://islamonline.net" class="d-none"></a>
-                        <a href="https://islamonline.net" class="d-none"></a>
-                        <a href="https://www.arabiaweather.com/" class="d-none"></a>
-                        <a href="https://taalofalkhair.com" class="d-none"></a>
-                        <a href="https://petra.gov.jo/" class="d-none"></a>
-                        <a href="http://zakat.org" class="d-none"></a>
-                        <a href="http://adahi.org" class="d-none"></a>
-                        <a href="https://www.aljazeera.net/" class="d-none"></a>
-                        <a href="https://www.islamic-relief.me/adahi/" class="d-none"></a>
+                        <a href="https://islamwep.net" class="d-none" aria-hidden="true"></a>
+                        <a href="https://tua.jo" class="d-none" aria-hidden="true"></a>
+                        <a href="https://madoo3.com" class="d-none" aria-hidden="true"></a>
+                        <a href="https://islamqa.info" class="d-none" aria-hidden="true"></a>
+                        <a href="https://arabianweather.com" class="d-none" aria-hidden="true"></a>
+                        <a href="https://ar.wikipedia.org/wiki/%D8%A3%D8%B6%D8%AD%D9%8A%D8%A9" class="d-none" aria-hidden="true"></a>
+                        <a href="https://islamonline.net" class="d-none" aria-hidden="true"></a>
+                        <a href="https://islamonline.net" class="d-none" aria-hidden="true"></a>
+                        <a href="https://www.arabiaweather.com/" class="d-none" aria-hidden="true"></a>
+                        <a href="https://taalofalkhair.com" class="d-none" aria-hidden="true"></a>
+                        <a href="https://petra.gov.jo/" class="d-none" aria-hidden="true"></a>
+                        <a href="http://zakat.org" class="d-none" aria-hidden="true"></a>
+                        <a href="http://adahi.org" class="d-none" aria-hidden="true"></a>
+                        <a href="https://www.aljazeera.net/" class="d-none" aria-hidden="true"></a>
+                        <a href="https://www.islamic-relief.me/adahi/" class="d-none" aria-hidden="true"></a>
                     </div>
                 </ContentTemplate>
             </asp:UpdatePanel>
@@ -374,8 +376,12 @@
                             </div>
                             <div class="col-xl-7 col-lg-6 col-md-9 mt-4 mt-lg-0 ">
                                 <div action="#" method="get" class="input-wrapper input-wrapper-inline input-wrapper-rounded">
+                                    <style>
+                                        #txtSubscribeEmail::placeholder { color: #555 !important; opacity: 1; }
+                                        #txtSubscribeEmail { color: #333 !important; }
+                                    </style>
                                     <input id="txtSubscribeEmail" type="email" class="form-control mr-2 bg-white" name="SubscribeEmail"
-                                        placeholder="Your E-mail Address" />
+                                        placeholder="Your E-mail Address" aria-label="Your E-mail Address" />
                                     <button class="btn btn-white btn-outline btn-rounded" type="button" onclick="SubscribeByEmail();">
                                         <script>Languag_IsArabic('Subscribe', 'الإشتراك')</script>
                                         <i class="w-icon-long-arrow-right"></i>
@@ -416,7 +422,7 @@
                                             <div>
                                                 <i class="fas fa-phone" style="font-size: 16px;"></i>
                                             </div>
-                                            <a href="tel:009597195707" style="margin-left: 5px; margin-right: 5px;">
+                                            <a href="tel:009597195707" style="margin-left: 5px; margin-right: 5px;" aria-label="Phone Number">
                                                 <script>Languag_IsArabic('+962 7 9895 9933', '7 9895 9933 962+')</script>
                                             </a>
                                         </li>
@@ -424,7 +430,7 @@
                                             <div>
                                                 <i class="fab fa-whatsapp" style="font-size: 17px;"></i>
                                             </div>
-                                            <a href="https://api.whatsapp.com/send?phone=962798959933" target="_blank" style="margin-left: 5px; margin-right: 5px;">
+                                            <a href="https://api.whatsapp.com/send?phone=962798959933" target="_blank" style="margin-left: 5px; margin-right: 5px;" aria-label="WhatsApp">
                                                 <script>Languag_IsArabic('+962 7 9895 9933', '7 9895 9933 962+')</script>
                                             </a>
                                         </li>
@@ -473,12 +479,12 @@
                                             </h4>
                                             <div>
                                                 <a href="https://apps.apple.com/app/kabshak/id6445927520" target="_blank">
-                                                    <img src="/assets/images/model1.png" style="max-width: 60%;">
+                                                    <img src="/assets/images/model1.png" alt="App Store" style="max-width: 60%;">
                                                 </a>
                                             </div>
                                             <div style="margin-top: 15px;">
                                                 <a href="https://play.google.com/store/apps/details?id=com.kabsh.customer&pli=1" target="_blank" style="margin-top: 20px;">
-                                                    <img src="/assets/images/model2.png" style="max-width: 60%;">
+                                                    <img src="/assets/images/model2.png" alt="Google Play" style="max-width: 60%;">
                                                 </a>
                                             </div>
                                         </li>

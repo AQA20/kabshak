@@ -498,8 +498,8 @@
                         <div class="banner-content y-50">
                             <h3 class="banner-title ls-25"
                                 style="color: #593930 !important; text-shadow: none !important;">خروفك لباب<br />بيتك</h3>
-                            <h5 class="banner-price-info font-weight-normal ls-25" style="color: #000000 !important;">
-                                الشحن الى جميع مناطق المملكة</h5>
+                            <h4 class="banner-price-info font-weight-normal ls-25" style="color: #000000 !important;">
+                                الشحن الى جميع مناطق المملكة</h4>
                             <a href="shipping-shop.aspx" class="btn btn-dark btn-rounded btn-icon-right">أطلب الأن<i
                                     class="w-icon-long-arrow-right"></i>
                             </a>
@@ -513,8 +513,8 @@
                         <div class="banner-content y-50">
                             <h3 class="banner-title ls-25"
                                 style="color: #593930 !important; text-shadow: none !important;">تبرع الأن</h3>
-                            <h5 class="banner-price-info font-weight-normal ls-25" style="color: #000000 !important;">
-                                للجمعيات والأسر العفيفة والمحتاجة</h5>
+                            <h4 class="banner-price-info font-weight-normal ls-25" style="color: #000000 !important;">
+                                للجمعيات والأسر العفيفة والمحتاجة</h4>
                             <a href="donate-shop.aspx" class="btn btn-white btn-rounded btn-icon-right">تبرع الأن<i
                                     class="w-icon-long-arrow-right"></i>
                             </a>
@@ -599,7 +599,7 @@
                         <img src="/assets/images/جمعية-المركز-الإسلامي.webp" alt="جمعية المركز الإسلامي الخيرية" style="max-width: 250px; height: auto;"  loading="lazy" />
                     </div>
                     <div class="col-md-8">
-                        <h4 class="mb-1" style="color: #593930 !important;">شريكنا في توزيع التبرعات</h4>
+                        <h2 class="mb-1" style="color: #593930 !important;">شريكنا في توزيع التبرعات</h2>
                         <h3 class="font-weight-bolder text-dark mb-3">جمعية المركز الإسلامي الخيرية</h3>
                         <p class="text-default mb-3" style="font-size: 1.2rem; line-height: 1.6;">
                             نحن نعمل من أجل الإنسانية ، وتمكينهم اقتصاديًا وتعليميًا وصحيًا ، ومن أجل تقديم الإغاثة والمساعدات للمحتاجين.
@@ -788,7 +788,7 @@
                                 <i class="w-icon-truck"></i>
                             </span>
                             <div class="icon-box-content">
-                                <h4 class="icon-box-title font-weight-bolder">الشحن</h4>
+                                <h3 class="icon-box-title font-weight-bolder">الشحن</h3>
                                 <p class="text-default">التسليم السريع في الوقت المحدد</p>
                             </div>
                         </div>
@@ -797,7 +797,7 @@
                                 <i class="w-icon-bag"></i>
                             </span>
                             <div class="icon-box-content">
-                                <h4 class="icon-box-title font-weight-bolder">الدفع الآمن</h4>
+                                <h3 class="icon-box-title font-weight-bolder">الدفع الآمن</h3>
                                 <p class="text-default">نحن نضمن لك الدفع الامن</p>
                             </div>
                         </div>
@@ -806,7 +806,7 @@
                                 <i class="w-icon-money"></i>
                             </span>
                             <div class="icon-box-content">
-                                <h4 class="icon-box-title font-weight-bolder">ضمان استعادة الاموال</h4>
+                                <h3 class="icon-box-title font-weight-bolder">ضمان استعادة الاموال</h3>
                                 <p class="text-default">
                                     وذلك حسب الشروط والاحكام
                                 </p>
@@ -817,7 +817,7 @@
                                 <i class="w-icon-chat"></i>
                             </span>
                             <div class="icon-box-content">
-                                <h4 class="icon-box-title font-weight-bolder">دعم العملاء</h4>
+                                <h3 class="icon-box-title font-weight-bolder">دعم العملاء</h3>
                                 <p class="text-default">من 8:00 صباحاً حتى 9:00 مساءً</p>
                             </div>
                         </div>
