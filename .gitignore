@@ -366,3 +366,8 @@ Web/secrets.config
 connections.config
 Web/connections.config
 DataAccess/connections.config
+
+# Dynamic generated files
+Web/assets/images/QRs/
+Web/assets/excel/
+
