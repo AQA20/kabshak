@@ -2,7 +2,7 @@ let rate_code = getCookie("rate_code");
 let rate_value = 1;
 
 if (rate_code == null || rate_code == '' || rate_code == 'undefined') {
-    rate_code = 'USD';
+    rate_code = 'JOD';
     document.getElementById("divloader").classList.add('d-flex');
     document.getElementById("divloader").classList.remove('d-none');
     var requestURL = 'https://api.ipgeolocation.io/ipgeo?apiKey=7affed0ad13a4aeaa681e13e9c88c04b';
@@ -15,17 +15,29 @@ if (rate_code == null || rate_code == '' || rate_code == 'undefined') {
         try {
             var response = request.response;
             if (response == null)
-                GetExchangePriceRate('USD');
+                GetExchangePriceRate('JOD');
             else {
                 if (response.currency.code.toLocaleUpperCase() == "JOD")
-                    GetExchangePriceRate(response.currency.code);
+                    GetExchangePriceRate("JOD");
+                else if (response.currency.code.toLocaleUpperCase() == "SAR")
+                    GetExchangePriceRate("SAR");
+                else if (response.currency.code.toLocaleUpperCase() == "AED")
+                    GetExchangePriceRate("AED");
+                else if (response.currency.code.toLocaleUpperCase() == "QAR")
+                    GetExchangePriceRate("QAR");
+                else if (response.currency.code.toLocaleUpperCase() == "BHD")
+                    GetExchangePriceRate("BHD");
+                else if (response.currency.code.toLocaleUpperCase() == "OMR")
+                    GetExchangePriceRate("OMR");
+                else if (response.currency.code.toLocaleUpperCase() == "KWD")
+                    GetExchangePriceRate("KWD");
                 else
-                    GetExchangePriceRate('USD');
+                    GetExchangePriceRate('JOD');
                 setCookie("country_name", response.country_name.toLocaleLowerCase(), 2);
             }
         }
         catch (err) {
-            GetExchangePriceRate('USD');
+            GetExchangePriceRate('JOD');
         }
     };
 }
@@ -33,10 +45,7 @@ else {
     rate_value = getCookie("rate_value");
 
     if (rate_value == null || rate_value == '' || rate_value == 'undefined') {
-        if (rate_code.toLocaleUpperCase() == "JOD")
-            GetExchangePriceRate(rate_code);
-        else
-            GetExchangePriceRate('USD');
+        GetExchangePriceRate(rate_code);
     }
 }
 
