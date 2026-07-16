@@ -78,11 +78,11 @@ namespace web.api
                 string _onsale = "-1";
 
                 string country = "-1";
-
-                if (HttpContext.Current.Request["country"] != null && _newarrival == "1")
-                {
-                    country = HttpContext.Current.Request["country"].ToString().ToLower() == "jod" ? "jordan" : "-1";
-                }
+                // Currency should not filter out donate items by a hardcoded country.
+                // if (HttpContext.Current.Request["country"] != null && _newarrival == "1")
+                // {
+                //     country = HttpContext.Current.Request["country"].ToString().ToLower() == "jod" ? "jordan" : "-1";
+                // }
 
                 DataTable data = _productsBL.GetProductsList(_brands, _min, _max, _categories, _start, _end, _sort, _currency, _txt, _subcategories, _usertoken, _newarrival, _onsale, country);
 
