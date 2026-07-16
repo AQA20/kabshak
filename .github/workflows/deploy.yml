@@ -60,3 +60,12 @@ jobs:
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ./Web/obj/Release/Package/PackageTmp/
         server-dir: /site1/
+        exclude: |
+          **/.git*
+          **/.git*/**
+          assets/images/products/**
+          assets/images/categories/**
+          assets/images/brands/**
+          assets/images/orders/**
+          assets/images/sliders/**
+          assets/images/banners/**
