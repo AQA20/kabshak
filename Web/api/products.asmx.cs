@@ -79,10 +79,12 @@ namespace web.api
 
                 string country = "-1";
                 // Currency should not filter out donate items by a hardcoded country.
-                // if (HttpContext.Current.Request["country"] != null && _newarrival == "1")
-                // {
-                //     country = HttpContext.Current.Request["country"].ToString().ToLower() == "jod" ? "jordan" : "-1";
-                // }
+                // However, passing "-1" causes the SP to filter for 'countries IS NULL', hiding them.
+                // Passing "jordan" ensures the current donate items are returned regardless of currency.
+                if (_newarrival == "1")
+                {
+                    country = "jordan";
+                }
 
                 DataTable data = _productsBL.GetProductsList(_brands, _min, _max, _categories, _start, _end, _sort, _currency, _txt, _subcategories, _usertoken, _newarrival, _onsale, country);
 

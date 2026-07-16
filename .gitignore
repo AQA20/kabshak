@@ -363,3 +363,6 @@ MigrationBackup/
 FodyWeavers.xsd
 
 Web/secrets.config
+connections.config
+Web/connections.config
+DataAccess/connections.config
