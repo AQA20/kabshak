@@ -51,7 +51,8 @@ else {
 
 
 function GetExchangePriceRate(code) {
-    var defaultRate = 1;
+    // 1 JOD = 1.41 USD, therefore 1 USD = 0.71 JOD
+    var defaultRate = (code.toUpperCase() === 'JOD') ? 0.71 : 1;
     
     if (code.toUpperCase() === 'USD') {
         setCookie("rate_code", code, 2);
