@@ -1,5 +1,3 @@
-$('#IsNewArrival').prop('disabled', true)
-
 const urlSearchParams = new URLSearchParams(window.location.search);
 const params = Object.fromEntries(urlSearchParams.entries());
 let token = params.token
@@ -41,8 +39,6 @@ var Editquill2 = new Quill('#EditeditorAr', {
 });
 
 $("#EditeditorAr p").addClass("ql-align-right ql-direction-rtl");
-
-$("#category-list").attr("disabled", "true");
 
 var Specificationquill = new Quill('#SpecificationEn', {
     theme: 'snow'
