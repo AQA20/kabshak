@@ -51,11 +51,18 @@ else {
 
 
 function GetExchangePriceRate(code) {
-    var defaultRate = (code.toUpperCase() == 'JOD') ? 0.708 : 1;
+    var defaultRate = 1;
     
     if (code.toUpperCase() === 'USD') {
         setCookie("rate_code", code, 2);
         setCookie("rate_value", 1, 2);
+        window.location.reload();
+        return;
+    }
+
+    if (code.toUpperCase() === 'JOD') {
+        setCookie("rate_code", code, 2);
+        setCookie("rate_value", 0.71, 2);
         window.location.reload();
         return;
     }
