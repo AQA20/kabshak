@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="info.aspx.cs" Inherits="web.admin.product.info" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="info.aspx.cs" Inherits="web.admin.product.info" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadCss" runat="server">
     <meta name="robots" content="noindex,nofollow" />
@@ -463,12 +463,12 @@
         let urlHasQueryString2 = Array.from(urlParams2).length > 0;
         if (urlHasQueryString2) {
             let myScript = document.createElement("script");
-            myScript.setAttribute("src", "/assets/js/info-edit.js");
+            myScript.setAttribute("src", "/assets/js/info-edit.js?v=2");
             document.body.appendChild(myScript);
         }
         else {
             let myScript = document.createElement("script");
-            myScript.setAttribute("src", "/assets/js/info-add.js");
+            myScript.setAttribute("src", "/assets/js/info-add.js?v=2");
             document.body.appendChild(myScript);
         }
     </script>
