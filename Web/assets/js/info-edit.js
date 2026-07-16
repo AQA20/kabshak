@@ -253,7 +253,7 @@ function FillSubCategories(data) {
 }
 
 function GetProductDetails() {
-    
+
     document.getElementById("divloader").classList.add('d-flex');
     document.getElementById("divloader").classList.remove('d-none');
 
@@ -285,7 +285,7 @@ function FillProductDetails(data) {
         BindProductSubCategory(product.CategoryId, product.SubCategoryId);
         GetBrandsList(product.BrandId);
         if (product.IsNewArrival)
-            $("#cbNewArrival").prop("checked", true);
+            $("#IsNewArrival").prop("checked", true);
         if (product.Details.length > 0) {
             document.getElementById('txtProductBriefEn').value = product.Details[0].BriefEn.trim();
             document.getElementById('txtProductBriefAr').value = product.Details[0].BriefAr.trim();
@@ -616,7 +616,7 @@ function SaveProductInfo() {
         fdata.append('category', $('#category-list').find(":selected").val());
         fdata.append('sub_category', $('#sub-category-list').find(":selected").val());
         fdata.append('brand', $('#Brands-list').find(":selected").val());
-        var IsNewArrival = $("#cbNewArrival")[0].checked;
+        var IsNewArrival = $("#IsNewArrival")[0].checked;
         fdata.append('new_arrival', IsNewArrival ? 1 : 0);
 
         fdata.append('auth_token', ""); $.ajax({
@@ -1380,7 +1380,7 @@ function ChangeStatus(btn, classname, token, active) {
 }
 
 function EditSub_Category(token) {
-    
+
     document.getElementById("divloader").classList.add('d-flex');
     document.getElementById("divloader").classList.remove('d-none');
 
