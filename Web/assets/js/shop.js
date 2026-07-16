@@ -1,4 +1,4 @@
-let urlSearchQuery = location.search;
+﻿let urlSearchQuery = location.search;
 let urlParams = new URLSearchParams(urlSearchQuery);
 let urlHasQueryString = Array.from(urlParams).length > 0;
 urlParams.forEach(function (value, key) {
@@ -229,7 +229,7 @@ function FillProducts(data, end, start) {
                                             <p style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 3; line-clamp: 3;-webkit-box-orient: vertical;">${IsArabic ? item.BriefAr : item.BriefEn}</p>
                                         </div>
                                         <div class="product-action" style="position: absolute;">
-                                             <a href="#" onclick="AddToCartFromShop(this, '${item.Token}', 1);"  class="btn-product btn-cart ${(item.Amount <= 0) ? "disabled" : ""}" title="Add to Cart"><i class="w-icon-cart"></i>${(item.Amount > 0) ? (IsArabic ? "أضف إلى عربة التسوق" : "Add To Cart") : (IsArabic ? "نفذ المخزون" : "OUT OF STOCK")} </a>
+                                             <a href="#" onclick="AddToCartFromShop(this, '${item.Token}', 1);"  class="btn-product btn-cart ${(item.Amount <= 0) ? "disabled" : ""}" title="Add to Cart" style="display: inline-block !important; width: fit-content !important; max-width: 197px !important; white-space: nowrap !important;"><i class="w-icon-cart"></i>${(item.Amount > 0) ? (IsArabic ? "أضف إلى عربة التسوق" : "Add To Cart") : (IsArabic ? "نفذ المخزون" : "OUT OF STOCK")} </a>
                                         </div>
                                     </div>
                                 </div>`);

@@ -599,6 +599,10 @@
                                         his fasten after Ramadan, and to avoid the sin for that in Infront of Allah he
                                         must be submitting a value of $5 per day.
                                     </blockquote>
+                                    <div class="mt-4" style="margin-top: 15px;">
+                                        <a href="/donate-shop?sort=-1&start=1&end=50&newarrival=1" class="btn btn-primary btn-block mb-2" style="background-color: #593930; border-color: #593930; color: white; padding: 10px 20px; border-radius: 5px; width: 100%; display: block; margin-bottom: 10px;">Donate Now</a>
+                                        <a href="/shipping-shop?sort=-1&start=1&end=50&newarrival=2" class="btn btn-secondary btn-block" style="background-color: #f8f9fa; border: 1px solid #593930; color: #593930; padding: 10px 20px; border-radius: 5px; width: 100%; display: block;">Order Now</a>
+                                    </div>
                                 </div>
                             </div>
                             <div class="swiper-slide testimonial-wrap">
@@ -617,6 +621,10 @@
                                         al-Tashreeq
 
                                     </blockquote>
+                                    <div class="mt-4" style="margin-top: 15px;">
+                                        <a href="/donate-shop?sort=-1&start=1&end=50&newarrival=1" class="btn btn-primary btn-block mb-2" style="background-color: #593930; border-color: #593930; color: white; padding: 10px 20px; border-radius: 5px; width: 100%; display: block; margin-bottom: 10px;">Donate Now</a>
+                                        <a href="/shipping-shop?sort=-1&start=1&end=50&newarrival=2" class="btn btn-secondary btn-block" style="background-color: #f8f9fa; border: 1px solid #593930; color: #593930; padding: 10px 20px; border-radius: 5px; width: 100%; display: block;">Order Now</a>
+                                    </div>
                                 </div>
                             </div>
                             <div class="swiper-slide testimonial-wrap">
@@ -635,6 +643,10 @@
                                         newborn, male or female, two equivalent sheep for the boy, and one sheep for the
                                         female.
                                     </blockquote>
+                                    <div class="mt-4" style="margin-top: 15px;">
+                                        <a href="/donate-shop?sort=-1&start=1&end=50&newarrival=1" class="btn btn-primary btn-block mb-2" style="background-color: #593930; border-color: #593930; color: white; padding: 10px 20px; border-radius: 5px; width: 100%; display: block; margin-bottom: 10px;">Donate Now</a>
+                                        <a href="/shipping-shop?sort=-1&start=1&end=50&newarrival=2" class="btn btn-secondary btn-block" style="background-color: #f8f9fa; border: 1px solid #593930; color: #593930; padding: 10px 20px; border-radius: 5px; width: 100%; display: block;">Order Now</a>
+                                    </div>
                                 </div>
                             </div>
                             <div class="swiper-slide testimonial-wrap">
@@ -654,6 +666,10 @@
                                         that conveys that, such as when a person says: To Allah, I have to sacrifice to
                                         Allah if Allah heals my sickness, and so on.
                                     </blockquote>
+                                    <div class="mt-4" style="margin-top: 15px;">
+                                        <a href="/donate-shop?sort=-1&start=1&end=50&newarrival=1" class="btn btn-primary btn-block mb-2" style="background-color: #593930; border-color: #593930; color: white; padding: 10px 20px; border-radius: 5px; width: 100%; display: block; margin-bottom: 10px;">Donate Now</a>
+                                        <a href="/shipping-shop?sort=-1&start=1&end=50&newarrival=2" class="btn btn-secondary btn-block" style="background-color: #f8f9fa; border: 1px solid #593930; color: #593930; padding: 10px 20px; border-radius: 5px; width: 100%; display: block;">Order Now</a>
+                                    </div>
                                 </div>
                             </div>
                             <div class="swiper-slide testimonial-wrap">
@@ -672,6 +688,10 @@
                                         great impact on the entity of society as it works to spread the spirit of
                                         cooperation and brotherhood among members of society.
                                     </blockquote>
+                                    <div class="mt-4" style="margin-top: 15px;">
+                                        <a href="/donate-shop?sort=-1&start=1&end=50&newarrival=1" class="btn btn-primary btn-block mb-2" style="background-color: #593930; border-color: #593930; color: white; padding: 10px 20px; border-radius: 5px; width: 100%; display: block; margin-bottom: 10px;">Donate Now</a>
+                                        <a href="/shipping-shop?sort=-1&start=1&end=50&newarrival=2" class="btn btn-secondary btn-block" style="background-color: #f8f9fa; border: 1px solid #593930; color: #593930; padding: 10px 20px; border-radius: 5px; width: 100%; display: block;">Order Now</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>

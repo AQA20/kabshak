@@ -674,6 +674,10 @@
                                         عن كل يوم .
 
                                     </blockquote>
+                                    <div class="mt-4" style="margin-top: 15px;">
+                                        <a href="/ar/donate-shop?sort=-1&start=1&end=50&newarrival=1" class="btn btn-primary btn-block mb-2" style="background-color: #593930; border-color: #593930; color: white; padding: 10px 20px; border-radius: 5px; width: 100%; display: block; margin-bottom: 10px;">تبرع الآن</a>
+                                        <a href="/ar/shipping-shop?sort=-1&start=1&end=50&newarrival=2" class="btn btn-secondary btn-block" style="background-color: #f8f9fa; border: 1px solid #593930; color: #593930; padding: 10px 20px; border-radius: 5px; width: 100%; display: block;">أطلب الآن</a>
+                                    </div>
                                 </div>
                             </div>
                             <div class="swiper-slide testimonial-wrap">
@@ -693,6 +697,10 @@
 
 
                                     </blockquote>
+                                    <div class="mt-4" style="margin-top: 15px;">
+                                        <a href="/ar/donate-shop?sort=-1&start=1&end=50&newarrival=1" class="btn btn-primary btn-block mb-2" style="background-color: #593930; border-color: #593930; color: white; padding: 10px 20px; border-radius: 5px; width: 100%; display: block; margin-bottom: 10px;">تبرع الآن</a>
+                                        <a href="/ar/shipping-shop?sort=-1&start=1&end=50&newarrival=2" class="btn btn-secondary btn-block" style="background-color: #f8f9fa; border: 1px solid #593930; color: #593930; padding: 10px 20px; border-radius: 5px; width: 100%; display: block;">أطلب الآن</a>
+                                    </div>
                                 </div>
                             </div>
                             <div class="swiper-slide testimonial-wrap">
@@ -711,6 +719,10 @@
                                         واحدة عن الأنثى .
 
                                     </blockquote>
+                                    <div class="mt-4" style="margin-top: 15px;">
+                                        <a href="/ar/donate-shop?sort=-1&start=1&end=50&newarrival=1" class="btn btn-primary btn-block mb-2" style="background-color: #593930; border-color: #593930; color: white; padding: 10px 20px; border-radius: 5px; width: 100%; display: block; margin-bottom: 10px;">تبرع الآن</a>
+                                        <a href="/ar/shipping-shop?sort=-1&start=1&end=50&newarrival=2" class="btn btn-secondary btn-block" style="background-color: #f8f9fa; border: 1px solid #593930; color: #593930; padding: 10px 20px; border-radius: 5px; width: 100%; display: block;">أطلب الآن</a>
+                                    </div>
                                 </div>
                             </div>
                             <div class="swiper-slide testimonial-wrap">
@@ -729,6 +741,10 @@
                                         المرء: لله عليَّ أن أذبح لله إذا شفى الله مريضي ونحو ذلك.
 
                                     </blockquote>
+                                    <div class="mt-4" style="margin-top: 15px;">
+                                        <a href="/ar/donate-shop?sort=-1&start=1&end=50&newarrival=1" class="btn btn-primary btn-block mb-2" style="background-color: #593930; border-color: #593930; color: white; padding: 10px 20px; border-radius: 5px; width: 100%; display: block; margin-bottom: 10px;">تبرع الآن</a>
+                                        <a href="/ar/shipping-shop?sort=-1&start=1&end=50&newarrival=2" class="btn btn-secondary btn-block" style="background-color: #f8f9fa; border: 1px solid #593930; color: #593930; padding: 10px 20px; border-radius: 5px; width: 100%; display: block;">أطلب الآن</a>
+                                    </div>
                                 </div>
                             </div>
                             <div class="swiper-slide testimonial-wrap">
@@ -748,6 +764,10 @@
                                         أو بناء المساجد التي تعدّ صدقة جارية، أو اضحية توزع على الفقراء والمساكين.
 
                                     </blockquote>
+                                    <div class="mt-4" style="margin-top: 15px;">
+                                        <a href="/ar/donate-shop?sort=-1&start=1&end=50&newarrival=1" class="btn btn-primary btn-block mb-2" style="background-color: #593930; border-color: #593930; color: white; padding: 10px 20px; border-radius: 5px; width: 100%; display: block; margin-bottom: 10px;">تبرع الآن</a>
+                                        <a href="/ar/shipping-shop?sort=-1&start=1&end=50&newarrival=2" class="btn btn-secondary btn-block" style="background-color: #f8f9fa; border: 1px solid #593930; color: #593930; padding: 10px 20px; border-radius: 5px; width: 100%; display: block;">أطلب الآن</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -1,4 +1,4 @@
-<%@ Page Title="" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="shop.aspx.cs" Inherits="vape.shop" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="shop.aspx.cs" Inherits="vape.shop" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="hide-res" id="search-filters-items">
@@ -123,5 +123,5 @@
     </main>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
-    <script src="/assets/js/shop.js?v=3.0"></script>
+    <script src="/assets/js/shop.js?v=3.1"></script>
 </asp:Content>
