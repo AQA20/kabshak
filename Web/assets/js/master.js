@@ -61,12 +61,6 @@ function GetExchangePriceRate(code) {
         return;
     }
 
-    if (code.toUpperCase() === 'JOD') {
-        setCookie("rate_code", code, 2);
-        setCookie("rate_value", 0.71, 2);
-        window.location.reload();
-        return;
-    }
 
     // Use a free API to get the latest exchange rate
     fetch('https://open.er-api.com/v6/latest/USD')
