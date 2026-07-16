@@ -463,12 +463,12 @@
         let urlHasQueryString2 = Array.from(urlParams2).length > 0;
         if (urlHasQueryString2) {
             let myScript = document.createElement("script");
-            myScript.setAttribute("src", "/assets/js/info-edit.js?v=2");
+            myScript.setAttribute("src", "/assets/js/info-edit.js?v=3");
             document.body.appendChild(myScript);
         }
         else {
             let myScript = document.createElement("script");
-            myScript.setAttribute("src", "/assets/js/info-add.js?v=2");
+            myScript.setAttribute("src", "/assets/js/info-add.js?v=3");
             document.body.appendChild(myScript);
         }
     </script>
