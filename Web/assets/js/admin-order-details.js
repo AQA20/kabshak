@@ -80,6 +80,7 @@ function FillOrderPageData(data) {
         }
 
         $('.orderId').html(item.Data.Id);
+        $('.slaughterhouseName').html(item.Data.SlaughterhouseName ? item.Data.SlaughterhouseName : 'N/A');
         if (IsArabic) {
             $('.status').html(item.Data.StatusNameAr);
             if (item.Data.StatusNameAr != "في انتظار الدفع") {

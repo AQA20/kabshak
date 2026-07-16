@@ -392,7 +392,7 @@ namespace web.api
 
                 string _promoCode = HttpContext.Current.Request["searchPromoText"] != null ? HttpContext.Current.Request["searchPromoText"].ToString().Trim() : "-1";
 
-                DataTable data = _productsBL.GetAdminOrdersList(statuses, OrderId, hasDate, searchDate, _start, _end, _promoCode);
+                DataTable data = _productsBL.ExportAdminOrdersListExcel(statuses, OrderId, hasDate, searchDate, _start, _end, _promoCode);
 
                 SpreadsheetInfo.SetLicense("FREE-LIMITED-KEY");
                 var workbook = new ExcelFile();

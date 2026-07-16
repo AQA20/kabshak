@@ -1,4 +1,4 @@
-<%@ Page Title="" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="Batches.aspx.cs" Inherits="vape.admin.Batches" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="Batches.aspx.cs" Inherits="vape.admin.Batches" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadCss" runat="server">
     <meta name="robots" content="noindex,nofollow" />
@@ -96,7 +96,7 @@
                                 </div>
                             </div>
                             <!-- End of Main Content -->
-                            <aside class="sidebar right-sidebar blog-sidebar sidebar-fixed sticky-sidebar-wrapper" style="background: rgb(0 0 0 / 2%);">
+                            <aside class="sidebar right-sidebar blog-sidebar sidebar-fixed" style="background: rgb(0 0 0 / 2%);">
                                 <div class="sidebar-overlay">
                                     <a href="#" class="sidebar-close">
                                         <i class="close-icon"></i>
@@ -112,8 +112,8 @@
                                     <div style="background: #fff; margin-left: -15px; margin-right: -15px;">
                                         <br />
                                     </div>
-                                    <div class="pin-wrapper" style="height: 1507.68px;">
-                                        <div class="sticky-sidebar" style="border-bottom: 0px none rgb(102, 102, 102); width: 280px;">
+                                    
+                                        <div>
                                             <div class="filter-actions" style="padding-top: 20px;">
                                                 <label>Filters :</label>
                                                 <a href="#" onclick="CleanAll();" class="btn btn-dark btn-link filter-clean">Clean All</a>

@@ -499,6 +499,122 @@ namespace BusinessLogic
             }
         }
 
+        public DataTable ExportAdminOrdersListExcel(string statuses, int orderId, int hasDate, DateTime _date, int start, int end, string promoCode)
+        {
+            DataTable table = new DataTable();
+            table.Columns.Add("Order number", typeof(int));
+            table.Columns.Add("Price JOD", typeof(string));
+            table.Columns.Add("Status", typeof(string));
+            table.Columns.Add("PromoCode", typeof(string));
+            table.Columns.Add("Date", typeof(DateTime));
+            table.Columns.Add("Phone number", typeof(string));
+            table.Columns.Add("Meat Shop", typeof(string));
+            table.Columns.Add("Address", typeof(string));
+
+            double exchangeRate = 0.71;
+            try {
+                using (var client = new System.Net.WebClient())
+                {
+                    string json = client.DownloadString("https://open.er-api.com/v6/latest/USD");
+                    dynamic data = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(json);
+                    if (data != null && data.rates != null && data.rates.JOD != null)
+                    {
+                        exchangeRate = (double)data.rates.JOD;
+                    }
+                }
+            } catch { }
+
+            try
+            {
+                productsEntities context = new productsEntities();
+                GeneralEntities genContext = new GeneralEntities();
+
+                var baseOrders = context.GetAdminOrders(statuses, orderId, hasDate, _date, start, end, promoCode).ToList();
+                var orderIds = baseOrders.Select(o => o.Id).ToList();
+
+                var details = (from O in context.Orders
+                               join D in context.Detail1 on O.Id equals D.OrderId
+                               where orderIds.Contains(O.Id)
+                               select new
+                               {
+                                   O.Id,
+                                   D.Mobile,
+                                   D.BillingCityId,
+                                   D.BillingTown,
+                                   D.BillingBlock,
+                                   D.BillingStreet,
+                                   D.BillingHouseNo,
+                                   D.BillingApartmentNo
+                               }).ToList();
+
+                var items = (from i in context.Items
+                             join b in context.Batches on i.BatchId equals b.Id
+                             where orderIds.Contains(i.OrderId)
+                             select new
+                             {
+                                 i.OrderId,
+                                 b.SlaughterhouseId
+                             }).ToList();
+
+                foreach (var data in baseOrders)
+                {
+                    double priceJod = data.Usd * exchangeRate;
+                    string formattedPrice = priceJod.ToString("0.00") + " JOD";
+
+                    var orderDetail = details.FirstOrDefault(d => d.Id == data.Id);
+                    string phone = orderDetail != null ? orderDetail.Mobile : "N/A";
+
+                    string address = "N/A";
+                    if (orderDetail != null)
+                    {
+                        string countryName = "";
+                        string cityName = "";
+                        var city = genContext.Cities.FirstOrDefault(c => c.CityId == orderDetail.BillingCityId);
+                        if (city != null)
+                        {
+                            cityName = city.CityNameEn;
+                            var country = genContext.Countries.FirstOrDefault(c => c.CountryId == city.CountryId);
+                            if (country != null)
+                            {
+                                countryName = country.CountryNameEn;
+                            }
+                        }
+
+                        var addrParts = new System.Collections.Generic.List<string>();
+                        if (!string.IsNullOrWhiteSpace(countryName)) addrParts.Add("Country: " + countryName);
+                        if (!string.IsNullOrWhiteSpace(cityName)) addrParts.Add("City: " + cityName);
+                        if (!string.IsNullOrWhiteSpace(orderDetail.BillingTown)) addrParts.Add("Town: " + orderDetail.BillingTown);
+                        if (!string.IsNullOrWhiteSpace(orderDetail.BillingBlock)) addrParts.Add("Block: " + orderDetail.BillingBlock);
+                        if (!string.IsNullOrWhiteSpace(orderDetail.BillingStreet)) addrParts.Add("Street: " + orderDetail.BillingStreet);
+                        if (orderDetail.BillingHouseNo > 0) addrParts.Add("House: " + orderDetail.BillingHouseNo.ToString());
+                        if (orderDetail.BillingApartmentNo > 0) addrParts.Add("Apartment: " + orderDetail.BillingApartmentNo.ToString());
+                        
+                        if (addrParts.Count > 0) address = string.Join(", ", addrParts);
+                    }
+
+                    string meatShop = "N/A";
+                    var item = items.FirstOrDefault(i => i.OrderId == data.Id);
+                    if (item != null)
+                    {
+                        var slaughterhouse = genContext.Slaughterhouses.FirstOrDefault(s => s.Id == item.SlaughterhouseId);
+                        if (slaughterhouse != null && !string.IsNullOrWhiteSpace(slaughterhouse.NameEn))
+                        {
+                            meatShop = slaughterhouse.NameEn;
+                        }
+                    }
+
+                    table.Rows.Add(data.Id, formattedPrice, data.StatusNameEn, data.PromoCode, data.CreatedOnDate, phone, meatShop, address);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception caught! " + ex.ToString());
+            }
+
+            return table;
+        }
+
+
         public DataTable GetAdminOrdersList(string statuses, int orderId, int hasDate, DateTime _date, int start, int end, string promoCode)
         {
             DataTable table = new DataTable();
@@ -931,6 +1047,22 @@ namespace BusinessLogic
 
                 productsEntities context = new productsEntities();
 
+                string slaughterhouseName = "N/A";
+                var batchItem = context.Items.FirstOrDefault(i => i.OrderId == orderid);
+                if (batchItem != null)
+                {
+                    var batch = context.Batches.FirstOrDefault(b => b.Id == batchItem.BatchId);
+                    if (batch != null)
+                    {
+                        GeneralEntities genContext = new GeneralEntities();
+                        var slaughterhouse = genContext.Slaughterhouses.FirstOrDefault(s => s.Id == batch.SlaughterhouseId);
+                        if (slaughterhouse != null)
+                        {
+                            slaughterhouseName = string.IsNullOrWhiteSpace(slaughterhouse.NameEn) ? "N/A" : slaughterhouse.NameEn;
+                        }
+                    }
+                }
+
                 if (IsAdmin)
                 {
                     var query = (from O in context.Orders
@@ -972,7 +1104,8 @@ namespace BusinessLogic
                                      ShippingHouseNo = D.ShippingHouseNo,
                                      ShippingApartmentNo = D.ShippingApartmentNo,
                                      ShippingNumber = D.ShippingNumber,
-                                     ShippingPaciNo = D.ShippingPaciNo
+                                     ShippingPaciNo = D.ShippingPaciNo,
+                                     SlaughterhouseName = slaughterhouseName
                                  });
 
                     foreach (var data in query)
@@ -1022,7 +1155,8 @@ namespace BusinessLogic
                                      ShippingHouseNo = D.ShippingHouseNo,
                                      ShippingApartmentNo = D.ShippingApartmentNo,
                                      ShippingNumber = D.ShippingNumber,
-                                     ShippingPaciNo = D.ShippingPaciNo
+                                     ShippingPaciNo = D.ShippingPaciNo,
+                                     SlaughterhouseName = slaughterhouseName
                                  });
 
                     foreach (var data in query)
@@ -3272,3 +3406,5 @@ namespace BusinessLogic
         }
     }
 }
+
+

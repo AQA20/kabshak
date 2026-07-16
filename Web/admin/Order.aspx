@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="Order.aspx.cs" Inherits="web.admin.Order" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="Order.aspx.cs" Inherits="web.admin.Order" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadCss" runat="server">
     <meta name="robots" content="noindex,nofollow" />
@@ -50,7 +50,10 @@
                         <label>Total</label>
                         <strong class="total_price"></strong>
                     </li>
-
+                    <li>
+                        <label>Meat Shop</label>
+                        <strong class="slaughterhouseName"></strong>
+                    </li>
                 </ul>
                 <!-- End of Order View -->
 
@@ -259,5 +262,5 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
     <script src="/assets/js/admin.js"></script>
-    <script src="/assets/js/admin-order-details.js"></script>
+    <script src="/assets/js/admin-order-details.js?v=2"></script>
 </asp:Content>
