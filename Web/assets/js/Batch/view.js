@@ -67,8 +67,13 @@ function FillBatchPageData(data) {
         _date = dd + '/' + mm + '/' + yyyy;
         $('.datetime').html(_date);
         $('.Quantity').html(item.Quantity);
-        if (item.QR.trim() != "")
-            $('.QR').attr("src", item.QR);
+        if (item.QR.trim() != "") {
+            var qrSrc = item.QR;
+            if (qrSrc.includes("localhost:44346")) {
+                qrSrc = qrSrc.replace("https://localhost:44346", "");
+            }
+            $('.QR').attr("src", qrSrc);
+        }
         else
             $('.QR-code').html('');
         FillBatchTransaction();
