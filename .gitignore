@@ -371,3 +371,6 @@ DataAccess/connections.config
 Web/assets/images/QRs/
 Web/assets/excel/
 
+
+# Ignore generated PDF invoices
+Web/assets/PDF/*.pdf
