@@ -63,3 +63,7 @@ jobs:
         exclude: |
           **/.git*
           **/.git*/**
+          assets/images/products/**
+          assets/images/QRs/**
+          assets/images/categories/**
+          assets/images/brands/**
