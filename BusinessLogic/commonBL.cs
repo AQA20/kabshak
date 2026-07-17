@@ -16,6 +16,15 @@ namespace business_logic
 {
     public class commonBL
     {
+        protected string GetBaseUrl()
+        {
+            if (HttpContext.Current != null && HttpContext.Current.Request != null)
+            {
+                return HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority);
+            }
+            return "https://kabshak.com"; // fallback
+        }
+
         public void SendEmail(string _to, string _subject, string _mailbody, string _copy, string attachedURl)
         {
             if (_to != null && _to.Trim() != string.Empty && IsValidEmail(_to))
