@@ -374,3 +374,6 @@ Web/assets/excel/
 
 # Ignore generated PDF invoices
 Web/assets/PDF/*.pdf
+
+# Ignore Firebase Admin SDK Key
+Web/App_Data/*.json

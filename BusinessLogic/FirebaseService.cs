@@ -1,4 +1,4 @@
-﻿using FirebaseAdmin;
+using FirebaseAdmin;
 using Google.Apis.Auth.OAuth2;
 using System;
 using System.Collections.Generic;
@@ -16,9 +16,11 @@ namespace BusinessLogic
             {
                 if (FirebaseApp.DefaultInstance == null)
                 {
+                    string filePath = System.Configuration.ConfigurationManager.AppSettings["FirebaseFile"].ToString().Trim();
+                    string fullPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, filePath);
                     FirebaseApp.Create(new AppOptions()
                     {
-                        Credential = GoogleCredential.FromFile(System.Configuration.ConfigurationManager.AppSettings["FirebaseFile"].ToString().Trim())
+                        Credential = GoogleCredential.FromFile(fullPath)
                     });
                 }
 
