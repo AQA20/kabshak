@@ -438,22 +438,48 @@ namespace BusinessLogic
 
         public void GenerateBatchItemQR_Code(string generatebarcodeId, string batchId)
         {
-            QRCodeGenerator qrGenerator = new QRCodeGenerator();
-            QRCodeData qrCodeData = qrGenerator.CreateQrCode(generatebarcodeId, QRCodeGenerator.ECCLevel.Q);
-            QRCode qrCode = new QRCode(qrCodeData);
-            Bitmap qrCodeImage = qrCode.GetGraphic(50);
-            string filePath = HttpContext.Current.Server.MapPath("~/assets/images/QRs/" + batchId + "/batch_item_" + generatebarcodeId + ".png");
-            qrCodeImage.Save(filePath, ImageFormat.Png);
+            try
+            {
+                QRCodeGenerator qrGenerator = new QRCodeGenerator();
+                QRCodeData qrCodeData = qrGenerator.CreateQrCode(generatebarcodeId, QRCodeGenerator.ECCLevel.Q);
+                QRCode qrCode = new QRCode(qrCodeData);
+                Bitmap qrCodeImage = qrCode.GetGraphic(50);
+                
+                string directoryPath = HttpContext.Current.Server.MapPath("~/assets/images/QRs/" + batchId);
+                if (!System.IO.Directory.Exists(directoryPath))
+                {
+                    System.IO.Directory.CreateDirectory(directoryPath);
+                }
+                
+                string filePath = System.IO.Path.Combine(directoryPath, "batch_item_" + generatebarcodeId + ".png");
+                qrCodeImage.Save(filePath, ImageFormat.Png);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("QR Code Error for Batch Item: " + ex.ToString());
+            }
         }
 
         public void GenerateQR_Code(string generatebarcodeId)
         {
-            QRCodeGenerator qrGenerator = new QRCodeGenerator();
-            QRCodeData qrCodeData = qrGenerator.CreateQrCode(generatebarcodeId, QRCodeGenerator.ECCLevel.Q);
-            QRCode qrCode = new QRCode(qrCodeData);
-            Bitmap qrCodeImage = qrCode.GetGraphic(50);
-            string filePath = HttpContext.Current.Server.MapPath("~/assets/images/QRs/" + "batch_" + generatebarcodeId + ".png");
-            qrCodeImage.Save(filePath, ImageFormat.Png);
+            try
+            {
+                QRCodeGenerator qrGenerator = new QRCodeGenerator();
+                QRCodeData qrCodeData = qrGenerator.CreateQrCode(generatebarcodeId, QRCodeGenerator.ECCLevel.Q);
+                QRCode qrCode = new QRCode(qrCodeData);
+                Bitmap qrCodeImage = qrCode.GetGraphic(50);
+                string directoryPath = HttpContext.Current.Server.MapPath("~/assets/images/QRs/");
+                if (!System.IO.Directory.Exists(directoryPath))
+                {
+                    System.IO.Directory.CreateDirectory(directoryPath);
+                }
+                string filePath = System.IO.Path.Combine(directoryPath, "batch_" + generatebarcodeId + ".png");
+                qrCodeImage.Save(filePath, ImageFormat.Png);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("QR Code Error: " + ex.ToString());
+            }
         }
         public object GetAdminBatchItems(int batchId, int start, int end)
         {
