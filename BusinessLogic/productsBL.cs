@@ -233,9 +233,16 @@ namespace BusinessLogic
 
                     if (_FirebaseToken != string.Empty)
                     {
-                        FirebaseService _obj = new FirebaseService();
-                        Task<object> result;
-                        result = _obj.Push_Notification("Batch #" + batch_id.ToString(), "Batch #" + batch_id.ToString() + " has been earmarked for your slaughterhouse, please arrange your procedure.", _FirebaseToken, batch_id.ToString(), batch_id, "Slaughterhouse");
+                        try
+                        {
+                            FirebaseService _obj = new FirebaseService();
+                            Task<object> result;
+                            result = _obj.Push_Notification("Batch #" + batch_id.ToString(), "Batch #" + batch_id.ToString() + " has been earmarked for your slaughterhouse, please arrange your procedure.", _FirebaseToken, batch_id.ToString(), batch_id, "Slaughterhouse");
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine("Firebase Notification Error: " + ex.Message);
+                        }
                     }
 
                     GenerateQR_Code(batch_id.ToString());
