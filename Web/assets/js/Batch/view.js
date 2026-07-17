@@ -72,6 +72,9 @@ function FillBatchPageData(data) {
             if (qrSrc.includes("localhost:44346")) {
                 qrSrc = qrSrc.replace("https://localhost:44346", "");
             }
+            if (qrSrc.includes("kabshak.com")) {
+                qrSrc = qrSrc.replace("https://kabshak.com", "");
+            }
             $('.QR').attr("src", qrSrc);
         }
         else

@@ -251,7 +251,7 @@ namespace BusinessLogic
 
                     if (record != null)
                     {
-                        record.QR = GetBaseUrl() + "/assets/images/QRs/batch_" + batch_id.ToString() + ".png";
+                        record.QR = "/assets/images/QRs/batch_" + batch_id.ToString() + ".png";
                         record.BatchType = delivery;
                         context.SaveChanges();
                     }
