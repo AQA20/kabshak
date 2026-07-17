@@ -1,4 +1,4 @@
-﻿using business_logic;
+using business_logic;
 using DataAccess.Modals;
 using Entities;
 using System;
@@ -54,7 +54,7 @@ namespace BusinessLogic
                     string readText = File.ReadAllText(path);
                     readText = readText.Replace("@Email", User.Email);
                     readText = readText.Replace("#Number", "#" + Id);
-                    readText = readText.Replace("@Url", "https://localhost:44346/order?Id=" + Id);
+                    readText = readText.Replace("@Url", "https://kabshak.com/order?Id=" + Id);
                     SendEmail(User.Email, "Kabshak | Order #" + Id, readText, string.Empty, string.Empty);
                 }
 
@@ -76,7 +76,7 @@ namespace BusinessLogic
                         string readText = File.ReadAllText(path);
                         readText = readText.Replace("@Email", data.Email);
                         readText = readText.Replace("#Number", "#" + Id);
-                        readText = readText.Replace("@Url", "https://localhost:44346/admin/order?Id=" + Id);
+                        readText = readText.Replace("@Url", "https://kabshak.com/admin/order?Id=" + Id);
                         SendEmail(data.Email, "Kabshak | Order #" + Id, readText, string.Empty, string.Empty);
                     }
                 }

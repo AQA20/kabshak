@@ -366,7 +366,7 @@ namespace BusinessLogic
                     if (File.Exists(path))
                     {
                         string readText = File.ReadAllText(path);
-                        readText = readText.Replace("@resetlink", "https://localhost:44346/reset-password?token=" + _token);
+                        readText = readText.Replace("@resetlink", "https://kabshak.com/reset-password?token=" + _token);
                         SendEmail(email.Trim(), "Kabshak | Forgot Your Password?", readText, string.Empty, string.Empty);
                     }
                 }

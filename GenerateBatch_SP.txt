@@ -1,0 +1,390 @@
+Text                                                                                                                                                                                                                                                           
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+                                                                                                                                                                                                                                                             
+CREATE PROC [Batches].[GenerateBatch]
+                                                                                                                                                                                                                        
+	
+                                                                                                                                                                                                                                                            
+		@Brands				VARCHAR(500),
+                                                                                                                                                                                                                                   
+		@Categories			VARCHAR(500),
+                                                                                                                                                                                                                                
+		@SubCategories		VARCHAR(500),
+                                                                                                                                                                                                                              
+		@UserToken			VARCHAR(2000),
+                                                                                                                                                                                                                                
+		@CharityId			INT = -1,
+                                                                                                                                                                                                                                     
+		@Quantity			INT,
+                                                                                                                                                                                                                                           
+		@Slaughterhouses	INT,
+                                                                                                                                                                                                                                      
+		@Delivery			INT = -1
+                                                                                                                                                                                                                                       
+
+                                                                                                                                                                                                                                                             
+AS
+                                                                                                                                                                                                                                                           
+
+                                                                                                                                                                                                                                                             
+DECLARE 
+                                                                                                                                                                                                                                                     
+	@AppListString			NVARCHAR(MAX),        
+                                                                                                                                                                                                                     
+	@ParmDefinition			NVARCHAR(1000),        
+                                                                                                                                                                                                                   
+	@FromClause				NVARCHAR(MAX),        
+                                                                                                                                                                                                                       
+	@WhereClause			NVARCHAR(MAX) 
+                                                                                                                                                                                                                               
+
+                                                                                                                                                                                                                                                             
+SET @ParmDefinition = N'
+                                                                                                                                                                                                                                     
+						@Brands				VARCHAR(500),
+                                                                                                                                                                                                                               
+						@Categories			VARCHAR(500),
+                                                                                                                                                                                                                            
+						@SubCategories		VARCHAR(500),
+                                                                                                                                                                                                                          
+						@UserToken			VARCHAR(2000),
+                                                                                                                                                                                                                            
+						@CharityId			INT,
+                                                                                                                                                                                                                                      
+						@Quantity			INT,
+                                                                                                                                                                                                                                       
+						@Slaughterhouses	INT,
+                                                                                                                                                                                                                                  
+						@Delivery           INT
+                                                                                                                                                                                                                                
+					'	
+                                                                                                                                                                                                                                                      
+--------------------------------------------------------------------------------------------------        
+                                                                                                                                                   
+SET @AppListString = N' SELECT 
+                                                                                                                                                                                                                              
+							Per.[Id],Per.[OrderId],Pro.NameEn AS ProductName,[FullName] AS Shareholder,Quantity,Per.CreatedOnDate,
+                                                                                                                                                
+							CASE WHEN PSA.Id IS NULL THEN
+                                                                                                                                                                                                                         
+								CASE WHEN Per.AddressDetails IS NULL THEN '''' ELSE '''' END 
+                                                                                                                                                                                        
+							ELSE 
+                                                                                                                                                                                                                                                 
+								C.CityNameEn + '', '' +
+                                                                                                                                                                                                                              
+								PSA.Town + '', '' +
+                                                                                                                                                                                                                                  
+								PSA.Block + '', '' +
+                                                                                                                                                                                                                                 
+								PSA.Street + '', '' +
+                                                                                                                                                                                                                                
+								''House No: '' + CONVERT(VARCHAR(10),PSA.HouseNo) + '', '' +
+                                                                                                                                                                                         
+								''Apartment No: '' + CONVERT(VARCHAR(10),PSA.ApartmentNo) + '', '' +
+                                                                                                                                                                                 
+								''Mobile: '' + PSA.ContactNumber + ''&&&&'' + PSA.CuttingNotes
+                                                                                                                                                                                       
+							END					
+                                                                                                                                                                                                                                              
+							AS AddressDetails,
+                                                                                                                                                                                                                                    
+							CASE WHEN PP.NameEn IS NULL THEN '''' ELSE PP.NameEn END AS PurposeName
+                                                                                                                                                                               
+					'      
+                                                                                                                                                                                                                                                 
+--------------------------------------------------------------------------------------------------         
+                                                                                                                                                  
+SET @FromClause = N' 
+                                                                                                                                                                                                                                        
+					FROM
+                                                                                                                                                                                                                                                    
+						[Orders].[Persons] AS Per
+                                                                                                                                                                                                                              
+						INNER JOIN Products.Products AS Pro On Pro.Id = Per.ProductId
+                                                                                                                                                                                          
+						INNER JOIN Orders.Orders AS O ON O.Id = Per.OrderId
+                                                                                                                                                                                                    
+						LEFT OUTER JOIN Batches.Items AS Person ON Person.[Order_person_id] = Per.Id
+                                                                                                                                                                           
+						LEFT OUTER JOIN [Lookups].[ProductPurposes] AS PP ON Per.ProductPurposeId = PP.Id
+                                                                                                                                                                      
+						LEFT OUTER JOIN [Orders].[PersonShippingAddresses] AS PSA ON PSA.PersonId = Per.Id
+                                                                                                                                                                     
+						LEFT OUTER JOIN Lookups.Cities AS C On C.CityId = PSA.CityId
+                                                                                                                                                                                           
+					'
+                                                                                                                                                                                                                                                       
+--------------------------------------------------------------------------------------------------         
+                                                                                                                                                  
+--------------------------------------------------------------------------------------------------        
+                                                                                                                                                   
+
+                                                                                                                                                                                                                                                             
+SET @WhereClause =N'        
+                                                                                                                                                                                                                                 
+			WHERE O.StatusId = 1002	AND Person.[Order_person_id] IS NULL 
+                                                                                                                                                                                             
+' 
+                                                                                                                                                                                                                                                           
+
+                                                                                                                                                                                                                                                             
+IF(@Brands != '-1')
+                                                                                                                                                                                                                                          
+BEGIN
+                                                                                                                                                                                                                                                        
+	SET @WhereClause = @WhereClause + ' AND Pro.BrandId IN (SELECT * FROM STRING_SPLIT('''+ @Brands + ''','',''))'
+                                                                                                                                              
+END
+                                                                                                                                                                                                                                                          
+
+                                                                                                                                                                                                                                                             
+IF(@Categories != '-1' AND @SubCategories = '-1')
+                                                                                                                                                                                                            
+BEGIN
+                                                                                                                                                                                                                                                        
+	SET @WhereClause = @WhereClause + ' AND Pro.CategoryId IN (SELECT * FROM STRING_SPLIT('''+ @Categories + ''','',''))'
+                                                                                                                                       
+END
+                                                                                                                                                                                                                                                          
+
+                                                                                                                                                                                                                                                             
+IF(@Categories != '-1' AND @SubCategories != '-1')
+                                                                                                                                                                                                           
+BEGIN
+                                                                                                                                                                                                                                                        
+	IF NOT (CHARINDEX(',',@Categories) > 0)
+                                                                                                                                                                                                                     
+	BEGIN
+                                                                                                                                                                                                                                                       
+	 	SET @WhereClause = @WhereClause + ' AND Pro.SubCategoryId IN (SELECT * FROM STRING_SPLIT('''+ @SubCategories + ''','',''))'
+                                                                                                                               
+	END
+                                                                                                                                                                                                                                                         
+	ELSE
+                                                                                                                                                                                                                                                        
+	BEGIN
+                                                                                                                                                                                                                                                       
+		WITH CategoriesList AS
+                                                                                                                                                                                                                                     
+		(
+                                                                                                                                                                                                                                                          
+			SELECT S.Id AS SubCategoryId,C.value AS CategoryId
+                                                                                                                                                                                                        
+			FROM 
+                                                                                                                                                                                                                                                     
+				STRING_SPLIT(@SubCategories,',') AS Temp
+                                                                                                                                                                                                                 
+				INNER JOIN Lookups.SubCategories AS S On S.Id = Temp.value
+                                                                                                                                                                                               
+				RIGHT OUTER JOIN (SELECT * FROM STRING_SPLIT(@Categories,',')) AS C ON C.value = S.CategoryId
+                                                                                                                                                            
+			) 
+                                                                                                                                                                                                                                                        
+		SELECT @Categories = STRING_AGG(CategoryId,',') FROM CategoriesList WHERE SubCategoryId IS NULL
+                                                                                                                                                            
+		IF(@Categories IS NULL OR TRIM(@Categories) = '')
+                                                                                                                                                                                                          
+		BEGIN
+                                                                                                                                                                                                                                                      
+		 	SET @WhereClause = @WhereClause + ' AND Pro.SubCategoryId IN (SELECT * FROM STRING_SPLIT('''+ @SubCategories + ''','',''))'
+                                                                                                                              
+		END
+                                                                                                                                                                                                                                                        
+		ELSE
+                                                                                                                                                                                                                                                       
+		BEGIN
+                                                                                                                                                                                                                                                      
+			SET @WhereClause = @WhereClause + ' AND (Pro.CategoryId IN (SELECT * FROM STRING_SPLIT('''+ @Categories + ''','','')) OR Pro.SubCategoryId IN (SELECT * FROM STRING_SPLIT('''+ @SubCategories + ''','','')))'
+                                             
+		END
+                                                                                                                                                                                                                                                        
+	END
+                                                                                                                                                                                                                                                         
+END
+                                                                                                                                                                                                                                                          
+
+                                                                                                                                                                                                                                                             
+IF(@CharityId > 0)
+                                                                                                                                                                                                                                           
+BEGIN
+                                                                                                                                                                                                                                                        
+	SET @WhereClause = @WhereClause + ' AND Per.CharityId = ' + CONVERT(VARCHAR(10),@CharityId) + ' '
+                                                                                                                                                           
+END
+                                                                                                                                                                                                                                                          
+
+                                                                                                                                                                                                                                                             
+IF(@Delivery = 1)
+                                                                                                                                                                                                                                            
+BEGIN
+                                                                                                                                                                                                                                                        
+	SET @WhereClause = @WhereClause + ' AND Per.CharityId = -1 ' 
+                                                                                                                                                                                               
+END
+                                                                                                                                                                                                                                                          
+
+                                                                                                                                                                                                                                                             
+IF(@Delivery = 2)
+                                                                                                                                                                                                                                            
+BEGIN
+                                                                                                                                                                                                                                                        
+	SET @WhereClause = @WhereClause + ' AND Per.CharityId > -1 ' 
+                                                                                                                                                                                               
+END
+                                                                                                                                                                                                                                                          
+
+                                                                                                                                                                                                                                                             
+SET @AppListString = '
+                                                                                                                                                                                                                                       
+						DECLARE @BatchItems AS Table(Id				INT,
+                                                                                                                                                                                                                
+													 OrderId		INT,
+                                                                                                                                                                                                                                  
+													 ProductName	VARCHAR(100),
+                                                                                                                                                                                                                      
+													 Shareholder	NVARCHAR(500),
+                                                                                                                                                                                                                     
+													 Quantity		INT,
+                                                                                                                                                                                                                                 
+													 CreatedOnDate	DATETIME,
+                                                                                                                                                                                                                        
+													AddressDetails	NVARCHAR(1500),
+                                                                                                                                                                                                                  
+													PurposeName		VARCHAR(100))
+                                                                                                                                                                                                                      
+
+                                                                                                                                                                                                                                                             
+						DECLARE @Temp AS Table( RowNo			INT IDENTITY(1,1),
+                                                                                                                                                                                                     
+												Id				INT,
+                                                                                                                                                                                                                                       
+												OrderId			INT,
+                                                                                                                                                                                                                                   
+												ProductName		VARCHAR(100),
+                                                                                                                                                                                                                       
+												Shareholder		NVARCHAR(500),
+                                                                                                                                                                                                                      
+												Quantity		INT,
+                                                                                                                                                                                                                                   
+												CreatedOnDate	DATETIME,
+                                                                                                                                                                                                                          
+												AddressDetails	NVARCHAR(1500),
+                                                                                                                                                                                                                   
+												PurposeName		VARCHAR(100))
+                                                                                                                                                                                                                       
+
+                                                                                                                                                                                                                                                             
+						INSERT @Temp
+                                                                                                                                                                                                                                           
+
+                                                                                                                                                                                                                                                             
+						'+ @AppListString + @FromClause + @WhereClause + ' ORDER BY Per.CreatedOnDate ASC 
+                                                                                                                                                                     
+
+                                                                                                                                                                                                                                                             
+						DECLARE @MAXcount		INT,
+                                                                                                                                                                                                                                
+								@ValueCount		INT,
+                                                                                                                                                                                                                                    
+								@ItemQuantity	INT,
+                                                                                                                                                                                                                                   
+								@QuantityCount  INT = 0
+                                                                                                                                                                                                                              
+
+                                                                                                                                                                                                                                                             
+						SELECT @MAXcount = COUNT(1),@ValueCount = 1 FROM @Temp
+                                                                                                                                                                                                 
+
+                                                                                                                                                                                                                                                             
+						WHILE (@ValueCount <= @MAXcount)
+                                                                                                                                                                                                                       
+						BEGIN
+                                                                                                                                                                                                                                                  
+							SELECT @ItemQuantity = Quantity FROM @Temp WHERE RowNo = @ValueCount
+                                                                                                                                                                                  
+
+                                                                                                                                                                                                                                                             
+							If(@QuantityCount < @Quantity)
+                                                                                                                                                                                                                        
+							BEGIN
+                                                                                                                                                                                                                                                 
+								SET @QuantityCount =  @QuantityCount + @ItemQuantity
+                                                                                                                                                                                                 
+
+                                                                                                                                                                                                                                                             
+								INSERT @BatchItems
+                                                                                                                                                                                                                                   
+
+                                                                                                                                                                                                                                                             
+								SELECT 
+                                                                                                                                                                                                                                              
+									Id,				
+                                                                                                                                                                                                                                             
+									OrderId,		
+                                                                                                                                                                                                                                          
+									ProductName,	
+                                                                                                                                                                                                                                       
+									Shareholder,	
+                                                                                                                                                                                                                                       
+									Quantity,		
+                                                                                                                                                                                                                                         
+									CreatedOnDate,
+                                                                                                                                                                                                                                      
+									AddressDetails,	
+                                                                                                                                                                                                                                    
+									PurposeName		
+                                                                                                                                                                                                                                       
+								 FROM @Temp WHERE RowNo = @ValueCount
+                                                                                                                                                                                                                
+							END
+                                                                                                                                                                                                                                                   
+
+                                                                                                                                                                                                                                                             
+							SET @ValueCount = @ValueCount + 1
+                                                                                                                                                                                                                     
+						END
+                                                                                                                                                                                                                                                    
+
+                                                                                                                                                                                                                                                             
+						SELECT *,@QuantityCount AS QuantityResult
+                                                                                                                                                                                                              
+						FROM
+                                                                                                                                                                                                                                                   
+							@BatchItems
+                                                                                                                                                                                                                                           
+	'
+                                                                                                                                                                                                                                                           
+----------------------------------------------------------------------------------------------------    
+                                                                                                                                                     
+---------------------------------------------------------------------------------------------------- 
+                                                                                                                                                        
+
+                                                                                                                                                                                                                                                             
+EXECUTE sp_executesql         
+                                                                                                                                                                                                                               
+		@AppListString		, @ParmDefinition,
+                                                                                                                                                                                                                         
+		@Brands				= @Brands,
+                                                                                                                                                                                                                                      
+		@Categories			= @Categories,
+                                                                                                                                                                                                                               
+		@SubCategories		= @SubCategories,
+                                                                                                                                                                                                                          
+		@UserToken			= @UserToken,
+                                                                                                                                                                                                                                 
+		@CharityId			= @CharityId,
+                                                                                                                                                                                                                                 
+		@Quantity			= @Quantity,
+                                                                                                                                                                                                                                   
+		@Slaughterhouses	= @Slaughterhouses,
+                                                                                                                                                                                                                       
+		@Delivery			= @Delivery
+                                                                                                                                                                                                                                    
+
+                                                                                                                                                                                                                                                             
+
+                                                                                                                                                                                                                                                             
+
+                                                                                                                                                                                                                                                             

@@ -251,7 +251,7 @@ namespace BusinessLogic
 
                     if (record != null)
                     {
-                        record.QR = "https://localhost:44346/assets/images/QRs/batch_" + batch_id.ToString() + ".png";
+                        record.QR = "https://kabshak.com/assets/images/QRs/batch_" + batch_id.ToString() + ".png";
                         record.BatchType = delivery;
                         context.SaveChanges();
                     }
@@ -1533,7 +1533,7 @@ namespace BusinessLogic
                     readText = readText.Replace("@Action", record.Status.NameEn);
                     readText = readText.Replace("@Email", User.Email);
                     readText = readText.Replace("#Number", "#" + record.Id);
-                    readText = readText.Replace("@Url", "https://localhost:44346/order?Id=" + record.Id);
+                    readText = readText.Replace("@Url", "https://kabshak.com/order?Id=" + record.Id);
                     SendEmail(User.Email, "Kabshak | Order #" + record.Id + " - " + record.Status.NameEn, readText, string.Empty, string.Empty);
                 }
 
@@ -1556,7 +1556,7 @@ namespace BusinessLogic
                         readText = readText.Replace("@Action", record.Status.NameEn);
                         readText = readText.Replace("@Email", data.Email);
                         readText = readText.Replace("#Number", "#" + record.Id);
-                        readText = readText.Replace("@Url", "https://localhost:44346/admin/order?Id=" + record.Id);
+                        readText = readText.Replace("@Url", "https://kabshak.com/admin/order?Id=" + record.Id);
                         SendEmail(data.Email, "Kabshak | Order #" + record.Id + " - " + record.Status.NameEn, readText, string.Empty, string.Empty);
                     }
                 }
@@ -1648,7 +1648,7 @@ namespace BusinessLogic
                     readText = readText.Replace("@Action", record.Status.NameEn);
                     readText = readText.Replace("@Email", User.Email);
                     readText = readText.Replace("#Number", "#" + record.Id);
-                    readText = readText.Replace("@Url", "https://localhost:44346/order?Id=" + record.Id);
+                    readText = readText.Replace("@Url", "https://kabshak.com/order?Id=" + record.Id);
                     SendEmail(User.Email, "Kabshak | Order #" + record.Id + " - " + record.Status.NameEn, readText, string.Empty, string.Empty);
                 }
 
@@ -1671,7 +1671,7 @@ namespace BusinessLogic
                         readText = readText.Replace("@Action", record.Status.NameEn);
                         readText = readText.Replace("@Email", data.Email);
                         readText = readText.Replace("#Number", "#" + record.Id);
-                        readText = readText.Replace("@Url", "https://localhost:44346/admin/order?Id=" + record.Id);
+                        readText = readText.Replace("@Url", "https://kabshak.com/admin/order?Id=" + record.Id);
                         SendEmail(data.Email, "Kabshak | Order #" + record.Id + " - " + record.Status.NameEn, readText, string.Empty, string.Empty);
                     }
                 }
@@ -2937,7 +2937,7 @@ namespace BusinessLogic
                         readText = readText.Replace("sstatus", result + "/paid");
                         readText = readText.Replace("ppaymentId", paymentid);
                         readText = readText.Replace("rrefrance", _ref);
-                        readText = readText.Replace("@Url", "https://localhost:44346/order?Id=" + orderid);
+                        readText = readText.Replace("@Url", "https://kabshak.com/order?Id=" + orderid);
 
                         var billing = product_context.Detail1.SingleOrDefault(d => d.OrderId == orderid);
 
