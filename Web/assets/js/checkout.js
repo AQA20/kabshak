@@ -1253,6 +1253,64 @@ function ValidateShippingFields() {
     return isValid;
 }
 
+function LoadShippingCountries(countryId) {
+    var fdata = new FormData();
+    fdata.append('auth_token', ""); $.ajax({
+        cache: false,
+        data: fdata,
+        url: '/api/main.asmx/countries',
+        type: 'post',
+        processData: false,
+        contentType: false,
+        success: function (data) {
+            if (data.length > 0) {
+                let items = [];
+                for (let index = 0; index < data.length; index++) {
+                    let item = data[index];
+                    if (item.CountryId == countryId)
+                        items.push(`<option value="${item.CountryId}" selected>${IsArabic ? item.CountryNameAr : item.CountryNameEn}</option>`);
+                    else
+                        items.push(`<option value="${item.CountryId}">${IsArabic ? item.CountryNameAr : item.CountryNameEn}</option>`);
+                }
+                $('#shippingCountries').html(items);
+            }
+            LoadShippingCities(countryId);
+        }
+    });
+}
+
+function LoadShippingCities(countryId) {
+    var fdata = new FormData();
+    fdata.append('countryid', (countryId ? decodeURIComponent(countryId) : "-1").toString());
+    fdata.append('auth_token', ""); $.ajax({
+        cache: false,
+        data: fdata,
+        url: '/api/main.asmx/cities',
+        type: 'post',
+        processData: false,
+        contentType: false,
+        success: function (data) {
+            if (data.length > 0) {
+                let items = [];
+                for (let index = 0; index < data.length; index++) {
+                    let item = data[index];
+                    if (item.CityId.toString() == billingCityId) {
+                        items.push(`<option value="${item.CityId}" selected>${IsArabic ? item.CityNameAr : item.CityNameEn}</option>`);
+                    } else {
+                        items.push(`<option value="${item.CityId}">${IsArabic ? item.CityNameAr : item.CityNameEn}</option>`);
+                    }
+                }
+                $('[name="shipping-city"]').html(items);
+            }
+        }
+    });
+}
+
+$('#shippingCountries').on('change', (e) => {
+    LoadShippingCities($('#shippingCountries').find(":selected").val());
+});
+
 $(document).ready(function() {
     $('#same-as-billing').trigger('change');
+    LoadShippingCountries(107);
 });
