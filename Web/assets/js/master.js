@@ -615,7 +615,7 @@ function FillCartItems(data) {
                                     <img src="/${item.Url}" alt="product" height="84" width="94" style="border: solid 1px #eee;">
                                    <span style="font-size: 9px;"> ${item.Donation ? IsArabic ? "منتج للتبرع" : "Donation Product" : IsArabic ? "منتج للشحن" : "Shipping Product"}</span >
                                 </a>
-                                <button class="btn btn-link btn-close" onclick="RemoveItemCart('${item.Token}', ${item.Amount > 0 ? (item.Count * (item.Usd * rate_value)) : 0}); if(window.location.href.indexOf('/cart') > -1) { if(typeof GetProducts === 'function') GetProducts(); } else if(window.location.href.indexOf('/checkout') > -1) { if(typeof GetCartData === 'function') GetCartData(); }" aria-label="button" style="position: absolute; top: -5px; right: -5px; background: #fff; border-radius: 50%; padding: 2px; border: 1px solid #ccc; width: 20px; height: 20px; display: flex; justify-content: center; align-items: center; font-size: 10px; color: #333; z-index: 10;"><i class="fas fa-times"></i></button>
+                                <button class="btn btn-link btn-close" onclick="RemoveItemCart('${item.Token}', ${item.Amount > 0 ? (item.Count * (item.Usd * rate_value)) : 0}); if(window.location.href.indexOf('/cart') > -1) { if(typeof FillCartPageItems === 'function') FillCartPageItems(); } else if(window.location.href.indexOf('/checkout') > -1) { if(typeof BindCheckoutPage === 'function') BindCheckoutPage(getCookie('cookie_cart_items')); }" aria-label="button" style="position: absolute; top: -5px; right: -5px; background: #fff; border-radius: 50%; padding: 2px; border: 1px solid #ccc; width: 20px; height: 20px; display: flex; justify-content: center; align-items: center; font-size: 10px; color: #333; z-index: 10;"><i class="fas fa-times"></i></button>
                             </figure>
                         </div>`);
         }
@@ -693,7 +693,7 @@ function RemoveItemCart(Token, value) {
     }
 
     if (window.location.href.indexOf("/cart") > -1) {
-        if (typeof GetProducts === "function") GetProducts();
+        if (typeof FillCartPageItems === "function") FillCartPageItems();
     } else if (window.location.href.indexOf("/checkout") > -1) {
         if (typeof BindCheckoutPage === "function") BindCheckoutPage(getCookie("cookie_cart_items"));
     }
@@ -908,10 +908,26 @@ function ChangeMiniCartQuantity(Token, newQuantity) {
         new_cookie.push(item[0] + "|" + item[1]);
     }
     if (found) {
+        // Sync Shareholders cookie
+        let shareholders = getCookie('Shareholders');
+        if (shareholders != '') {
+            let cart_json = shareholders.split('|');
+            let data = [];
+            for (let i = 0; i < cart_json.length; i++) {
+                let parsed = JSON.parse(cart_json[i]);
+                if (parsed.productToken == Token) {
+                    parsed.Quantity = newQuantity;
+                }
+                data.push(parsed);
+            }
+            let newCookieVal = data.map(x => JSON.stringify(x)).join('|');
+            setCookie('Shareholders', newCookieVal, 7);
+        }
+
         setCookie('cookie_cart_items', new_cookie.join(','), 7);
         CalculateCartPrices(new_cookie.join(','));
         if (window.location.href.indexOf("/cart") > -1) {
-            if (typeof GetProducts === "function") GetProducts();
+            if (typeof FillCartPageItems === "function") FillCartPageItems();
         } else if (window.location.href.indexOf("/checkout") > -1) {
             if (typeof BindCheckoutPage === "function") BindCheckoutPage(getCookie("cookie_cart_items"));
         }
