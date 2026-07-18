@@ -601,7 +601,7 @@ function FillCartItems(data) {
                                 <div class="price-box" style="display: flex; align-items: center; justify-content: space-between; width: 100%; margin-top: 5px; margin-bottom: 5px;">
                                     <div class="premium-qty-container d-flex align-items-center" style="max-width: 100px; background: #ffffff; border: 1px solid #eaebec; border-radius: 50px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); overflow: hidden; transition: all 0.3s ease;">
                                         <button type="button" class="premium-qty-btn" onclick="ChangeMiniCartQuantity('${item.Token}', ${item.Amount > 0 ? item.Count - 1 : 0})" style="background: transparent; border: none; padding: 4px 8px; cursor: pointer; color: #888; font-size: 11px; transition: all 0.2s ease; outline: none;" onmouseover="this.style.color='#000'; this.style.background='#f8f9fa'" onmouseout="this.style.color='#888'; this.style.background='transparent'"><i class="w-icon-minus"></i></button>
-                                        <input class="premium-qty-input form-control" type="number" min="1" max="100000" value="${item.Amount > 0 ? item.Count : 0}" onchange="ChangeMiniCartQuantity('${item.Token}', parseInt(this.value))" style="border: none; text-align: center; padding: 4px 0; width: 100%; -moz-appearance: textfield; box-shadow: none; font-weight: 700; color: #222; font-size: 13px; background: transparent; outline: none; height: auto;">
+                                        <input class="premium-qty-input form-control" type="number" min="1" max="100000" value="${item.Amount > 0 ? item.Count : 0}" onchange="ChangeMiniCartQuantity('${item.Token}', parseInt(this.value))" onkeydown="if(event.key === 'Enter'){event.preventDefault(); this.blur(); return false;}" style="border: none; text-align: center; padding: 4px 0; width: 100%; -moz-appearance: textfield; box-shadow: none; font-weight: 700; color: #222; font-size: 13px; background: transparent; outline: none; height: auto;">
                                         <button type="button" class="premium-qty-btn" onclick="ChangeMiniCartQuantity('${item.Token}', ${item.Amount > 0 ? item.Count + 1 : 0})" style="background: transparent; border: none; padding: 4px 8px; cursor: pointer; color: #888; font-size: 11px; transition: all 0.2s ease; outline: none;" onmouseover="this.style.color='#000'; this.style.background='#f8f9fa'" onmouseout="this.style.color='#888'; this.style.background='transparent'"><i class="w-icon-plus"></i></button>
                                     </div>
                                     <span class="product-price" style="color: #999;">X ${item.Amount > 0 ? Math.ceil(item.Usd * rate_value) : 0} ${rate_code}</span>
@@ -615,7 +615,7 @@ function FillCartItems(data) {
                                     <img src="/${item.Url}" alt="product" height="84" width="94" style="border: solid 1px #eee;">
                                    <span style="font-size: 9px;"> ${item.Donation ? IsArabic ? "منتج للتبرع" : "Donation Product" : IsArabic ? "منتج للشحن" : "Shipping Product"}</span >
                                 </a>
-                                <button class="btn btn-link btn-close" onclick="RemoveItemCart('${item.Token}', ${item.Amount > 0 ? (item.Count * (item.Usd * rate_value)) : 0}); if(window.location.href.indexOf('/cart') > -1) { if(typeof FillCartPageItems === 'function') FillCartPageItems(); } else if(window.location.href.indexOf('/checkout') > -1) { if(typeof BindCheckoutPage === 'function') BindCheckoutPage(getCookie('cookie_cart_items')); }" aria-label="button" style="position: absolute; top: -5px; right: -5px; background: #fff; border-radius: 50%; padding: 2px; border: 1px solid #ccc; width: 20px; height: 20px; display: flex; justify-content: center; align-items: center; font-size: 10px; color: #333; z-index: 10;"><i class="fas fa-times"></i></button>
+                                <button class="btn btn-link btn-close" onclick="RemoveItemCart('${item.Token}', ${item.Amount > 0 ? (item.Count * (item.Usd * rate_value)) : 0});" aria-label="button" style="position: absolute; top: -5px; right: -5px; background: #fff; border-radius: 50%; padding: 2px; border: 1px solid #ccc; width: 20px; height: 20px; display: flex; justify-content: center; align-items: center; font-size: 10px; color: #333; z-index: 10;"><i class="fas fa-times"></i></button>
                             </figure>
                         </div>`);
         }
@@ -634,6 +634,45 @@ function FillCartItems(data) {
         }
 
         $(".products").html(items);
+
+        if (window.location.href.indexOf("/cart") > -1) {
+            let grandTotal = 0;
+            for (let i = 0; i < data.length; i++) {
+                let item = data[i];
+                if (item.Amount > 0) {
+                    let row = $("." + item.Token);
+                    if (row.length > 0) {
+                        row.find(".premium-qty-input").val(item.Count);
+                        let subtotal = (item.Count * (item.Usd * rate_value)).toFixed(2);
+                        row.find(".product-subtotal .amount").html(subtotal + " " + rate_code);
+                        grandTotal += parseFloat(subtotal);
+                    }
+                }
+            }
+            $(".cart-subtotal span").html(grandTotal.toFixed(2) + " " + rate_code);
+            $(".order-total span").html(grandTotal.toFixed(2) + " " + rate_code);
+        } else if (window.location.href.indexOf("/checkout") > -1) {
+            let checkoutItems = [];
+            let checkoutTotal = 0;
+            for (let i = 0; i < data.length; i++) {
+                let item = data[i];
+                if (item.Amount > 0) {
+                    checkoutTotal = parseFloat(checkoutTotal) + parseFloat((item.Count * (item.Usd * rate_value)).toFixed(2));
+                }
+                checkoutItems.push(` <tr class="bb-no">
+                    <td class="product-name" style=" max-width:200px;word-wrap:break-word;">${IsArabic ? item.NameAr : item.NameEn}<br/>
+                        <span style="${item.Donation ? 'background: #593930;' : 'background: #2196F3;'} color: #ffffff; padding: 3px; border-radius: 3px; font-size: 10px;"> ${item.Donation ? IsArabic ? 'منتج للتبرع' : 'Donation Product' : IsArabic ? 'منتج للشحن' : 'Shipping Product'}</span>
+                    </td >
+                    <td class="product-total" style="direction: ltr;text-align: ${IsArabic ? 'left' : 'right'};"> <span class="product-quantity">${item.Amount > 0 ? item.Count : 0}</span> X ${item.Amount > 0 ? (item.Usd * rate_value).toFixed(2) : (IsArabic ? 'نفذ من المخزون' : 'Out Of Stock')} ${item.Amount > 0 ? rate_code : ""}</td >
+                </tr>`);
+            }
+            checkoutItems.push(`<tr class="cart-subtotal bb-no">
+                <td><b>${IsArabic ? 'المجموع الفرعي' : 'Subtotal'}</b></td>
+                <td><b>${checkoutTotal.toFixed(2).toString() + " " + rate_code}</b></td>
+            </tr>`);
+            $('.CheckoutItems').html(checkoutItems);
+            $('.order-total span').html(checkoutTotal.toFixed(2) + " " + rate_code);
+        }
     }
 }
 
@@ -693,9 +732,10 @@ function RemoveItemCart(Token, value) {
     }
 
     if (window.location.href.indexOf("/cart") > -1) {
-        if (typeof FillCartPageItems === "function") FillCartPageItems();
-    } else if (window.location.href.indexOf("/checkout") > -1) {
-        if (typeof BindCheckoutPage === "function") BindCheckoutPage(getCookie("cookie_cart_items"));
+        let row = $("." + Token);
+        if (row.length > 0) {
+            row.remove();
+        }
     }
 
     if (window.location.href.trim().includes("/shop/product/") || window.location.href.trim().includes("/ar/shop/product/")) {
@@ -926,10 +966,5 @@ function ChangeMiniCartQuantity(Token, newQuantity) {
 
         setCookie('cookie_cart_items', new_cookie.join(','), 7);
         CalculateCartPrices(new_cookie.join(','));
-        if (window.location.href.indexOf("/cart") > -1) {
-            if (typeof FillCartPageItems === "function") FillCartPageItems();
-        } else if (window.location.href.indexOf("/checkout") > -1) {
-            if (typeof BindCheckoutPage === "function") BindCheckoutPage(getCookie("cookie_cart_items"));
-        }
     }
 }
