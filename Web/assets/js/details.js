@@ -15,13 +15,6 @@ else {
     $('#BreadcrumbCustom').remove();
 }
 
-var input = document.querySelector("#contact_phone");
-window.intlTelInput(input, {
-    onlyCountries: ["jo"],
-    utilsScript: "/assets/vendor/intlTelInput/utils.js",
-});
-var iti = intlTelInput(input);
-iti.setCountry("jo");
 
 BindProductDetails();
 /*BindProductsLists();*/
@@ -29,7 +22,7 @@ GetProductSubCategories();
 GetAdminProductDetails();
 BindCharitiesList();
 BindProductPurposesList();
-BindShippingCountiries(107);
+
 
 
 function BindShippingCountiries(countryId) {
