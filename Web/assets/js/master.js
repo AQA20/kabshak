@@ -598,19 +598,24 @@ function FillCartItems(data) {
             items.push(`<div class="product product-cart ${item.Token}" style="padding-bottom: 5px !important;border: unset;">
                             <div class="product-detail">
                                 <a href="#" onclick="voidclick(); return false" class="product-name">${IsArabic ? item.NameAr : item.NameEn}</a>
-                                <div class="price-box">
-                                    <span class="product-quantity">${item.Amount > 0 ? item.Count : 0}</span>
-                                    <span class="product-price" style="color: #999;">${item.Amount > 0 ? Math.ceil(item.Usd * rate_value) : 0} ${rate_code}</span>
+                                <div class="price-box" style="display: flex; align-items: center; justify-content: space-between; width: 100%; margin-top: 5px; margin-bottom: 5px;">
+                                    <div class="premium-qty-wrapper" style="display: flex; align-items: center; border: 1px solid #e1e1e1; border-radius: 4px; overflow: hidden; max-width: 100px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+                                        <button type="button" class="premium-qty-btn" onclick="ChangeMiniCartQuantity('${item.Token}', ${item.Amount > 0 ? item.Count - 1 : 0})" style="background: transparent; border: none; padding: 6px 10px; cursor: pointer; color: #888; font-size: 11px; transition: all 0.2s ease; outline: none;" onmouseover="this.style.color='#000'; this.style.background='#f8f9fa'" onmouseout="this.style.color='#888'; this.style.background='transparent'"><i class="w-icon-minus"></i></button>
+                                        <input class="premium-qty-input form-control" type="number" min="1" max="100000" value="${item.Amount > 0 ? item.Count : 0}" onchange="ChangeMiniCartQuantity('${item.Token}', parseInt(this.value))" style="border: none; text-align: center; padding: 6px 0; width: 100%; -moz-appearance: textfield; box-shadow: none; font-weight: 700; color: #222; font-size: 13px; background: transparent; outline: none; height: auto;">
+                                        <button type="button" class="premium-qty-btn" onclick="ChangeMiniCartQuantity('${item.Token}', ${item.Amount > 0 ? item.Count + 1 : 0})" style="background: transparent; border: none; padding: 6px 10px; cursor: pointer; color: #888; font-size: 11px; transition: all 0.2s ease; outline: none;" onmouseover="this.style.color='#000'; this.style.background='#f8f9fa'" onmouseout="this.style.color='#888'; this.style.background='transparent'"><i class="w-icon-plus"></i></button>
+                                    </div>
+                                    <span class="product-price" style="color: #999;">X ${item.Amount > 0 ? Math.ceil(item.Usd * rate_value) : 0} ${rate_code}</span>
                                 </div>
                                 <div class="price-box">
                                     <span  class="product-price" style="background: #f5f5f5;padding-left: 5px;padding-right: 5px;border-radius: 3px;">${item.Amount > 0 ? (item.Count * (item.Usd * rate_value)).toFixed(2) : "Out Of Stock"} ${item.Amount > 0 ? rate_code : ""}</span>
                                 </div>
                             </div>
-                            <figure class="product-media">
+                            <figure class="product-media" style="position: relative;">
                                 <a href="#" onclick="voidclick(); return false">
                                     <img src="/${item.Url}" alt="product" height="84" width="94" style="border: solid 1px #eee;">
                                    <span style="font-size: 9px;"> ${item.Donation ? IsArabic ? "منتج للتبرع" : "Donation Product" : IsArabic ? "منتج للشحن" : "Shipping Product"}</span >
                                 </a>
+                                <button class="btn btn-link btn-close" onclick="RemoveItemCart('${item.Token}', ${item.Amount > 0 ? (item.Count * (item.Usd * rate_value)) : 0}); if(window.location.href.indexOf('/cart') > -1 || window.location.href.indexOf('/checkout') > -1) { window.location.reload(); }" aria-label="button" style="position: absolute; top: -5px; right: -5px; background: #fff; border-radius: 50%; padding: 2px; border: 1px solid #ccc; width: 20px; height: 20px; display: flex; justify-content: center; align-items: center; font-size: 10px; color: #333; z-index: 10;"><i class="fas fa-times"></i></button>
                             </figure>
                         </div>`);
         }
@@ -882,4 +887,29 @@ function CheckSouldOutProducts() {
 
         }
     });
+}
+
+function ChangeMiniCartQuantity(Token, newQuantity) {
+    if (newQuantity < 1) return;
+    let cookie_cart_items = getCookie("cookie_cart_items");
+    let items = cookie_cart_items.split(',');
+    let new_cookie = [];
+    let found = false;
+    for (let index = 0; index < items.length; index++) {
+        let product = items[index];
+        if (product.trim() === "") continue;
+        let item = product.split('|');
+        if (item[0] == Token) {
+            item[1] = newQuantity;
+            found = true;
+        }
+        new_cookie.push(item[0] + "|" + item[1]);
+    }
+    if (found) {
+        setCookie('cookie_cart_items', new_cookie.join(','), 7);
+        CalculateCartPrices(new_cookie.join(','));
+        if (window.location.href.indexOf("/cart") > -1 || window.location.href.indexOf("/checkout") > -1) {
+            window.location.reload();
+        }
+    }
 }
