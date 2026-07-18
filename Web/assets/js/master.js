@@ -677,58 +677,55 @@ function FillCartItems(data) {
 }
 
 function RemoveItemCart(Token, value) {
-    let total = 0;
-    let index = 0;
     let cookie_cart_items = getCookie("cookie_cart_items");
     let items = cookie_cart_items.split(',');
-    cookie_cart_items = "";
+    let new_cookie = [];
 
-    for (index; index < items.length; index++) {
+    for (let index = 0; index < items.length; index++) {
         let product = items[index];
+        if (product.trim() === "") continue;
         let item = product.split('|');
 
-        if (item.Amount > 0) {
-            total = parseFloat(total) + parseFloat((item.Count * (item.Usd * rate_value)).toFixed(2));
-        }
-
         if (item[0] != Token) {
-            if (cookie_cart_items !== "")
-                cookie_cart_items = cookie_cart_items + "," + product;
-            else {
-                cookie_cart_items = product;
+            new_cookie.push(item[0] + "|" + item[1]);
+        }
+    }
 
-                if (value > 0) {
-                    let total = parseFloat($('.price').html());
-                    total = total - value;
-                    $('.price').html(total.toFixed(2));
-                    $(".cart-subtotal span").html(total.toFixed(2) + " " + rate_code);
-                    $(".order-total span").html(total.toFixed(2) + " " + rate_code);
-                }
+    let new_cookie_str = new_cookie.join(',');
+    setCookie('cookie_cart_items', new_cookie_str, 7);
+
+    // Sync Shareholders cookie
+    let shareholders = getCookie('Shareholders');
+    if (shareholders != '') {
+        let cart_json = shareholders.split('|');
+        let data = [];
+        for (let i = 0; i < cart_json.length; i++) {
+            let parsed = JSON.parse(cart_json[i]);
+            if (parsed.productToken != Token) {
+                data.push(parsed);
             }
         }
+        let newCookieVal = data.map(x => JSON.stringify(x)).join('|');
+        setCookie('Shareholders', newCookieVal, 7);
     }
 
-    $("." + Token).remove();
-
-    setCookie('cookie_cart_items', cookie_cart_items, 7);
-
-    if (cookie_cart_items !== "") {
-        let items = cookie_cart_items.split(',');
+    if (new_cookie.length > 0) {
         let length = 0;
-        let index = 0;
-        for (index; index < items.length; index++) {
-            let product = items[index];
-            let item = product.split('|');
-            length = length + parseInt(item[1]);
+        for (let index = 0; index < new_cookie.length; index++) {
+            length += parseInt(new_cookie[index].split('|')[1]);
         }
         $('.cart-count').html(length);
-    }
-    else {
+        CalculateCartPrices(new_cookie_str);
+    } else {
         $('.cart-count').html("0");
         $(".products").html(`<div class="cart-action" style="padding-top: 2.1rem;">${IsArabic ? 'لا يوجد منتج مضاف للسلة' : 'No product added to the cart!'}</div>`);
-        $(".cart-subtotal span").html("0");
-        $(".order-total span").html("0");
-        $(".productlist").html('<tr><td colspan="5" style="text-align: center;font-size: 17px;font-weight: 600;color: #593930;">No Result Found! </tr></td>');
+        $(".cart-subtotal span").html("0 " + rate_code);
+        $(".order-total span").html("0 " + rate_code);
+        if (window.location.href.indexOf("/cart") > -1) {
+            $(".productlist").html('<tr><td colspan="5" style="text-align: center;font-size: 17px;font-weight: 600;color: #593930;">' + (IsArabic ? 'لم يتم العثور على نتائج!' : 'No Result Found!') + '</tr></td>');
+        } else if (window.location.href.indexOf("/checkout") > -1) {
+            $('.CheckoutItems').html(`<tr><td colspan="2" style="text-align: center;">${IsArabic ? 'لم يتم العثور على نتائج!' : 'No Result Found!'}</td></tr>`);
+        }
     }
 
     if (window.location.href.indexOf("/cart") > -1) {
