@@ -700,9 +700,14 @@ function RemoveItemCart(Token, value) {
         let cart_json = shareholders.split('|');
         let data = [];
         for (let i = 0; i < cart_json.length; i++) {
-            let parsed = JSON.parse(cart_json[i]);
-            if (parsed.productToken != Token) {
-                data.push(parsed);
+            if (cart_json[i].trim() === "") continue;
+            try {
+                let parsed = JSON.parse(cart_json[i]);
+                if (parsed.productToken != Token) {
+                    data.push(parsed);
+                }
+            } catch (e) {
+                console.error("Error parsing cart JSON:", e);
             }
         }
         let newCookieVal = data.map(x => JSON.stringify(x)).join('|');
@@ -951,11 +956,16 @@ function ChangeMiniCartQuantity(Token, newQuantity) {
             let cart_json = shareholders.split('|');
             let data = [];
             for (let i = 0; i < cart_json.length; i++) {
-                let parsed = JSON.parse(cart_json[i]);
-                if (parsed.productToken == Token) {
-                    parsed.Quantity = newQuantity;
+                if (cart_json[i].trim() === "") continue;
+                try {
+                    let parsed = JSON.parse(cart_json[i]);
+                    if (parsed.productToken == Token) {
+                        parsed.Quantity = newQuantity;
+                    }
+                    data.push(parsed);
+                } catch (e) {
+                    console.error("Error parsing cart JSON:", e);
                 }
-                data.push(parsed);
             }
             let newCookieVal = data.map(x => JSON.stringify(x)).join('|');
             setCookie('Shareholders', newCookieVal, 7);
