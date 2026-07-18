@@ -579,7 +579,6 @@
     <Content Include="assets\js\promo.js" />
     <Content Include="assets\js\reset_password.js" />
     <Content Include="assets\js\shipping-shop.js" />
-    <Content Include="assets\js\shop.js" />
     <Content Include="assets\js\subcategories.js" />
     <Content Include="assets\js\users.js" />
     <Content Include="assets\js\webfont.js" />
