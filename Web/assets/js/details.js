@@ -558,7 +558,7 @@ function FillProductsLists(data) {
                                                     <img src="/${item.Url}" alt="Product" width="300" height="338"  class="product-media-custom">
                                                 </a>
                                                 <div class="product-action-vertical">
-                                                    <a href="#" onclick="AddToCartFromShop(this, '${item.Token}',1);" class="btn-product-icon btn-cart w-icon-cart ${(item.Amount <= 0) ? 'd-none' : ''}" title="Add to cart"></a>
+                                                    <a href="${productURL}" class="btn-product-icon btn-quickview w-icon-cart ${(item.Amount <= 0) ? 'd-none' : ''}" title="Add to cart"></a>
                                                     <a href="${productURL}" class="btn-product-icon w-icon-dots-circle" title="details" style="font-size: 1.7em;"></a>
                                                 </div>
                                                 <div class="product-action">
@@ -585,7 +585,7 @@ function FillProductsLists(data) {
                                                     <img src="/${item.Url}" alt="Product" width="300" height="338"  class="product-media-custom">
                                                 </a>
                                                    <div class="product-action-vertical">
-                                                        <a href="#" onclick="AddToCartFromShop(this, '${item.Token}',1);" class="btn-product-icon btn-cart w-icon-cart ${(item.Amount <= 0) ? 'd-none' : ''}" title="Add to cart"></a>
+                                                        <a href="${productURL}" class="btn-product-icon btn-quickview w-icon-cart ${(item.Amount <= 0) ? 'd-none' : ''}" title="Add to cart"></a>
                                                         <a href="${productURL}" class="btn-product-icon w-icon-dots-circle" title="details" style="font-size: 1.7em;"></a>
                                                     </div>
                                                 <div class="product-action">
@@ -612,7 +612,7 @@ function FillProductsLists(data) {
                                                     <img src="/${item.Url}" alt="Product" width="300" height="338"  class="product-media-custom">
                                                 </a>
                                                  <div class="product-action-vertical">
-                                                    <a href="#" onclick="AddToCartFromShop(this, '${item.Token}',1);" class="btn-product-icon btn-cart w-icon-cart ${(item.Amount <= 0) ? 'd-none' : ''}" title="Add to cart"></a>
+                                                    <a href="${productURL}" class="btn-product-icon btn-quickview w-icon-cart ${(item.Amount <= 0) ? 'd-none' : ''}" title="Add to cart"></a>
                                                     <a href="${productURL}" class="btn-product-icon w-icon-dots-circle" title="details" style="font-size: 1.7em;"></a>
                                                 </div>
                                                 <div class="product-action">

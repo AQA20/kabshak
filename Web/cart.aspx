@@ -60,7 +60,7 @@
                                 <tr>
                                     <th class="product-name"><span>Product</span></th>
                                     <th></th>
-                                    <th class="product-price" style="text-align: unset;"><span>Quantity * Price</span></th>
+                                    <th class="product-price" style="text-align: center;"><span>Quantity</span></th>
                                     <th class="product-subtotal" style="text-align: unset;"><span>Subtotal</span></th>
                                 </tr>
                             </thead>

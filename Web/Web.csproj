@@ -156,7 +156,6 @@
     <Content Include="AR\privacy-policy.aspx" />
     <Content Include="AR\product.aspx" />
     <Content Include="AR\shipping-shop.aspx" />
-    <Content Include="AR\shop.aspx" />
     <Content Include="AR\term-and-conditions.aspx" />
     <Content Include="AR\wishlist.aspx" />
     <Content Include="assets\ajax\arlogin.html" />
@@ -646,8 +645,6 @@
     <Content Include="assets\vendor\threesixty-degree\360-degree-viewer.css" />
     <Content Include="assets\vendor\threesixty-degree\threesixty.min.js" />
     <Content Include="assets\vendor\zoom\jquery.zoom.js" />
-
-
     <Content Include="browserconfig.xml" />
     <Content Include="cancellation-policy.aspx" />
     <Content Include="cart.aspx" />
@@ -671,7 +668,6 @@
     <Content Include="reset-password.aspx" />
     <Content Include="robots.txt" />
     <Content Include="shipping-shop.aspx" />
-    <Content Include="shop.aspx" />
     <Content Include="sitemap.xml" />
     <Content Include="term-and-conditions.aspx" />
     <Content Include="Web.config" />
@@ -1034,13 +1030,6 @@
     <Compile Include="AR\shipping-shop.aspx.designer.cs">
       <DependentUpon>shipping-shop.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AR\shop.aspx.cs">
-      <DependentUpon>shop.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AR\shop.aspx.designer.cs">
-      <DependentUpon>shop.aspx</DependentUpon>
-    </Compile>
     <Compile Include="AR\term-and-conditions.aspx.cs">
       <DependentUpon>term-and-conditions.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1196,13 +1185,6 @@
     </Compile>
     <Compile Include="shipping-shop.aspx.designer.cs">
       <DependentUpon>shipping-shop.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="shop.aspx.cs">
-      <DependentUpon>shop.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="shop.aspx.designer.cs">
-      <DependentUpon>shop.aspx</DependentUpon>
     </Compile>
     <Compile Include="site.Master.cs">
       <DependentUpon>site.Master</DependentUpon>
@@ -1454,4 +1436,3 @@
     <Content Include="browserconfig.xml" />
   </ItemGroup>
 </Project>
-

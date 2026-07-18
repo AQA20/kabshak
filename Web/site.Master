@@ -265,11 +265,7 @@
                                                         <script>Languag_IsArabic('HOME', 'الرئيسية')</script>
                                                     </a>
                                                 </li>
-                                                <li>
-                                                    <a href="/shop.aspx">
-                                                        <script>Languag_IsArabic('SHOP', 'المتجر')</script>
-                                                    </a>
-                                                </li>
+
                                                 <li>
                                                     <a href="/our-services.aspx">
                                                         <script>Languag_IsArabic('OUR SERVICES', 'خدماتنا')</script>
@@ -609,9 +605,7 @@
                                         <script>Languag_IsArabic('Admin Dashboard', 'لوحة تحكم المسؤول')</script>
                                     </a>
                                 </li>
-                                <li><a href="/shop.aspx">
-                                    <script>Languag_IsArabic('Shop', 'المتجر')</script>
-                                </a></li>
+
                                 <li><a href="/cart.aspx">
                                     <script>Languag_IsArabic('Cart', 'عربة التسوق')</script>
                                 </a></li>

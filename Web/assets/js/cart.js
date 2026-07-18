@@ -169,9 +169,20 @@ function FillCartPageItems() {
                             ${item.ShippingCityid > 0 && City ? `<p style ='font-size: 12px; margin-bottom : 0px'>${IsArabic ? '<i class="w-icon-check-solid"></i> رقم التواصل:' : '<i class="w-icon-check-solid"></i> Contact #:'} ${item.ShippingNumber}</p>` : ``}
                             ${item.cuttingNotes !== undefined && item.cuttingNotes.trim() != '' ? `<p style ='font-size: 12px; margin-bottom : 0px'>${IsArabic ? '<i class="w-icon-check-solid"></i> ملاحظات:' : '<i class="w-icon-check-solid"></i> Notes:'} ${item.cuttingNotes}</p>` : ``}
                         </td>
-                        ${IsArabic ? `<td class="product-price" style="display: table-cell;"><span class="amount"> ${rate_code} ${product.Amount > 0 ? (price * rate_value).toFixed(2) : 0} X ${item.Quantity} </span></td>` : `<td class="product - price" style="display: table - cell; "><span class="amount">${item.Quantity} X ${product.Amount > 0 ? (price * rate_value).toFixed(2) : 0} ${rate_code}</span></td>`}
+                        <td class="product-quantity" style="display: table-cell; vertical-align: middle;">
+                            <div class="premium-qty-container d-flex align-items-center mb-2" style="max-width: 140px; background: #ffffff; border: 1px solid #eaebec; border-radius: 50px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); margin: 0 auto; overflow: hidden; transition: all 0.3s ease;">
+                                <button type="button" class="premium-qty-btn" onclick="ChangeItemQuantity(${index}, '${item.productToken}', parseInt(document.getElementById('quantity_${index}').value) - 1, ${price * rate_value}, '${rate_code}')" style="background: transparent; border: none; padding: 10px 16px; cursor: pointer; color: #888; font-size: 13px; transition: all 0.2s ease; outline: none;" onmouseover="this.style.color='#000'; this.style.background='#f8f9fa'" onmouseout="this.style.color='#888'; this.style.background='transparent'"><i class="w-icon-minus"></i></button>
+                                
+                                <input id="quantity_${index}" class="premium-qty-input form-control" type="number" min="1" max="100000" value="${item.Quantity}" onchange="ChangeItemQuantity(${index}, '${item.productToken}', parseInt(this.value), ${price * rate_value}, '${rate_code}')" style="border: none; text-align: center; padding: 10px 0; width: 100%; -moz-appearance: textfield; box-shadow: none; font-weight: 700; color: #222; font-size: 16px; background: transparent; outline: none;">
+                                
+                                <button type="button" class="premium-qty-btn" onclick="ChangeItemQuantity(${index}, '${item.productToken}', parseInt(document.getElementById('quantity_${index}').value) + 1, ${price * rate_value}, '${rate_code}')" style="background: transparent; border: none; padding: 10px 16px; cursor: pointer; color: #888; font-size: 13px; transition: all 0.2s ease; outline: none;" onmouseover="this.style.color='#000'; this.style.background='#f8f9fa'" onmouseout="this.style.color='#888'; this.style.background='transparent'"><i class="w-icon-plus"></i></button>
+                            </div>
+                            <div class="price-per-unit text-center">
+                                ${IsArabic ? `<span class="amount" style="font-size: 13px; color: #777; font-weight: 500;"> ${rate_code} ${product.Amount > 0 ? (price * rate_value).toFixed(2) : 0} </span>` : `<span class="amount" style="font-size: 13px; color: #777; font-weight: 500;"> ${product.Amount > 0 ? (price * rate_value).toFixed(2) : 0} ${rate_code} </span>`}
+                            </div>
+                        </td>
                         <td class="product-subtotal">
-                            <span class="amount">${product.Amount > 0 ? (item.Quantity * (price * rate_value)).toFixed(2) : "Out Of Stock"} ${product.Amount > 0 ? rate_code : ""}</span>
+                            <span id="subtotal_${index}" class="amount">${product.Amount > 0 ? (item.Quantity * (price * rate_value)).toFixed(2) : "Out Of Stock"} ${product.Amount > 0 ? rate_code : ""}</span>
                         </td>
                     </tr>`;
 
@@ -181,6 +192,24 @@ function FillCartPageItems() {
                     }
 
                     if (loadedCount == data.length) {
+                        if ($('#premium-qty-style').length === 0) {
+                            let styleBlock = `<style id="premium-qty-style">
+                                .premium-qty-input::-webkit-outer-spin-button,
+                                .premium-qty-input::-webkit-inner-spin-button {
+                                    -webkit-appearance: none;
+                                    margin: 0;
+                                }
+                                .premium-qty-container:hover {
+                                    border-color: #d1d5db !important;
+                                    box-shadow: 0 4px 15px rgba(0,0,0,0.08) !important;
+                                }
+                                .premium-qty-btn:active {
+                                    transform: scale(0.92);
+                                }
+                            </style>`;
+                            $('head').append(styleBlock);
+                        }
+                        
                         $(".productlist").html(items.join(''));
                         $(".cart-subtotal span").html(total.toFixed(2) + " " + rate_code);
                         $(".order-total span").html(total.toFixed(2) + " " + rate_code);
@@ -274,55 +303,73 @@ function clearCart() {
     }, 300)
 }
 
-function Increase(Id) {
-    let value = parseInt($('#' + Id).html());
-    value = value + 1;
-    $('#' + Id).html(value);
-    updateCart();
-}
-
-function Decrease(Id) {
-    let value = parseInt($('#' + Id).html());
-    value = value - 1;
-    if (value > 0)
-        $('#' + Id).html(value);
-    else
-        $('#' + Id).html(1);
-    updateCart();
-}
-
-
-function updateCart() {
-    let list = $(".product-quantity .quantity");
-    let index = 0;
-    let cook = "";
-    if (list.length > 0) {
-        for (index; index < list.length; index++) {
-            let item = list[index].id.replace("quantity", "") + "|" + list[index].innerHTML;
-            if (cook == "")
-                cook = item
-            else
-                cook = cook + "," + item;
-        }
-        setCookie('cookie_cart_items', cook, 7);
-
-        cookie_cart_items = getCookie("cookie_cart_items");
-
-        BindCartPage(cookie_cart_items, true);
-
-        if (cookie_cart_items !== "") {
-            let length = 0;
-            let index = 0;
-            let items = cookie_cart_items.split(',');
-            for (index; index < items.length; index++) {
-                let product = items[index];
-                let item = product.split('|');
-                length = length + parseInt(item[1]);
-            }
-            $('.cart-count').html(length);
-            CalculateCartPrices(cookie_cart_items);
-        }
+function ChangeItemQuantity(i, token, newQuantity, unitPrice, rateCode) {
+    newQuantity = parseInt(newQuantity);
+    if (newQuantity < 1) return;
+    
+    // Update input field visually
+    let input = document.getElementById('quantity_' + i);
+    if (input) {
+        input.value = newQuantity;
     }
+    
+    // Update subtotal visually
+    let subtotalSpan = document.getElementById('subtotal_' + i);
+    if (subtotalSpan) {
+        subtotalSpan.innerHTML = (newQuantity * unitPrice).toFixed(2) + " " + rateCode;
+    }
+    
+    // Update Shareholders cookie
+    let cart_tems = getCookie('Shareholders');
+    if (cart_tems != '') {
+        let cart_json = cart_tems.split('|');
+        let data = [];
+        for (let index = 0; index < cart_json.length; index++) {
+            data.push(JSON.parse(cart_json[index]));
+        }
+
+        if (data[i]) {
+            data[i].Quantity = newQuantity;
+        }
+
+        let newCookieVal = data.map(x => JSON.stringify(x)).join('|');
+        setCookie('Shareholders', newCookieVal, 7);
+        
+        // Sum quantities per token for cookie_cart_items
+        let tokenQtys = {};
+        for(let j = 0; j < data.length; j++){
+            if(!tokenQtys[data[j].productToken]) tokenQtys[data[j].productToken] = 0;
+            tokenQtys[data[j].productToken] += parseInt(data[j].Quantity);
+        }
+        
+        let new_cookie_cart_items = [];
+        for(let t in tokenQtys) {
+            new_cookie_cart_items.push(t + "|" + tokenQtys[t]);
+        }
+        let cookie_cart_str = new_cookie_cart_items.join(",");
+        setCookie('cookie_cart_items', cookie_cart_str, 7);
+        
+        // Update top cart dropdown count
+        let length = 0;
+        for(let t in tokenQtys) {
+            length += tokenQtys[t];
+        }
+        $('.cart-count').html(length);
+        
+        // Calculate dropdown prices
+        CalculateCartPrices(cookie_cart_str);
+    }
+    
+    // Re-calculate page total
+    let total = 0;
+    let subtotals = document.querySelectorAll('[id^="subtotal_"]');
+    for(let j = 0; j < subtotals.length; j++){
+        let text = subtotals[j].innerText;
+        let val = parseFloat(text.split(' ')[0]);
+        if(!isNaN(val)) total += val;
+    }
+    $(".cart-subtotal span").html(total.toFixed(2) + " " + rateCode);
+    $(".order-total span").html(total.toFixed(2) + " " + rateCode);
 }
 
 
