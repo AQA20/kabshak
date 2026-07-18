@@ -963,67 +963,6 @@ function SaveShippingShareholderInfo(token) {
         $('.product-qty-form .input-group')[0].style.background = "#ffffff";
     }
 
-    var shippingtown = $('[name="shipping-town"]')[0];
-    var shippingstreet = $('[name="shipping-street"]')[0];
-    var shippinghouse = $('[name="shipping-house"]')[0];
-    var shippingapartment = $('[name="shipping-Apartment"]')[0];
-    var _cuttingNotes = $('[name="product-cutting-notes"]')[0].value.trim();
-
-    if (shippingtown.value.trim() === "") {
-        val = false;
-        shippingtown.style.background = "#fff9b3";
-    }
-    else {
-        shippingtown.style.background = "#ffffff";
-    }
-
-    if (shippingstreet.value.trim() === "") {
-        val = false;
-        shippingstreet.style.background = "#fff9b3";
-    }
-    else {
-        shippingstreet.style.background = "#ffffff";
-    }
-
-    if (shippinghouse.value.trim() === "") {
-        val = false;
-        shippinghouse.style.background = "#fff9b3";
-    }
-    else {
-        shippinghouse.style.background = "#ffffff";
-    }
-
-    if (shippingapartment.value.trim() === "") {
-        val = false;
-        shippingapartment.style.background = "#fff9b3";
-    }
-    else {
-        shippingapartment.style.background = "#ffffff";
-    }
-
-    var shippingcityid = $('[name="shiping-city"]').find(":selected").val();
-    var shippingcitytext = $('[name="shiping-city"]').find(":selected").text();
-
-    if (typeof shippingcityid == "undefined") {
-        val = false;
-        $('[name="shiping-city"]')[0].style.background = "#fff9b3";
-    } else {
-        $('[name="shiping-city"]')[0].style.background = "#ffffff";
-    }
-
-    var input = document.querySelector("#contact_phone");
-    var shippingnumber = input.value.trim();
-    var code = iti.selectedCountryData.dialCode;
-    if (isValidNumber(shippingnumber.replaceAll(' ', '')) && code == '962') {
-        document.getElementById('contact_phone').style.background = "#ffffff";
-        $('.divPhone2').css("background", "#ffffff");
-    }
-    else {
-        document.getElementById('contact_phone').style.background = "#fff9b3";
-        $('.divPhone2').css("background", "#fff9b3");
-        val = false;
-    }
-
     if (val) {
         let name = $('.product-single-swiper .product-title').html() + ' - ' + $('.collapse').html();
         let imageElement = $('.product-single-swiper img')[0];
@@ -1037,13 +976,13 @@ function SaveShippingShareholderInfo(token) {
             productImage: image,
             Quantity: qunt,
             Shareholder: Shareholder.value.trim(),
-            ShippingCityid: shippingcityid,
-            ShippingTown: shippingtown.value.trim(),
-            ShippingHouse: shippinghouse.value.trim(),
-            ShippingStreet: shippingstreet.value.trim(),
-            ShippingApartment: shippingapartment.value.trim(),
-            ShippingNumber: shippingnumber,
-            cuttingNotes: _cuttingNotes,
+            ShippingCityid: -1,
+            ShippingTown: '',
+            ShippingHouse: '',
+            ShippingStreet: '',
+            ShippingApartment: '',
+            ShippingNumber: '',
+            cuttingNotes: '',
         }
 
         add_shareholders_value(Item);

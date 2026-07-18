@@ -201,6 +201,85 @@
                                 </div>
                             </div>
 
+                            <div id="checkout-shipping-section" class="d-none">
+                                <h3 class="title billing-title text-uppercase ls-10 pt-1 pb-3 mb-0 mt-5">Shipping Address</h3>
+                                <div class="form-group mb-3">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="same-as-billing" checked>
+                                        <label class="custom-control-label" for="same-as-billing">Same as billing address</label>
+                                    </div>
+                                </div>
+                                <div id="shipping-address-fields" class="d-none">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Country *</label>
+                                                <div class="select-box">
+                                                    <select id="shippingCountries" name="shipping-country" class="form-control form-control-md items" style="max-width: unset;">
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>City *</label>
+                                                <div class="select-box">
+                                                    <select id="shippingcity" name="shipping-city" class="form-control form-control-md" style="max-width: unset;">
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Town *</label>
+                                                <input type="text" class="form-control form-control-md" name="shipping-town">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Street *</label>
+                                                <input type="text" class="form-control form-control-md" name="shipping-street">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>House # *</label>
+                                                <input type="number" class="form-control form-control-md" name="shipping-house">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Apartment # *</label>
+                                                <input type="number" class="form-control form-control-md" name="shipping-Apartment">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-xs-6 mb-2">
+                                        <div class="form-group">
+                                            <label>Contact Phone * <em>only jordan</em></label>
+                                            <div class="form-group divPhone2" style="border: solid 1px #eee; height: 44px;">
+                                                <input id="contact_phone" type="tel" name="shipping-phone" placeholder="" />
+                                                <input type="hidden" name="contact_full_phone" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <p class="mb-2">Meat cutting notes (optional)</p>
+                                            <textarea class="form-control mb-0" id="product-cutting-notes" name="product-cutting-notes" cols="30" rows="4" placeholder="We offer the service of selecting the way you want to cut the meat."></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="form-group  mt-3">
                                 <table class="shop-table cart-table">
                                     <tbody class="productlist">

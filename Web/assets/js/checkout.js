@@ -160,6 +160,12 @@ function FillCartPageItems() {
                         $(".cart-subtotal span").html(total.toFixed(2) + " " + rate_code);
                         $(".order-total span").html(total.toFixed(2) + " " + rate_code);
 
+                        if (Shipping_Shareholders.length > 0) {
+                            $('#checkout-shipping-section').removeClass('d-none');
+                        } else {
+                            $('#checkout-shipping-section').addClass('d-none');
+                        }
+
                         document.getElementById("divloader").classList.add('d-none');
                         document.getElementById("divloader").classList.remove('d-flex');
                     }
@@ -497,6 +503,10 @@ function FillPageData(data) {
 
 function SubmitOrder() {
     let val = true;
+
+    if (!ValidateShippingFields()) {
+        val = false;
+    }
 
     let firstname = $('[name="firstname"]')[0];
     let lastname = $('[name="lastname"]')[0];
@@ -942,6 +952,10 @@ function AppluPromoCodeOnYourBill(value) {
 function SubmitBankTransferOrder() {
     let val = true;
 
+    if (!ValidateShippingFields()) {
+        val = false;
+    }
+
     let firstname = $('[name="firstname"]')[0];
     let lastname = $('[name="lastname"]')[0];
     let email = $('[name="email"]')[0];
@@ -1108,4 +1122,123 @@ function BindShippingShareholderData(data) {
         $('.shippingShareholdersList').html(items);
         $('.shipping-order-shareholders').removeClass("d-none");
     }
+}
+
+$(document).on('change', '#same-as-billing', function() {
+    if ($(this).is(':checked')) {
+        $('#shipping-address-fields').addClass('d-none');
+    } else {
+        $('#shipping-address-fields').removeClass('d-none');
+    }
+});
+
+var shipping_input = document.querySelector("#contact_phone");
+var iti2 = null;
+if (shipping_input) {
+    window.intlTelInput(shipping_input, {
+        initialCountry: "jo",
+        utilsScript: "/assets/vendor/intlTelInput/utils.js?1603274336113",
+    });
+    iti2 = window.intlTelInputGlobals.getInstance(shipping_input);
+}
+
+function isValidJordanNumber(num) {
+    if (num.indexOf('0') !== 0) {
+        num = '0' + num
+    }
+    if (num.length == 10) {
+        var key = num.substring(0, 3)
+        if (key != '079' && key != '077' && key != '078') {
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+    else {
+        return false;
+    }
+}
+
+function ValidateShippingFields() {
+    let isValid = true;
+    if (Shipping_Shareholders.length > 0) {
+        let isSameAsBilling = $('#same-as-billing').is(':checked');
+        
+        let sh_cityid = -1, sh_town = "", sh_street = "", sh_house = "", sh_apartment = "";
+        let sh_phone = "", sh_notes = "";
+
+        let phoneInput = document.querySelector("#contact_phone");
+        if (phoneInput) {
+            sh_phone = phoneInput.value.trim();
+        }
+        let notesInput = $('[name="product-cutting-notes"]')[0];
+        if (notesInput) {
+            sh_notes = notesInput.value.trim();
+        }
+
+        if (isSameAsBilling) {
+            let citySel = $('[name="billing-city"]').find(":selected").val();
+            sh_cityid = typeof citySel == "undefined" ? -1 : citySel;
+            let t = $('[name="billing-town"]')[0]; if(t) sh_town = t.value.trim();
+            let s = $('[name="billing-street"]')[0]; if(s) sh_street = s.value.trim();
+            let h = $('[name="billing-house"]')[0]; if(h) sh_house = h.value.trim();
+            let a = $('[name="billing-Apartment"]')[0]; if(a) sh_apartment = a.value.trim();
+        } else {
+            let s_city = $('[name="shipping-city"]');
+            let s_town = $('[name="shipping-town"]')[0];
+            let s_street = $('[name="shipping-street"]')[0];
+            let s_house = $('[name="shipping-house"]')[0];
+            let s_apart = $('[name="shipping-Apartment"]')[0];
+
+            if (typeof s_city.find(":selected").val() == "undefined" || s_city.find(":selected").val() == "-1") {
+                isValid = false;
+                s_city[0].style.background = "#fff9b3";
+            } else {
+                s_city[0].style.background = "#ffffff";
+                sh_cityid = s_city.find(":selected").val();
+            }
+
+            if (s_town && s_town.value.trim() === "") { isValid = false; s_town.style.background = "#fff9b3"; }
+            else if(s_town) { s_town.style.background = "#ffffff"; sh_town = s_town.value.trim(); }
+
+            if (s_street && s_street.value.trim() === "") { isValid = false; s_street.style.background = "#fff9b3"; }
+            else if(s_street) { s_street.style.background = "#ffffff"; sh_street = s_street.value.trim(); }
+
+            if (s_house && s_house.value.trim() === "") { isValid = false; s_house.style.background = "#fff9b3"; }
+            else if(s_house) { s_house.style.background = "#ffffff"; sh_house = s_house.value.trim(); }
+
+            if (s_apart && s_apart.value.trim() === "") { isValid = false; s_apart.style.background = "#fff9b3"; }
+            else if(s_apart) { s_apart.style.background = "#ffffff"; sh_apartment = s_apart.value.trim(); }
+        }
+
+        if (sh_phone !== "") {
+            var code = iti2 && iti2.selectedCountryData ? iti2.selectedCountryData.dialCode : '962';
+            if (isValidJordanNumber(sh_phone.replaceAll(' ', '')) && code == '962') {
+                document.getElementById('contact_phone').style.background = "#ffffff";
+                $('.divPhone2').css("background", "#ffffff");
+            } else {
+                document.getElementById('contact_phone').style.background = "#fff9b3";
+                $('.divPhone2').css("background", "#fff9b3");
+                isValid = false;
+            }
+        } else {
+            document.getElementById('contact_phone').style.background = "#fff9b3";
+            $('.divPhone2').css("background", "#fff9b3");
+            isValid = false;
+        }
+
+        if (isValid) {
+            for (let i = 0; i < Shipping_Shareholders.length; i++) {
+                Shipping_Shareholders[i].ShippingCityid = sh_cityid;
+                Shipping_Shareholders[i].ShippingTown = sh_town;
+                Shipping_Shareholders[i].ShippingStreet = sh_street;
+                Shipping_Shareholders[i].ShippingHouse = sh_house;
+                Shipping_Shareholders[i].ShippingApartment = sh_apartment;
+                Shipping_Shareholders[i].ShippingNumber = sh_phone;
+                Shipping_Shareholders[i].cuttingNotes = sh_notes;
+            }
+        }
+    }
+    return isValid;
 }

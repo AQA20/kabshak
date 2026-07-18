@@ -462,68 +462,7 @@
                             <input type="text" class="form-control form-control-md" name="Shareholder">
                         </div>
                     </div>
-                    <div class="Shipping-Address-AddToCart d-none">
-                        <div class="row">
-                            <p class="mb-2 mt-3">Shipping Address *</p>
-                            <div class="col-md-6 mb-2">
-                                <div class="form-group">
-                                    <label>Country *</label>
-                                    <div class="select-box">
-                                        <select id="shipingCountries" name="country" class="form-control form-control-md" style="max-width: unset;">
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-2">
-                                <div class="form-group">
-                                    <label>City *</label>
-                                    <div class="select-box">
-                                        <select name="shiping-city" class="form-control form-control-md" style="max-width: unset;">
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-2">
-                                <div class="form-group">
-                                    <label>Town *</label>
-                                    <input type="text" class="form-control form-control-md" name="shipping-town">
-                                </div>
-                            </div>
-                            <div class="col-md-3 mb-2">
-                                <div class="form-group">
-                                    <label>House # *</label>
-                                    <input type="number" class="form-control form-control-md" name="shipping-house">
-                                </div>
-                            </div>
-                            <div class="col-md-3 mb-2">
-                                <div class="form-group">
-                                    <label>Apartment # *</label>
-                                    <input type="number" class="form-control form-control-md" name="shipping-Apartment">
-                                </div>
-                            </div>
-                            <div class="col-md-12 mb-2">
-                                <div class="form-group">
-                                    <label>Street *</label>
-                                    <input type="text" class="form-control form-control-md" name="shipping-street">
-                                </div>
-                            </div>
-                            <div class="col-xs-6  mb-2">
-                                <div class="form-group">
-                                    <label>Contact Phone * <em>only jordan</em></label>
-                                    <div class="form-group divPhone2" style="border: solid 1px #eee; height: 44px;">
-                                        <input id="contact_phone" type="tel" name="phone" placeholder="" />
-                                        <input type="hidden" name="contact_full_phone" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <p class="mb-2">Meat cutting notes (optional)</p>
-                                    <textarea class="form-control mb-0" id="product-cutting-notes" name="product-cutting-notes" cols="30" rows="4" placeholder="We offer the service of selecting the way you want to cut the meat."></textarea>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
                     <div>
                         <button type="button" class="btn btn-dark btn-block btn-rounded mt-3 btn-save-shareholder"><i class="w-icon-cart"></i>Add To Cart</button>
                     </div>
