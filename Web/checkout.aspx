@@ -203,11 +203,9 @@
 
                             <div id="checkout-shipping-section" class="d-none">
                                 <h3 class="title billing-title text-uppercase ls-10 pt-1 pb-3 mb-0 mt-5">Shipping Address</h3>
-                                <div class="form-group mb-3">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="same-as-billing" checked>
-                                        <label class="custom-control-label" for="same-as-billing">Same as billing address</label>
-                                    </div>
+                                <div class="form-checkbox d-flex align-items-center mb-3">
+                                    <input type="checkbox" class="custom-checkbox" id="same-as-billing" checked>
+                                    <label for="same-as-billing">Same as billing address</label>
                                 </div>
                                 <div id="shipping-address-fields">
                                     <div class="row">
