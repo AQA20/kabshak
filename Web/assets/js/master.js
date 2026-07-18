@@ -726,18 +726,13 @@ function RemoveItemCart(Token, value) {
         $(".products").html(`<div class="cart-action" style="padding-top: 2.1rem;">${IsArabic ? 'لا يوجد منتج مضاف للسلة' : 'No product added to the cart!'}</div>`);
         $(".cart-subtotal span").html("0 " + rate_code);
         $(".order-total span").html("0 " + rate_code);
-        if (window.location.href.indexOf("/cart") > -1) {
-            $(".productlist").html('<tr><td colspan="5" style="text-align: center;font-size: 17px;font-weight: 600;color: #593930;">' + (IsArabic ? 'لم يتم العثور على نتائج!' : 'No Result Found!') + '</tr></td>');
-        } else if (window.location.href.indexOf("/checkout") > -1) {
-            $('.CheckoutItems').html(`<tr><td colspan="2" style="text-align: center;">${IsArabic ? 'لم يتم العثور على نتائج!' : 'No Result Found!'}</td></tr>`);
-        }
+        $(".productlist").html('<tr><td colspan="5" style="text-align: center;font-size: 17px;font-weight: 600;color: #593930;">' + (IsArabic ? 'لم يتم العثور على نتائج!' : 'No Result Found!') + '</tr></td>');
+        $('.CheckoutItems').html(`<tr><td colspan="2" style="text-align: center;">${IsArabic ? 'لم يتم العثور على نتائج!' : 'No Result Found!'}</td></tr>`);
     }
 
-    if (window.location.href.indexOf("/cart") > -1) {
-        let row = $("[class~='" + Token + "']");
-        if (row.length > 0) {
-            row.remove();
-        }
+    let row = $("[class~='" + Token + "']");
+    if (row.length > 0) {
+        row.remove();
     }
 
     if (window.location.href.trim().includes("/shop/product/") || window.location.href.trim().includes("/ar/shop/product/")) {
