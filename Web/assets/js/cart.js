@@ -272,7 +272,7 @@ function RemoveItemPageCart(Token, value) {
         setCookie('Shareholders', newCookieVal, 7);
     }
 
-    $("." + Token).remove();
+    $("[class~='" + Token + "']").remove();
 
     if (new_cookie.length > 0) {
         let length = 0;

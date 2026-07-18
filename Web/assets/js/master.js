@@ -640,7 +640,7 @@ function FillCartItems(data) {
             for (let i = 0; i < data.length; i++) {
                 let item = data[i];
                 if (item.Amount > 0) {
-                    let row = $("." + item.Token);
+                    let row = $("[class~='" + item.Token + "']");
                     if (row.length > 0) {
                         row.find(".premium-qty-input").val(item.Count);
                         let subtotal = (item.Count * (item.Usd * rate_value)).toFixed(2);
@@ -734,7 +734,7 @@ function RemoveItemCart(Token, value) {
     }
 
     if (window.location.href.indexOf("/cart") > -1) {
-        let row = $("." + Token);
+        let row = $("[class~='" + Token + "']");
         if (row.length > 0) {
             row.remove();
         }
