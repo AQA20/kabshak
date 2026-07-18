@@ -1125,10 +1125,20 @@ function BindShippingShareholderData(data) {
 }
 
 $(document).on('change', '#same-as-billing', function() {
-    if ($(this).is(':checked')) {
-        $('#shipping-address-fields').addClass('d-none');
+    let isChecked = $(this).is(':checked');
+    let $fields = $('#shipping-address-fields').find('input, select');
+    if (isChecked) {
+        $fields.prop('readonly', true);
+        $fields.css('background-color', '#f4f4f4');
+        
+        // Visually copy values
+        $('[name="shipping-town"]').val($('[name="billing-town"]').val());
+        $('[name="shipping-street"]').val($('[name="billing-street"]').val());
+        $('[name="shipping-house"]').val($('[name="billing-house"]').val());
+        $('[name="shipping-Apartment"]').val($('[name="billing-Apartment"]').val());
     } else {
-        $('#shipping-address-fields').removeClass('d-none');
+        $fields.prop('readonly', false);
+        $fields.css('background-color', '#ffffff');
     }
 });
 
@@ -1180,10 +1190,10 @@ function ValidateShippingFields() {
         if (isSameAsBilling) {
             let citySel = $('[name="billing-city"]').find(":selected").val();
             sh_cityid = typeof citySel == "undefined" ? -1 : citySel;
-            let t = $('[name="billing-town"]')[0]; if(t) sh_town = t.value.trim();
-            let s = $('[name="billing-street"]')[0]; if(s) sh_street = s.value.trim();
-            let h = $('[name="billing-house"]')[0]; if(h) sh_house = h.value.trim();
-            let a = $('[name="billing-Apartment"]')[0]; if(a) sh_apartment = a.value.trim();
+            let t = $('[name="billing-town"]')[0]; if(t) { sh_town = t.value.trim(); $('[name="shipping-town"]').val(sh_town); }
+            let s = $('[name="billing-street"]')[0]; if(s) { sh_street = s.value.trim(); $('[name="shipping-street"]').val(sh_street); }
+            let h = $('[name="billing-house"]')[0]; if(h) { sh_house = h.value.trim(); $('[name="shipping-house"]').val(sh_house); }
+            let a = $('[name="billing-Apartment"]')[0]; if(a) { sh_apartment = a.value.trim(); $('[name="shipping-Apartment"]').val(sh_apartment); }
         } else {
             let s_city = $('[name="shipping-city"]');
             let s_town = $('[name="shipping-town"]')[0];
@@ -1242,3 +1252,7 @@ function ValidateShippingFields() {
     }
     return isValid;
 }
+
+$(document).ready(function() {
+    $('#same-as-billing').trigger('change');
+});

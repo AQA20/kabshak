@@ -209,7 +209,7 @@
                                         <label class="custom-control-label" for="same-as-billing">Same as billing address</label>
                                     </div>
                                 </div>
-                                <div id="shipping-address-fields" class="d-none">
+                                <div id="shipping-address-fields">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
@@ -280,16 +280,16 @@
                                 </div>
                             </div>
 
+                            <div class="form-group  mt-3 mb-2">
+                                <label for="order-notes">Order notes (optional)</label>
+                                <textarea class="form-control mb-0" id="order-notes" name="order-notes" cols="30" rows="4" placeholder="Notes about your order, e.g special notes for delivery"></textarea>
+                            </div>
+
                             <div class="form-group  mt-3">
                                 <table class="shop-table cart-table">
                                     <tbody class="productlist">
                                     </tbody>
                                 </table>
-                            </div>
-
-                            <div class="form-group  mt-3 mb-2">
-                                <label for="order-notes">Order notes (optional)</label>
-                                <textarea class="form-control mb-0" id="order-notes" name="order-notes" cols="30" rows="4" placeholder="Notes about your order, e.g special notes for delivery"></textarea>
                             </div>
 
                             <div class="d-flex justify-content-end">
