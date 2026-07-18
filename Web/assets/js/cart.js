@@ -77,12 +77,28 @@ function BindPage() {
 }
 
 function FillCartPageItems() {
+    let cookie_cart = getCookie('cookie_cart_items');
+    if (cookie_cart === '') {
+        setCookie('Shareholders', '', 7);
+        document.getElementById("divloader").classList.add('d-none');
+        document.getElementById("divloader").classList.remove('d-flex');
+        $(".cart-subtotal span").html("0 " + currency.toLocaleUpperCase());
+        $(".order-total span").html("0 " + currency.toLocaleUpperCase());
+        $(".productlist").html('<tr><td colspan="5" style="text-align: center;font-size: 17px;font-weight: 600;color: #593930;">' + (IsArabic ? 'لم يتم العثور على نتائج!' : 'No Result Found!') + '</tr></td>');
+        return;
+    }
+
     let cart_tems = getCookie('Shareholders');
     if (cart_tems != '') {
         let cart_json = cart_tems.split('|');
         let data = [];
-        for (i = 0; i < cart_json.length; i++) {
-            data.push(JSON.parse(cart_json[i]))
+        for (let i = 0; i < cart_json.length; i++) {
+            if (cart_json[i].trim() === "") continue;
+            try {
+                data.push(JSON.parse(cart_json[i]));
+            } catch (e) {
+                console.error("Error parsing cart JSON:", e);
+            }
         }
 
         let items = new Array(data.length);
@@ -385,7 +401,12 @@ function RemoveItemFromTheList(i, token, quantity) {
         let cart_json = cart_tems.split('|');
         let data = [];
         for (index = 0; index < cart_json.length; index++) {
-            data.push(JSON.parse(cart_json[index]))
+            if (cart_json[index].trim() === "") continue;
+            try {
+                data.push(JSON.parse(cart_json[index]));
+            } catch (e) {
+                console.error("Error parsing cart JSON:", e);
+            }
         }
 
         data.splice(i, 1);
