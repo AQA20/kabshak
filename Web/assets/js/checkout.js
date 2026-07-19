@@ -340,6 +340,11 @@ function FillBillingCitiesList(data) {
         let items = [];
         for (index; index < cities.length; index++) {
             let item = cities[index];
+            
+            if (billingCityId === "-1" && (item.CityNameEn.toLowerCase() === "amman" || item.CityNameAr === "عمان")) {
+                billingCityId = item.CityId.toString();
+            }
+
             if (item.CityId.toString() == billingCityId) {
                 items.push(`<option value="${item.CityId}" selected>${IsArabic ? item.CityNameAr : item.CityNameEn}</option>`);
             }
