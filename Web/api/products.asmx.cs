@@ -815,6 +815,15 @@ namespace web.api
                 _Order._ordernotes = HttpContext.Current.Request["ordernotes"].ToString();
                 _Order.shareholders = HttpContext.Current.Request["shareholders"].ToString();
                 _Order.shippingshareholders = HttpContext.Current.Request["shippingshareholders"].ToString();
+                
+                _Order._shippingcityid = int.Parse(HttpContext.Current.Request["shippingcityid"] != null ? HttpContext.Current.Request["shippingcityid"].ToString() : "-1");
+                _Order._shippingtown = HttpContext.Current.Request["shippingtown"] != null ? HttpContext.Current.Request["shippingtown"].ToString() : string.Empty;
+                _Order._shippingblock = HttpContext.Current.Request["shippingblock"] != null ? HttpContext.Current.Request["shippingblock"].ToString() : string.Empty;
+                _Order._shippingstreet = HttpContext.Current.Request["shippingstreet"] != null ? HttpContext.Current.Request["shippingstreet"].ToString() : string.Empty;
+                _Order._shippinghouse = int.Parse(HttpContext.Current.Request["shippinghouse"] != null ? HttpContext.Current.Request["shippinghouse"].ToString() : "0");
+                _Order._shippingapartment = int.Parse(HttpContext.Current.Request["shippingapartment"] != null ? HttpContext.Current.Request["shippingapartment"].ToString() : "0");
+                _Order._shippingpaci = int.Parse(HttpContext.Current.Request["shippingpaci"] != null ? HttpContext.Current.Request["shippingpaci"].ToString() : "0");
+                _Order._shippingnumber = HttpContext.Current.Request["shippingnumber"] != null ? HttpContext.Current.Request["shippingnumber"].ToString() : string.Empty;
                 _Order.promo_code = (HttpContext.Current.Request["promo_code"] != null) ? HttpContext.Current.Request["promo_code"].ToString().Trim() : string.Empty;
                 _Order.code_value = (HttpContext.Current.Request["code_value"] != null) ? float.Parse(HttpContext.Current.Request["code_value"].ToString().Trim()) : 0;
 
@@ -910,6 +919,15 @@ namespace web.api
                 _Order._ordernotes = HttpContext.Current.Request["ordernotes"].ToString();
                 _Order.shareholders = HttpContext.Current.Request["shareholders"].ToString();
                 _Order.shippingshareholders = HttpContext.Current.Request["shippingshareholders"].ToString();
+                
+                _Order._shippingcityid = int.Parse(HttpContext.Current.Request["shippingcityid"] != null ? HttpContext.Current.Request["shippingcityid"].ToString() : "-1");
+                _Order._shippingtown = HttpContext.Current.Request["shippingtown"] != null ? HttpContext.Current.Request["shippingtown"].ToString() : string.Empty;
+                _Order._shippingblock = HttpContext.Current.Request["shippingblock"] != null ? HttpContext.Current.Request["shippingblock"].ToString() : string.Empty;
+                _Order._shippingstreet = HttpContext.Current.Request["shippingstreet"] != null ? HttpContext.Current.Request["shippingstreet"].ToString() : string.Empty;
+                _Order._shippinghouse = int.Parse(HttpContext.Current.Request["shippinghouse"] != null ? HttpContext.Current.Request["shippinghouse"].ToString() : "0");
+                _Order._shippingapartment = int.Parse(HttpContext.Current.Request["shippingapartment"] != null ? HttpContext.Current.Request["shippingapartment"].ToString() : "0");
+                _Order._shippingpaci = int.Parse(HttpContext.Current.Request["shippingpaci"] != null ? HttpContext.Current.Request["shippingpaci"].ToString() : "0");
+                _Order._shippingnumber = HttpContext.Current.Request["shippingnumber"] != null ? HttpContext.Current.Request["shippingnumber"].ToString() : string.Empty;
                 _Order.promo_code = (HttpContext.Current.Request["promo_code"] != null) ? HttpContext.Current.Request["promo_code"].ToString().Trim() : string.Empty;
                 _Order.code_value = (HttpContext.Current.Request["code_value"] != null) ? float.Parse(HttpContext.Current.Request["code_value"].ToString().Trim()) : 0;
 

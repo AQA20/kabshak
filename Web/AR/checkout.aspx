@@ -119,8 +119,29 @@
                 <div class="form checkout-form" action="#" method="post">
                     <div class="row mb-9">
                         <div class="col-lg-7 pr-lg-4 mb-4">
-                            <h3 class="title billing-title text-uppercase ls-10 pt-1 pb-3 mb-0">معلومات الطلب
-                            </h3>
+                            <!-- Stepper UI -->
+                            <div class="checkout-stepper mb-5">
+                                <div class="step-progress-bar">
+                                    <div class="step active" id="indicator-1">
+                                        <div class="step-circle">1</div>
+                                        <div class="step-text">معلومات الطلب</div>
+                                    </div>
+                                    <div class="step-line"></div>
+                                    <div class="step" id="indicator-2">
+                                        <div class="step-circle">2</div>
+                                        <div class="step-text">العناوين</div>
+                                    </div>
+                                    <div class="step-line"></div>
+                                    <div class="step" id="indicator-3">
+                                        <div class="step-circle">3</div>
+                                        <div class="step-text">ملاحظات</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="step-1" class="checkout-step">
+                                <h3 class="title billing-title text-uppercase ls-10 pt-1 pb-3 mb-0">معلومات الطلب
+                                </h3>
                             <div class="row gutter-sm">
                                 <div class="col-xs-6">
                                     <div class="form-group">
@@ -152,6 +173,13 @@
                                     </div>
                                 </div>
                             </div>
+                            
+                            <div class="step-footer mt-4 d-flex justify-content-end">
+                                <button type="button" class="btn btn-primary btn-next-step" onclick="nextStep(1)">التالي <i class="w-icon-long-arrow-left"></i></button>
+                            </div>
+                        </div> <!-- End Step 1 -->
+
+                        <div id="step-2" class="checkout-step" style="display: none;">
                             <h3 class="title billing-title text-uppercase ls-10 pt-1 pb-3 mb-0">عنوان وصول الفواتير
                             </h3>
                             <div class="row">
@@ -208,27 +236,119 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group  mt-3">
-                                <table class="shop-table cart-table">
-                                    <tbody class="productlist">
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="form-group  mt-3">
-                                <label for="order-notes">ملاحظات الطلب (اختياري)</label>
-                                <textarea class="form-control mb-2" id="order-notes" name="order-notes" cols="30" rows="4" placeholder="ملاحظات حول طلبك ، مثل ملاحظات خاصة للتسليم"></textarea>
-                            </div>
-                            <div class="d-flex justify-content-end">
-                                <div class="cart-action">
-                                    <a href="/ar/shop" class="btn btn-dark btn-rounded btn-icon-left btn-shopping mr-auto mt-1"><i class="w-icon-long-arrow-left" style="transform: rotate(180deg);"></i>مواصلة التسوق</a>
-                                    <a href="/ar/cart.aspx" class="btn btn-dark btn-outline btn-rounded mt-1"><i class="w-icon-cart pl-1 pr-1"></i>مشاهدة عربة التسوق</a>
+                            <div id="checkout-shipping-section" class="d-none">
+                                <h3 class="title billing-title text-uppercase ls-10 pt-1 pb-3 mb-0 mt-5">عنوان الشحن</h3>
+                                <div class="form-checkbox d-flex align-items-center mb-3">
+                                    <input type="checkbox" class="custom-checkbox" id="same-as-billing" checked>
+                                    <label for="same-as-billing">نفس عنوان الفواتير</label>
+                                </div>
+                                <div id="shipping-address-fields">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>البلد *</label>
+                                                <div class="select-box">
+                                                    <select id="shippingCountries" name="shipping-country" class="form-control form-control-md items" style="max-width: unset;">
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>المدينة *</label>
+                                                <div class="select-box">
+                                                    <select id="shippingcity" name="shipping-city" class="form-control form-control-md" style="max-width: unset;">
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>المنطقة *</label>
+                                                <input type="text" class="form-control form-control-md" name="shipping-town">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>الشارع *</label>
+                                                <input type="text" class="form-control form-control-md" name="shipping-street">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>البيت # *</label>
+                                                <input type="number" class="form-control form-control-md" name="shipping-house">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>الشقة # *</label>
+                                                <input type="number" class="form-control form-control-md" name="shipping-Apartment">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-2">
+                                            <div class="form-group">
+                                                <label>رقم التواصل * <em>للأردن فقط</em></label>
+                                                <div class="form-group divPhone2" style="border: solid 1px #eee; height: 44px;">
+                                                    <input id="contact_phone" type="tel" name="shipping-phone" placeholder="" />
+                                                    <input type="hidden" name="contact_full_phone" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+
+                            <div class="step-footer mt-4 d-flex justify-content-between">
+                                <button type="button" class="btn btn-default btn-prev-step" onclick="prevStep(2)"><i class="w-icon-long-arrow-right"></i> السابق</button>
+                                <button type="button" class="btn btn-primary btn-next-step" onclick="nextStep(2)">التالي <i class="w-icon-long-arrow-left"></i></button>
+                            </div>
+                        </div> <!-- End Step 2 -->
+
+                        <div id="step-3" class="checkout-step" style="display: none;">
+                            <h3 class="title billing-title text-uppercase ls-10 pt-1 pb-3 mb-0 mt-5">ملاحظات الطلب وتقطيع اللحوم</h3>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="product-cutting-notes">ملاحظات تقطيع اللحوم (اختياري)</label>
+                                        <textarea class="form-control mb-0" id="product-cutting-notes" name="product-cutting-notes" cols="30" rows="4" placeholder="نحن نقدم خدمة اختيار الطريقة التي ترغب في تقطيع اللحم بها."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group mt-3">
+                                        <label for="order-notes">ملاحظات الطلب (اختياري)</label>
+                                        <textarea class="form-control mb-2" id="order-notes" name="order-notes" cols="30" rows="4" placeholder="ملاحظات حول طلبك ، مثل ملاحظات خاصة للتسليم"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="step-footer mt-4 d-flex justify-content-start">
+                                <button type="button" class="btn btn-default btn-prev-step" onclick="prevStep(3)"><i class="w-icon-long-arrow-right"></i> السابق</button>
+                            </div>
+                        </div> <!-- End Step 3 -->
+                        
+                        <div class="form-group mt-3">
+                            <table class="shop-table cart-table">
+                                <tbody class="productlist">
+                                </tbody>
+                            </table>
                         </div>
-                        <div class="col-lg-5 mb-4 sticky-sidebar-wrapper">
-                            <div class="pin-wrapper" style="height: 899.025px;">
-                                <div class="order-summary-wrapper sticky-sidebar" style="border-bottom: 1px solid rgb(238, 238, 238); width: 505px;">
-                                    <h3 class="title text-uppercase ls-10">طلبك</h3>
+
+                        <div class="d-flex justify-content-end">
+                            <div class="cart-action">
+                                <a href="/ar/shop" class="btn btn-dark btn-rounded btn-icon-left btn-shopping mr-auto mt-1"><i class="w-icon-long-arrow-left" style="transform: rotate(180deg);"></i>مواصلة التسوق</a>
+                                <a href="/ar/cart.aspx" class="btn btn-dark btn-outline btn-rounded mt-1"><i class="w-icon-cart pl-1 pr-1"></i>مشاهدة عربة التسوق</a>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="col-lg-5 mb-4">
+                            <div class="order-summary-wrapper">
+                                <h3 class="title text-uppercase ls-10">طلبك</h3>
                                     <div class="order-summary">
                                         <table class="order-table">
                                             <thead>
@@ -290,11 +410,13 @@
                                             </div>
                                         </div>
 
-                                        <div class="form-group place-order pt-6">
-                                            <button type="button" class="btn btn-dark btn-block btn-rounded" onclick="SubmitOrder();">اطلب الان</button>
-                                        </div>
-                                        <div id="BankTransferOrder" runat="server" class="form-group place-order pt-1">
-                                            <button type="button" class="btn btn-dark btn-block btn-rounded" onclick="SubmitBankTransferOrder();">تحويل بنكي</button>
+                                        <div id="final-submit-buttons" style="display: none;">
+                                            <div class="form-group place-order pt-6">
+                                                <button type="button" class="btn btn-dark btn-block btn-rounded" onclick="SubmitOrder();">اطلب الان</button>
+                                            </div>
+                                            <div id="BankTransferOrder" runat="server" class="form-group place-order pt-1">
+                                                <button type="button" class="btn btn-dark btn-block btn-rounded" onclick="SubmitBankTransferOrder();">تحويل بنكي</button>
+                                            </div>
                                         </div>
 
                                         <div class="alert alert-icon alert-primary alert-bg alert-inline show-code-action mt-5">
@@ -310,11 +432,27 @@
                     </div>
                 </div>
             </div>
-        </div>
     </main>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
     <script src="/assets/vendor/intlTelInput/intlTelInput.js"></script>
     <script src="/assets/js/checkout.js?v=3.1"></script>
     <script src="/assets/js/admin.js"></script>
+    <style>
+        .divPhone .iti, .divPhone2 .iti { width: 100%; display: block; }
+        .divPhone input[type="tel"], .divPhone2 input[type="tel"] { height: 42px !important; border: none !important; background: transparent !important; margin: 0 !important; }
+        
+        /* Stepper CSS */
+        .step-progress-bar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem; padding: 0; }
+        .step { display: flex; flex-direction: column; align-items: center; position: relative; z-index: 2; width: 60px; }
+        .step-circle { width: 40px; height: 40px; border-radius: 50%; background-color: #f4f4f4; color: #999; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.4rem; margin-bottom: 0.5rem; transition: all 0.3s; border: 2px solid #eee; }
+        .step.active .step-circle { background-color: #593930; color: #fff; border-color: #593930; }
+        .step.completed .step-circle { background-color: #593930; color: #fff; border-color: #593930; }
+        .step-text { font-size: 1.2rem; font-weight: 600; color: #777; text-align: center; white-space: nowrap; }
+        .step.active .step-text, .step.completed .step-text { color: #593930; }
+        .step-line { height: 3px; background-color: #eee; flex-grow: 1; position: relative; top: -12px; z-index: 1; transition: all 0.3s; }
+        .step-line.completed { background-color: #593930; }
+        .checkout-step { animation: fadeIn 0.4s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
 </asp:Content>

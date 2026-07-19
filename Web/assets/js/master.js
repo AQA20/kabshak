@@ -1,3 +1,11 @@
+if (!document.getElementById("hide-spinners-style")) {
+    let hideSpinners = document.createElement("style");
+    hideSpinners.id = "hide-spinners-style";
+    hideSpinners.innerHTML = "input[type='number']::-webkit-inner-spin-button, input[type='number']::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; } input[type='number'] { -moz-appearance: textfield; }";
+    if (document.head) document.head.appendChild(hideSpinners);
+    else document.addEventListener("DOMContentLoaded", () => document.head.appendChild(hideSpinners));
+}
+
 let rate_code = getCookie("rate_code");
 let rate_value = 1;
 
@@ -604,7 +612,7 @@ function FillCartItems(data) {
                                         <input class="premium-qty-input form-control" type="number" min="1" max="100000" value="${item.Amount > 0 ? item.Count : 0}" onchange="ChangeMiniCartQuantity('${item.Token}', parseInt(this.value))" onkeydown="if(event.key === 'Enter'){event.preventDefault(); this.blur(); return false;}" style="border: none; text-align: center; padding: 4px 0; width: 100%; -moz-appearance: textfield; box-shadow: none; font-weight: 700; color: #222; font-size: 13px; background: transparent; outline: none; height: auto;">
                                         <button type="button" class="premium-qty-btn" onclick="ChangeMiniCartQuantity('${item.Token}', ${item.Amount > 0 ? item.Count + 1 : 0})" style="background: transparent; border: none; padding: 4px 8px; cursor: pointer; color: #888; font-size: 11px; transition: all 0.2s ease; outline: none;" onmouseover="this.style.color='#000'; this.style.background='#f8f9fa'" onmouseout="this.style.color='#888'; this.style.background='transparent'"><i class="w-icon-plus"></i></button>
                                     </div>
-                                    <span class="product-price" style="color: #999;">X ${item.Amount > 0 ? Math.ceil(item.Usd * rate_value) : 0} ${rate_code}</span>
+                                    <span class="product-price" style="color: #999; margin: 0 15px;">X ${item.Amount > 0 ? Math.ceil(item.Usd * rate_value) : 0} ${rate_code}</span>
                                 </div>
                                 <div class="price-box">
                                     <span  class="product-price" style="background: #f5f5f5;padding-left: 5px;padding-right: 5px;border-radius: 3px;">${item.Amount > 0 ? (item.Count * (item.Usd * rate_value)).toFixed(2) : "Out Of Stock"} ${item.Amount > 0 ? rate_code : ""}</span>
@@ -728,6 +736,15 @@ function RemoveItemCart(Token, value) {
         $(".order-total span").html("0 " + rate_code);
         $(".productlist").html('<tr><td colspan="5" style="text-align: center;font-size: 17px;font-weight: 600;color: #593930;">' + (IsArabic ? 'لم يتم العثور على نتائج!' : 'No Result Found!') + '</tr></td>');
         $('.CheckoutItems').html(`<tr><td colspan="2" style="text-align: center;">${IsArabic ? 'لم يتم العثور على نتائج!' : 'No Result Found!'}</td></tr>`);
+        
+        if (window.location.href.toLowerCase().indexOf("checkout") > -1) {
+            $('.checkout-stepper, .checkout-step').css({'pointer-events': 'none', 'opacity': '0.5'});
+            if ($('.empty-cart-warning').length === 0) {
+                $('.col-lg-7.pr-lg-4.mb-4').prepend(`<div class="empty-cart-warning alert alert-warning" style="margin-bottom: 20px; font-weight: bold; background-color: #fff3cd; color: #856404; padding: 15px; border-radius: 5px; border: 1px solid #ffeeba;">
+                    ${IsArabic ? 'يرجى إضافة شيء إلى عربة التسوق للمتابعة' : 'Please add something to cart to continue.'}
+                </div>`);
+            }
+        }
     }
 
     let row = $("[class~='" + Token + "']");
@@ -968,5 +985,11 @@ function ChangeMiniCartQuantity(Token, newQuantity) {
 
         setCookie('cookie_cart_items', new_cookie.join(','), 7);
         CalculateCartPrices(new_cookie.join(','));
+        
+        if (window.location.href.toLowerCase().indexOf("checkout") > -1) {
+            if (typeof FillCartPageItems === 'function') {
+                FillCartPageItems();
+            }
+        }
     }
 }

@@ -875,6 +875,19 @@ function SaveShareholderInfo(token) {
         $('.product-qty-form .input-group')[0].style.background = "#ffffff";
     }
 
+    if (!val) {
+        if (typeof Swal !== 'undefined') {
+            Swal.fire({
+                icon: "warning",
+                title: IsArabic ? 'خطأ' : 'Error',
+                text: IsArabic ? 'يرجى تعبئة الحقول المطلوبة' : 'Please fill all required fields.',
+            });
+        } else {
+            alert(IsArabic ? 'يرجى تعبئة الحقول المطلوبة' : 'Please fill all required fields.');
+        }
+        return;
+    }
+
     if (val) {
         let name = $('.product-single-swiper .product-title').html() + ' - ' + $('.collapse').html();
         let imageElement = $('.product-single-swiper img')[0];
@@ -954,6 +967,19 @@ function SaveShippingShareholderInfo(token) {
     }
     else {
         $('.product-qty-form .input-group')[0].style.background = "#ffffff";
+    }
+
+    if (!val) {
+        if (typeof Swal !== 'undefined') {
+            Swal.fire({
+                icon: "warning",
+                title: IsArabic ? 'خطأ' : 'Error',
+                text: IsArabic ? 'يرجى تعبئة الحقول المطلوبة' : 'Please fill all required fields.',
+            });
+        } else {
+            alert(IsArabic ? 'يرجى تعبئة الحقول المطلوبة' : 'Please fill all required fields.');
+        }
+        return;
     }
 
     if (val) {

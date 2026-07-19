@@ -111,8 +111,29 @@
                 <div class="form checkout-form" action="#" method="post">
                     <div class="row mb-9">
                         <div class="col-lg-7 pr-lg-4 mb-4">
-                            <h3 class="title billing-title text-uppercase ls-10 pt-1 pb-3 mb-0">Order Information
-                            </h3>
+                            <!-- Stepper UI -->
+                            <div class="checkout-stepper mb-5">
+                                <div class="step-progress-bar">
+                                    <div class="step active" id="indicator-1">
+                                        <div class="step-circle">1</div>
+                                        <div class="step-text">Order Info</div>
+                                    </div>
+                                    <div class="step-line"></div>
+                                    <div class="step" id="indicator-2">
+                                        <div class="step-circle">2</div>
+                                        <div class="step-text">Address</div>
+                                    </div>
+                                    <div class="step-line"></div>
+                                    <div class="step" id="indicator-3">
+                                        <div class="step-circle">3</div>
+                                        <div class="step-text">Notes</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="step-1" class="checkout-step">
+                                <h3 class="title billing-title text-uppercase ls-10 pt-1 pb-3 mb-0">Order Information
+                                </h3>
                             <div class="row gutter-sm">
                                 <div class="col-xs-6">
                                     <div class="form-group">
@@ -144,6 +165,13 @@
                                     </div>
                                 </div>
                             </div>
+                            
+                            <div class="step-footer mt-4 d-flex justify-content-end">
+                                <button type="button" class="btn btn-primary btn-next-step" onclick="nextStep(1)">Next <i class="w-icon-long-arrow-right"></i></button>
+                            </div>
+                        </div> <!-- End Step 1 -->
+
+                        <div id="step-2" class="checkout-step" style="display: none;">
                             <h3 class="title billing-title text-uppercase ls-10 pt-1 pb-3 mb-0">Billing Address
                             </h3>
                             <div class="row">
@@ -255,25 +283,32 @@
                                                 <input type="number" class="form-control form-control-md" name="shipping-Apartment">
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="row mt-2">
-                                    <div class="col-xs-6 mb-2">
-                                        <div class="form-group">
-                                            <label>Contact Phone * <em>only jordan</em></label>
-                                            <div class="form-group divPhone2" style="border: solid 1px #eee; height: 44px;">
-                                                <input id="contact_phone" type="tel" name="shipping-phone" placeholder="" />
-                                                <input type="hidden" name="contact_full_phone" />
+                                        <div class="col-md-6 mb-2">
+                                            <div class="form-group">
+                                                <label>Contact Phone * <em>only jordan</em></label>
+                                                <div class="form-group divPhone2" style="border: solid 1px #eee; height: 44px;">
+                                                    <input id="contact_phone" type="tel" name="shipping-phone" placeholder="" />
+                                                    <input type="hidden" name="contact_full_phone" />
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <p class="mb-2">Meat cutting notes (optional)</p>
-                                            <textarea class="form-control mb-0" id="product-cutting-notes" name="product-cutting-notes" cols="30" rows="4" placeholder="We offer the service of selecting the way you want to cut the meat."></textarea>
-                                        </div>
+                            </div>
+
+                            <div class="step-footer mt-4 d-flex justify-content-between">
+                                <button type="button" class="btn btn-default btn-prev-step" onclick="prevStep(2)"><i class="w-icon-long-arrow-left"></i> Back</button>
+                                <button type="button" class="btn btn-primary btn-next-step" onclick="nextStep(2)">Next <i class="w-icon-long-arrow-right"></i></button>
+                            </div>
+                        </div> <!-- End Step 2 -->
+
+                        <div id="step-3" class="checkout-step" style="display: none;">
+                            <h3 class="title billing-title text-uppercase ls-10 pt-1 pb-3 mb-0 mt-5">Order & Meat Cutting Notes</h3>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="product-cutting-notes">Meat cutting notes (optional)</label>
+                                        <textarea class="form-control mb-0" id="product-cutting-notes" name="product-cutting-notes" cols="30" rows="4" placeholder="We offer the service of selecting the way you want to cut the meat."></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -283,24 +318,28 @@
                                 <textarea class="form-control mb-0" id="order-notes" name="order-notes" cols="30" rows="4" placeholder="Notes about your order, e.g special notes for delivery"></textarea>
                             </div>
 
-                            <div class="form-group  mt-3">
-                                <table class="shop-table cart-table">
-                                    <tbody class="productlist">
-                                    </tbody>
-                                </table>
+                            <div class="step-footer mt-4 d-flex justify-content-start">
+                                <button type="button" class="btn btn-default btn-prev-step" onclick="prevStep(3)"><i class="w-icon-long-arrow-left"></i> Back</button>
                             </div>
+                        </div> <!-- End Step 3 -->
+                        
+                        <div class="form-group  mt-3">
+                            <table class="shop-table cart-table">
+                                <tbody class="productlist">
+                                </tbody>
+                            </table>
+                        </div>
 
-                            <div class="d-flex justify-content-end">
-                                <div class="cart-action">
-                                    <a href="/shop" class="btn btn-dark btn-rounded btn-icon-left btn-shopping mr-auto  mt-1"><i class="w-icon-long-arrow-left"></i>Continue Shopping</a>
-                                    <a href="/cart.aspx" class="btn btn-dark btn-outline btn-rounded mb-1  mt-1"><i class="w-icon-cart pl-1 pr-1"></i>View Cart</a>
-                                </div>
+                        <div class="d-flex justify-content-end">
+                            <div class="cart-action">
+                                <a href="/shop" class="btn btn-dark btn-rounded btn-icon-left btn-shopping mr-auto  mt-1"><i class="w-icon-long-arrow-left"></i>Continue Shopping</a>
+                                <a href="/cart.aspx" class="btn btn-dark btn-outline btn-rounded mb-1  mt-1"><i class="w-icon-cart pl-1 pr-1"></i>View Cart</a>
                             </div>
                         </div>
-                        <div class="col-lg-5 mb-4 sticky-sidebar-wrapper">
-                            <div class="pin-wrapper" style="height: 899.025px;">
-                                <div class="order-summary-wrapper sticky-sidebar" style="border-bottom: 1px solid rgb(238, 238, 238); width: 505px;">
-                                    <h3 class="title text-uppercase ls-10">Your Order</h3>
+                    </div>
+                        <div class="col-lg-5 mb-4">
+                            <div class="order-summary-wrapper">
+                                <h3 class="title text-uppercase ls-10">Your Order</h3>
                                     <div class="order-summary">
                                         <table class="order-table">
                                             <thead>
@@ -362,11 +401,13 @@
                                             </div>
                                         </div>
 
-                                        <div class="form-group place-order pt-6">
-                                            <button type="button" class="btn btn-dark btn-block btn-rounded" onclick="SubmitOrder();">Order Now</button>
-                                        </div>
-                                        <div id="BankTransferOrder" runat="server" class="form-group place-order pt-1">
-                                            <button type="button" class="btn btn-dark btn-block btn-rounded" onclick="SubmitBankTransferOrder();">Bank Transfer</button>
+                                        <div id="final-submit-buttons" style="display: none;">
+                                            <div class="form-group place-order pt-6">
+                                                <button type="button" class="btn btn-dark btn-block btn-rounded" onclick="SubmitOrder();">Order Now</button>
+                                            </div>
+                                            <div id="BankTransferOrder" runat="server" class="form-group place-order pt-1">
+                                                <button type="button" class="btn btn-dark btn-block btn-rounded" onclick="SubmitBankTransferOrder();">Bank Transfer</button>
+                                            </div>
                                         </div>
                                         <div class="alert alert-icon alert-primary alert-bg alert-inline show-code-action mt-5">
                                             <h4 class="alert-title">
@@ -381,11 +422,27 @@ Sharia laws stipulate that the buyer, once the purchase is completed and then th
                     </div>
                 </div>
             </div>
-        </div>
     </main>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
     <script src="/assets/vendor/intlTelInput/intlTelInput.js"></script>
     <script src="/assets/js/checkout.js?v=3.1"></script>
     <script src="/assets/js/admin.js"></script>
+    <style>
+        .divPhone .iti, .divPhone2 .iti { width: 100%; display: block; }
+        .divPhone input[type="tel"], .divPhone2 input[type="tel"] { height: 42px !important; border: none !important; background: transparent !important; margin: 0 !important; }
+        
+        /* Stepper CSS */
+        .step-progress-bar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem; padding: 0; }
+        .step { display: flex; flex-direction: column; align-items: center; position: relative; z-index: 2; width: 60px; }
+        .step-circle { width: 40px; height: 40px; border-radius: 50%; background-color: #f4f4f4; color: #999; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.4rem; margin-bottom: 0.5rem; transition: all 0.3s; border: 2px solid #eee; }
+        .step.active .step-circle { background-color: #593930; color: #fff; border-color: #593930; }
+        .step.completed .step-circle { background-color: #593930; color: #fff; border-color: #593930; }
+        .step-text { font-size: 1.2rem; font-weight: 600; color: #777; text-align: center; white-space: nowrap; }
+        .step.active .step-text, .step.completed .step-text { color: #593930; }
+        .step-line { height: 3px; background-color: #eee; flex-grow: 1; position: relative; top: -12px; z-index: 1; transition: all 0.3s; }
+        .step-line.completed { background-color: #593930; }
+        .checkout-step { animation: fadeIn 0.4s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
 </asp:Content>

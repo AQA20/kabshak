@@ -24,7 +24,7 @@ namespace BusinessLogic
 
                 using (var context = new productsEntities())
                 {
-                    context.SubmitOrder(order._usertoken, order._items, order._first_name, order._last_name, order._number, order._email, order._cityid, order._town, order._block, order._street, order._house, order._apartment, order._paci, 0, string.Empty, string.Empty, string.Empty, 0, 0, 0, order._ordernotes, order._statusId, OrderId, order.promo_code, order.code_value);
+                    context.SubmitOrder(order._usertoken, order._items, order._first_name, order._last_name, order._number, order._email, order._cityid, order._town, order._block, order._street, order._house, order._apartment, order._paci, order._shippingcityid, order._shippingtown, order._shippingblock, order._shippingstreet, order._shippinghouse, order._shippingapartment, order._shippingpaci, order._ordernotes, order._statusId, OrderId, order.promo_code, order.code_value);
 
 
                     Id = OrderId.Value.ToString();

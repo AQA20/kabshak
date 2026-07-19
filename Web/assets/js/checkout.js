@@ -254,22 +254,22 @@ if (userId !== "-1") {
     BindPageData();
 }
 else {
-    BindBillingCountiries(74);
+    BindBillingCountiries(107);
 }
 
 var input = document.querySelector("#phone");
 window.intlTelInput(input, {
+    initialCountry: "jo",
     hiddenInput: "full_phone",
     utilsScript: "/assets/vendor/intlTelInput/utils.js?1603274336113",
 });
-var iti = intlTelInput(input);
-iti.setCountry("jo");
+var iti = window.intlTelInputGlobals.getInstance(input);
 
 
 cookie_cart_items = getCookie("cookie_cart_items");
 
 if (cookie_cart_items.trim() == "") {
-    window.location = "/" + (IsArabic ? 'ar/' : '') + "cart";
+    BindCheckoutPage("");
 }
 else {
     BindCheckoutPage(cookie_cart_items);
@@ -349,6 +349,7 @@ function FillBillingCitiesList(data) {
         }
 
         $('[name="billing-city"]').html(items);
+        $('[name="billing-city"]').trigger('change');
     }
 }
 
@@ -431,6 +432,20 @@ function FillCheckoutPageItems(data) {
         $('.CheckoutItems').html(items);
 
         $('.order-total span').html(total.toFixed(2) + " " + rate_code);
+        
+        $('.checkout-stepper, .checkout-step').css({'pointer-events': '', 'opacity': ''});
+        $('.empty-cart-warning').remove();
+        $('.btn-place-order').prop('disabled', false);
+    } else {
+        $('.CheckoutItems').html(`<tr><td colspan="2" style="text-align: center;font-size: 17px;font-weight: 600;color: #593930;">${IsArabic ? 'لم يتم العثور على نتائج!' : 'No Result Found!'}</td></tr>`);
+        $('.order-total span').html("0 " + rate_code);
+        
+        $('.checkout-stepper, .checkout-step').css({'pointer-events': 'none', 'opacity': '0.5'});
+        if ($('.empty-cart-warning').length === 0) {
+            $('.col-lg-7.pr-lg-4.mb-4').prepend(`<div class="empty-cart-warning alert alert-warning" style="margin-bottom: 20px; font-weight: bold; background-color: #fff3cd; color: #856404; padding: 15px; border-radius: 5px; border: 1px solid #ffeeba;">
+                ${IsArabic ? 'يرجى إضافة شيء إلى عربة التسوق للمتابعة' : 'Please add something to cart to continue.'}
+            </div>`);
+        }
     }
 }
 
@@ -496,8 +511,9 @@ function FillPageData(data) {
         BindBillingCities(BillingAddress.City.Country.CountryId);
     }
     else {
-        BindBillingCountiries(74);
-        BindBillingCities(74);
+        billingCityId = "1834";
+        BindBillingCountiries(107);
+        BindBillingCities(107);
     }
 }
 
@@ -634,6 +650,16 @@ function SubmitOrder() {
         fdata.append('ordernotes', OrderNotes);
         fdata.append('shareholders', JSON.stringify(Shareholders));
         fdata.append('shippingshareholders', JSON.stringify(Shipping_Shareholders));
+        
+        fdata.append('shippingcityid', $('[name="shipping-city"]').val() || "-1");
+        fdata.append('shippingtown', ($('[name="shipping-town"]')[0] ? $('[name="shipping-town"]')[0].value.trim() : ""));
+        fdata.append('shippingblock', ""); 
+        fdata.append('shippingstreet', ($('[name="shipping-street"]')[0] ? $('[name="shipping-street"]')[0].value.trim() : ""));
+        fdata.append('shippinghouse', ($('[name="shipping-house"]')[0] && $('[name="shipping-house"]')[0].value.trim() !== "" ? $('[name="shipping-house"]')[0].value.trim() : "0"));
+        fdata.append('shippingapartment', ($('[name="shipping-Apartment"]')[0] && $('[name="shipping-Apartment"]')[0].value.trim() !== "" ? $('[name="shipping-Apartment"]')[0].value.trim() : "0"));
+        fdata.append('shippingpaci', "0"); 
+        fdata.append('shippingnumber', ($('#contact_phone')[0] ? $('#contact_phone')[0].value.trim() : ""));
+
         fdata.append('auth_token', "");
         fdata.append('promo_code', document.getElementById('txtPromoCode').value.trim());
         fdata.append('code_value', _promocodevalue / rate_value);
@@ -1083,6 +1109,16 @@ function SubmitBankTransferOrder() {
         fdata.append('ordernotes', OrderNotes);
         fdata.append('shareholders', JSON.stringify(Shareholders));
         fdata.append('shippingshareholders', JSON.stringify(Shipping_Shareholders));
+
+        fdata.append('shippingcityid', $('[name="shipping-city"]').val() || "-1");
+        fdata.append('shippingtown', ($('[name="shipping-town"]')[0] ? $('[name="shipping-town"]')[0].value.trim() : ""));
+        fdata.append('shippingblock', ""); 
+        fdata.append('shippingstreet', ($('[name="shipping-street"]')[0] ? $('[name="shipping-street"]')[0].value.trim() : ""));
+        fdata.append('shippinghouse', ($('[name="shipping-house"]')[0] && $('[name="shipping-house"]')[0].value.trim() !== "" ? $('[name="shipping-house"]')[0].value.trim() : "0"));
+        fdata.append('shippingapartment', ($('[name="shipping-Apartment"]')[0] && $('[name="shipping-Apartment"]')[0].value.trim() !== "" ? $('[name="shipping-Apartment"]')[0].value.trim() : "0"));
+        fdata.append('shippingpaci', "0"); 
+        fdata.append('shippingnumber', ($('#contact_phone')[0] ? $('#contact_phone')[0].value.trim() : ""));
+
         fdata.append('auth_token', "");
         fdata.append('promo_code', document.getElementById('txtPromoCode').value.trim());
         fdata.append('code_value', _promocodevalue / rate_value);
@@ -1130,17 +1166,45 @@ $(document).on('change', '#same-as-billing', function() {
     if (isChecked) {
         $fields.prop('readonly', true);
         $fields.css('background-color', '#f4f4f4');
-        
-        // Visually copy values
+        syncBillingToShipping();
+    } else {
+        $fields.prop('readonly', false);
+        $fields.css('background-color', '#ffffff');
+        $('#contact_phone').val('');
+    }
+});
+
+function syncBillingToShipping() {
+    if ($('#same-as-billing').is(':checked')) {
         $('[name="shipping-town"]').val($('[name="billing-town"]').val());
         $('[name="shipping-street"]').val($('[name="billing-street"]').val());
         $('[name="shipping-house"]').val($('[name="billing-house"]').val());
         $('[name="shipping-Apartment"]').val($('[name="billing-Apartment"]').val());
-    } else {
-        $fields.prop('readonly', false);
-        $fields.css('background-color', '#ffffff');
+        
+        let bCountry = $('#billingCountries').val();
+        if(bCountry && bCountry != '-1') {
+            $('#shippingCountries').val(bCountry);
+        }
+        
+        let bCityHtml = $('[name="billing-city"]').html();
+        if (bCityHtml) {
+            $('[name="shipping-city"]').html(bCityHtml);
+        }
+        
+        let bCity = $('[name="billing-city"]').val();
+        if(bCity && bCity != '-1') {
+            $('[name="shipping-city"]').val(bCity);
+        }
+
+        if (typeof iti !== 'undefined' && typeof iti2 !== 'undefined' && iti && iti2) {
+            iti2.setNumber(iti.getNumber());
+        } else {
+            $('#contact_phone').val($('#phone').val());
+        }
     }
-});
+}
+
+$('[name^="billing-"], #phone, #billingCountries').on('input change', syncBillingToShipping);
 
 var shipping_input = document.querySelector("#contact_phone");
 var iti2 = null;
@@ -1194,6 +1258,13 @@ function ValidateShippingFields() {
             let s = $('[name="billing-street"]')[0]; if(s) { sh_street = s.value.trim(); $('[name="shipping-street"]').val(sh_street); }
             let h = $('[name="billing-house"]')[0]; if(h) { sh_house = h.value.trim(); $('[name="shipping-house"]').val(sh_house); }
             let a = $('[name="billing-Apartment"]')[0]; if(a) { sh_apartment = a.value.trim(); $('[name="shipping-Apartment"]').val(sh_apartment); }
+            
+            let contactPhoneEl = document.getElementById('contact_phone');
+            if (contactPhoneEl) contactPhoneEl.style.background = "#ffffff";
+            $('.divPhone2').css("background", "#ffffff");
+            
+            let mainPhoneInput = document.querySelector("#phone");
+            if (mainPhoneInput) { sh_phone = mainPhoneInput.value.trim(); $('#contact_phone').val(sh_phone); }
         } else {
             let s_city = $('[name="shipping-city"]');
             let s_town = $('[name="shipping-town"]')[0];
@@ -1220,22 +1291,22 @@ function ValidateShippingFields() {
 
             if (s_apart && s_apart.value.trim() === "") { isValid = false; s_apart.style.background = "#fff9b3"; }
             else if(s_apart) { s_apart.style.background = "#ffffff"; sh_apartment = s_apart.value.trim(); }
-        }
 
-        if (sh_phone !== "") {
-            var code = iti2 && iti2.selectedCountryData ? iti2.selectedCountryData.dialCode : '962';
-            if (isValidJordanNumber(sh_phone.replaceAll(' ', '')) && code == '962') {
-                document.getElementById('contact_phone').style.background = "#ffffff";
-                $('.divPhone2').css("background", "#ffffff");
+            if (sh_phone !== "") {
+                var code = iti2 && iti2.selectedCountryData ? iti2.selectedCountryData.dialCode : '962';
+                if (isValidJordanNumber(sh_phone.replaceAll(' ', '')) && code == '962') {
+                    document.getElementById('contact_phone').style.background = "#ffffff";
+                    $('.divPhone2').css("background", "#ffffff");
+                } else {
+                    document.getElementById('contact_phone').style.background = "#fff9b3";
+                    $('.divPhone2').css("background", "#fff9b3");
+                    isValid = false;
+                }
             } else {
                 document.getElementById('contact_phone').style.background = "#fff9b3";
                 $('.divPhone2').css("background", "#fff9b3");
                 isValid = false;
             }
-        } else {
-            document.getElementById('contact_phone').style.background = "#fff9b3";
-            $('.divPhone2').css("background", "#fff9b3");
-            isValid = false;
         }
 
         if (isValid) {
@@ -1314,3 +1385,141 @@ $(document).ready(function() {
     $('#same-as-billing').trigger('change');
     LoadShippingCountries(107);
 });
+
+// --- Stepper Logic ---
+let currentStep = 1;
+
+function updateStepperUI(step) {
+    $('.checkout-step').hide();
+    $('#step-' + step).fadeIn(400);
+
+    $('.step').removeClass('active completed');
+    $('.step-line').removeClass('completed');
+
+    for (let i = 1; i <= 3; i++) {
+        if (i < step) {
+            $('#indicator-' + i).addClass('completed');
+            if (i < 3) $('#indicator-' + i).next('.step-line').addClass('completed');
+        } else if (i === step) {
+            $('#indicator-' + i).addClass('active');
+        }
+    }
+
+    if (step === 3) {
+        $('#final-submit-buttons').fadeIn();
+    } else {
+        $('#final-submit-buttons').hide();
+    }
+}
+
+function validateStep(step) {
+    let isValid = true;
+    let inputsToValidate = [];
+
+    function showError(el, isArabicMsg, isEnglishMsg) {
+        isValid = false;
+        el.css('background', '#fff9b3');
+        let errorMsg = IsArabic ? isArabicMsg : isEnglishMsg;
+        let target = el.closest('.iti').length ? el.closest('.iti') : el;
+        
+        if (target.next('.field-error-msg').length) {
+            target.next('.field-error-msg').remove();
+        }
+        
+        $(`<div class="field-error-msg mt-1" style="color: #e53e3e !important; font-size: 12px; clear: both; font-weight: 600;">${errorMsg}</div>`).insertAfter(target);
+        
+        el.one('input change', function() { 
+            $(this).css('background', '#ffffff'); 
+            let t = $(this).closest('.iti').length ? $(this).closest('.iti') : $(this);
+            t.next('.field-error-msg').remove();
+        });
+    }
+
+    if (step === 1) {
+        inputsToValidate = ['[name="firstname"]', '[name="lastname"]', '[name="email"]'];
+        let phoneInput = document.querySelector("#phone");
+        if (phoneInput && window.intlTelInputGlobals) {
+            let iti = window.intlTelInputGlobals.getInstance(phoneInput);
+            if (iti) {
+                if (!iti.isValidNumber()) {
+                    showError($(phoneInput), 'يرجى إدخال رقم هاتف صحيح', 'Please enter a valid phone number');
+                } else {
+                    phoneInput.style.background = "#ffffff";
+                    let target = $(phoneInput).closest('.iti').length ? $(phoneInput).closest('.iti') : $(phoneInput);
+                    target.next('.field-error-msg').remove();
+                    $('[name="full_phone"]').val(iti.getNumber());
+                }
+            }
+        }
+    } else if (step === 2) {
+        inputsToValidate = [
+            '#billingCountries', '[name="billing-city"]', '[name="billing-town"]', 
+            '[name="billing-block"]', '[name="billing-street"]', '[name="billing-house"]', '[name="billing-Apartment"]'
+        ];
+        
+        let sameAsBilling = $('#same-as-billing').is(':checked');
+        let hasShippingSection = !$('#checkout-shipping-section').hasClass('d-none');
+        
+        if (hasShippingSection && !sameAsBilling) {
+            inputsToValidate = inputsToValidate.concat([
+                '#shippingCountries', '[name="shipping-city"]', '[name="shipping-town"]', 
+                '[name="shipping-street"]', '[name="shipping-house"]', '[name="shipping-Apartment"]'
+            ]);
+            let cphoneInput = document.querySelector("#contact_phone");
+            if (cphoneInput && window.intlTelInputGlobals) {
+                let iti = window.intlTelInputGlobals.getInstance(cphoneInput);
+                if (iti) {
+                    if (!iti.isValidNumber()) {
+                        showError($(cphoneInput), 'يرجى إدخال رقم هاتف صحيح', 'Please enter a valid phone number');
+                    } else {
+                        cphoneInput.style.background = "#ffffff";
+                        let target = $(cphoneInput).closest('.iti').length ? $(cphoneInput).closest('.iti') : $(cphoneInput);
+                        target.next('.field-error-msg').remove();
+                        $('[name="contact_full_phone"]').val(iti.getNumber());
+                    }
+                }
+            }
+        }
+    }
+
+    inputsToValidate.forEach(selector => {
+        let el = $(selector);
+        if (el.length) {
+            let val = el.val();
+            if (!val || val.toString().trim() === "" || val === "-1" || val === "0") {
+                showError(el, 'هذا الحقل مطلوب', 'This field is required');
+            } else if (selector === '[name="email"]' && typeof ValidateEmail === "function" && !ValidateEmail(val.toString().trim())) {
+                showError(el, 'يرجى إدخال بريد إلكتروني صحيح', 'Please enter a valid email address');
+            } else {
+                el.css('background', '#ffffff');
+                let target = el.closest('.iti').length ? el.closest('.iti') : el;
+                target.next('.field-error-msg').remove();
+            }
+        }
+    });
+
+    if (!isValid) {
+        Swal.fire({
+            icon: 'warning',
+            title: IsArabic ? 'حقل مطلوب' : 'Required Field',
+            text: IsArabic ? 'يرجى تعبئة جميع الحقول المطلوبة بشكل صحيح' : 'Please fill all required fields correctly.',
+            confirmButtonText: IsArabic ? 'حسنا' : 'OK'
+        });
+    }
+
+    return isValid;
+}
+
+function nextStep(step) {
+    if (validateStep(step)) {
+        currentStep = step + 1;
+        updateStepperUI(currentStep);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+}
+
+function prevStep(step) {
+    currentStep = step - 1;
+    updateStepperUI(currentStep);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
