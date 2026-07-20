@@ -608,9 +608,9 @@ function FillCartItems(data) {
                                 <a href="#" onclick="voidclick(); return false" class="product-name">${IsArabic ? item.NameAr : item.NameEn}</a>
                                 <div class="price-box" style="display: flex; align-items: center; justify-content: space-between; width: 100%; margin-top: 5px; margin-bottom: 5px;">
                                     <div class="premium-qty-container d-flex align-items-center" style="max-width: 100px; background: #ffffff; border: 1px solid #eaebec; border-radius: 50px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); overflow: hidden; transition: all 0.3s ease;">
-                                        <button type="button" class="premium-qty-btn" onclick="ChangeMiniCartQuantity('${item.Token}', ${item.Amount > 0 ? item.Count - 1 : 0})" style="background: transparent; border: none; padding: 4px 8px; cursor: pointer; color: #888; font-size: 11px; transition: all 0.2s ease; outline: none;" onmouseover="this.style.color='#000'; this.style.background='#f8f9fa'" onmouseout="this.style.color='#888'; this.style.background='transparent'"><i class="w-icon-minus"></i></button>
-                                        <input class="premium-qty-input form-control" type="number" min="1" max="100000" value="${item.Amount > 0 ? item.Count : 0}" onchange="ChangeMiniCartQuantity('${item.Token}', parseInt(this.value))" onkeydown="if(event.key === 'Enter'){event.preventDefault(); this.blur(); return false;}" style="border: none; text-align: center; padding: 4px 0; width: 100%; -moz-appearance: textfield; box-shadow: none; font-weight: 700; color: #222; font-size: 13px; background: transparent; outline: none; height: auto;">
-                                        <button type="button" class="premium-qty-btn" onclick="ChangeMiniCartQuantity('${item.Token}', ${item.Amount > 0 ? item.Count + 1 : 0})" style="background: transparent; border: none; padding: 4px 8px; cursor: pointer; color: #888; font-size: 11px; transition: all 0.2s ease; outline: none;" onmouseover="this.style.color='#000'; this.style.background='#f8f9fa'" onmouseout="this.style.color='#888'; this.style.background='transparent'"><i class="w-icon-plus"></i></button>
+                                        <button type="button" class="premium-qty-btn" onclick="ChangeMiniCartQuantity(${index}, '${item.Token}', ${item.Amount > 0 ? item.Count - 1 : 0})" style="background: transparent; border: none; padding: 4px 8px; cursor: pointer; color: #888; font-size: 11px; transition: all 0.2s ease; outline: none;" onmouseover="this.style.color='#000'; this.style.background='#f8f9fa'" onmouseout="this.style.color='#888'; this.style.background='transparent'"><i class="w-icon-minus"></i></button>
+                                        <input class="premium-qty-input form-control" type="number" min="1" max="100000" value="${item.Amount > 0 ? item.Count : 0}" onchange="ChangeMiniCartQuantity(${index}, '${item.Token}', parseInt(this.value))" onkeydown="if(event.key === 'Enter'){event.preventDefault(); this.blur(); return false;}" style="border: none; text-align: center; padding: 4px 0; width: 100%; -moz-appearance: textfield; box-shadow: none; font-weight: 700; color: #222; font-size: 13px; background: transparent; outline: none; height: auto;">
+                                        <button type="button" class="premium-qty-btn" onclick="ChangeMiniCartQuantity(${index}, '${item.Token}', ${item.Amount > 0 ? item.Count + 1 : 0})" style="background: transparent; border: none; padding: 4px 8px; cursor: pointer; color: #888; font-size: 11px; transition: all 0.2s ease; outline: none;" onmouseover="this.style.color='#000'; this.style.background='#f8f9fa'" onmouseout="this.style.color='#888'; this.style.background='transparent'"><i class="w-icon-plus"></i></button>
                                     </div>
                                     <span class="product-price" style="color: #999; margin: 0 15px;">X ${item.Amount > 0 ? Math.ceil(item.Usd * rate_value) : 0} ${rate_code}</span>
                                 </div>
@@ -623,7 +623,7 @@ function FillCartItems(data) {
                                     <img src="/${item.Url}" alt="product" height="84" width="94" style="border: solid 1px #eee;">
                                    <span style="font-size: 9px;"> ${item.Donation ? IsArabic ? "منتج للتبرع" : "Donation Product" : IsArabic ? "منتج للشحن" : "Shipping Product"}</span >
                                 </a>
-                                <button class="btn btn-link btn-close" onclick="RemoveItemCart('${item.Token}', ${item.Amount > 0 ? (item.Count * (item.Usd * rate_value)) : 0});" aria-label="button" style="position: absolute; top: -5px; right: -5px; background: #fff; border-radius: 50%; padding: 2px; border: 1px solid #ccc; width: 20px; height: 20px; display: flex; justify-content: center; align-items: center; font-size: 10px; color: #333; z-index: 10;"><i class="fas fa-times"></i></button>
+                                <button class="btn btn-link btn-close" onclick="RemoveItemCart(${index}, '${item.Token}');" aria-label="button" style="position: absolute; top: -5px; right: -5px; background: #fff; border-radius: 50%; padding: 2px; border: 1px solid #ccc; width: 20px; height: 20px; display: flex; justify-content: center; align-items: center; font-size: 10px; color: #333; z-index: 10;"><i class="fas fa-times"></i></button>
                             </figure>
                         </div>`);
         }
@@ -641,7 +641,7 @@ function FillCartItems(data) {
                                 </div>`);
         }
 
-        $(".products").html(items);
+        $(".products").html(items.join(''));
 
         if (window.location.href.indexOf("/cart") > -1) {
             let grandTotal = 0;
@@ -684,7 +684,7 @@ function FillCartItems(data) {
     }
 }
 
-function RemoveItemCart(Token, value) {
+function RemoveItemCart(targetIndex, Token) {
     let cookie_cart_items = getCookie("cookie_cart_items");
     let items = cookie_cart_items.split(',');
     let new_cookie = [];
@@ -692,10 +692,8 @@ function RemoveItemCart(Token, value) {
     for (let index = 0; index < items.length; index++) {
         let product = items[index];
         if (product.trim() === "") continue;
-        let item = product.split('|');
-
-        if (item[0] != Token) {
-            new_cookie.push(item[0] + "|" + item[1]);
+        if (index != targetIndex) {
+            new_cookie.push(product);
         }
     }
 
@@ -710,14 +708,16 @@ function RemoveItemCart(Token, value) {
         for (let i = 0; i < cart_json.length; i++) {
             if (cart_json[i].trim() === "") continue;
             try {
-                let parsed = JSON.parse(cart_json[i]);
-                if (parsed.productToken != Token) {
-                    data.push(parsed);
-                }
+                data.push(JSON.parse(cart_json[i]));
             } catch (e) {
                 console.error("Error parsing cart JSON:", e);
             }
         }
+        
+        if (targetIndex >= 0 && targetIndex < data.length) {
+            data.splice(targetIndex, 1);
+        }
+        
         let newCookieVal = data.map(x => JSON.stringify(x)).join('|');
         setCookie('Shareholders', newCookieVal, 7);
     }
@@ -945,23 +945,24 @@ function CheckSouldOutProducts() {
     });
 }
 
-function ChangeMiniCartQuantity(Token, newQuantity) {
+function ChangeMiniCartQuantity(targetIndex, Token, newQuantity) {
     if (newQuantity < 1) return;
     let cookie_cart_items = getCookie("cookie_cart_items");
     let items = cookie_cart_items.split(',');
     let new_cookie = [];
-    let found = false;
+    
     for (let index = 0; index < items.length; index++) {
         let product = items[index];
         if (product.trim() === "") continue;
         let item = product.split('|');
-        if (item[0] == Token) {
-            item[1] = newQuantity;
-            found = true;
+        if (index == targetIndex) {
+            new_cookie.push(item[0] + '|' + newQuantity);
+        } else {
+            new_cookie.push(product);
         }
-        new_cookie.push(item[0] + "|" + item[1]);
     }
-    if (found) {
+
+    if (new_cookie.length > 0) {
         // Sync Shareholders cookie
         let shareholders = getCookie('Shareholders');
         if (shareholders != '') {
@@ -971,7 +972,7 @@ function ChangeMiniCartQuantity(Token, newQuantity) {
                 if (cart_json[i].trim() === "") continue;
                 try {
                     let parsed = JSON.parse(cart_json[i]);
-                    if (parsed.productToken == Token) {
+                    if (i == targetIndex) {
                         parsed.Quantity = newQuantity;
                     }
                     data.push(parsed);

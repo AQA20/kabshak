@@ -1245,15 +1245,11 @@ function ValidateShippingFields() {
         let isSameAsBilling = $('#same-as-billing').is(':checked');
         
         let sh_cityid = -1, sh_town = "", sh_street = "", sh_house = "", sh_apartment = "";
-        let sh_phone = "", sh_notes = "";
+        let sh_phone = "";
 
         let phoneInput = document.querySelector("#contact_phone");
         if (phoneInput) {
             sh_phone = phoneInput.value.trim();
-        }
-        let notesInput = $('[name="product-cutting-notes"]')[0];
-        if (notesInput) {
-            sh_notes = notesInput.value.trim();
         }
 
         if (isSameAsBilling) {
@@ -1322,7 +1318,6 @@ function ValidateShippingFields() {
                 Shipping_Shareholders[i].ShippingHouse = sh_house;
                 Shipping_Shareholders[i].ShippingApartment = sh_apartment;
                 Shipping_Shareholders[i].ShippingNumber = sh_phone;
-                Shipping_Shareholders[i].cuttingNotes = sh_notes;
             }
         }
     }

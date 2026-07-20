@@ -303,15 +303,7 @@
                         </div> <!-- End Step 2 -->
 
                         <div id="step-3" class="checkout-step" style="display: none;">
-                            <h3 class="title billing-title text-uppercase ls-10 pt-1 pb-3 mb-0 mt-5">Order & Meat Cutting Notes</h3>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for="product-cutting-notes">Meat cutting notes (optional)</label>
-                                        <textarea class="form-control mb-0" id="product-cutting-notes" name="product-cutting-notes" cols="30" rows="4" placeholder="We offer the service of selecting the way you want to cut the meat."></textarea>
-                                    </div>
-                                </div>
-                            </div>
+                            <h3 class="title billing-title text-uppercase ls-10 pt-1 pb-3 mb-0 mt-5">Order Notes</h3>
 
                             <div class="form-group  mt-3 mb-2">
                                 <label for="order-notes">Order notes (optional)</label>
@@ -426,7 +418,7 @@ Sharia laws stipulate that the buyer, once the purchase is completed and then th
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
     <script src="/assets/vendor/intlTelInput/intlTelInput.js"></script>
-    <script src="/assets/js/checkout.js?v=3.1"></script>
+    <script src="/assets/js/checkout.js?v=3.2"></script>
     <script src="/assets/js/admin.js"></script>
     <style>
         .divPhone .iti, .divPhone2 .iti { width: 100%; display: block; }

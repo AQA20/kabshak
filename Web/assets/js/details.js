@@ -841,23 +841,25 @@ function FillProductPurposesList(data) {
 function SaveShareholderInfo(token) {
     var val = true;
 
-    var charityId = $('[name="charities"]').find(":selected").val();
+    var $context = $('.mfp-wrap').length > 0 ? $('.mfp-wrap') : $('body');
+
+    var charityId = $context.find('[name="charities"]').find(":selected").val();
     if (typeof charityId == "undefined" || charityId == '-1') {
         val = false;
-        $('[name="charities"]')[0].style.background = "#fff9b3";
+        $context.find('[name="charities"]')[0].style.background = "#fff9b3";
     } else {
-        $('[name="charities"]')[0].style.background = "#ffffff";
+        $context.find('[name="charities"]')[0].style.background = "#ffffff";
     }
 
-    var purposeId = $('[name="purposes"]').find(":selected").val();
+    var purposeId = $context.find('[name="purposes"]').find(":selected").val();
     if (typeof purposeId == "undefined" || purposeId == '-1') {
         val = false;
-        $('[name="purposes"]')[0].style.background = "#fff9b3";
+        $context.find('[name="purposes"]')[0].style.background = "#fff9b3";
     } else {
-        $('[name="purposes"]')[0].style.background = "#ffffff";
+        $context.find('[name="purposes"]')[0].style.background = "#ffffff";
     }
 
-    var Shareholder = $('[name="Shareholder"]')[0];
+    var Shareholder = $context.find('[name="Shareholder"]')[0];
     if (typeof Shareholder == "undefined" || Shareholder.value.trim() == '') {
         val = false;
         Shareholder.style.background = "#fff9b3";
@@ -866,13 +868,13 @@ function SaveShareholderInfo(token) {
         Shareholder.style.background = "#ffffff";
     }
 
-    let qunt = $('#quantity' + token)[0].value;
+    let qunt = $context.find('#quantity' + token)[0].value;
     if (qunt == '0') {
         val = false;
-        $('.product-qty-form .input-group')[0].style.background = "#fff9b3";
+        $context.find('.product-qty-form .input-group')[0].style.background = "#fff9b3";
     }
     else {
-        $('.product-qty-form .input-group')[0].style.background = "#ffffff";
+        $context.find('.product-qty-form .input-group')[0].style.background = "#ffffff";
     }
 
     if (!val) {
@@ -889,9 +891,12 @@ function SaveShareholderInfo(token) {
     }
 
     if (val) {
-        let name = $('.product-single-swiper .product-title').html() + ' - ' + $('.collapse').html();
-        let imageElement = $('.product-single-swiper img')[0];
+        let name = $context.find('.product-single-swiper .product-title').html() + ' - ' + $context.find('.collapse').html();
+        let imageElement = $context.find('.product-single-swiper img')[0];
         let image = imageElement ? imageElement.src : '';
+        let notesInput = $context.find('[name="product-cutting-notes"]')[0];
+        let notes = notesInput ? notesInput.value.trim() : '';
+
         const Item = {
             Donation: 1,
             PurposeId: purposeId,
@@ -907,14 +912,17 @@ function SaveShareholderInfo(token) {
             ShippingStreet: '',
             ShippingApartment: 0,
             ShippingNumber: '',
-            cuttingNotes: '',
+            cuttingNotes: notes,
         };
 
         add_shareholders_value(Item);
 
         Shareholder.value = "";
-        $('[name="charities"]').val('-1');
-        $('[name="purposes"]').val('-1');
+        if (notesInput) {
+            notesInput.value = "";
+        }
+        $context.find('[name="charities"]').val('-1');
+        $context.find('[name="purposes"]').val('-1');
         AddToCart(token, parseInt(qunt));
         $('.mfp-close').click();
     }
@@ -943,15 +951,17 @@ function add_shareholders_value(json) {
 function SaveShippingShareholderInfo(token) {
     var val = true;
 
-    var purposeId = $('[name="purposes"]').find(":selected").val();
+    var $context = $('.mfp-wrap').length > 0 ? $('.mfp-wrap') : $('body');
+
+    var purposeId = $context.find('[name="purposes"]').find(":selected").val();
     if (typeof purposeId == "undefined" || purposeId == '-1') {
         val = false;
-        $('[name="purposes"]')[0].style.background = "#fff9b3";
+        $context.find('[name="purposes"]')[0].style.background = "#fff9b3";
     } else {
-        $('[name="purposes"]')[0].style.background = "#ffffff";
+        $context.find('[name="purposes"]')[0].style.background = "#ffffff";
     }
 
-    var Shareholder = $('[name="Shareholder"]')[0];
+    var Shareholder = $context.find('[name="Shareholder"]')[0];
     if (typeof Shareholder == "undefined" || Shareholder.value.trim() == '') {
         val = false;
         Shareholder.style.background = "#fff9b3";
@@ -960,13 +970,13 @@ function SaveShippingShareholderInfo(token) {
         Shareholder.style.background = "#ffffff";
     }
 
-    let qunt = $('#quantity' + token)[0].value;
+    let qunt = $context.find('#quantity' + token)[0].value;
     if (qunt == '0') {
         val = false;
-        $('.product-qty-form .input-group')[0].style.background = "#fff9b3";
+        $context.find('.product-qty-form .input-group')[0].style.background = "#fff9b3";
     }
     else {
-        $('.product-qty-form .input-group')[0].style.background = "#ffffff";
+        $context.find('.product-qty-form .input-group')[0].style.background = "#ffffff";
     }
 
     if (!val) {
@@ -983,9 +993,12 @@ function SaveShippingShareholderInfo(token) {
     }
 
     if (val) {
-        let name = $('.product-single-swiper .product-title').html() + ' - ' + $('.collapse').html();
-        let imageElement = $('.product-single-swiper img')[0];
+        let name = $context.find('.product-single-swiper .product-title').html() + ' - ' + $context.find('.collapse').html();
+        let imageElement = $context.find('.product-single-swiper img')[0];
         let image = imageElement ? imageElement.src : '';
+        let notesInput = $context.find('[name="product-cutting-notes"]')[0];
+        let notes = notesInput ? notesInput.value.trim() : '';
+
         const Item = {
             Donation: 0,
             PurposeId: purposeId,
@@ -1001,13 +1014,17 @@ function SaveShippingShareholderInfo(token) {
             ShippingStreet: '',
             ShippingApartment: '',
             ShippingNumber: '',
-            cuttingNotes: '',
+            cuttingNotes: notes,
+        }
+
+        if (notesInput) {
+            notesInput.value = "";
         }
 
         add_shareholders_value(Item);
 
         Shareholder.value = "";
-        $('[name="purposes"]').val('-1');
+        $context.find('[name="purposes"]').val('-1');
         AddToCart(token, parseInt(qunt));
         $('.mfp-close').click();
     }

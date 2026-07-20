@@ -310,15 +310,7 @@
                         </div> <!-- End Step 2 -->
 
                         <div id="step-3" class="checkout-step" style="display: none;">
-                            <h3 class="title billing-title text-uppercase ls-10 pt-1 pb-3 mb-0 mt-5">ملاحظات الطلب وتقطيع اللحوم</h3>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for="product-cutting-notes">ملاحظات تقطيع اللحوم (اختياري)</label>
-                                        <textarea class="form-control mb-0" id="product-cutting-notes" name="product-cutting-notes" cols="30" rows="4" placeholder="نحن نقدم خدمة اختيار الطريقة التي ترغب في تقطيع اللحم بها."></textarea>
-                                    </div>
-                                </div>
-                            </div>
+                            <h3 class="title billing-title text-uppercase ls-10 pt-1 pb-3 mb-0 mt-5">ملاحظات الطلب</h3>
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group mt-3">
@@ -436,7 +428,7 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
     <script src="/assets/vendor/intlTelInput/intlTelInput.js"></script>
-    <script src="/assets/js/checkout.js?v=3.1"></script>
+    <script src="/assets/js/checkout.js?v=3.2"></script>
     <script src="/assets/js/admin.js"></script>
     <style>
         .divPhone .iti, .divPhone2 .iti { width: 100%; display: block; }

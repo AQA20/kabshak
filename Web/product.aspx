@@ -462,6 +462,13 @@
                             <input type="text" class="form-control form-control-md" name="Shareholder">
                         </div>
                     </div>
+                    
+                    <div>
+                        <div class="form-group mt-3">
+                            <p class="mb-0">Meat cutting notes (optional)</p>
+                            <textarea class="form-control mb-0" id="product-cutting-notes" name="product-cutting-notes" cols="30" rows="3" placeholder="We offer the service of selecting the way you want to cut the meat."></textarea>
+                        </div>
+                    </div>
 
                     <div>
                         <button type="button" class="btn btn-dark btn-block btn-rounded mt-3 btn-save-shareholder"><i class="w-icon-cart"></i>Add To Cart</button>
@@ -481,6 +488,6 @@
     <script src="/assets/vendor/zoom/jquery.zoom.js"></script>
     <script src="/assets/vendor/photoswipe/photoswipe.js"></script>
     <script src="/assets/vendor/photoswipe/photoswipe-ui-default.js"></script>
-    <script src="/assets/js/details.js?v=3.0"></script>
+    <script src="/assets/js/details.js?v=3.2"></script>
     <script src="/assets/vendor/magnific-popup/jquery.magnific-popup.js"></script>
 </asp:Content>

@@ -432,6 +432,7 @@ function RemoveItemFromTheList(i, token, quantity) {
                 ShippingStreet: product.ShippingStreet,
                 ShippingApartment: product.ShippingApartment,
                 ShippingNumber: product.ShippingNumber,
+                cuttingNotes: product.cuttingNotes,
             }
 
             add_shareholders_value(Item);

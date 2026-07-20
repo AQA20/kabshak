@@ -1005,8 +1005,6 @@ namespace BusinessLogic
                         int.TryParse(x[1], out cnt);
                         return new { Token = x[0].Trim(), Count = cnt };
                     })
-                    .GroupBy(x => x.Token)
-                    .Select(x => new { Token = x.Key, Count = x.Sum(y => y.Count) })
                     .ToList();
 
                 if (!itemsList.Any())
