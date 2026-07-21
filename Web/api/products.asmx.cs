@@ -875,6 +875,15 @@ namespace web.api
                     foreach (Shipping_Shareholder_Class item in shippings_hareholders)
                     {
                         item.usertoken = _Order._usertoken;
+
+                        if (string.IsNullOrEmpty(item.ShippingCityid) || item.ShippingCityid == "0") item.ShippingCityid = _Order._shippingcityid.ToString();
+                        if (string.IsNullOrEmpty(item.ShippingTown)) item.ShippingTown = _Order._shippingtown;
+                        if (string.IsNullOrEmpty(item.ShippingBlock) || item.ShippingBlock.Trim() == "") item.ShippingBlock = _Order._shippingblock;
+                        if (string.IsNullOrEmpty(item.ShippingStreet)) item.ShippingStreet = _Order._shippingstreet;
+                        if (string.IsNullOrEmpty(item.ShippingHouse) || item.ShippingHouse == "0") item.ShippingHouse = _Order._shippinghouse.ToString();
+                        if (string.IsNullOrEmpty(item.ShippingApartment) || item.ShippingApartment == "0") item.ShippingApartment = _Order._shippingapartment.ToString();
+                        if (string.IsNullOrEmpty(item.ShippingNumber)) item.ShippingNumber = _Order._shippingnumber;
+
                         _ordersBl.SubmitOrderShippingShareholder(item, status);
                     }
                 }
@@ -954,6 +963,15 @@ namespace web.api
                     foreach (Shipping_Shareholder_Class item in shippings_hareholders)
                     {
                         item.usertoken = _Order._usertoken;
+
+                        if (string.IsNullOrEmpty(item.ShippingCityid) || item.ShippingCityid == "0") item.ShippingCityid = _Order._shippingcityid.ToString();
+                        if (string.IsNullOrEmpty(item.ShippingTown)) item.ShippingTown = _Order._shippingtown;
+                        if (string.IsNullOrEmpty(item.ShippingBlock) || item.ShippingBlock.Trim() == "") item.ShippingBlock = _Order._shippingblock;
+                        if (string.IsNullOrEmpty(item.ShippingStreet)) item.ShippingStreet = _Order._shippingstreet;
+                        if (string.IsNullOrEmpty(item.ShippingHouse) || item.ShippingHouse == "0") item.ShippingHouse = _Order._shippinghouse.ToString();
+                        if (string.IsNullOrEmpty(item.ShippingApartment) || item.ShippingApartment == "0") item.ShippingApartment = _Order._shippingapartment.ToString();
+                        if (string.IsNullOrEmpty(item.ShippingNumber)) item.ShippingNumber = _Order._shippingnumber;
+
                         _ordersBl.SubmitOrderShippingShareholder(item, status);
                     }
                 }
